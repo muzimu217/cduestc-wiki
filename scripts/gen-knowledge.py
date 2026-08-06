@@ -2,7 +2,7 @@
 import json, re, os
 
 docs_dir = 'docs'
-skip_files = {'changelog.md', 'contributing.md', 'project.md', 'test.md', 'index.md'}
+skip_files = {'changelog.md', 'contributing.md'}
 knowledge = []
 
 def clean_md(text):
@@ -87,26 +87,25 @@ def split_by_sections(content, page_title, page_url):
 
         cleaned = clean_md(section_content)
         if len(cleaned) > 30:
-            # 长内容再拆分（每段最多 1200 字）
+            # 长内容再拆分（每块最多约 1200 字，相邻块带 150 字重叠保上下文）
             if len(cleaned) > 1200:
+                overlap = 150
                 paragraphs = [p.strip() for p in cleaned.split('\n\n') if p.strip()]
-                chunk = ''
+                chunks = []
+                cur = ''
                 for p in paragraphs:
-                    if len(chunk) + len(p) > 1200 and chunk:
-                        sections.append({
-                            'title': page_title,
-                            'section': section_path,
-                            'content': chunk.strip(),
-                            'url': f'{page_url}#{anchor}'
-                        })
-                        chunk = p
+                    if len(cur) + len(p) > 1200 and cur:
+                        chunks.append(cur.strip())
+                        cur = (cur[-overlap:] + '\n\n' + p) if len(cur) > overlap else (cur + '\n\n' + p)
                     else:
-                        chunk += '\n\n' + p if chunk else p
-                if chunk.strip():
+                        cur = (cur + '\n\n' + p) if cur else p
+                if cur.strip():
+                    chunks.append(cur.strip())
+                for ch in chunks:
                     sections.append({
                         'title': page_title,
                         'section': section_path,
-                        'content': chunk.strip(),
+                        'content': ch,
                         'url': f'{page_url}#{anchor}'
                     })
             else:
