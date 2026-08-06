@@ -53,7 +53,7 @@ export default defineConfig({
         ['script', {}, 'LA.init({id:"3QJPple08RRBVP8s",ck:"3QJPple08RRBVP8s",autoTrack:true,hashMode:true,screenRecord:true})'],
         // 搜索引擎站点验证（百度 / 搜狗 HTML 标签验证，全局注入即覆盖首页）
         ['meta', { name: 'baidu-site-verification', content: 'codeva-ReHfVWBMzI' }],
-        ['meta', { name: 'sogou_site_verification', content: 'h0J1puJhZO' }],
+        ['meta', { name: 'sogou_site_verification', content: 'QSdl85HQpM' }],
         // 社交分享卡片（微信/QQ 等抓取时显示）
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:site_name', content: '科成星球' }],
