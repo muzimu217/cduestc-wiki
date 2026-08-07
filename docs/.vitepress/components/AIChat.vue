@@ -327,7 +327,8 @@ const getRandomQuestions = (count = 4): string[] => {
   return selected
 }
 
-const quickQuestions = getRandomQuestions()
+// Keep SSR and the first client render identical; randomize after mount.
+const quickQuestions = ref(allQuestions.slice(0, 4))
 
 
 // 切换聊天窗口
@@ -644,6 +645,7 @@ const handleClickOutside = (event: Event) => {
 }
 
 onMounted(() => {
+  quickQuestions.value = getRandomQuestions()
   document.addEventListener('click', handleClickOutside)
 })
 
