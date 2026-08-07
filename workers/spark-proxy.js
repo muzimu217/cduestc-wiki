@@ -117,11 +117,11 @@ function getUpstreams(env) {
             model: env.SPARK_MODEL || 'generalv3.5',
         },
     ]
-    if (env.SPARK_FALLBACK_URL && env.SPARK_FALLBACK_API_PASSWORD) {
+    if (env.SPARK_FALLBACK_URL && (env.SPARK_FALLBACK_API_PASSWORD || env.SPARK_API_PASSWORD)) {
         upstreams.push({
-            name: 'openai-fallback',
+            name: 'spark-x2-fallback',
             url: env.SPARK_FALLBACK_URL,
-            password: env.SPARK_FALLBACK_API_PASSWORD,
+            password: env.SPARK_FALLBACK_API_PASSWORD || env.SPARK_API_PASSWORD,
             model: env.SPARK_FALLBACK_MODEL || 'gpt-4o-mini',
         })
     }
@@ -154,7 +154,7 @@ function writeTelemetry(env, event) {
 
     try {
         env.AI_TELEMETRY.writeDataPoint({
-            blobs: [event.event, event.provider || 'unknown', event.status || 'unknown'],
+            blobs: [event.event, event.provider || 'unknown', event.status || 'unknown', event.queryPreview || ''],
             doubles: [event.sourceCount || 0, event.topScore || 0, event.citedCount || 0, event.latencyMs || 0, event.rating || 0],
             indexes: [event.event],
         })
@@ -170,6 +170,20 @@ function clampNumber(value, min, max) {
         : 0
 }
 
+function redactTelemetryText(value) {
+    const text = [...String(value || '')].filter((character) => {
+        const code = character.codePointAt(0) || 0
+        return !((code <= 31) || code === 127)
+    }).join('')
+    return text
+        .replace(/[\w.+-]+@[\w.-]+\.[a-z]{2,}/giu, '[email]')
+        .replace(/https?:\/\/\S+/giu, '[url]')
+        .replace(/(?<!\d)1[3-9]\d{9}(?!\d)/gu, '[phone]')
+        .replace(/(?<!\d)\d{6,}(?!\d)/gu, '[number]')
+        .trim()
+        .slice(0, 120)
+}
+
 async function handleTelemetry(request, env, origin) {
     if (request.method === 'OPTIONS')
         return json(null, 204, origin)
@@ -181,7 +195,7 @@ async function handleTelemetry(request, env, origin) {
     try {
         const payload = await request.json()
         const event = typeof payload?.event === 'string' ? payload.event : ''
-        if (!['answer', 'fallback', 'search_zero', 'feedback', 'gateway_response'].includes(event))
+        if (!['answer', 'fallback', 'search_zero', 'feedback', 'input_blocked', 'gateway_response'].includes(event))
             throw new TypeError('Invalid telemetry event')
 
         writeTelemetry(env, {
@@ -193,6 +207,7 @@ async function handleTelemetry(request, env, origin) {
             citedCount: clampNumber(payload.citedCount, 0, 8),
             latencyMs: clampNumber(payload.latencyMs, 0, 120_000),
             rating: clampNumber(payload.rating, -1, 1),
+            queryPreview: redactTelemetryText(payload.queryPreview),
         })
         return json({ ok: true }, 202, origin)
     }
@@ -276,7 +291,7 @@ export default {
     async fetch(request, env) {
         const url = new URL(request.url)
         if (url.pathname === '/health' && request.method === 'GET')
-            return json({ status: 'ok' })
+            return json({ status: 'ok', fallbackConfigured: getUpstreams(env).length > 1 })
 
         const origin = getOrigin(request)
         if (!getAllowedOrigins(env).has(origin))

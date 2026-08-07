@@ -4,776 +4,776 @@
     "section": "关于我们 | 关于我们 > 致谢",
     "content": "科成星球 项目组由 浅巷墨黎 牵头成立于 2025-03-10，目前正在撰写内容。\n\n关于我们 > 致谢\n除了项目组成员之外，许多校友也为项目提供了诸多帮助，在此一并致谢。",
     "url": "/about",
-    "embedding": "ABcA/gD4AAAABgYABgAAAAD+APgA+gAACPgAAAAAAAAGAAAACAAAANsABvgAEAAEAAAACAAAAPoGAAAAAA4A+AD6BggAAgAAAAAAAAAAAAAAAPoAAgAbAADqAAD4AAAABgAAAAAAAAD4APr0AgAA+PgI+gAAAAD0AAb6BgAAAAAMBgAABgD6AAYA+PoI+AAAAAAOAAwGBggMAAAECAb6AAAABvr++ggACgAABgAAAAAA+gAADAAAAAgABvj6AAAABgAAAAAAAAAGAAAAAAAABgYACAD6AgAAAAAACAAAAAAACAAGAAAACAAIAAAG2wD4AAAABggGAPoAAPoAAAAAABcACAD+APoIBvoAAAYAAADnDAAIAAYAAAAAAPAMAPAG+gAGAgAABgb4APoABgAACA4GACcAAADyAAAAAAgADPoAAO4A+gYIAAYAAAAAAPIA+PoAAAAAAAYABgD6BgAAAAD0AAAIBgD4AAAACPoAAAD6AAD6AAAAAAAABgAA8vry"
+    "embedding": "5uv5/v8AHf/6F/kF8/j48RL7AgMW/xAPBB4BBAnj/BkLAfYG/f4J+dwiDRLZAwf1Af7q9fkFBwLT9yIAAPn/Aw=="
   },
   {
     "title": "更新日志",
     "section": "更新日志 > 2025",
     "content": "- 9月27日：更新友链，新增实用wiki部分\n\n- 9月17日：新增AI助手，点击即可快速提问\n\n- 9月16日: 更新实验室页面顶部频道卡片信息，新增点击跳转，其他细节优化\n\n- 9月15日-2: 更新APP下载链接，其他细节优化\n\n- 9月15日：完善实验室页面，补充labs.json，优化实验室页面样式，其他细节优化\n\n- 9月8日：修复搜索构建问题，优化字体加载速度\n\n- 9月7日: 修复一些小问题，新增搜索功能\n\n- 7月23日：修改部分纰漏，继续完善信息，并将内容更新至2025年版本\n\n- 6月25日：完成了学习部分的内容，添加了部分图片，并对生活方面的部分内容进行修改\n\n- 6月6日：完成了新生入学准备部分\n\n- 5月12日：完成了部分细节的修改，并编译部署第二版\n\n- 5月12日：完成了生活部分的住宿、快递、外卖部分\n\n- 3月26日：完成校园大部分编写，测试编译文档\n\n- 3月25日：完成logo设计替换\n\n- 3月20日：修改字体文件，使用MapleMono字体，提供更好的观感，并修改了部分文档内容\n\n- 3月19日：完成了地图显示组件的开发，同步更新了西邮手册的部分代码内容（再次感谢）\n\n- 3月18日：完成了部分信息收集，并完成了《开始阅读》、《项目介绍》的内容\n\n- 3月17日：开始陆续收集信息\n\n- 3月15日：与数字校园办公室达成合作，转为官方性质的学生组织带领\n\n- 3月10日：初始化科成星球WIKI",
     "url": "/changelog#_2025",
-    "embedding": "/AINBfwD8QAF8wEG4gv+/P3++wj19/v7AgD//gf+BgYL/AQA6wj/AAEF/Pv/AgEK+vkBAvwCAwH8Af39/gAABQP3AwcA7vwAAvP9/v4DBgIEAgT+4f8GA/wCAgAA/wD7EAH5AgUC6wcCAA3+9vz3EAL++P/yAgcB/wkI/QD9BAAB/QUCAQgDAPoG9f7r9fv7AAX7BQAGBggUAAACA/7++gUGAQgHAwIA+wH9/gD+9foCCAQAAwMD+v4C/f8B/QAA+P0HAPr/BAMA7Pf3DgAQ/g0AAgMDAv8E/QgFB/gEAAYIAf4V/foHBAUC+P77+P/+BwD//gP+/v8DAATyCf0FAwADAP0GAgAIAfoFAwb+/gMQ/PcABP/8BwYC/fcFAgb9/gsAAAD+BQL+A/r/BAH8BfgBAvEABgb6/ADtCf3/Cgr4/QsE/QcI/O/6BAQC+AYBDQMAA/8C+v0FBv7+AP4BBQH+AgMH//wD9/wA/QUEAgT//Pr++QACBAEFBAYD+f8C"
+    "embedding": "7977EPf7/v0BDgAJAAD68BAMAPUKBggH+hr8+xDkAg8XGvUCA/kUA+0mDRTUBAYABQT26f0G/gLICBn/8gAGBQ=="
   },
   {
     "title": "贡献指南",
     "section": "贡献指南 > 贡献方式 | 贡献指南 > 贡献要求",
     "content": "我们欢迎通过任何方式对本 Wiki 进行贡献，包括但不限于：\n\n- 为本 Wiki 提供完善的段落\n- 以文档文件形式为本 Wiki 添加新页面\n- 通过 GitHub 为本 Wiki 提交 Pull Request\n\n贡献指南 > 贡献要求\n- 文字排版符合 中文文案排版指北\n- 文本内容真实、适宜传播\n- 主题围绕电子科技大学成都学院相关内容\n- 协议为 CC BY-NC-SA 4.0",
     "url": "/contributing",
-    "embedding": "BAkAAAQADgAIAPv8AA36AAQIBQD8AADwAAD7/wsAAPwAAAUEBAvz+wAAAAAABAoTDgsABAAF/AAAAAj8CPcABAX89/v77wQAAPv2AAUE5gAA+AkAAAD2AAAL+gQAAPwAAPj7AAAIBQANAPYA8wAF/PsL/PwAAAAAAA0AAAAEAPwAAfoACQDtBAD8AAAA8QAAAPgABAAABA0E/AAEBQAAAAQABAAA+/sEAAD79wT7/PwAAPsACwT8CAD8BAD8AAD1/Pzo+AD8/AAA/wDx/AAAAAAAAAT7AAAAAAAAAAAAAQAFAAT7BPz8CfsEBfv7BPwEAAAI+wQFCPf7BfsAGgAEBfwADQAA+wUABQAEAAn8AAD7++/8AADt4gT7+P8AAPwAABcEAAQEAAT8/AD8/AEAABn/BAAABQQJAPX3Bf8EBfsABQAACPsEAPwRAAQFAAABBAAQBff7+wgACQAA8QD/AQQAAAAEAO4A9wQAAAALCgAABPcTAQAAAAUKAAgE8fwE"
+    "embedding": "9+/tB/YH/AL+DvQL4u7s+AAEAvYHAwEO+gsKFRLo+xQP9/cf/vsGDeA0BxrVAAsFAgP0A/sQ+QPbARUJ/AMEDQ=="
   },
   {
     "title": "友情链接",
     "section": "友情链接 > 校内友链 | 友情链接 > 兄弟 Wiki | 友情链接 > 实用 Wiki",
     "content": "- 科成导航 (电子科技大学成都学院网址导航服务)\n- 科成MC (电子科技大学成都学院 MC 交流群体)\n\n友情链接 > 兄弟 Wiki\n- 西邮 Wiki (西安邮电大学校园指南)\n- FZU Wiki (福州大学校园指南)\n- HDU 计算机科学讲义 (杭州电子科技大学)\n- 重庆大学资源共享计划 (重庆大学资源共享计划)\n\n友情链接 > 实用 Wiki\n- 你缺失的那门计算机课 (电脑小白入门指南)\n- Ac-Wiki (大学生的百科全书)\n- 大学生生活质量指北 (大学生生活质量指北)\n- CS自学指南 (CS自学指南)\n- CTF Wiki (网络安全相关知识)\n- OI Wiki (算法竞赛相关知识)",
     "url": "/links",
-    "embedding": "/wUE//gAAAD5A/wAAAQABgfy+wMA++rzAAAA/AX9BAoAAgD9BAD7/QID/QD3AAAABPz9BQAACv78/gQD+xD8AAAEAQDy+QD7AAD7ABADA/z/+AUD/P0A+gD3CwD7A/78AAMEAPgEAAAA/fsAAOwA/Qb6/QMDAwMAG/0IAAAFA+X7/QD9C/v8BAD+AP0A5P0EAwX9/AL7E/34AP35/fgG/QAABf8A9v0EDQX9//wGAAUABvf9AwD8+/wB7wADAQAFAAABA/0GAAMGAAXrAAP99wAABQAA/AAF+wAA+/wD/QUAAP0DAP0F9/sABfsK/QAA/AAHBgP9A/z2CfoAGv0AAwoEBQMFAAUA/ADzAAj8AAADAOL6BQUDCw0A9AD5A/T/AxgA+wD9/f0A+QUABvYABADzB/sABP0A9OUEBwAAAP0A+wD/BAD8/f39+wf7AAMH/AMAAfwF/fr9/eoA8AD9+wQAAwMDABD7AAMAAAMAAAUF+QAD/vwA/QD9Bf388f0A"
+    "embedding": "8e7oC/8ADwH6Dv8N5ujt+wEH/QIBAvkSAwUKEBbp9hEU+v8k9/MKDd4lBRvQ/QoE/AL1AfgP/f/h9hYQ/QABEA=="
   },
   {
     "title": "写在开头",
     "section": "写在开头 | 写在开头 > 开放包容，亦有态度 | 写在开头 > 解码校园生活的正确姿势 | 写在开头 > 写给年轻的探索者",
     "content": "《科成星球》并非传统意义的百科全典，而是为电子科技大学成都学院学子量身打造的「校园生存图鉴」。在这里，我们以实用为锚点，以成长为导向，为你绘制一份专属的探索地图。\n\n写在开头 > 开放包容，亦有态度\n左侧菜单栏已为你分类知识模块，轻触即可开启认知新维度\n\n我们以开放姿态构建知识体系，但绝不贩卖廉价的答案。在这个信息爆炸的时代，独立思考与数字素养是每位学子应有的铠甲。Wiki提供的不是标准答案，而是启迪思维的引信。\n\n写在开头 > 解码校园生活的正确姿势\n坦诚而言，大学生活不过是人生长卷的序章，《科成星球》也无法穷尽校园万象。我们聚焦于构建底层认知框架——那些教务系统不会教、学长学姐未必说的生存智慧。但更重要的命题是：\n\n何谓真正的校园生存指南？\n\n它不在任何人的服务器里，而在你亲历的晨昏中：第一次组队参赛的忐忑，深夜实验室的灵光乍现，社团面试的进退得失。我们用三年时间打磨出这份「校园认知基建」，而你将以独特的方式将它迭代升级——每一次试错都是系统更新，每个顿悟时刻都在重构知识图谱。\n\n写在开头 > 写给年轻的探索者\n在百叶街道的求学时光里，愿这本持续进化的指南成为你的认知杠杆。它不仅帮助你解锁校园资源，更期待见证你构建自己的「人生操作系统」。记住：最珍贵的生活攻略，永远是你正在书写的成长叙事。",
     "url": "/overview",
-    "embedding": "/gn9/wMC/goCAQX6A//++P/6/PjwAv37AP31/Qj+AQwGAAADAgoCAvf7AAL+Av8B/gAGAfoEAf39APb4AgICAv8A+voE/QQCCv72Awj9A//yAQsa/gYDDP4DBvYJ/fUAAgkE+wP6+AgG/voD+vsBAAD/BgL9+QL6AgIJ+gj8+hIG+vb2Bf4HAgkA+gL+AfoCBQDy/vkABfoN/voI+QMCCf3/Bv4A/AMC/xEAAAn9+Pn7AAD0B/sA/xD7+wP9Av78BvPz//0HAv4A/wwGAfz+/P7zAgH8/vICAgUEF/4A/vr2AAr9EfMEBAMDA/kC/f4D/gj+AAMA/AcC+voC/gn+AwILCQL2AvsDCvkA//0IAwYA+An/Cfr//gAC+/QABvgC//wKBAT4AAACCggG+f4F/gD/+QEACP4FFQT6Bv0AAwUN/QX3/vv6DQUC+/r7+/P1Cf4ADf7+9gL5AgX/+gIGAgL7AgX++CP+/QL+D/sAAgP/AgMA9PoF+AP9Bwb19/r3"
+    "embedding": "5ub1D/8BAQD+E/gH7PL08wcJBPwPAgQH/BQFFQ3j/xcIBvQV+/8L/+AoEB7YAwb/AAHr+vwOAgPX9iUG/v0CBg=="
   },
   {
     "title": "写在开头",
     "section": "写在开头 > 何为星球",
     "content": "为何不用手册或WIKI？我们希望带给学生的不仅仅是一些「便捷」的生活，更是一种「探索」的体验。我们希望科成的学生能够作为探索者，去主动发现校园生活中的美好\n\n接下来请尽情探索科成星球，享受信息带来的便捷！在这背后，将由数字校园办公室以及科成星球开发组为你保驾护航。",
     "url": "/overview#何为星球",
-    "embedding": "8wv6BgYGAAD4Agb4Bgjz+g8AAAAAAAAA+gAGAAYCAAANBgYA+vj6AAAAAAIAAAD+APgAAAAIAPgACPgGAAsABgAABgAA+voAAAACAOsA+g36AAYX+gAA+vr6BgAAAAD1AAACAAYAAAAAAgYAAAAACAAAAAgEAAD1EQL1AAALAAALAAD4AAsA7wAGAPoI+gAAAAD1AAgACAAJ+ggAAPoTCPoGAAL6BgD6CxEACPoLAPP6APUACPEABvgL8wAGAAsA+ggA9QYAAAgAAPoABgAABv4ABgAABvgCAAALDwAIAAD4AAYAAAALAAD6AAD4CAAA+gAG/gAIAgAGBgYACAgGAAj6AAbxAAAGAAD6AAj6AAbxAPMAAP4AAA32DQAIAPoLAA0L+AAABgAA+gAA9QgI9QAG+vwICPP4C/oAAAD4CAAIAAAGDQgLAPUAAPgIAPUA+ggABgAA9QACAAYGAPoA+gAG+vMA+hUAAAgAAAAGBvEAC/j6AAAABAgAAAAI+v4E"
+    "embedding": "6+D3Df3/DwP/EfgD8vf68Q0EBf4RAwsMCh78EAvlABkOCPsTBwMP/d4YERzYAwfwAALr7vsKCwLP/hsEAvz7AA=="
   },
   {
     "title": "科成星球项目",
     "section": "科成星球项目 | 科成星球项目 > 项目架构 > 主网站 | 当前网站 | 科成星球项目 > 项目架构 > 科成导航 | 导航站 | 科成星球项目 > 项目架构 > 镜像站 | 开源镜像下载 | 商讨中",
     "content": "科成星球是一个服务电子科技大学成都学院学生的综合服务网站，由24级浅巷墨黎发起，科成星球开发组负责，数字校园办公室提供信息和服务支持，旨在为校园生活提供全方位的信息和服务支持。\n\n科成星球项目 > 项目架构 > 主网站 | 当前网站\n主网站作为科成星球的核心，采用 VitePress 构建，用作引导页和手册主页，参考西邮手册的设计理念，为学生提供全面的校园生活指南。\n\n- 内容覆盖：校园生活、学习资源、生活服务等全方位信息\n- 特点：简洁易用、信息全面、定期更新\n\n科成星球项目 > 项目架构 > 科成导航 | 导航站\n导航站作为门户导航和第三方推荐网站，参考 cooo.site 的设计，为学生提供各类有用的网站链接和工具推荐。\n\n- 导航分类：\n  - 教育服务（提供常用的教育学习网站）\n  - 科成生活（提供校园官方和第三方的学习生活服务）\n  - 考试学习（提供自学和考试的网站）\n  - 交流社群（提供科成第三方社群）\n  - 第三方导航（提供第三方网站导航，在这里可以发现更多工具）\n  - 在线工具（提供IT、设计、日常等多功能工具）\n  - AI工具（提供各类AI大模型及衍生品的网站）\n  - 软件下载（提供软件推荐及下载的实用网站）\n  - 校友推荐（由校友提交的实用工具站）\n  - 友链（感谢参与科成星球的建设和维护）\n\n科成星球项目 > 项目架构 > 镜像站 | 开源镜像下载 | 商讨中\n电子科技大学成都学院开源软件镜像站，参考华中科技大学（HUST）镜像站的设计，为校内用户提供常用开源软件的下载服务，加速下载体验。",
     "url": "/project",
-    "embedding": "+/zz/wAD/QwR9wICCP4A/v0D/AIC+/37APAC8f0AAwEEBgL+Av4E/P0JAgD+/gMC/f4A+wT8AgP8E/gC/BUA/woFB/38Cfr//AX7AfgG+foGAf74//wZEfcLBwIEAwb5BAMBAgT+CgYDAgr8/AIB//AD+wX6APj5GwEO+AIFAf0QAPT8BwL9/QD9Av4D6/kCBvz9/wQCAQUaAQL7+gH+BPkIAP8F/vwEBBUFAvf2/QP++wIABAD9/vf+/gQAAP8IAgn/+P8CAgIMAvv/AgUC+QIH+f/5Av8AAv7/HAH8AgL//gMABfv/AvsAAv8SAQMA/wUGBxAAAwP4/P78+wL+AAAAAQrxAgQCAAEA+wkDBfT4AgT+AgUAAAMCBfoAAvwHAvcC8AD4AgIB/gENA/gD9wT//vkADwUF9QT7DfsC/v4AAv4FBQAE+wX8BAAIBgH+EAX98wEC/QT9Fv77+AIC/QDt+wD8AgcIAAMABgIEBAL6/f77Bv4CAQL/+f7+/AD4"
+    "embedding": "6+XyDf4BCwX/E/sI6fDy9QgHAf0IAwQLBhIEEBTn+hYRA/waAv0QBd4hDSDUAQr9/wLu+PwQAgPT/RkJ/v8BCA=="
   },
   {
     "title": "科成星球项目",
     "section": "科成星球项目 > 项目架构 > 信息查询服务 | 科成星球项目 > 项目架构 > 科成MC | Minecraft 同好会平台",
     "content": "提供校园相关信息的查询服务，包括：\n\n>分为信息查询站和机器人查询\n\n- 信息查询站\n  -  科成分数：日常成绩查询\n  -  百叶分数：活动积分查询\n  -  百叶活动：查询活动详情、活动报名等\n  -  图书馆查询：馆藏信息、借阅状态等\n  -  课表查询：个人课表、教室课表等\n  -  成绩查询：学期成绩、绩点等\n  -  选修课查询：可选课程、余量等\n  -  公告查询：校园公告、通知等\n（待完善）\n\n- 科成小助手\n  -  科成小助手是科成星球的QQ机器人，主要提供以下功能：\n  -  百叶、科成积分查询\n  -  百叶活动列表\n  -  百叶活动详情（id查询）\n  -  活动记录查询\n  -  个人身份查询\n  -  学号绑定解绑\n  -  图书搜索，状态查询\n  -  单词查询\n  -  活动自动推送（开发中）\n  -  课表查询（开发中）\n  -  成绩查询（开发中）\n\n科成星球项目 > 项目架构 > 科成MC | Minecraft 同好会平台\n电子科技大学成都学院 Minecraft 同好会平台，科成星球参与管理\n\n官网：craft.cduestc.fun\n\nQQ群：957464722\n\n生电服务器（1.21.1）（leaves）：\n- 节点一：server.cduestc.fun\n- 节点二：server2.cduestc.fun\n\nMOD整合包服务器（准备中）",
     "url": "/project",
-    "embedding": "AAEAAvsAAAb1/PMKABD3Bf33Av8A+wP8AAX99gAB/gL8AfwC/AP+9gAD/gX7AwL9Av7+AAUKAgH7AvgAAwn48w0CAP4AAvsCAvv0/QIBAAAC+wH+BgcUBPr/8wYBAfsL+Aj+BAr4Af78APcAAfcIBO0ABgsF+wQCFgT9AAACBQEM9/v9Bwj9A/v+APYB+QoJAvsD/gX//vsH+fcAAwMBCPsEAf4ABgAD/AkIAgEH+wb8+QACAAL5APr3AQf+BwYCBgX/AfwAAAMK/gAABQX9CgEBAAICAAAQBAEAEAgAAAP7+wv5APUABAP7AQQHAgAEBgED/gj7BQP8Avr+Av4A/wMCAA7xBP0L+wH7BgH7AvoG/QALCgIF/gAB+gAMAv7++vz+9fzq/wD8//v5//cC+vsDBvL+DQz/+PwIBf0ABP4E+wIJ/fgAAP0ABQMBANADBvb//vr+/vwDBQQA+wn8BQT1/vr9/fcB8xgAAgb99vsCBAAAAAACAAAB/QcN/wIT"
+    "embedding": "8Of2C/wBBP8CGAAB7Pv27w8FAvsTAwYL+xsGDxDi/BkJB/cQAAAPBN8nDx7WAwf8BAHt+v0PAwTU/R0A/vsLBg=="
   },
   {
     "title": "科成星球项目",
     "section": "科成星球项目 > 项目特色 | 科成星球项目 > 参与贡献 | 科成星球项目 > 未来规划",
     "content": "1. 官方支持：拥有绝对权威和丰富的资源支持\n2. 全面覆盖：从学习到生活，从校内到校外，全方位服务\n3. 开源共建：鼓励学生参与贡献，共同完善\n4. 持续更新：定期更新内容，保持信息时效性\n5. 用户友好：简洁的界面设计，便捷的信息获取方式\n\n科成星球项目 > 参与贡献\n我们欢迎所有电子科技大学成都学院的学生参与到科成星球项目的建设中来。无论是内容贡献、功能开发还是问题反馈，都可以通过以下方式参与：\n\n- 加入科成星球对外交流群：1028963516\n- 提交GitHub Pull Request：点击PR\n- 联系项目负责人：浅巷墨黎\n- 发送邮件：reply@cduestc.fun\n\n科成星球项目 > 未来规划\n1. 飞跃计划：帮助学生规划未来发展的资源平台（暂定）\n2. 更多服务接入：不断扩展服务范围，提供更多便利\n3. 社区互动增强：开发小程序或APP，方便用户访问\n4. 开发计划：待定开发镜像站、信息查询站、校园地图等\n\n---\n\n> 科成星球项目致力于称为科成学生的得力助手，通过技术手段解决校园生活中的各类问题，提升学生的校园体验。我们期待与你一起，共同建设更好的科成星球！>",
     "url": "/project",
-    "embedding": "7A/6/wMA+wMCAAIE/gX2BQYBA/4CAvv+Avb/AAn5AwL7AP8FAQj++/4K+wIBBggJAQD+/gMGAP0BAPv4CAkAAQUFAvX9+/gD/ALx/QADAAIC/v/9BQAU/v79AP4B/vT7/wMCCAP7AQMAAgD7+vsF/uUF+wUF/fv1FwUB/gcE9vsT/gH6Av309v75AP4F7fYDA/gA/AUD/QIc/fgECv8C/QgGAgUC/f7//gcFBP0DBwEB//b+AP4A+f4CBf74BQD3CPb7Af8CAAYHBfv4BQMCAAIFAgL8+//8BQADHAcAAAIDCwT2AvUDBv4FBvsP/QUD+wX6BAUJAfgC+wX7/fsE/f4CBQnlBPgAAgAD/gUF/vgCAv0FAhD79AkA/vrzBf4AAO777QAPCPkCAAD+A/4B+QT0BfcFBQUD8wL/BfgA/QD+AAEFAQUC/Qn++gD+Av0BDf77BQAGAAIFBQQA+P778QjtAwX+AgT7//f7AQL7/gAG//sI+wIA/v8ACAkAAf79"
+    "embedding": "7ObxCgADCAQAF/kJ8ff38gwHAvoSBQgJBBn/DRLj/BYRDPsS/fkNAt8iEB/QAAn+/wPv9PoLAwLU/hoD+//8BA=="
   },
   {
     "title": "转专业",
     "section": "转专业",
     "content": "转专业分别在第一学期期末和第二学期期末进行，学生转专业原则上应符合高考招生录取原则。\n\n原则上专业跨度较大、课程学习有困难的，转专业后应根据情况降级入下一年级学习。\n\n符合下列情况之一者，可以申请转专业\n\n(一)学生在学习期间对其他专业有较强兴趣和特长， 并在相关学科专业方面已具有良好的学习基础和能力；\n\n(二)学生入学后发现某种疾病或生理缺陷(不含隐瞒病史入学者)，经三甲医院检查并开具证明，不能在原专业学习，但尚能在其他专业学习；\n\n(三)参军入伍的学生正常退役并复学后，因自身情况需要，可申请转专业， 优先考虑；\n\n(四)休学创业的学生复学后，因自身情况需要，可申请转入创业领域相关专业， 优先考虑；\n\n(五)学生休学、保留学籍后复学， 因特殊原因原所学专业不再招生，学生可转到其他相近专业。\n\n有下列情形之一的，不得转专业\n\n(一)正在休学或保留学籍的学生;\n\n(二)艺术类专业、体育类专业不能转到其他类专业，也不接收其他类专业学生转入;\n\n(三)通过“专升本”考试升入本科学习的学生;\n\n(四)跨录取批次的;\n\n(五)属招生计划录取时限制转专业的;\n\n(六)其他无正当理由的;\n\n(七)国家规定禁止转专业的。\n\n转专业的办理程序\n\n(一)办理时间。\n\n学生转专业申请时间为第一学期期末和第二学期期末，具体时间要求以教务处通知为准;退伍复学转专业的学生，以复学时间为准。\n\n(二)申请提交。",
     "url": "/study/change#转专业",
-    "embedding": "/QoAAwL/BgX8/ggLAQAD/vkDA/j9AgoGA/X5AfwD/gUQAvsIBgD/AvwA/QL+APr6C/78DfYG+/z9AgMWAQIAAvr0/gD7//v7A/39+fr8Agr9/PsF+v4AAAED/P8ABPgFBAP9+v0BBv4AAv8EAP7yAwIFAQL2AwT6/PsD+wQH/QMIAwH8BQkDAAT6A/4K+QECAwT9ABD+/gcA/fsJ+wD+B/0DAwgF+wYE+Ar67QL/APL9AwADAgD89AAC/v0E9/wK+/j4/fv/Av8EAAkHCv4BAgMA+APxAwP8AgH7/vz9APz+BQL+/v0A/wMB/wP6/fzz/AH9AwIDAgT//gIA//0G/vsM+gYC/QEFAvj8Cg75/gEFCQABAx3+AgUCAAoABP76MwUGAvoCAP4CBPkDAAz+1/39Bfr+BgD+A/8L+AL9Awb/BAEABv8VAAEA/v8AAQQABAj4/wf5/v77BQAF9/r//QD+/QT8AwEGAAUK/QQHAPoF+AADA/7/+wULCAAMAQv8"
+    "embedding": "7/LxC/wFDP39CgwX9Pf3+RTw9/oIEf0LABf73wzpAwoMB/X+6BIHB/gzAPzT/P0FBg4R++759frc+iD7/P8MGA=="
   },
   {
     "title": "转专业",
     "section": "转专业",
     "content": "根据学校通知,符合转专业条件的学生向所在学院提出转专业申请，填写《电子科技大学成都学院转专业申请表》，并提供相关证明材料。\n\n为保证后续工作顺利进行，申请递交时间应严格按照学校通知时间进行;一旦截止，各学院不得再接收转出申请。\n\n(三)转出审批。\n\n各学院要按照本学院学生转专业工作方案，严格审查转出学生条件符合情况，组织遗选，若有必要可进行公示。\n\n转出审批要集中办理，需在规定时间段内结束。\n\n经院长审批签字后的审批表与相关证明材料，需按时送交相应转入学院。\n\n(四)转入审批。\n\n各学院根据转入申请情况,按照本学院学生转专业工作方案，严格进行转入审批，组织考核和遴选，若有必要可进行公示。\n\n转入审批要集中办理，需在规定时间段内完成。\n\n转入审批通过后，各学 院对本年度转专业工作进行及时总结，将工作总结与学生转专业工作方案、学生转专业申请表、相关证明材料、学生转专业信息汇总表一并交教务处。\n\n(五)审核及公布。\n\n教务处对各学院转专业工作实施情况、转入转出学生人数及资格等进行审核，通过后的转专业详细名单，经主管教学校领导审批后，由教务处公布。\n\n注意事项\n\n(一)在学校批准转入新专业前，申请转专业的学生应参加原专业的学习及其它一切活动。\n\n(二)经批准进入新专业学习的学生，于批准公布后即可进入新专业就读;原先取得的学分，按学校相关规定进行学分置换;未经批准而私自进入新专业学习的，不能注册和选课，所取得的课程成绩不予认定。\n\n(三)学生转专业后，原编定的学号不变。",
     "url": "/study/change#转专业",
-    "embedding": "BPwDBPn+C/wACgD+/P36/vcAAAIEAgQJA/UCCQcCBgQM//sA+wAK+AAJAAb9AvkE+//8/gMPAvn9/P0l/AT8AgEDDQL9BAQBBP8F/wMAA/0L/v76/v39+gUAAv78Av79AAoD8gMB/QIH/fn8AAH5/e/9Bv0BAQb8AwH5AgLyBvz6/gUBE/wAAQT6APsBAf79CAYDDwb+AQT+AAkB/gb+CQAA/wcG9QIAAAT/BAT8BPn8/f38/AYA7wAAAP/8AwQMBvkEAfr5A/oG/gf/AwT+AgYB/QcFAQAA/vkLAwAREf8E/wD7//EH/gMBDQD9/gD9Ef39CwX+BPwBA/kG/P8CCAD+BAD+B/wAAQf8AgT5+gQE/P3+/xQF/gcDAAUEA/YHIAj//gL8+wEECAcAA/8A1f36+PwB/gD8BfoAAQEG/fr/AgEC/gT6+/z9Avv+/QMAAP71BP38/fUACfQA/Q0A/vwCBAUCAgLz/An7AAADAgAQAfkAAwYF9AUJCPwL+/T+"
+    "embedding": "9fDxBv8GD/v/CgkT5/rx+A3w+vkGDfkLBhoA8Qnr/Q8IAfcE6xAGCPA6/wXN+wQCBw0MAvIG7f7d+iD+/AAKFw=="
   },
   {
     "title": "转专业",
     "section": "转专业",
     "content": "(四)学生转专业后，应按转入专业人才培养方案补修欠缺的课程和学分，并缴纳补修课程费。\n\n转专业的学生按转入专业的人才培养方案审核其毕业资格。\n\n(五)学生在校期间有二次申请转专业机会，既可以在第一学期期末申请，也可以在第二学期期末申请，但申请转专业一旦成功，不得再次申请转专业。\n\n- 电子科技大学成都学院本科生转专业实施细则(试行)\n- 转专业申请表",
     "url": "/study/change#转专业",
-    "embedding": "/AQABAD/BQkN/PwAAAAAAPsACAQEAPj8APMABf8ABQD8APwA/QQLBAT4BQAABQQOAAAE+Pv8+wEEAAQj/PcA/PUFCwTwAAAE/AAABAAA9wD06wD7/AAAAAQAAAAL/fz6/Aj78AH1/AEAAPwABfv8/PsA/wAA9wQECPz/+wAA+PgEAAX8BQD5APj8+wD8APj8AAn8+wX8/AAADQD7AAAAAPj8AAQA+wUQ+wn4/wAAAPj7AAQAAAQAAAX4AAAEC/MAAAD7/AEAAPwIBAD8/AAAAAQE+wTvBf/8CAD7AAUH/wD89wAAAAAA9fz4BQD39AD7+QT4CAAAAAAAAAgAAAAA/PwABAUAAPgAAAD89wT8/AUACPz8CQz89QQAABcA/OYAIwD4+wQEBPwJAAAAAA780QD8A/gAAAD8BQAHAAAABAT8BAAF/wAEAAAI9/wFBAgFAAAA/AD8AAAAAAAA+/wA9AD8BQAAAPwA/AAFAQcEAPsFAPv4APsE+wUA+BEAAAwF"
+    "embedding": "6/PsBAL4HgH8CP8T7O/1+Arq+/8PCwAE/Q4D6QTq+AoW/foE7wYAG+4wAwbO//8E7woBAu/99frq5yHz/gMEEg=="
   },
   {
     "title": "竞赛、证书与奖项",
     "section": "竞赛、证书与奖项 > 竞赛 | 竞赛、证书与奖项 > 证书 > 普通话考试 | 竞赛、证书与奖项 > 证书 > 驾照 | 竞赛、证书与奖项 > 奖项设置",
     "content": "- “互联网”+大学生创新创业大赛\n\n- 全国大学生英语竞赛\n\n- 全国大学生数学建模竞赛\n\n- 等等，更多请看——竞赛文档：《电子科技大学成都学院学生竞赛项目分类目录》\n\n  我们学院将竞赛分为四类，不同等级所可以获得的学分和其奖学金不一样，详情请见——竞赛文档：《电子科技大学成都学院学生竞赛积分标准》\n\n竞赛、证书与奖项 > 证书 > 普通话考试\n简单，最好抽空考一手，最低考个二乙就有考取教师资格证的资格了。\n\n竞赛、证书与奖项 > 证书 > 驾照\n学校有合作的驾校，可以报学校合作的驾校也可以自行选择报名，驾照的用处还是挺大的。\n\n竞赛、证书与奖项 > 奖项设置\n| 国家奖项                     | 校内奖项               |\n|-----------------------------|------------------------|\n| 国家奖学金                   | 学业奖学金             |\n| 国家励志奖学金               | 单项奖学金             |\n| 国家助学金                   | 学校杰出学生奖学金     |\n| 国家助学贷款                 | 校长奖学金             |\n| 服兵役高等学校学生国家教育资助 | 毕业生奖学金           |",
     "url": "/study/contest",
-    "embedding": "AAQECPgA8P0DCAD8+PL+AP30/PL/APr29v4C/BP6EfwBAwAG/vz6BAQCAP4EAAgADgQCAhkABQEDBgAEAAPqCv4ABAH2AAIEBPoA+wMBAAAA/P7//QUGAAD/Af4KAPH+B//0/Qr69PwFA/3+/iT9AgYE/QX+AP38AgQBBPn++fUA//wEAQEDAP78//4CAPQAAP7+AAwCA/7+AP3/BP0VAPoA/vz//foAAgQA/gj+/gMABgAC/AT8/v3qAAD6AwMIAv4EAwEA/v/9/AYCAwD+BPsAAAr1AwIE/AD/+v7/BAADBAPsBP/9BgD+CP4EAPb8/v8LAP73A/79Af4AAvgA/gL6BhUAAgP7+/zz/AAA+fwFAgDzCB0E/BgDCAIIAf0A/QEDAQIA7f4E/fz+Avr+BPwABPwA/fH7/QAE//4DAgEE/QAAAxX+BfgGA/gAAP0D8/wE/gIDBAIFAP8AAgAA+AT//vwXBAQAAAAD//wGAAUA/gAE/gD/9f4DA/8YAA8A"
+    "embedding": "7u7pCfsGGv77CfoU5ezuAQb+/P/+CfoOAAcE/xHs9REe+/4Z9v8ID+cq/hPW+wID/gb7/fEI9AHd8ygM/gICFQ=="
   },
   {
     "title": "关于考试",
     "section": "关于考试 > 要求 | 关于考试 > 注意",
     "content": "考试及格大都是期末总分60分，部分课程的及格分数得按任课老师的要求，如专业课要求70分及格，考试方式是由开课教师选择考试方式，学校所在学院审核，并报教务处批准。既可笔试也可口答。考试时长一般为100分钟，特殊情况才可变更。\n\n线上学习计划，如学习通的线上学习成绩构成为：视频观看60%，测验10%，考试30%，以最终得分计入线上学习板块成绩。\n\n关于考试 > 注意\n- 上课迟到或早退累计两次按一次旷课记；一门课程旷课累计三次及以上，取消该课程本学期考核资格。\n\n- 部分课程，如没达到老师的课程要求，是无法参与期末考试。\n\n- 如果不能即时参加考试，可以申请缓考。\n\n- 一定要看准考试时间，不要迟到，超时成绩无效。\n\n- 遵守考场纪律，穿着整洁，不可邋遢随意。\n\n- 开卷考试只能带任课老师规定的资料，除开卷考试及教务处的特殊批准外，只能带必要的考试文具，电子设备，纸质资料等物品禁止入内。\n\n- 应在开考前10分钟进入考场，按指定位置就坐；迟到30分钟及以上者不准参与考试；考试必须进行30分钟后，才允许交卷出场；考试临近结束的前10分钟，不允许交卷。\n\n- 离开考场需得到监考人员批准，交卷后得立即离开考场。\n\n- 在拿到试卷后请仔细检查。发现缺页或字迹不清时，应立刻举手询问。；\n\n- 填写本人的班次及姓名，不得涂改。\n\n- 考试发放的一切资料不得离开考场，考试结束后会收回。",
     "url": "/study/exam",
-    "embedding": "BQMF+AEC///++/gCBQD7+Pb7///9Af4C8gj7/wX7Ef0D+f77+wL7AgH/BQQD+PkB+wPqAPv7/QYF/wD++wIA/wL/+/z//gL+AQH7AgsGAfsKAQH6+/QC8Qj+/fj5Avv/BAsDAP74BQX4/wcK+gH5+PsB/f4G/gH+9vkD/fj/Bf0H/Db4/QAC/gwD+P0AAv/+9wb3BgYMBf8A/v7+8QUBAgUFBfz//v79Bf35+/EF+wUC+/34Av4DBAoIAv4CC/78AgL8BQT+BAUA+wICAP3//gf+AO//AAD8Av/8/QsFA/4FAP3vAPkDAf7/Af32AQj7CAL3AgQM+v79//n2+gAA+xP9+Af5/gUD/wAA+BT/+AH5BQH+/vz//gAL9wTz+wUF/gb//Qf9A/j69wD7+wYCB/7x/v78AwMI/AjvBAT+AAP///4I9wH7+QH5CAT8/gX9AvQF+Aj+CAICAQEABwsI/fIRCAX99AACBQP/AQb/AgL9CAH9BfsM9/sC9wQB///7"
+    "embedding": "9PT5BAMR/fsCBwEO9f3y8Rf1+/UPDwQH8x788QToAw8PDe/15hQH+fw2BQPQ/PoKBwkL+u4A6wPi+yT79wQGFg=="
   },
   {
     "title": "关于考试",
     "section": "关于考试 > 考试违规 | 关于考试 > 缓考",
     "content": "> [!NOTE]\n>\n> 详情请见《电子科技大学成都学院学生手册》——考试违规处理办法\n\n1. 学生在被认定考试违规后会立即取消考试资格，被逐出考场，并且姓名会被监考人员记录在考场记录表中，并上传教务处。\n2. 考试的违规资料将会被收集。\n3. 相关学院将听取学生或其代理人的陈述和申辩。\n4. 按走规定流程，按严重程度进行处理。\n5. 处理完成后，学生将收到学院的处分文件和处分决定书。\n6. 如果有异议可以在拿到处分书或公告期满的10日内向学生申诉处理委员会提出书面申诉。\n7. 教务处会办理考试违纪登记表并归档。\n8. 除开除学籍外，给予学生的处分一般设置6~12个月期限。到期按学校规定程序予以解除。解除处分后学生获得表彰奖励及其他权利不再受原处分的影响。\n\n关于考试 > 缓考\n1. 受理时间在每学期期末之前一周左右。（期中考试只有一套试卷及只有一次考试机会，原则上不缓考；重新学习或公选课不缓考）\n2. 受理条件有因病缓考，竞赛缓考，家人原因，考研缓考，语言类考试缓考，等其他因素缓考，还有与校内其他考试发生冲突可缓考。\n3. 申请缓考应提交书面申请，等学院核实后报教务处批准。经批准缓考者参加补考或下年级相应课程考试。未提出书面申请或审批未通过者而不参加考试，以旷考论处。",
     "url": "/study/exam",
-    "embedding": "9vkG/ff/A/v6AAP5AgUGAwD9/f0J+/3+AwAHCgAI/QUG9f3+AwABEgP//QMABQL1AQsDBv8F/wP/BgoGA/39AQAQBAP6AwEE8QMDA/b4BP0KAf4ABgP6Bv0GBvUC/gYDDQL6Awn8/wMA/fwO+gr8+wEK+AAPAwP5A/39CQj3AwMAAicCBfoAAP/6/fkDAPkKAgMAA/4A/foICgMA7wMABAoG/f0D9v0C/QUGA94GAfcADPgBBQH7AfT7/QAKBPsDAQMDA/37/P0A+/0ACf/9AAgA9vkGAv0ADPoJ9/39AwT7/PUC//j9A/8OAfoD/QEJ+f30+/8GAvsDAf/7AP4D/QkJAPj1AwAKAwP9ARAC/v0D9xL+/g/+/Qj//wYDA/8KA/32AfsJBf/4/ff6AAgJ/gD0APoDA/f/AwMGCQb8Awn2AAMD+Qv+AAAAAwX9BQMDEQL9APj2C/jzAwoIAP39+/0A/QX6AgX4AwDv/Qb9AQTz/QP9A/wA/QD8BgH3BP0A"
+    "embedding": "7+7wAv4MCf0ACwIT8fXs9w74/fkCDP0JAxQDABXo+hQVBPkL8AwMBO41AwzT+wMCBwwK/vID8ALU/CQG9P8HFg=="
   },
   {
     "title": "关于考试",
     "section": "关于考试 > 挂科 | 关于考试 > 挂科 > 补考 | 关于考试 > 挂科 > 重修",
     "content": "> [!DANGER]警告\n>\n> 如果不是迫不得已，请勿观看此篇章！\n>\n> 规则可能随时更新，请以《电子科技大学成都学院学生手册》和官方通知为基准。\n\n如果最终考试成绩不及格低于课程所要求的分数，即为挂科。\n\n挂科会失去本学年大多数评奖评优的资格，基本上是没戏了。\n\n关于考试 > 挂科 > 补考\n1. 期中考试和选修课没有补考。\n2. 必修课（包括线上可以）补考一般在次学期开学的1~2周补考，如有特殊情况，请看官方通知。\n3. 补考的分数是卷面成绩不含平时分，要求补考的成绩通过要求才能不算挂科，补考只有一次机会。\n4. 开学补考没有查分这个流程，如果有同学对自己补考成绩有疑问请自行联系对应的任课老师。即说明了补考成绩不会记录到教务系统中的个人考试成绩，还是按先前考试的成绩记录在案。\n\n关于考试 > 挂科 > 重修\n1. 如果补考未通过则需要重修，补考不用交钱，重修要交钱（一学分180）。\n2. 一般来说第一学年上学期挂科需要重修，一般都在下一个学年同个学期开始执行重修课程。如大一上挂科需要重修，在大二上才会开展重修课程。\n3. 如果重修开课后学生课表中找不到此项课程，需要向教务处反馈。\n4. 重修虽然不止一次机会，但尽量一次过。",
     "url": "/study/exam",
-    "embedding": "APYAAwP3/gAC+/7/CAX++/kACAIH+wMB+P8AAAIMAwH9+wD5BQL+CPr9BRHx9/gIA/v+APL+Af7/+QL8//QAAgAC8QDv+/77A/4FAvoAAQX+AQ/8Bfn4+wICBAj7BgL6Av8JAvv7+wYDAvMJBQcC/gz7A/sAAAUCBQIC9//9+/T7BRYIA/7+AAAB+vf+BQUA/wUIDPsFCvf7BQD7Af4AAwX5A/0A+wMNAQn98+YH/v0K/P4CBQUAAf3x+wn4/wkK/vsACf4E/Af+/w0D+wAE/gkJAwb7+/sFEQIF+v8G/f7/BgP/AgkAAAMACPf7AQP+/v3vBf/7+wH7AfnuAvcABRYGAPv48wD7AgUBA/8J/QD4/Qn7BgAGAwIAAP7/Af4I/v7f/wP9/fv7Af0DAP0IAgPtAgIDBAAF/QIG/v4N/gMBFQX+//j7Avfy/v/4A/n9/QMLAvcJBP0PBf4BBP7/APsC/f4FA/gCEAICAQL+AAMABwH/+wMA/f8KB//+BPAC"
+    "embedding": "7er4DAEM+P4BC/gK9Pbv7Az7//YGCQgI9BAFAg/nBBcOBfAD7RMD+/I+BhHYBAEIBwUFAvYJ+AfY/iX++P8HGA=="
   },
   {
     "title": "特色班",
     "section": "特色班 | 特色班 > 计算机学院 | 特色班 > 工学院 | 特色班 > 高端升学项目",
     "content": "特色班上大一升大二的时候竞选进入的，特色班的资源更加优秀，学习氛围更好，不过进入特色班之后你的学位证书会根据所选的特色班进行变更。\n\n特色班 > 计算机学院\n- 创智班（主要招收软件工程和数据科学与大数据技术，主要为软件工程的课程）\n\n- 互联网+班（主要招收计算机科学与技术，主要为计科的课程）\n\n- 人工智能实验班（创研班）（主要招收人工智能，主要为人工智能的课程）\n\n- 网络安全先锋班（主要招收信息安全，主要为信息安全的课程）\n\n- 智能金融联合学位创新班（\"计算机科学与技术+金融学\"联合学士学位，这个是志愿报考的时候选择）\n\n特色班 > 工学院\n- 思跃班（主要为智能科学与技术的课程）\n\n- 创智先锋班（主要为机器人工程的课程）\n\n- 灵犀班（主要为通信工程的课程）\n\n特色班 > 高端升学项目\n- 国际精英班（本硕连读，涵盖专业有计算机科学与技术、软件工程、人工智能、机械设计制造及自动化、通信工程、财务管理、网络与新媒体）",
     "url": "/study/featured",
-    "embedding": "/AkAAAT5AAYD/AT0B/0A/vz+AvoCCQD/BQAB+gD7/gAA/AIADf4HAv/8+/4F+/4CAPQBBPsAAgcE9gAEAAf/9v7+APzw9wACAAf++wMEBAT9/QMA+QAKAAAA+fz3AP4dBAQJ+gD+Dv7zCf0B/gANBwP5AAL+Agj7/v78/f4A/gkCAQQAAAgABwT++/kKAPUA+wEAA/kB/eP3//kC8+7//vsAAP0A+AL9+wAHBv0HBfwEHQACAAD+APn/B/79AAcAAAD5BP///gMIBAPz+wD/DQUG+/4G/gQA+wz+FPz+BALbAvf3Avz77/0GAA4CCAP+BgL5AgAABQQFB//5APz/AAcA/AAD/gcAAP8CBfn4BP4AA/4ADP0A6hn8DwQDAgIAAv4EAwAUAAIAAAECCQAC+QT2AQAAAf8PBPsA/QAAAQP/BPsHBgMD/AP+AAP8BvkHBvwCAAD//QYB/AQCBAcJ9hYAAQEI/wIBAAX9A/v2/Pn3Av4DAPn+/gT/BwADAgL/"
+    "embedding": "7Pj1DgD3GPLxExoSA+39BREN9AwFCwQWBwr64Rfh+QcHCv8A5ewF+OcY/wvM+wQB9wAC8/H/CPPe7AMK/P7xFA=="
   },
   {
     "title": "学习",
     "section": "学习 | 学习 > 培养方案是忠实的讲述人 | 学习 > 勿囿于课本 > 计算机科学 | 学习 > 飞跃计划（暂未开放）",
     "content": "欢迎来到\"学习\"板块。\n\n大学课程固然重要，但「自学」也是不可或缺的一环。\n\n学习 > 培养方案是忠实的讲述人\n请阅读本年度培养方案，里面介绍有专业课程、学分要求、培养路线。\n\n学习 > 勿囿于课本 > 计算机科学\n- CS 自学指南\n- Linux101\n- Missing Semester 中文版\n- HDU 计算机科学讲义\n\n学习 > 飞跃计划（暂未开放）\n科成星球飞跃计划（暂定）将是一个帮助电子科技大学成都学院学生规划未来发展的资源平台，收集整理考研、就业或出国申请中的经验与建议。\n\n我们计划邀请各个院系和专业的毕业生们，分享他们在大学路上的经验与心得，帮助在校学生少走弯路。\n\n敬请期待！",
     "url": "/study/",
-    "embedding": "AAP9A/oGGQT8AwMHBAcGAAoDCQAAAAD9AwD3BgkA/QP3BP8B/u0N/AAA/gAAAwACAAD99wj9+wcABPn8AAz9C/oE+gP//AEA/Pr6BP0A+QQA/QMD9wD/Bvn9CAYGAwD/BgUG+gD8/QAH7u38/Qb9/fwE/fYB/AcEBwAHAAT9/gEA9fX8AQD4AP33AwbsA/wAAP38BgkGBgH+9QoD3ADdAAT9/f4G/AP5+QoA/PoDAAMD+vwD/PoA+gb9/QkEBBAH+f/5Df/xAv3+AwL9/PwDCAAA/AcFBAADA/34/QUDBAP9AAD/AAH99AAID/cD/f8IBP7+CAAA/AEIBwAH/PwS/QD9+wD1+PoEBAAABPYAAQf//Qf3+gIABAsD/QP2/f0ABgjsBAADAAD/9f0ACf4EAAMDCAQDC/36/QYEFQD8AAMAAP0LAAQA/AH3/QAA/An8AwD7//78AwkDAAMA/P0C/gAAB/f9/QUAAAMAAAD9AAP2/PkPAQADA/0AAAMKA/UG"
+    "embedding": "5/HtC/z8G/r0EggS8ev3/g32/AkKBQMOAgr+5w7h+hIO//wK6vcDB+UlAw/M/QP+9AX7/+/8//fl5yAD/v78FA=="
   },
   {
     "title": "实验室/兴趣小组/工作室",
     "section": "实验室/兴趣小组/工作室",
     "content": "此处内容仅供参考，若有出入请以官方通知为准。\n\n学校有多个实验中心和示范点，涉及电子、人工智能、制造、商科等专业，资源丰富，部分为省级示范。还有各类实验室和活动室，以下是实验室收集以及其对应的部门所属。\n\n- 科成实验室、兴趣社群、学习交流",
     "url": "/study/labs#实验室-兴趣小组-工作室",
-    "embedding": "AAD5APsA+QX75vv5AAUM6wD7BwAOBwD5AAAACwAL9BUA+fQHBRAAAAUAAwAVAPkABQAHAAsFBQAAAPsAAAAA4wALAAAABQD7AAAQDADuAAAF+wAA+wAA+wAQAAUAAAUA+fsFBfsF+QAABQACAAUFAAcAAAXwDBIA/v4ABQsA+wAABwAAAPsFBQAAAAAAAPsVAAsAAAD7AAAABQAA+wAA+wUABwAA+wD5AAcM/gUAAAf+8vsA+/sAAPsA9wAAAPkM+/sAAgAA/gAHAPL7APsZAAD+AAwAB/UABQXy+wX0+fkA+/IA+wcAAAAHAAAAABD1BQX7BQAAAAAAAAAHB/sAFQAA/AX7+/sABQUAAAAAAAAF/gAHAAD5+/sABQAFAAcAAAX7BwAABwAAAAD5BQAF9QAA9QAADPn79/kABwAAB/sA+wAAAAULBQUAAAACBwD7Cwz7+w4A+QUAAAAFAAsAAAX7BwAHAAAA9AP7/gIAAPv7AAD7C/v7AAcABQD7+wAA"
+    "embedding": "5OsAFw/7FPn+CwsLBfD/9BIO+wIJDwcLDyD+8Bfg9gYaF/sA9PgS/uoaBxLRA/8C+gH55vkEEfva8g0C+wP3Dg=="
   },
   {
     "title": "课程安排与培养计划",
     "section": "课程安排与培养计划 | 课程安排与培养计划 > 时间安排",
     "content": "> [!TIP] 提醒\n>个人专业课表可以登录学院教务系统进行查看(最好用谷歌浏览器登录)在我的→课表中查看，而培养计划在我的→培养计划→培养方案，个人建议大家最好用一些课表APP导出课表在手机上，以来方便查看。\n\n课程安排与培养计划 > 时间安排\n学期的安排见校历板块。\n\n个人总结：每年9月1日、3月1日所在的周分别为秋季、春季学期的第一周。每学期大都会安排16周进行教学，剩下2周用了考试，考试结束之后直接放假，考试成绩会在假期2周左右出。关于假期暑假可以待着校园居住，寒假校园封闭，都回家过年。",
     "url": "/study/lessonplan",
-    "embedding": "AO8GAwQB/QAD/AbpAAAABPAA+gABBPf6AAAFAP0D4gD8+gP1AgMEAP0EAP76APwDBAT5A/UAAP39DwT8AAAACPgA/QADAPoD9QD7+QAE/AgDDPgAAP0IEAAAAPwGAAD5AwkD/Af9AwQDBAAT+Qn6BAMh//34AAD//PoA/f0DBgMD+Qn/Av3vAP8A/f0H/AT9+wD4+v8DAAAE/f0A/fz/9fz8CwD9AP0D/AIAAwAAAAP6/QP4/QMABvn9/Af9/QEE/gn9AfwN/f0HBAD8AwP+7wMGAAP9APkABAP6+fz5AQADAAsFAAED9Qf4AOcAAAQA/ATzAOAG/QcA/AD+/Qb6Af0EAwP9/AAIAAAA/AD6AwQA9/3oAAACAwAA/QQJAAALBAT4/QD9AAMABAP8B/AECQD9AwDy/AAAAP0AAAMCAf8H//39BuoA/P3/+gkAAP8CAQwA/QP0AQYFAwD7AAEDCvr6BAIEAfQDAAAD+vn18vTzBAME/P0ABP0A+AQEA/0Q"
+    "embedding": "6en2CgIG/fcACwEL/QL55Q/4/PUQCAf+8hn/7gLoAxQREPD26woEAPk4BwjUAv0EAAkJ/PP+9AHd8yX0+P8PFA=="
   },
   {
     "title": "课程安排与培养计划",
     "section": "课程安排与培养计划 > 作息时间 | 课程安排与培养计划 > 本科",
     "content": "| 起床，吃早饭       | 06:30---7:20  |\n| ------------------ | ------------- |\n| 早自习(大一)       | 07:30---8:00  |\n| 第一、二节课       | 08:15---9:50  |\n| 第三、四节课       | 10:05---11:40 |\n| 午饭&午休          | 11:40---14:00 |\n| 第五、六节课       | 14:00---15:35 |\n| 第七、八节课       | 15:50---17:25 |\n| 晚饭               | 17:25---18:30 |\n| 第九、十、十一节课 | 18:30---21:00 |\n| 熄灯睡觉           | 23:30         |\n\n就大一早上有早自习，（周五，周六以及节假日晚上不断电）公寓大门早上6:30开门，晚上23:30关门，无申请通过，不得早出晚归。\n\n课程安排与培养计划 > 本科\n学生在本科学习期间，除达到本专业最低毕业要求外，培养方案中3门学位课程成绩均需达到70分及以上，才能获得本专业学士学位授位资格。",
     "url": "/study/lessonplan",
-    "embedding": "/fIEAAMAAP0A/fvz/P8F/fX9DAEGB/0A/QH6AwQA7gAD+gD9/AUKA/MHAAYI+/39BP397gUD7vb8FAD8BQAJAAX9Bfz/+wUDAAX8/wnsAx8D/wsABvsHDA8ABPYA+vr//QP9/QT9AAMAAgn+BQD9/QYH7QD6AxH7AAD8/QAFAPwAAAQD/AP6AwD9/AHv+f79/AAJAAsA/f0GAP8F+QD+9/v7BgUA+wQGB+sE/AMAAAD9AAj6/QD8Afz7C/QDAPb9/AD8/gAD/f8BAwP9AAAE+AoFAwEH+gUFBAMDBQAA/ADyAAgFBAD9AP4EA+cA/AD6AAD7AOsG+wAA+v0A+wAA/QMAAP34AP0B+AEECAsA/PwD/P32/PsFAwD8/wULAAP+A/0DBwD8AAP8+fwAA/D6BA0ABQDu/wEA/f4D8wD8CP0DAPsD+x4D+/f7AA4ACv/9AP38AAAD/QP++fwFAP8A//UAAP8QAP0G/wb9APwGBv/p/AH0/QYABAkA8/39/P37"
+    "embedding": "6vXwCvwDEf35DAwU+vX5+w/w+AAREAMG9xX42QPu/gcOCvv54gP9DvYtA/7P+vsF+QoNAefv9/nm5x77+/8IFQ=="
   },
   {
     "title": "课程安排与培养计划",
     "section": "课程安排与培养计划 > 辅修",
     "content": "辅修学士学位是指学生在确保完成本专业学习的同时，学有余力，再修读完成不同本科专业大类的另一专业辅修学士学位培养方案规定的课程及学分，成绩合格并通过学位论文答辩，符合学位授予要求者，在获得主修专业学士学位的基础上可获得另一专业的学士学位。辅修学士学位专业招生简章",
     "url": "/study/lessonplan#辅修",
-    "embedding": "BvQA+gYGBAD2/AD4+voA/Pf6BP4KAAAA/gAA/PwG9P4K/AD88wACAOL3AAAA+gAACAAA7v4A9vwACQQABAAAEgAAAAAABgD6BAD3AADzAAr8AAYAAPwACfoA/AAGAAAcCgT+/AT6APz+AAAEBgQAAAAJAAQABgAABAD8BAAEAAAG/AD89gAABAb3BgYACvoE/AQABAkKAAn89gQAAAAA6wYXAPcE+vwGAAQA9gD6APwCAAD6AAAAAAoA+gAAAPwABvr0/AAABvwEAAAEBAAG9wD6APwAAAAA6gAAAPQEAADzAAb8BPwAAPwJAPQE/AAEAAAABPAG/AQAAAAAAAD39gQAAvwAAA30AAQCCQAAAAQA/AT5/AQAAAAADQAPAAD8GwD8AAz2APz3BAL8BvcEAPz8APz4AvoACgAG9gAAGAQACvz0APcEAAAABAAABAAEAAAA/An+/Pz4APwABgYMAAAAAgAA9gD6/PYA/OgE/AD0AAD6AAAAAAb87vwA/Pb8"
+    "embedding": "8PTwCvkBFfz4Cw0W+/X9+Q/s9/8PDwAH/RD61QLs/ggKA/nz5gQCDfUuAPTP/Pz/+wkOAubu9vfm6R35/v4KEg=="
   },
   {
     "title": "学院知网",
     "section": "学院知网 | 学院知网 > 如何使用学院知网 > 1. 获取学校企业钉钉账号 | 学院知网 > 如何使用学院知网 > 3. 连接校园网 | 学院知网 > 如何使用学院知网 > 4. 登录知网",
     "content": "学院知网（校园网）是学校提供的网络服务，需要在校园网覆盖区域内使用。\n\n学院知网 > 如何使用学院知网 > 1. 获取学校企业钉钉账号\n入学后，学校会为你开通学校企业身份的钉钉账号。这是使用学院知网的前提条件。\n\n学院知网 > 如何使用学院知网 > 3. 连接校园网\n申请成功后，前往以下地点连接校园网：\n- 教室\n- 图书馆\n- 其他校园网覆盖区域\n\n学院知网 > 如何使用学院知网 > 4. 登录知网\n在校园网环境下，即可登录知网系统。\n\n确保你在校园网覆盖区域内，才能正常使用学院知网服务。",
     "url": "/study/network",
-    "embedding": "/gUABfcABAABAgAFAAD+BP0AAAIAAgIEAgAAAAQCAgAAAAAA/gAA/vQADgAAIQDq9wX5AAD+AAD+AAD+AAAA/gD+/vwCBQAA/OUABQICAAACAgABAv7+AAIADPsOAAAC/vwAAhD7AA4CAgAAAAAAAgD7AQAAAgIAAP0A/v4AAAAA/AMAAgcCAgD+/gT4+wUJ/AAAAQL/AAIA7AAC/gAAAgD+AAACDAIAAhMAAgD4AP4A9wD/AAIAAgUA2f4AAAABAP/+/gH5+/wEAgACAPwAABsAAgAFAv4AAAT8AP3+AP4A/gIEAOkC+/sA/wT+AP8CAAAABRQABQD8AAAAAPzrAAABCPz+AAH9AAD+GgIuAAIA/vcADP4OAP4ABAQC/gIFAgICAP7+9AH+/gAAAAID/gD+AAAA/gb7/gD4BwD+APwEAAL8/gAA/gL7BNj3AAUC/gTwBQIC/PwFAgIC+wD+BPsA/P4O+QL++wACAAQAAP7+APoABQAAAPkA/gAAAP4E"
+    "embedding": "9ez7E/kC6v8GGwsI9QP67RQV/fEQBv4A7Rr8ARTnCRIBF/ID9QUVAPEgEiTb/wUOAwby/gEK+QXW/iD58gIJCQ=="
   },
   {
     "title": "证明打印",
     "section": "证明打印 > 申请办理毕业证明书、学位证明书流程",
     "content": "> [!CAUTION] 注意\n> 毕业证书和学位证书一旦遗失或损坏，无法补办原证，只能申请办理具有同等效力的证明书。请务必妥善保管个人证件，避免因证件丢失影响后续学业或就业需求。如需办理证明书，请严格按照学校规定的时间、地点及相关材料要求进行提交，确保流程顺利。\n\n注意事项：\n\n一、办理时间：一年两次。春季学期：受理申请时间为6月1日之前，领证时间为6月下旬；秋季学期：受理申请时间为12月1日之前，领证时间为12月下旬。\n\n二、办理地点：国腾科技园三号楼四楼405室，联系电话：028-87828635。\n\n三、办理证明书所需材料：\n1、 申请表（等学校通知）；\n\n2、 身份证复印件一份；若委托他人办理，需提供委托书、双方身份证复印件各一份；\n\n3、 本人学籍表复印件及证书编号（成都校区图书馆五楼档案室办理，联系电话：028-87826960）；\n\n4、 近期免冠2寸蓝底标准证件照2张（如果是同时申请毕业证明书、学位证明书，则需要3张照片）；\n\n5、将上述标准照的电子版发到电子邮箱93440559@qq.com，并在邮件内容上注明申请人姓名及所申请办理事项。（电子照片像素要求：480（宽）*640（高），大小40 kb以内，申请人必须按此要求提交，如果因照片未达到要求而无法上传学信网，后果自负）。\n\n注：证明书办理成功后，原证书失效。",
     "url": "/study/proof#申请办理毕业证明书、学位证明书流程",
-    "embedding": "Cfr+AP7v/v8GAgIC+f37Cff7AgUJAgIABgMADgT0DA4FAwQC+wD+Bv0YAQb4+QL5APX+/v0C+wX+/gIA+gD59gT+Bfr/+gIGAgD3AAL5BgcC+Qn+/gICAgD2+vz9//3+/gACAfsGCAIG+AUGBfkJ/gADAuwG+v4G+gf//gP1+/r3AgII+wP7+f0E+gH6AP8DAAT+CQP9+ff9AwACAwARAfr7Cvz+/gD6CQ70/Qz+Bf/1+/8K+/r4AgAFAAQFBAUDBgID/QL6/AIDCAUM+Qf9+Pr8+/f6/vQAAPn79wIN/QAFBQkCCAf4A/YABgACA/oFAAICA/z5BP0HAfkAAAYBAQUA/QP39Pr7/gMDHgcW/wYC8Pn+AgP1AQL7/hUA9gj9/AgKBgD6+gkD8QL6AAUE9wb9CQoAAwQH+v8FCf8DCQAA/AkH4QX6+QL+APYIDAIA9v8J/vv7+vYCAgAAAP4C/v79/wAAA/v+/v8DAPP6+gP+AAD+BP4A8wII+/cDBwL7"
+    "embedding": "9Oz5FPcD//oDEwYP9QP37Q8D/vUHDwEK8A8C+BPoAQ8OGvD68QkJB/U7BBDbAQEIBgcI/f0M+QPM/hr59P0SDg=="
   },
   {
     "title": "证明打印",
     "section": "证明打印 > 电子科技大学成都学院成绩单盖教务处章办理流程",
     "content": "1、学生填写申请表\n\n2、学生携带学生证到分院教学秘书处打印成绩单。 \n\n3、分院教学秘书打印学生成绩单并在背面签字并加盖分院章。 \n\n4、学生携带学生证及打印的成绩单到教务处审核。 \n\n5、审核无误的在“电子科技大学成都学院教务处公章使用登记表”登记相关信息。 \n\n6、教务处加盖公章。",
     "url": "/study/proof#电子科技大学成都学院成绩单盖教务处章办理流程",
-    "embedding": "AAAJAAAXAAAA+wAACQAAAAD3AP0GAAAD9QUABgv7AAL9AAAFAgD9APsDAAD3AAAAAPcOCwAFAAMA+wAMBQAGBQAA+/v0AAAA+gAFAAD6+gv7DgAAAAUAAPoADAAAAPIACQAFAAUFAPsAAusAAADhAPUFAPgAAAAGAAAJAAAAAP37AAAAFwD78gD9BgAFAPf7AAAMBgD3+wARAAYFAAD7DgUCAAX77/cAAAAMAPsAAAX7+wAFAAD7AAAAAAAABvTuAPcA+wkAAPv7APsABQAF9wkAAPoAAAD++/sA+/cAAAD7AAAABewA+gAGEvf39QwAAAAAAAAA/gAA+wAA+gn7AAD3CQAGAAAABQAABQn6+/f7+wAABRUA+w73+/T7APEAAP4AAPsPBQD7+wAFAAAAAAIAAPQDBwAOBgAADAb7AAAAAvsFAAD6+gUHBQAACQUAGAAGAPoAEvr7+wD79PsAAgb0Bh3+AvsG9/UAAAIAAPsABgX7AAUFBQAAAPv7Bu4F"
+    "embedding": "8/Pr/wQIDP8DCAAQ4O7p+AD3APwCCfcDAgsMFQ/v8RMN9/8e9QMLDeMzBBLP+wsIAAkABvoQ7wPl9hgL+AIHEw=="
   },
   {
     "title": "校历/作息时间表",
     "section": "校历/作息时间表 > 作息时间表",
     "content": "| 事项               | 时间          |\n| ------------------ | ------------- |\n| 起床，吃早饭       | 06:30 - 07:20 |\n| 早自习(大一)       | 07:30 - 08:00 |\n| 第一、二节课       | 08:15 - 09:50 |\n| 第三、四节课       | 10:05 - 11:40 |\n| 午饭&午休          | 11:40 - 14:00 |\n| 第五、六节课       | 14:00 - 15:35 |\n| 第七、八节课       | 15:50 - 17:25 |\n| 晚饭               | 17:25 - 18:30 |\n| 第九、十、十一节课 | 18:30 - 21:00 |\n| 熄灯睡觉           | 23:30         |\n\n平时寝室只有于6:30~23:30有供电，而周末和节假日不会断电，暑假填写了留校申请的寝室不会断电，寒假不允许留校。",
     "url": "/study/schedule#作息时间表",
-    "embedding": "/QQAAwAAAPUA/f0E/AP8/QkFC/oJAAAABAH6BAQABAAD/wD8AAkHAwMJBAQG+wAAAPr89QD87/30CQb8AwATBAP5AP8CAAADBgMA/wPvBhYDAAQABAADABEDBvQA/P39AAQAAAMAAwME/wMDCQAA/QwA/v38AxYAAAAA/QAAAPwBAAkABAADA/wA/AHn+wwA/AAP/QcABv0G9PwG+wD+A/f6AAAAAAQA/+r6+QYABPwAABIABAP89wT3EPQHAPf5/QMA/gAAAAYBAwP9/QEE/QQFAAMA/P0GAAsAAwD99wD8AQMC/f0AA/wAAwAA8wT8A/z+A/8D/QAA+v0DAAADBAAAAAD9BP0LAv0EBgYA/f0AAPkE+wAGAAD8AwYAA/wG9/0ACQAEAPwA8/0AA/T/CRQABv0B/AD5AAX98AD9AwAAAPcD+jcDAPcAAAYABQADAAMAAAMD/QME9/f9AP8E/v0AAO8TBgADAAMA/QAAAPz6AwDw+g4AAAb8AP38/AP6"
+    "embedding": "7u0CCQED9P3+CwEA9Qv56ggKAPoPBPQD5hP8/wjvDA8HJvD98gbx/QIsDgLSA/8QEQkGBvoN6gnXAyf78fMPDA=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 | 关于分数 > 学业成绩 | 关于分数 > 课程成绩",
     "content": "> [!WARNING]警告\n>\n> 免责声明：此处内容仅供参考，若有出入请以官方通知为准。（更详细的自己去看学校发的学生手册去 ）\n\n关于分数 > 学业成绩\n| 科成分数            | 评比内容                                                     |\n| ------------------- | ------------------------------------------------------------ |\n| 日常行为评价（40%） | 符合学生手册的行为规范即可，主要是请假与旷课，有没有被记过   |\n| 线上学习（30%）     | 即像学习通线上课程，认真完成线上教学并取得好成绩。           |\n| 实践教学（30%）     | 即社会实践作业（非课内实践） |\n\n上述成绩可以在钉钉→工作台→育才工程→科成计划中查看\n\n关于分数 > 课程成绩\n如果是线下课程，每一门课程的考核要求都会在开课的第一节公布，如：本门课程的学分为xx，各项占比为：考勤xx%，课堂表现xx%，期末考试/结课作业xx%。总分xx合格。大家最好在老师讲解考核要求的时候记录下来，不同课程的考核要求也不同。成绩不及格可是拿不到学分的",
     "url": "/study/score",
-    "embedding": "AP38+v38BAD9/wP0A/r/9f0EAwD5BPQA/QD++f0DAAMC+Az7Cvj9AwD9AP0EAP0J//36AwALAf/2AAH9APr5/gAEBO0C9v8GAwMA/QUICgT+DgD99f0H/QD/BA/9/QD7/wYG9gD5+AYA+QQI//39AAD3AAP6/wIABxT6A/r9+fz5BAMGAAf6DAn+/AMACgAG/fYDAwEOBgMA/QMH+gP4AAUH/fgD7gz9APf5+f0EAwMEAQb8+Pv9+f34A/75B/YJ+wAABQj8+Qf9+PwAAAT6AwQABAoAAfkG/Ab9AAT5BAQEAA/9/QAA8QD5C/3/DQD/AAAEA/gI+Pv9AwD6+vr0BBT6/f0DBgcA+gMDAwABAP0DAQID/QP8+gEE/AMA/f0D+wP/CAb/AADyFPb29wj68wT8AvwB+v0D9hUI+/0FBAAABPsABxAD9QP9BAYAAAP56gAIBAD4ABH7AwAL9QID9QsDBgcA+QABAPn5Bw0FAff4/QgD/P/4/QgG6fwRAOYA"
+    "embedding": "6fP/BgMHDvsBCPoDAv/75hPs+PoMABII8Q8G6QroAhQNBezv8R8GAPo8AgPeCfcIBAH7/vT/+wLj+yjs9gENDQ=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 > 学分绩点/综测评优 > 学分 | 关于分数 > 学分绩点/综测评优 > 绩点 | 关于分数 > 学分绩点/综测评优 > 综测评优",
     "content": "根据培养计划，在校期间要修够一定的课程学分方可毕业。\n个人培养计划（不同专业是不一样的）可以去登录教务系统（用谷歌浏览器登录），在我的→培养计划→培养方案中查看。如需要查看当前计划完成情况，点击我的 → 计划完成情况即可。\n\n学分来源分为：通识必修课程，通识选修课程，学科基础课程，专业必修课程，专业选修课程，实践实训。每个对应板块都得修够学分才能毕业。其中通识选修课程是要自己去抢的，基本上是每个学期都会开放抢课，课程有线上和线下，名额有限。大家注意看学校一通知的开放时间！很重要！！！\n\n关于分数 > 学分绩点/综测评优 > 绩点\n单门课程的绩点满分是4分（课程成绩85绩点满分，少一分少0.1分绩点直到为0），在教务系统（用谷歌浏览器登录）我的→我的成绩中查看。\n\n关于分数 > 学分绩点/综测评优 > 综测评优\n关于综测评优，有些按绩点排名，有些按平均分排名。最终根据辅导员发出来的排行榜，一学年结算一次排行榜。如果这个课程的学分越高，他所对应的好绩点的重要性越高。学校最后算的绩点是要乘以每科对应的学分比例来算。想要拿奖学金的话就得看你在此专业的排行榜，或者在本院的排行榜。",
     "url": "/study/score",
-    "embedding": "/vv9BfoBAgD6BAT+/wIF/PwDAPoAAgP8AP///AUA+PwQ/gT5/wIL/wL7EA7zBf8ACAwE/voDBQD+Af0D/fIDA/z9APAF+AAC/vv9BggA9AIBAwMD//kDAv3+CvoA/AL+9wEDAAIBAPf5/wMCAwQA+AYEAgIHAgD7Fg36/vz7/f4I+QD8AAXwBAP/9v79/P0CAAgBAgcDCvz+AP0L/v/9BwAA3wD6/vnyAgIB/fAE8vz+AwUA/vf7/RD9/AkQAAEBAwD++v8EAwQD/Qn++wHyBgIOAAUC/gUBAgQFAPz9+//9APr9/ggB/P/4/fT4+v7+AfQBGfj2+wD//gj9Agj8/w8S/fz9BQD+/fsB/g7r//7/AAr2Awj+BQUE+PsBAwD/CQb7BQD+AP4AEf0A//8NBgMAA/0AAP379AgGAP0B/wD/AwH9APwA8gD+AwEA+PP0+/0G/gH+/wIAAgAK/PcC9P79DAETAQAF9v0CAgX6D/gD/wMCBP/9/gcQ6/YNBfkD"
+    "embedding": "5vT6CgUFDPr/Cf0J//z95g/p+/sOBA0E8g8D5QbnAxELBOrv6xwIAPo8AgDdCPgEAAP7A/L++gDp8iru+QAOEQ=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 > 百叶积分 > 百叶计划",
     "content": "《百叶计划》共分四个板块，即： 明德、博学、笃行、尽美。每个板块分为专业课程与选修课程两类，涵盖了大学期间的各种主题活动，包含各类党团培训和讲座、 各类学生竞赛、社会实践活动、文体艺术活动等课程内容。实施机构为大学生综合素质导航总站（分站）。\n\n依据“百叶计划 ”实施纲要，对应不同的课程分别制定了积分项目、赋分标准和使用说明。《百叶计划》共分四个板块， 即：明德、博学、 笃行、尽美，共计 1 个学分，每个板块均为 0.25 个学分。具体要求为尽美不少于 30 分，博学、明德、笃行各板块均不少于 10 分。 完成后可以算实践实训板块的一学分（必修板块）。\n\n“明德板块 ”，加强思想引领，提升青年学生思想政治与道德素养。\n“博学板块 ”，加强学风建设，提高青年学生治学精神， 培养青年学生学术研究能力与科技创新素养。\n“笃行板块 ”，加强社会实践，提高青年学生奉献、友爱与服务意识。\n“尽美板块 ”，加强学生身心锻炼与艺术熏陶，提高青年学生创新意识与内在修养。\n‌\n “百叶计划 ”项目中，学生需完成相关课程，获得对应积分并累计总积分。四个板块活动级别分为必修课程和选修课程两级，活动积分认定具体参照活动类别、活动时长、活动参与度、 与活动级别。",
     "url": "/study/score#百叶计划",
-    "embedding": "/gr6AwD5Agr+/QcAAAIG/v8FAvr4CvsGAP4AAP/6//0K/vsC/vr+CgIA/wMG/fkA+gAHBQMAAQIACgAAAPYD+gD++/QB9vsHDPr+/gICAwQI+v0BAAINBgID/wn5/v4GAwIAAQD/Av0FCAQH/hAF9wAI+f75+wD5DP8G7ggN/fz/Cfv7AgACAvf+/v/8AP7+/wD4Dv4HA/4B9fvo/gAAAREI+AACAAAI9gr9Bf/99AD+DPwC+QIKCvgFBQP5BwH5AAAA/AcC/QgC/AIGAQH6/v3+AAD9+QD+//0GCQIC8wL+8PgD+gMAA/4G8+z9/AAA9gIJAvX2AgAG/AD+9/4H+AIABAz/AAAA/gADAvz8EQUABwX0BA38AAgF/wIDBf79Bfr19hnvAQf7BwAA/gr99P799wEA/gMDAgf9BwACAgIIDAIICQIA+PgAAvQGBwX4/QADAP73AAT++v7+9/4M+gMAAvIGBf7+ByIABgACCgID/wD1/vv5/QP97fQI9/4A"
+    "embedding": "5fL0CgMEC/oACP8G/vr86Rbw9fgMAg0J+Q8E4w3h/w4bBe/x7BYPAfg0BwbXB/cKAQD5+fMB+gDo+SXw9QMQDA=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 > 百叶积分 > 建议 | 关于分数 > 百叶积分 > 注意事项",
     "content": "百叶积分也跟 “第二身份” 挂钩，不同的部门/社团/组织，会定期举办活动分发对应的百叶积分，加入其部门/社团/组织的同学可以更轻松得到其对应的百叶积分奖励（前提是要积极参加活动）。如开放原子开源社团活动加的就是博学积分，图书馆学生管理委员会活动加的是笃行，学生传媒中心活动加的是尽美等等。\n\n最好大一先多多参与活动，把百叶积分多拿一点，一些学生大一上就可以满了，笃行活动最少，但辅导员会在每学期发几次关于笃行的活动，基本上是线上活动，积极参与就能满。最需要拿的是尽美，因为要求30分。有些活动是线上参与，如果线下没时间参与的同学，多多注意线上的活动。\n\n不过没拿满也不用担心，可以考虑有补分策略，内容如下（往年的内容仅供参考，具体详情听从学校安排）：\n\n关于分数 > 百叶积分 > 注意事项\n1、所有的加分活动电子表请确认好后再发送至工作人员。\n\n2、交活动申请的电子档表请发给指定人员，不接受发给其他人转发，请按照规则交表，理解并尊重导航各部门的工作。\n\n3、电子档在每天晚上22:00之后不再接收审核，出现任何问题主办方自行承担。\n\n4、所有的加分表请在活动结束后3天之内交给信息管理部部长，超时将不进行收取，并相应活动不进行加分，活动主办方自行承担责任！注意：加分表只能直接给部长，转交的一律不收，未交活动表交加分表的不收。",
     "url": "/study/score",
-    "embedding": "DQX//gADAfwDCAUCAwIB/voD+gQGBvwCBAIFBQH+Afv6A/wH/v4YAf39BQP+AAAA9wAK/gEADP8EAwAO/vv8Bf39AfkF/gIA/gEE/wX0AgYG9/wA/voA/wP6AvkCBwIA+AP/AwUFAP8Q/P8AAfr2+Qf+BP8BCAz5/vUABAX5/f8E+fwF/wwCAf/uAQ75AQb+AAIEA/0KAAMECQD+BgD8Aw4GAgP+AgMC+PMA/f/x//n1CPkCGQQB/PcECfn3/QYA+fz8BgP9/gID9/37AAL5/ggFA/v6Bf75BwME/QUDBQD0AAD/AfEBAwP5/wAC/PcLAf/3BAMGBAkD+AYE+wD7BA/s9wQHBfv7BgkC+vYH+wb9DQAA+QIAB//6BAELCf7+BgICBPvq/P0CDPn4CQcABvr+Avn0AgAA9Az2/gD//gUEAfv+BAT8+gEBAAQJDQUAAv0EBQH18AAEAAD5/wT+/P4DAgL5BfcB/jAA/v/69v0B+P/9/v4AAAQACfsD/QQD"
+    "embedding": "8fECB/0E+vYCDwAB+Ab66BH//PYM/goI7RQK+hLkAxYMD+ry8CIG/Pk5Bg/iCP0MDgT7APUI+gbaASbw9/4RDA=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 > 百叶积分 > 交加分表流程",
     "content": "情况一：扫码活动\n不需要交加分名单，导航人员活动结束后直接扫码加分，如果报名了活动没有扫码\n将会被记缺席。\n\n情况二：非扫码活动\n按要求制作加分名单，活动结束后三天内交给导航总站信息管理部部长。\n注意：加分表只收一次，确定好后再发，出现需要加人或者修改信息等情况将不收加分表制作的加分名单表头一些内容与活动申请表内容一致，加分名单文件名字为活动名字加分结束后，2周没有问题反馈，将不再受理。\n\n1、拉赞助活动一律不得申请加分。\n\n2、新活动即第一次举办的活动不进行加分。\n\n3、活动的工作人员不加分。\n\n4、电子申请表提交两次不加分，特殊情况特殊处理。\n\n5、加分名单上未出现的人名不加分。\n\n6、非扫码活动，进行纸质表签到签退的，名字学号写的不清楚的不加分。\n\n7、活动举办完三日内未提交加分名单的活动不加分。\n\n8、活动出现违规现象，酌情考虑。\n\n9、现场活动出现以下五种情况之三不加分。\n- ①活动时间不足半小时，总时长未达申请时间百分之七十\n- ②活动内容与活动申请表所述不符\n- ③活动没有准时开始（误差<15分钟）\n- ④实际到场人数没有大于加分人数的80％\n- ⑤没有提前通知观众带上相关身份证明以及时间地点。",
     "url": "/study/score#交加分表流程",
-    "embedding": "AAQFBQcF//77CgMCAgIDAfADAAf7+v78/QMFBP37AQUBAf77+/wKAwj//wYA8PkE/gH4/fn6Ef4ABPsvBQD+Afv5B/r99/76+wACAPz7Av3++gP6///7AAcJ+//+AfkB/Q4DAgMC/vv5/wgC9wH9+wMFA//5AAUAAAMCAfsADAf3APsAAP0B/wUA/gX//QcAAv4ACQMH8P8D/fsA/gT9/wEAAfkF/QIACfsBAhL7AfjxAgH+DPv77f4F9AD5APsC9v32/gUC+wX7Afr5+P74BAr9CQoM//sEAQkB/P0EBQQCCQDw/QEC9Qj9/f4DABj9BPL+//0MAAv4//cIA/78AwEC+wUBAvsA/vv7AgX9AAz9//sFAwj++wMCBREG//v/AQADAfsACPj8BgAFAP4F/wf6BfkFAvsFAgD6Av77AgIBBv0KAwEE/fz7CQUFAAL9BAAE/gP5AAAGAwAFAAIA/QUAAP/+9QIPAC/+Awv7A/79/v76/vsC9QD+APr5Awb9"
+    "embedding": "6Pf8Af4JBvYBDf8G9gr38w/z+vUKAw4K8RoJ8xTmAxALC+zx6xwDAPk8Aw/cB/sPCAYB/fcE9gPb/B/w8QEOEA=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 > 学业预警",
     "content": "> [!\n\nCAUTION] 重要\n>\n> 为进一步推进校风、学风建设，加强对学生学习过程管理，充分发挥学校育人育才功能，引导督促学生顺利完成学业，根据《普通高等学校学生管理规定》（教育部第41号令）和《电子科技大学成都学院本、专科学生学籍管理实施细则》结合我校实际，特制定本办法。\n\n第一条 学业预警是指学校依据学生管理规定和人才培养方案要求，根据学生每学年学分修读情况，对未达到一定标准的学生予以警示，提醒并督促学生顺利完成学业的一种制度。\n\n第二条 学业预警工作以生为本，以警示为目的，多方协作，对在校学生学业情况进行督促和警示。\n\n第三条 学业预警类别分为：学业警示、降级、退学。\n\n1.每学年连续两学期不及格学分达10个学分以上，予以学业警示。\n\n若符合累计学分预警标准，则按累计学分预警标准处理。\n\n2.累计在校一年，不及格学分在10至20（含）学分，予以学业警示；不及格学分在20至35（含）学分，原则上予以降级；不及格学分达35学分以上者，原则上予以退学。\n\n3.累计在校两年，不及格学分在15至30（含）学分，予以学业警示；不及格学分在30至50（含）学分，原则上予以降级；不及格学分达50学分以上者，原则上予以退学。\n\n4.累计在校三年，不及格学分在20至35（含）学分，予以学业警示；不及格学分在35至60（含）学分，原则上予以降级；不及格学分达60学分以上者，原则上予以退学。",
     "url": "/study/score#学业预警",
-    "embedding": "/P4D//8BBfAOAw4G/xL+AAL3+f79/gL8APwAAPYC/vv2+wUA+wQC/AACAvkN/AAA+/n+GQQC/gACAP4A8gP9AP4DDf0B+gAbAAYFAQf6AP4E/Pj8+wD7AP4CAf7/9gACAwMF+gAGAv75AAIAAgUA/wEAAv/5/v8AKvcF//n++/z+7v4B//7++Qn+AgUB+fwC/wUA/wYOBf8H8/z5AQL++fwG+P4FAwDuCf4C/wAABAAC/wf+Agf+Afz8/QECAA4IAPoCA/sA/PUAAgP8AwACCv/6AAEK/wEC/AX5APb8AgIAAv/x//78AP77AvQEBAAM+QL+BAMEAQAF/P7+CPz9BQUH/wIC/AT+/fr+/AQGAAX1DgIABRb+AgYCAAEA9/j+8vb5BfwEBwAF/gEC/gUKABkA/gD+Av4EEf8A/v4B9f74AgcC/AIA/gf/CP74/v7z+vIAAQILBAAJBAX/6fIHCAAA9P8E/Pz+BPv+BPwBAPwF//P+/v4EEfv7AQAQAgH4"
+    "embedding": "5/jyCP3+G/z+CAAP8/Lz9hHv9/0JAgYK9ggE3Avl+wwT//IA8RELEvM5AArVAvwI+gb9//P79fzl9CX0+AMHDw=="
   },
   {
     "title": "关于分数",
     "section": "关于分数 > 学业预警",
     "content": "5.本科生累计在校四年，不及格学分在15至30（含）学分，予以学业警示；不及格学分在30至50（含）学分，原则上予以降级；不及格学分达50学分以上者，原则上予以退学。\n\n6.本科生累计在校五年、专科生累计在校四年，不及格学分在15至30（含）学分，予以学业警示；不及格学分达30学分以上者，原则上予以退学。\n\n7.受学业警示者对不及格学分的课程原则上须在下一学年进行重新学习。\n\n第四条 学业预警处理\n\n1.学业警示：学院书面告知学生及家长处理结果，提醒学生认真学习，提高后续学习质量和效率。\n\n2.降级：编入下一年级同专业学习，学院书面告知学生及家长处理结果，督促学生完成学籍异动流程，提醒学生认真学习，提高学习质量和效率。\n\n3.退学：学院书面告知学生及家长处理结果，协助学生完成退学流程。\n\n4.学生最长修读年限需符合《电子科技大学成都学院本、专科学生学籍管理实施细则》要求。\n\n第五条 学业预警工作以学年为周期，于每学年秋季学期初开展，由教务处、学生所在学院、学生工作处共同负责，学院具体实施。\n\n1.教务处负责全校学生学业预警工作的统筹。\n\n2.各学院具体负责学业预警工作，确定预警名单，按要求将处理结果报备至教务处。\n\n3.学生工作处积极配合学院开展学业预警相关工作。\n\n第六条 本办法解释权归教务处。",
     "url": "/study/score#学业预警",
-    "embedding": "APsC/gf4Bf0M/hEB+AUBBgP+CQAAAf78AQgDAgAFAvr/+gT+/gQIAgEAA/gFAwUBBQUAEAr2AAD++P37BAICAvgKCPb3/QAZAQUMBAL7+gz7+wH4AAD+BgQMAQAB+/8FCAIA9P8DA/4GAP39BADy/vwC+wLuAgH8H/kJ/fT8AwQF8Ab+A/r88gUABP7/+/gIAvsABwAPAAQDAPcD9QYA+AEOBQAHAwj9/gII/v7+AP0A//8FCgX89PwA+f4A+woM/vwABvwH+/IDAQQFBPYKAgD/C/wSBQEAAwX2/fsFCv4EAfP3//D2/v4CA/z3/QcL/gABBQgI8gAK/gIB//wH/wQA/f8A/Qr//f4CBAH+APr+DgQKABz+AP78Avz/8gAF+fv5A/wC+/oGAfQIAv4MARX/AgD8AAAEDv3/AgMB+/b6BAMDBAIFAAYGCfv7AgL7BfsCBQMBAv79/QgF7QEC+wUA9gEC/gAB/v4ACPj/AwQBA/v9/v8DFPQBAvsE/v4D"
+    "embedding": "6fn0Bf8GEPoCBwcN9/Tz8BPs9/sGBAUI/AsB5w/j+hEN/vT96hQMBfI8AwfQAv8LAwUD//P/8f3l+Sb68gEJEQ=="
   },
   {
     "title": "第二身份",
     "section": "第二身份 | 第二身份 > 提醒",
     "content": "学生除了日常学习之外，需参与校级学生组织（包括助理）、院级学生组织（包括班委及助理）、社团以及各大协会的工作，并对其进行两重身份认证成功后，方可激活百叶积分并进行正常加分。总之第二身份是从24级入学新生开始必须有的，是开启百叶积分的重要前提。\n\n- 关于2024级学生校园第二身份认证\n- 电子科技大学成都学院“第二身份”官方组织名单(实时更新)\n\n第二身份 > 提醒\n1. 第二身份必须激活，不然百叶积分加不了点，其重要性看百叶积分板块。\n2. 加入不同社团可以都提升自己的能力和视野，而且还有其中的学长和指导老师带路，可谓是好处多多。\n3. 加入一些校级部门，成为教师助理，培养自己的工作经验，提升工作素养水平。\n4. 如果违法社团/部门的一些条例，导致被逐出，会导致百叶积分被冻结",
     "url": "/study/second",
-    "embedding": "APr3/Pr9AAQGA/0DB//9AAT49/3+/QP9BAj8AwQE/QkJAAb9A/39BAsDA/r8Av/9AAcA/PkBDwj9A/4A/wcGAAH//f37/QADBv39BwIA+QMAAAP8/AAA/Bvs+voAAwP9BAMBAwD3+gMGAPj8/wAE/fQB+v0CFP0B/e8DAPz5/fcA9wMD/vkLAAT9Bf0HAQT8/QH8BwAO/f0DAwD9/foEAAEI/gQA/AQECgQH+gYIAPbsEP39DQb4AfoE/APuAPr5BAYDAAH6AQQGAAAACgT77/0DA//eAAf5BA/9AP0DAwAA/f37/fX5+gDzCPoECPf9AQT8Bwj9A/UE8wf5AwYAC/r8AwPmBgD0/wME+QMDAAH+AAQAAAoAAQf6CAP9BP4JCwD4///vAQYA+Af5APz88wAD+w8DAP30AAD3BAD5APcA+QEAAAD9/QcE/f4GCfsAAAAABgYDAwADA/39/QYA+gcD/QTh/QAA9PwEAPkEAOUA/wUDAAAGAPz6+P8EAwgG"
+    "embedding": "+ej0C/kDAPwDDPUH5fr19A8DAvQIAQQJ8BMLChLm+RQZBfQJ+BINB+o4BxvUBAEJBQf69/cS/wPc/x/7/QMEDA=="
   },
   {
     "title": "学号与学籍",
     "section": "学号与学籍 > 学号 | 学号与学籍 > 学籍",
     "content": "学号的格式为yyyyjxxccnnww，为十三位\n\nyyyy： 入学年份\n\nj： 可能为学籍类型\n\nxx： 学院代码\n\ncc: 专业代码\n\nnn: 班级\n\nww: 座位号\n\n学号与学籍 > 学籍\n学籍管理是学校学生管理的重要组成部分，它是对学生学习资格、学习状态和结果的认定。建立健全学籍管理制度，是学校依法实施教学管理，保障教学活动顺利进行的基本依据，同时又是对学生在校学习生活的具体行为的规范和要求。\n\n学籍管理的范围主要包括:学习年限、入学与注册、考核与成绩记载、休学与复学、转学与退学、毕业与结业，颁发学历证书与学位证书等管理活动。\n\n- 电子科技大学成都学院学籍管理\n\n- 电子科技大学成都学院休学申请书\n\n- 电子科技大学成都学院复学申请书\n\n- 电子科技大学成都学院参军入伍保留学籍申请书",
     "url": "/study/status",
-    "embedding": "/Qj9BgH9BQf5+/4A/wMF9wAA+QP/AAX4AP39+gAH8AD4BAAGAADnAQUEDwT9AwT9AAEA+vcAA////QD/8QUBAwb/A/35/wD9A/0ODgAD/QgD9fsGCAT6AAYHEfsD/AAGA/0DAPwBBPwI/fH/+wT9BAUDBfz4/gAUBf4LAP39BAAGA/oBDvoE/ADyAAQB/QADAAADAwADAAP5/Q777QMJ+gP8AQUG8QD5BgkFAAH9AAD9/QD8+wP5//0A+/oAAPwGAP3yAAQDAPz7AAP1/QP9BgD6/QEF/PsD/f0AAAAMAwADA/38C+/4/QYAEgQAAvoIF/wAA/4D+QQI/QAAAAH+/fEFAwMAA+8EAPT5AAsA/PP6APsACgYD9ggDAATxBOH4APgFAAADAP0C/AAEAP33BAQG9gQDBv3/AwMAEfL6BAD9APr7BAAEBQX9BPsA+gP+BgD9FwAGAwP9APX88QX/+PX8/P0UBPsDAwj4AAb8/Pry9wAGAf8D/AAA/wQD9Qb9"
+    "embedding": "8PDrDvsBEv/9C/8O4OXr/AMBAAABBvkOAgALCBDu9BEQ9f0f+f8JEuIwAxXO/wcEAAT8BPgM9f/f9hkL/f8EEA=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 一、专升本考试类型",
     "content": "1. 普通专升本\n    - 考试科目：根据四川省教育考试院的规定，普通专升本考试分为理工农医经管类和非理工农医经管类。理工农医经管类考试科目为《高等数学》《大学英语》《计算机基础》；非理工农医经管类考试科目为《大学语文》《大学英语》《计算机基础》。其中，《大学英语》和《计算机基础》为全省统考。\n    - 考试时间：2025年的普通专升本考试时间尚未明确，但通常在每年的4月。\n    - 录取方式：录取工作由省招考委统一领导，省教育考试院具体组织实施，执行“学校负责、招办监督”的录取原则。实行平行志愿投档原则，即“位次优先，遵循志愿，一轮投档”。\n    - 学习形式：学生被录取后，进入本科院校全日制学习，学制一般为两年。\n3. 自学考试专升本\n    - 考试科目：考试科目较多，涵盖公共基础课、专业核心课等，考生需根据所报考专业的要求选择相应课程。\n    - 学习形式：考生自主学习，通过参加四川省自考办组织的统一考试，完成所有科目考试后可获得自考本科学历。\n4. 网络教育专升本\n    - 学习形式：学生通过网络平台进行学习，学习时间相对灵活。",
     "url": "/study/upgrade#一、专升本考试类型",
-    "embedding": "8PUC/v0A8gMJBvr+AAD+/gAAAf3+//sG+gIAAAH6+v4I/fkG++4C/P72+wAA/QAD+AH6AP4GFAAG/wDoCAL+/g36EQAA/vgAAwD6AAT++xEA/vj//QkAAv4ABvYFAAAAAAD/DQYK/v0FAAD+Av4JBv76AwAC/wIABQUABQUD+/H8DSP9/QIB/QD7AQL+AfsC/gAD/AIJBf/2/QEA7QkA9v4AAvr+AAACAgAG/wUC+v4CDAAG/vX9/voAAAf2DwcC/v37AAcA+vv2AAMACgIA+QX+DP0AAP8AAv4AAfwAAv3+AP4CBgYC9gb4AAD6AP4F/vv+AAL///j//wIAAP73A/4K/wv2+/32AAP4APL6/QX9Awb+AwIDABICAhT7AgL++gUEBQX0Bwr+A+8FAv76DREDAAL4HfYG/QAC/Qn7AQP9AAD9AgAQ/wX6+voAAwAGCAH+BQL6+wj9B/oR/gcFAv4DCA4AAPL9BPQAAOj6AAIA+/8H/gICAAb+/QL2AgL9"
+    "embedding": "8/bsD/oPD/z7CxMZ9vn2FBEE+PgFCvsN+hj23hvwAgkRCPwN5P8NAvUlARPa7/8CCBMJ+ev38/ng9B4G/AABGQ=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 二、备考建议 | 专升本 > 三、热门院校及专业",
     "content": "1. 了解政策和考试科目：考生需提前了解四川省及成都市的专升本政策和考试科目，明确自己的报考方向。\n2. 制定学习计划：根据考试科目，制定合理的学习计划，合理安排时间，确保复习效果。\n3. 选择学习方式：根据自身实际情况，选择适合自己的学习方式，如参加培训班、学习小组或利用网络课程等。\n4. 参加模拟考试和刷题：通过模拟考试和刷题，熟悉考试题型和答题技巧，提高考试成绩。\n\n专升本 > 三、热门院校及专业\n1. 热门院校：成都地区有众多知名高校，如四川农业大学、西南财经大学、西南石油大学、成都大学、成都东软学院等。\n2. 热门专业：包括财会、金融、管理、计算机、建筑等。这些专业就业市场需求量大，适合不同兴趣和职业规划的学生报考。",
     "url": "/study/upgrade",
-    "embedding": "8wcDAAQA+v0EEAP//AL+/QIAAAADAwcA/AAA+AMAAPsBA/sACgf9B/39Awf99wQDAPwE/QYOBAD8AAT9AwDrAAP/EAQA+fgB/QEAAQoI/f8HCv4NBwQNBP/2/QLxA/z2AAAHBAP4AAf8/P78AAgLA/YE//T8+fkHAP0EAAMIBPMAEhf89gAAAAMI9gADAwAAAAD9BAQQAAP+AAP98QQD/fAABAkLA/kB/QMAAP0HA/35BP0HAAb+AAQGAAcA+AD1/gEB/Qj/AwgAAAAAAQANAADtAP/5/Pj3AQf/AP3x8QADAwAN/f34+AMACfIA+QD+/fkDAAADAAD0Cvz3A/YHAP0HAAQB/fgAAwMHAA0D+fz9AAgDAwcD/Qj89w0AAQD8EPkIBPoIBAP5AAT9APkA/Q728gMAFgABCvT/Awry//79AwAAB/kACAD8BAAJAAQH8wT8AAAE9AP9CAcNDQAA/gIDAwD8C/gN/PkABPf9/AAD+f35/Qb89f38/QwAAP3x"
+    "embedding": "8vjoC/kXEv78DQsZ7fjyFQr7+vkFCv8G+Rz94xjz/w0PBfsO5/4MBO4m/xnX7wIFBhIH+ez79vvk8hwK+AUCGw=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 专升本（统招）",
     "content": "这个是在校学生最常考的路径，将着重介绍。\n\n普通专升本选拔者试属于省级统一招生标准选拔性考试，由四川省教育厅组织管理统一报名、统一命题、统一考试、统一评卷、统一录取。\n\n考试选拔对象为全日制普通高校的专科应届毕业生，通过考试进入本科阶段学习实质是大学专科阶段教育与本科阶段教育的衔接，实行的是3+2模式，即：在普通专科全日制学习三年，再考入普通本科全日制学习二年的模式(共五年)。\n\n> [!\n\nCAUTION]声明\n>\n> 本文仅介绍电子科技大学成都学院校2024年统招专升本报名工作等内容，内容摘自《电子科技大学成都学院2024年专升本报名工作通知》\n\n一、报考条件\n（一）普通高职（专科）应届毕业生\n符合下列条件的人员，可以申请报考：\n\n1．思想政治素质优良，身心健康，在校期间未受过校级记过及以上处分（在校期间如有校级记过及以上处分，无论解除与否均不可参加专升本考试）。\n\n2．2024年全日制普通高职（专科）应届毕业生。\n\n3．学习成绩优良，专业成绩排名不得低于本校同年级同专业（专业方向）的前40%。\n\n专业成绩=加权学分成绩=（课程有效成绩学分）的总和/学分总和。\n\n注：纳入统计的课程为报名资格审核开始前所有已考必修性质课程；课程有效成绩指该课程的最终成绩；（课程有效成绩学分）的总和为单科成绩与该课程学分的乘积再求和。\n\n4．若有学生自愿放弃报名资格，可根据专业成绩排名依次递补。",
     "url": "/study/upgrade#专升本-统招",
-    "embedding": "AP4EAP75Av3+AAD5/vv9/QH+CfoA/v//BAADBf/++wH8AfkAAPb8Awv8BQD++/kAAgAAAgIMAAT/AP37CAYAAf8HFfzw//r5AAAA+Qf++QIE+QD0//0E8PkDCv4Q+v8DAf4G+gD8BAH7B/n8BPj/Afn9Fg/8/f4EDfkH/f0C+fnzCgsDBAj9+QD5+/75+wAC+gX2BAgIAgEA9gP//v4F/P70AgQB+v8C+ff/BAcC/wb/AgcAAQr5+/31/AT+AQEH+v79/P8M/wIDCvsBBwgD/RD8//oA/AAFAgAF/QMHAgPwAf4KBfsDAAD9DwUM9/oE+g7/DPwH/Pn5/AD8/vz5DgAFDgQDBQL+C/36AAECBQ30/gP9BwQDAwP+/v76C/wBCwD9B/74AQMI9+8Q/gr8/ggHAgL+F/z6//8HDf779wEEBP8D9wgABAD0+QgKAgIE//oCBAf6/wcA/wgB9w4G8/8HBQAABQD8/fXz+vn6BP0A/P4OAf3+DQn+6AH//+sA"
+    "embedding": "7/zpAPwOGf/8CQoZ5vLuGAf3+fkECfkJ+xsA6A70+QoP/fwU5QcGCvEr/Rjc7wEHAhAEAO3+7f3l7R8J/wQEGQ=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 专升本（统招）",
     "content": "5．原建档立卡贫困家庭应届毕业生，不受专业成绩排名限制，在满足其他报考条件的情况下，均可报考；计划单列，不占普通考生40%名额。\n\n（二）退役大学生士兵\n符合下列条件的人员，可以申请报考：\n\n1．思想政治素质优良，身心健康。\n\n2．全日制普通高职（专科）在校生（含新生）从我省应征入伍，退役后复学并于2024年毕业的；全日制普通高职（专科）毕业生从我省应征入伍，于2020年及以后退役的（已享受过免试政策的除外）。\n\n3．计划单列，不占普通考生40%名额。\n\n（三）下列人员不得报考\n\n1．因触犯刑法已被有关部门采取强制措施或正在服刑者。\n\n2．因违反国家教育考试规定被给予暂停参加高校招生考试处理且仍处于停考期者。\n\n3．不符合报考条件的其他人员。\n\n二、资格审核工作\n\n（一）考生类别\n\n考生类别分普通考生、原建档立卡贫困家庭毕业生、获奖免试生、退役大学生士兵4种。\n\n考生在报名时，可根据报考条件并结合个人意愿，选择其中一种类别报名。\n\n报名时确定的考生类别，作为考生参加考试和录取的依据，在考试、填报志愿和录取等环节，均不得更改。\n\n（二）资格审核\n\n资格审核时间：2024年11月13日——11月30日。\n\n1．普通高职（专科）应届毕业生报名资格由我校审核。\n\n我校普通高职（专科）应届毕业生报名资格由学生所在二级学院初审、公示，公示期为5个工作日。\n\n教务处复核并公示全校具有专升本报名资格学生名单，公示期为5个工作日。",
     "url": "/study/upgrade#专升本-统招",
-    "embedding": "/wILAv79Av8ECPQA/vsD+f3vAPf2//sLAv4D//UEAwIABPkAAwD/BPUC/gz3+/v27gH8/gQC9wv/BPgD/QUAAwcKCAT9/QEFBwP/A//+AgAC/QIAEQYA//z+///+Cwn9/wMJBP7x/wD/BPT+Bv75+fkGCRACAAD+/voABAD/EvfrDwz8AP708wf8Aff+BQIDAgD3/Qb/DAkHAwIJ/PwC/wDxBwAP/QL8AgH6AhID9/z1+Qf8BAL29/7xCQMA/fkB+AgAAQUH+f7/AAEABPwEBQH8/vsBAP4J/gADAPcHAvv7Av7zA/4HAQgCAPwD8Pn8+QAAAAD3BQP9BwUBAO//GgP+/xMBBfkF/v4C/Av//v3+//v8/QkD/vj/CPz3CQf+BPr+BwAJ/Af8/f4PAg3+/vwCCQn8EgX2+gL/+/QH+gMABP8E//8EA/4HAgIFAgQD9wT6+wT/BvwEBf4E/QcHAAT7DPL5DQD1AAH1Cgb7+wAE/gQLA/31CQAI/wIBAwH/"
+    "embedding": "8P3s/PwRFvz9CQwd7fvzHQr39/YDDvoF/CL74w34+wcNBPwJ4gsFBvgl/Bbg6v0JBBUM++z77P3l7iEH/AQGGQ=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 专升本（统招）",
     "content": "在公示期间若有异议，学生以书面材料形式提交至教务处复查，如复查后名单有变化，教务处对复查结果予以公示。\n\n审核合格的考生方可参加普通高校专升本统一报名。\n\n2．退役大学生士兵报名资格由我校和省教育考试院审核，退役军人事务部门复核。\n\n我校全日制普通高职（专科）在校生（含新生）从我省应征入伍，退役后复学并于2024年毕业的，报名资格由学生所在二级学院初审、教务处复核。\n\n全日制普通高职（专科）毕业生从我省应征入伍，于2020年及以后退役的报名资格由教务处审核。\n\n教务处公示，公示期为5个工作日。\n\n由招生工作处统一递交省教育考试院再审，退役军人事务部门复核。\n\n3．获奖免试生资格由招生院校审核后报省教育考试院。\n\n我校获奖免试生请于11月30日前准备好所有支撑材料到学校教务处申请，由教务处审核并公示，公示期为5个工作日。\n\n公示期间若有异议，学生以书面材料形式提交至教务处复查，如复查后名单有变化，教务处对复查结果予以公示。\n\n4．我校原建档立卡贫困家庭毕业生资格及考生加分资格由学生工作处审核，请相关学生于11月28日前到学生工作处申请，学生工作处于11月30日前提交至教务处，由教务处公示，公示期为5个工作日。\n\n公示期间若有异议，学生以书面材料形式提交至教务处复查，如复查后名单有变化，教务处对复查结果予以公示。\n\n注：免试及加分申请材料如下（除报名申请表其他所有材料需附复印件两份）：\n\n（1）本人身份证原件。",
     "url": "/study/upgrade#专升本-统招",
-    "embedding": "+wICBP39/v4FBAXy/v0A9vfvAv78/wcA+/73APsB/AAJBQEADAACAPAAAAL0/wD/8gf5+wIH+AQABvf++AH8BPz/AfsA/gL6/gQABfz5CwIK+f4CBQD8AQf3CP0C+Qj+BP0FAPjwAAAC+/8ABPfmAP4CEAf8A/v3B///AQL4Av7/CgENAPsC+/z7AgAC/wICBAQABwH5AQIA/vsAAQAGFwr1Af4B+fn7/Pv++wT+/Pv/CRP2CQAACv74AwMC/v7z/AT1Cwf89wX+//UC+goCAgIA/vsG//z8/wD5AAUDCvn///TyAPsA/AAE/AT+/vkC+gACBAD7+f4ABvIHAPz7DQD5AAD2DwLxAAIA/vwDAP7+AAX6/wf//vsADQ7+EgDx+wr/BAH39fsAB/cCAAECAvz4CAf+Cvz8AwQF9/YFB/YAAf4H+fwC+fn8AgIFCP4IGQX4+QAF/Pn1DwsCAAABAP8ACfn+AAD4AQ77BP73+w4C9/sIBPsD+fsSAfkCAhH+"
+    "embedding": "8P7t/v0SFvz+CA0c6/7xGwn2+PUCDvoG/CP85Q73/AcLBf0L4wsGBPcp/Bri6gEJBhcN/e/+7P3l7x0F/AUHGg=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 专升本（统招） | 专升本 > 专升本（自考）",
     "content": "（2） 教育部学籍在线验证报告（非应届毕业退役大学生士兵提供毕业证书）。\n\n（3）《四川省2024年普通高校专升本免试申请表》（免试生提供）或《四川省2024年普通高校专升本加分申请表》（加分考生提供）。\n\n（4）免试（加分）项目获奖证书或证明材料[退役大学生士兵提供入伍通知书和退役证（2024年3月退役的考生提供本人服役部队开具的证明材料）]。\n\n（5）电子科技大学成都学院专升本报名申请表。\n\n5．所有名单最终均由招生工作处报省教育考试院。\n\n6．以上工作时间根据四川省教育考试院整体工作安排制定，若工作节奏调整，我校将及时另文通知。\n\n7、系统报名时间、方式以及其他未列举事项请见通知。\n\n- 四川省2024年普通高校专升本免试申请表\n- 四川省2024年普通高校专升本加分申请表\n- 电子科技大学成都学院专升本报名申请表\n- 四川省招生考试委员会关于做好我省2024年普通高等学校专升本考试招生工作的通知\n\n专升本 > 专升本（自考）\n学生自主学习，参加由省自考办组织的统一考试。考试科目较多，需要学生有较强的自学能力和自律性。通过所有科目考试后，可获得自考本科学历。电子科技大学成都学院作为主考院校，设有电子信息工程、电子商务、人力资源管理、计算机科学与技术四个专升本专业。自考学制两年，可与专科全日制学习并行，让学生在获得专科文凭的同时进行自考本科的学习和考试。取得自考本科文凭的学生在毕业当年即可进行研究生考试、事业单位考试等。\n\n咨询电话:028-87820242",
     "url": "/study/upgrade",
-    "embedding": "+/gDB/4CAwICAwIEBv75Av76+v8AAAD+AAL+/voF+wL8Bv4EBP/4AvkC/AEC+/3/AQUBAwn+//77AAUJAgL7/vn2HP/5/v79AAP8BwADAAb99//6+wcA/gIDDQICA/3+AvkA/gPz+v4K/AD+BgAD/e4ACgIF/v75AvsGAgb6A/sEHxUDBv76/vDyAwIB/v39A//9/AwZ9fv+9/oA9wAHAwL0BQICAQICAQL/BAP+BwoCAPwI/gX6+/X2/fz2CQAN9/v7AP34AQAA/fwG/gEQAgH//wD/AwIK/f0CAgADCAD6AQ0BBv0A/gP+CAb+/PkV9/71/v7+AAACAAD6Bgb4DQX5BwL8C/f7AwQCBf4D/v76/QD7CQsKAhMB/g/8CQABAQL6AgP8/A4KAfYC/Qf7/vv9AgP+JP74+gYMBgP6+QkJAf/8BgUK+gP+AQAEAgAC9fwEAwn8/P8CBQH9+w0E+wL9/gDz+/v7/e4AAAAB/gL+/v4HAvwC9fr4AvkEAAIJ"
+    "embedding": "7fnoBfkNHP75Dgca5fbvGAX9+/wEB/kJ+RUC7Bbz+QsP//0W7f8IDOkn/BrX8QQFAw8E/O7/9fzf7hgL+wIBGA=="
   },
   {
     "title": "专升本",
     "section": "专升本 > 专升本（国际合作项目） | 专升本 > 专升硕（国际合作项目）",
     "content": "电子科技大学成都学院国际合作教育中心是全面负责学校国际交流、留学项目、海外交换生等国际教育项目的单位。学校国际班自2015年起招生，至今已有9届学生，每年向世界各国高校输送人才近百名。国际班被誉为我校“特色班”，是我校国际教育的重要成果为我校学生提供了一条最实际的升硕、升本途径。中英法专升本国际班有大数据与会计和计算机应用技术专业，学生在提升学历的同时,体验到不同的人文熏陶和国际视野,为毕业后的发展获得更高的起点。\n同时我校设有本硕连读国际班招收当年被我校录取的非艺体高中毕业生，本硕连读国际班就读专业为计算机科学与技术专业和财务管理专业，四年本科毕业后提升入合作大学就读研究生，包括但不限于法国、英国、爱尔兰等国家的大学，毕业获得硕士文凭(中国教育部承认)。\n\n咨询电话:028-61542447、19183950690\n\n专升本 > 专升硕（国际合作项目）\n电子科技大学成都学院国际合作教育中心是全面负责学校国际交流、留学项目、海外交换生等国际教育项目的单位。学校国际班自2015年起招生，至今已有9届学生，每年向世界各国高校输送人才近百名。随着国内专升本、研究生考试难度的加大，国际教育专升硕成为了更优选择，学校中新3+2专升硕国际班影视多媒体技术专业免雅思对口升学新西兰惠灵顿维多利亚大学，为学生提供高性价比“弯道超车”式的升学方式。\n\n咨询电话:028-87829739、19381614436",
     "url": "/study/upgrade",
-    "embedding": "Cv0C++35/vz8APr7+Qj6AgAD/Ab/AQL4/AQAAwQGAAT5+QH/Bvz4AP79//z/DwEF9P0CBAb+CwoB8gT8B//8AfoIE//9AgT+AgkE/P8GAAYB9voD+AkMAPsEBQD+9wf4AP0B9wr9+voHAPwG+f38AwD/Bwj5Cvr4+f4GAAH6+/oFFwT9+Pv+/gDrBAMB+v0M+gEF+/YGA/j9/gT/+gP/8QT9+wAA8voHAf3+A/j4/wX9AwgGAQX9/AD8/P/8AQAD9QIOAPoGAwACAgEA/gz/+gH68QP3CAH7/QECDwAABgD+BvTyBgP99gQAAQL9IvkEAwL7BwT8A/74/AgABgP/Af79+gH//gL++QQGEPkMAA7/9f0DAQ0IAgb8AQoCBvL/Dgf8AgT//wf5/wMC9gQB+AMB+AEADf4J+QoC//n4+v8CEfgB/AEBBf8NBgj+Bvz2Af76AvX+9/sEBvr6/gX8///+B/j7EQL4Bfn/BP0D+vsP/Pr2/gH7AAYCBQcKBP79"
+    "embedding": "7PjnCPkHHPv2EAoe7fH0FgUG+gIEC/0M/Az96hjx9woMAgET7PQLCeQg/xvQ8gUG+gsC+e39+/ni7BMO/gL5Fw=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 校区分布说明 | 学院情况 > 校区分布说明 > 全程在成都校区就读 | 学院情况 > 计算机学院 > 简介 | 学院情况 > 计算机学院 > 联系方式",
     "content": "根据2026届学生培养方案，不同学院学生在什邡校区和成都校区的就读时间不同：\n\n学院情况 > 校区分布说明 > 全程在成都校区就读\n- 文理学院\n- 航空学院\n\n所有本科专业（除航空学院本科专业在什邡校区就读）均在成都校区就读，专科专业均在什邡校区就读。\n\n学院情况 > 计算机学院 > 简介\n计算机学院创建于2001年，与学校同龄。是国家人事部、教育部认定的“全国教育系统先进集体”。目前，设有计算机科学与技术（四川省应用型示范专业、四川省一流本科专业）、软件工程（四川省应用型示范专业、四川省一流本科专业）、网络工程（四川省应用型示范专业）、人工智能、数据科学与大数据技术和信息安全6个本科专业，计算机应用技术、云计算技术应用和信息安全技术应用3个专科专业。现有学科带头人3人，教授5名，副教授15名，行业专家5人，教职员工100余人，在校学生4400余人。\n\n我们大力开展校企合作，华为（成研所）、工业信息安全（四川）创新中心、奇安信、国信安等知名IT企业是我院长期战略合作伙伴。强强联手共同研制培养方案，创设联合实验室和校内外实习实训基地，为培养应用型IT技术人才提供强有力的支撑。获得成都市“中国软件名城人才基地”软件新工科基地、360企业安全实训基地、华为ICT学院（优选级）等称号。\n\n学院情况 > 计算机学院 > 联系方式\n- 综合办公室：028-87838114\n- 学生科：028-87829738\n- 教务科：87828643/87838221",
     "url": "/campus/academy",
-    "embedding": "/wL+BQUD//v8/vj5/gDy+f7wBwz8/wX9AfgIAgMA/wD8+wkCAPoEBAL7/QcE9/8J9v8G9wEEBQQB+QAABAYA/vwTAP7//gIGBQAC/P77A/sH/fr8AAD99QH+//7+8f75BA/w9AL+AO4YAgAKBf8CA/7yAP8BAgH0Cvv+9vf2Af/7Bv/++f3++gL5/P4ABPwE/gr+//cIAvb4B/z8AgkCC/sAAP4CAgEK+QoA+/8KBAP+APwJAP8CAgD9/QMEAQH8BOgBCvwB+QACAQD//gQG/P4F/v8GBwT/BQL+BAEE/QH8AP/6/OUA8gT2AAD5AgX2Bf4BAAL//gMH/P0EBAMD4QD/AgD7A///BgH7/wTvAP78+/78/QcA9BMGAvsE/gH+EhH/Av4F/gH8BAL8CQQJ/AUA/vsFBADz9wcKBwD5AvUE8P3/AfsCAv4CA/wCAgD8/v4F8QAS/AkEBQD/BQL9/gIBAgr+C+4H+/YF+Qr7CPAD/wcBBP75BP7+AgEGAvL6"
+    "embedding": "6u/xGgT4Ffn7CQYZ/PH++Q0K+wcGEwcM/Qb24xXm+gYbHAP/8OwQB+0dBwzP//8J7AX/6O/7Bfbo6wsF+QjuEg=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 工学院 > 简介",
     "content": "工学院是我校具有工学特色的二级分院， 依托电子科技大学在电子信息领域的传统优势学科地位， 将行业企业的需求与专业设置 、人才培养紧密结合， 着力培养具有扎实的理论基础 、具备较强工程实践能力的应用型人才。\n\n工学院现有学生 4300 余名，拥有上百名具有丰富工程实践经验的双师型教师和校外企业专家， 下设信息与通信工程系 、 微电子技术系和智能制造工程系 ，所开设的专业对标了社会需  求和产业热点，包括11个本科专业。\n\n拥有两个省级实验教学示范中心，30多个专业实验室， 以及一批校企合作实习实训基地， 为培养学生的工程实践能力提供了优良的软硬件条件。\n\n工学院拥有集成电路设计与集成系统、通信工程两个省级一流专业，以及《通信原理》、《智能产品造型设计》等9门省级一流课程。\n\n2023年，集成电路科学与工程学科被纳入四川省“双一流”建设贡嘎计划培育学科，电子信息学科获批四川省新增硕士学位授予单位立项建设。\n\n1个项目获批四川省教育厅重大教改培育项目立项，学院还获批四川省教育厅高等学校课程思政标杆院系立项。\n\n工学院秉承国际工程教育理念，以社会需求为导向，与业内众多企业建立了校企合作关系，大力实施产教融合 、协同育人，开展工程项目化教学实践，致力于培养学生的工程意识和实践动手能力。\n\n并开展了人才的分层次培养，建立并实施了专业指导精细化、人才培养分层化、师资组合企业化的特色人才培养方案， 建立了思跃班、机器人实验班和AI算法创新班等个特色班级，人才培养成效显著。",
     "url": "/campus/academy#简介-1",
-    "embedding": "9gEC+vsA/wgACwD9+/v4Af77BfwF/QH9Av4H/gL8+Av+AgUDCAEE+AT+BAH9AvsBBQf7+AUBAgAHAAX4BwD++/kDBwXvAf8F/PsGAv399vwF/AICAv8F/vgFAfsI7wH7EAwA/v79/f4CBv4MAv//AAT7BfYA/gL7+/0CDwb7+gAFAAEGDwj48QP2/f0FBe0FD+77Be8D+/wCAvICAgL/+PcIAP77AgL7+wD++wD+BfUE/QsBDfoF+foC+wX/C/30A+8AAfoC8QMCAQH78vj6BAH7/fv+CAH/Cv4CBfcABwAQBff5++z9AQAKCAL8BQX//fn3AQgA+/8J/wX+BwL7/gEPAfsFAfQCA//9/AMB/gUBAAjt/g8E+QcI/v/4Av/+EP/7/v33/QX8Av4ABQX7+QIF//v7AwT+Afr+Afj7AAIC//0FFQIBBgD7/v//+AMB/fsFCAMHBQP7+AD7AgAOC/X3+P4AC/L7AA379Q0QAv8C+gv4AQL/BAICDwsPCQcC"
+    "embedding": "6O7pEwv1HgD9CP0Z+fL9+goG+wEIEwcKAwr45BLr9f8mEwQB9/QJFO0gAwvP/PwD5wb85vL/Bffs6wn8/gvvDw=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 工学院 > 简介 | 学院情况 > 工学院 > 联系方式 | 学院情况 > 商学院 > 简介",
     "content": "基于工学院专业建设和人才培养成效，学校在2022 、2023、2024年艾瑞森校友会中国电子通讯类民办大学排行榜中均高居第二。\n\n学院情况 > 工学院 > 联系方式\n- 工学院咨询电话：028-87825629\n- 微电子技术系：87823072\n- 智能制造工程系：87820125\n- 信息与通信工程系：87823077\n\n学院情况 > 商学院 > 简介\n商学院以管理学、经济学为主体，现设有经济系、管理系、财经系3个系，实验教学中心1个，拥有7个本科专业和3个专科专业。目前全日制在校本专科学生4000余人，教师100余人，师资力量雄厚，专职教师均具有重点大学硕士以上学历，多名教师具有海外留学经历，拥有多名具备丰富教学和实践经验的双师型教师。\n\n商学院基于学校理工科背景，以数字技术/数据思维/大数据技术应用（含人工智能技术）为切入点，将商科教育融入到工科、理科、行业运用中，培养适应智能时代复合型、应用型“新商科”人才。在人才培养过程中，坚持“面向行业、资源共享、协同发展”的理念，与多家知名企业建立实习实训基地，不断深化产教融合、校企合作，把职业道德教育、岗位职责要求、企业需求结合起来，全面深化专业教育教学改革，提升人才培养质量，学生一次性就业率保持在90%以上。同时,商学院积极探索、持续推进商科国际化办学模式，与国外多所机构和著名大学搭建国际合作平台，致力于强化学生综合素质、国际化视野。\n\n商学院院训：取势含宏，格商志世",
     "url": "/campus/academy",
-    "embedding": "A/36+vj9BQP+AP7+A/f7/f/1B/v8Av/5/gL9+wcG/wgIAAv7A/QEAQz/AAD+A/oK//8I/fsD+AEAAP0FAv8B+/4fAQD69gT9AP8IBgP4A/n7+QMCAv0AAQT9+/36/f4AExD7AP39APsNBAT9/gD99/8C/fMF/gz4/f8AAPYCA/0MAf72AAED/wX/+f/+Avj8AQMACv3+Bvb7APAA/wP+/foGBAH6Av4FAQT8/QIEBQb5/gMCAwgD+/0A/gX7DwXx/fcB/QH+BQAHCvv5/g78+An9A/4F+wIDBAH2//YA+/0FAQH//d4AAv4F/hD7AwT/BwwFAgMG8gT88gD3EAUM7wP7AgQCAfb0BgUA/gX6/v0F/vb0AQgB8/XwDAUCCQP5EvQH/wL2Agn8/Pz8C/0C+////wALBwL29QECBf7+Afv+9gP/B/708/sACP4J+P/3/v/9/wYHCwAEAv8CBf8E/wEAAAUA/e4B/v8KAQP+//8C/vX9+wD+BwMABwsQ/QD5"
+    "embedding": "6vTuEwz0GgD/Bvsc+/L++QkK+wMFGQsM/wbz5hXr9P8gGQj/8vQMDfAbAwvO/fwK5AX94/H+B/fx7QD//g/mDQ=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 商学院 > 联系方式",
     "content": "- 学院就业投诉及建议联系人：石老师 | 葛老师\n- 学院就业投诉及建议电话：028-87828593|028-87825650\n- 学院就业投诉及建议邮箱：cduestciob@126.com | gecong945@sina.com",
     "url": "/campus/academy#联系方式-2",
-    "embedding": "AAAF+wAHAPYAAA0HAPn7B/b4AAAAAPsA9QAFAAAABfsFAA0IAAD2+QD5AAAAAAAQABAAB/sHBwAAAPsAAAAAAAAQAAAA+QAABQUAAAAAAPsFAAAAAPkOAAD7APkA+fMAAAoL+wAAAOgNAAUA8vYH+QD7BRUAAPkAAAAABeYA9gAFAA7+AAALAPbyBQD1BQAAAAcAAPkAAAAAAPv5AAX1APsACvUAAAD7BQcAAAAFAAAA+QDsAP4AAPv7AAAAAAr5APD7C/YAAAAAAPsLAAsFABAAAAUH+wAAAAUAAPvxCgAA+wDyAOMAAAAAAAcA+QUAAPsA+/YF7AAAAAX5AA0F+PsAAAAABQD5AAAAAAADAAAFDvsABQsA8gDyFAAAAPsAAAAAAADyAPsAAAUABwUN7QcABQACBwDy8wcAAAAAAAAAAAAA8gAA8wAFCvv5/g0AAAAA+/X5AAAF+QAAAAAABwUABQAABwD7/v4AAAsHEgX7AAX7AAD7APIH+wAFAAAA"
+    "embedding": "9/DvHwz6CwEE/+sa9vf+9gYNAf4EHRQG+ATu9BTy+AQiIAb9+ewNBPMYBAnR//sR5gP93/UEEPv98v4B/RPhDw=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 文理学院 > 简介",
     "content": "文理学院是学校七大学院之一，不仅承担全校大学英语、大学数学、大学体育等公共基础课的教学工作，还担负英语、翻译、应用统计学、休闲体育四个本科专业和休闲体育以及电子竞技运动与管理两个专科专业的培养任务，在校学生1600余名。\n\n文理学院拥有一支高职称、高学历、年轻化、国际化，教学水平高、科研能力强的师资队伍。\n\n现有教职工130余人，其中省级教学名师1名，硕士生导师2名，教授5名，副教授31名；10余名教师拥有英语口译、笔译二级及以上资格证书；15人次获得省级、国家级教学大赛二等奖以上；国际级裁判4名，高级别教练员3名；“双师型”教师占比高达50%以上。\n\n近三年来，在核心期刊上发表学术论文30余篇，包括SCI一区论文；获批高级别纵向项目20余项；授权专利10余项；执裁高级别体育赛事50余场，包括第31届世界大学生夏季运动会等赛事；编写教材10余部，包括国家“十四五”规划教材两部。\n\n文理学院旨在培养具有时代精神、创新意识、国际视野、文理结合、文体结合、基础扎实、技能全面的应用型和复合型人才。\n\n其培养模式新颖，通过实践实训、校企合作、产教融合、专业融合等方式，培养了一大批适应地方经济发展的高质量应用型人才。\n\n英语类语专业着力培养跨文化、宽领域、精外语、有特长的“外语+”复合型人才；统计类专业打造具备数学、统计学以及大数据领域知识的跨学科融合应用型人才；体育类专业采用了多元融合的课程体系，实践导向的教学模式和聚焦前沿的创新理论，培养推动行业发展的创新型人才。",
     "url": "/campus/academy#简介-3",
-    "embedding": "AgYAAwEEBgD+DfwAAQj3/gP5AQAABQADAgL9Bfr6+v76/gcNAfMG/AH7Bv77A//6AAgHBgIJ9g3+/QL+Avr+B/v+CPoG+gACAAL9CAf5/QL7+QMDAgD++QTxAgID9/4B/w0CDv78/ucKAvoIAQD//v79AAD++gYDAAkAAvMG+vMJAAIF+Qb+/wL3Df4G8/sDBAsG/gAJCAn99QL+BPoCAvUAB/kGBfQADgAABP////rvAwcJ+P4C9wbz+wMGDg0N+/cEBQgAAP8G/gEB/gAAA/sC/QACGAML9Af5/v4C8QH7+gDz+/L+CAr7FQLzCQEFAvMA9wcD/P/9/vr+/gL/BOf1BgIC/fcJ/gL4A/74Agb+/v30+AID/gAF9Pv4/AgCDAT/AgIGAAH3/fsFEAEB+wUA/f8FDf8C/QP9CvkKAf/6/P4B+/j0AAIAAvv/Bf35/gICAAIA/wD+Av0H/gUA9gkA+gcC//MG/gv7+gvzAvr/Afb6AP4CCP79AAYF8gP3"
+    "embedding": "6fPsEQX9GwD+Bvka+PX/+AoF/QEFGAgL/Ary3xHt9/4hFgf98/UMDvMgAgbL+/gK6AT+4u39/fnv7woB/A3rDA=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 文理学院 > 简介 | 学院情况 > 文理学院 > 联系方式",
     "content": "近三年来，毕业生就业率均在93%以上，深造率均在同类院校前列；学科竞赛成绩突出，取得了全国大学生数学建模大赛一等奖、“理解当代中国”全国大学生外语能力大赛金奖以及“舞动中国-排舞联赛”特等奖等优异成绩。\n\n文理学院以“立德树人”为根本，形成了“教学-科研-社会服务”三位一体的发展格局，在人才培养中创新，在科学研究中突破，在社会服务中担当。\n\n为人才培养、学科发展和地方经济发展做出了重要贡献。\n\n学院情况 > 文理学院 > 联系方式\n- 院办公室 主任：余思瑶 地址及联系电话：西办406 028-87825700\n- 院教务科 负责老师：奉祯、尤宇玲 地址及联系电话：西办407 028-87822775 028-87825023\n- 院学生科 科长：徐小辉 地址及联系电话：西办404B 028-87808387\n- 英语系 主任：李游 地址及联系电话：西办409 028-87828573\n- 应用数学系 主任：帅鲲 地址及联系电话：西办405 028-87828574\n- 体育系 主任：李楠 地址及联系电话：体育场108 028-87825931",
     "url": "/campus/academy",
-    "embedding": "AwAF/gIO/gMABPL9AAIIAQHu/gL8/QcDAAAA/AADBQAD9AMNAPYBBP7+/v0BAPwO9/r8AAcABQXqCggDBgf5//oO/wAI9gP9AAT9/gP78wD5/wD7AP0ABPv+AwMD/gIFBAQAAv/6/QAQ/gEBAvYO/wABA/oD9wL9BQD9DPID6P4EDgAA/gMFAwD7AAMCBAQCBQUFAPUFA+z+9/7+CgX9Av4AEQgFAf0ABAD+/QcC/gL7/AACAgL7AP4C9/379xL6/fj9BvgAAf8KA/sA/gsCABkAAAUDCAMDAgD9/QD/BP4DAPf/CuMC+AH8AwIHAAMC/P0DBAMG+wr+/gEA/Q8Q9fMFBf3/COsEAAHy/QEI/wP98v/yAAsE+fkICAj+BQIB/QD/AP8DAxQC9AQAAgER9AACAAIDBQAA6wj7AgL2Av4J/v4B/gL/AP77DvsAAAP6/AX8/fgACQIB/wAD+Pv++f4A+wD2/QEAAv76/QAFCv/+BQHyBgD8/wIOAwIE+/4A"
+    "embedding": "7PHrHgz6GgEDAfMZ9vT99QkF/wAEGQ0J/gjx6xPu9gIjGQf/+PUPC/EdAwrT/fgK5QX94fMCCfj47AT//xLpDw=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 艺术与科技学院 | 学院情况 > 艺术与科技学院 > 联系方式 | 学院情况 > 航空学院 > 简介",
     "content": "艺术与科技学院迄今已有20年的艺术设计教育办学历史，形成了专业突出，模式先进的优质办学平台。2004年以来，学院坚持“为党育人，为国育才”初心使命，秉承 “厚德笃学、求实创新”校训精神，将“艺融科创，至新至美”的院训思想始终贯穿于学生的教育和培养工作中，并把“素质”、“知识”和“能力”的均衡发展作为培养市场紧缺的高端复合型应用人才的准则，把服务地方经济及社会发展需求作为己任。\n\n艺术与科技学院现有教职工98人，在校学生2300余人。由国内外具有重要影响力的知名教授组成的专家团队作为学科建设的顶层指导，以及一批教学实践经验丰富、专业能力过硬的中青年教师作为授课主力，共同组成了强大的师资队伍。\n\n学院情况 > 艺术与科技学院 > 联系方式\n- 艺术与科技学院:cduestc-art@cduestc.edu.cn\n- tel/电话:028-65495968\n- 官方QQ:1467656048\n\n学院情况 > 航空学院 > 简介\n航空学院创立宗旨是面向航空制造、航空维修和航空服务行业，紧盯用人单位需求，注重思想品质和素质素养，强化基础理论知识，突出实际操作能力，为国际国内航空工业企业、民航运营和维修企业等培养大批合格的技术服务型和专业技术应用型人才。现设有航空制造系、航空维修系、航空服务系，共10余个专业。建有设施设备完善的航空工程和航空服务的实验实训基地，配置有包括实体飞机、航空发动机、各类技能训练、模拟客舱、无人机、适航、计算机仿真等实验室。",
     "url": "/campus/academy",
-    "embedding": "AAoE+wQA+Af/AvH7Cf4EBQruAAEE/gL++wQEAAoB+vYEABEABwAG/QX7AA4A/QL4AgP+/PME+wAFAwUB+v34AwMfBPn9/f4J9QEAAAj7/wYCDQAA/gb/Bv8GAfgC+/n9BQj//AX+AAD+/v8D+P0AAQj7//r+AAL5BfsO+/wB+AgCAv31CAAB9QAC/wL5AQT1/QkB+f8FAAH9+wH3+AME/gQICgP/A/j3AwEIAgEDCgICAhYF+gII9wD3/v8AAv/6Be37CQAA9/sIAgDzBAUACwEIAAr4/wH9Bf74BAYBEAID+f0P//gFAPj6+/4D/QAS/wH/BgwN/gj9///9Cv778Pj6AwIAAvv9/Qf8Bf///wIR+/j7/wX++QX4Bvv6/fX5B/j7/wAG+wL/9QED+wUC/wIB9v8F/QX/AAX/BQP7Avv/+vb5//oQ/fH7/gP7AQICBgP+7f3xBfACCAgFCvv6AwX3/wkICQP/Bwbu/QEHAPz+AvEKAAX+/fkFCAUC+AUM"
+    "embedding": "5e3rGQ35FgAABPcZ+PL+9QoL/QEDGQsMAwfy5xTs+AEmGgX9+PYPB/EcBQnR/fgI6QP73/QBCfnz7gQA/hDpDg=="
   },
   {
     "title": "学院情况",
     "section": "学院情况 > 航空学院 > 联系方式 | 学院情况 > 马克思主义学院 | 学院情况 > 马克思主义学院 > 简介",
     "content": "- 邮箱：611731 \n- 就业投诉及建议联系人：凌煜杰 \n- 联系方式：0838-8110636 \n- 邮箱：328906021@qq.com\n\n学院情况 > 马克思主义学院\n> 马克思主义学院是老师专门的学院，承担全校思想政治理论课教学任务，负责思想政治理论课教研、科研等工作。\n\n学院情况 > 马克思主义学院 > 简介\n电子科技大学成都学院马克思主义学院成立于2023年5月，承担全校思想政治理论课教学任务，负责思想政治理论课教研、科研等工作，履行对学生的价值塑造、立德树人之责。马克思主义学院拥有一支毕业于211、985院校的师资队伍，年龄、职称结构合理，教学经验丰富。\n\n近年来，在学校的领导下，马克思主义学院积极探索大学生思想政治教育社会实践，构建协同育人的大思政课格局。马克思主义学院制定针对性的教学方案，采用多样化的教学方法，注重发挥学生主体性作用，积极运用小组研学、情景展示、课题研讨、课堂辩论等方式组织课堂实践。成立以来获得无数荣誉，例如：荣获学校教师教学大赛三等奖、思政课年会教学竞赛一等奖、二等奖、第二届四川省民办本科高校思想政治理论课教学比赛一等奖、“大学生讲思政课”校级优秀指导教师奖。\n\n展望未来，马克思主义学院将继续遵循教书育人规律，不断推进教育教学改革、教师队伍建设和课程建设，提高思政课教学质量，努力培养德智体美劳全面发展的社会主义建设者和接班人。",
     "url": "/campus/academy",
-    "embedding": "/wEB/gIBAAsAB/8AAPX3A/3tAgHv+/77Af75AQAD/wQS/gcAAP76/QACB/7+AgUL+v0AA/4Y/gEBAQIC/wAC+wYOAPX89//9/voC/gUD/gAAAwL9/hcB/vz+B/39Bfn+/wgODP4C/AMG/AAA+w7//gAB/uf4//4BEgACAvcC//kCBwYSBAIC//wBAf0DCAH+BPz++vkB/vwF/wcA+f3+FgEC/wQP/wP9AgMbCwH//vn+EAMA/v8BAwP+AgID//n9AvwC//kC9foNBQD9/v4AAwro+wX0/vcJBAMCAP0HAvz+AP79+eYA/wT//gb9AgsAAgQCBQr2+wIBDAAC/wsD9gP8CAAQ/foCAPsABfv5Auv+BwH//Qj/+f/+Av33A/v+BP7++v8ABAL4AAQF/v4cAQICA/4AGQb6Bf/2BgcA/gIHAfsA+fz/CPH4/gAD/gwB+gT7+AIB/fwAAAL5AwIC/v4CAgP+Av4FAgT8AAMABggABgEAAAECAAH+/gYABwIC"
+    "embedding": "8OznGQv+FAMDBPEY7/T5+QcH//0DFQsI/wn18xbv9QUlFQcH9vIQDu0hAhHK/P0M7AX95fEFBvv18ggB/BHrDw=="
   },
   {
     "title": "防骗指南",
     "section": "防骗指南 > 入学常见骗局 > 冒充官方群组 | 防骗指南 > 入学常见骗局 > 以学习课程为名的网贷诱骗",
     "content": "这种骗局主要是自称是学校官方组建新生群或校园墙，谎称在群内发布入学、选课、转专业等事宜，吸引新生加入后则通过买课、领取课程等方式实施诈骗或引流。常见文案如下：\n\n> - @全体成员，此群作废，请转移至老师新群，重要通知将在新群发布。\n> - 新生须知，加校园墙了解录取通知、宿舍安排、开学事项等。\n> - 大学必备的，了解大学生活、转团关系、录取预测等，别错过！\n\n这些群组为了广撒网，多使用“20xx新生通知群”、“24事宜通知群”等不指定学校的名称，所以群组名称不包含学校或学院名称的大概率都是假的，同学们不要加入。\n\n防骗指南 > 入学常见骗局 > 以学习课程为名的网贷诱骗\n这种骗局一般打着免费分享课程和学习技能的幌子，常见有PS、Office、编程、绘画等。吸引新生加群后诱导添加所谓老师微信或扫描二维码领取课程。常见文案如下：\n\n> - 还没加大学技能墙的，抓紧加下，错过不再来！\n> - 免费分享绘画、插画等大学必备技能，为学分、实习、工作打基础。\n> - 名额有限，100人满员，速度加入！\n\n诈骗方式：邀请至绘画、PS、剪辑群中，先发放免费课程，随后私下加好友，宣传报名后可以兼职接单赚钱。报名时会签订分期付款协议，实际为高利贷，待无法还款后会推荐其他网贷平台借新还旧。放贷机构大概率已经通过APP拿到个人身份信息、通讯录好友，便于后续威胁还款。\n\n建议：Office、编程等技能确实是进入大学后的必备技能，而B站上就有很多免费的课程，对于想在假期学习一门技能的同学建议去B站学习。",
     "url": "/campus/anti-fraud",
-    "embedding": "/vsCAPUIAgABCQcCAgH7Avv9/gQA//8D/QX9+vUMCf4DAPIO/gD+BhcM+fsC9fQE9AQABwLz9QACAfkCBAAF/vsD9AMDAQH5+f8D+QUAB/4EAwb8DPkP+fwBEfsGAAQO/gIH9wL5/gL6AgYA/P/0/voKA/73AQIE+fv/Bv8HAvT2AAAD//4J/Qn+/gf3Bv0I+Pz1AP8D+gIC9vz/+f/vBgYJBwMCAP74AAf2+P4LCgD9/wP7AwUA/P4G+wMVAgIE/gb/Avr+Av0GAQL4Agr1/gIA/QgX/vv7/AD+/f4H9wAAAgD+/vMD/PcBAQcA/v8CA/7/A/wIAvb5/ff+/AcIAvvy+QD19gD6Bvb47/n6APQA+QD++wYC/fj/+f4K/vz+/AcDDwP7/Qj++AMHBvkA/f4KDf8B+AD4+wL4Agb+CQkFAv4JAv4A+vcRAQb7BvoK+g/+Avv+B/sABfj+AgcIBgIF/AQCAAUK+/0CAAkP/v0NA/kG/PYCAAb+7/4D/w37"
+    "embedding": "FOH7I/EGz/wADPr/9w359gIjA+QEAwAJ7hf2BAD1EQ0MDfECAAsF/QEdDCLi/wQNBQP8A/oN/ALZDxb1/f0FBw=="
   },
   {
     "title": "防骗指南",
     "section": "防骗指南 > 入学常见骗局 > 购物返利、刷单、寄拍等 | 防骗指南 > 入学常见骗局 > 预付卡消费后商家跑路",
     "content": "假期很多同学想利用这段时间打工赚点生活费，而这些骗子就是抓住了这种心理，通过宣传动动手就能赚钱的方法吸引新生入坑。常见文案如下：\n\n> - 学校菜鸟驿站线上超市，商品5折，送货上门，不满意包退！\n> - A4纸100张9亓(元)，美妆旗舰店半价，零食低价抢购！\n> - 抖音 快手 小红书 视频号评论，一条1米，简单复制粘贴，免费靠谱，可长期做，每天轻松一杯奶茶钱，做的私我\n> - 打扰啦 我是网拍买家秀模特博主想找我几个模特来拍衣服✌🏻群是朋友给的嘻嘻都是正规渠道🍑合作的 衣服也都是森马 海澜之家 拉夏贝儿美女帅哥都可以来简单不拍照的也有想做的可以➕我打扰啦😽\n\n这些骗子在前期通常会给予一定的报酬，在取得信任后以“充值越多、返利越多”诱骗受害者继续做任务，再以“连单”“卡单”等借口诱骗受害者不断转账，最后卷钱跑路。这些骗局不仅容易造成财产损失，而且其中还可能涉及违法犯罪，请同学们提高警惕。\n\n建议：对于想在校期间赚生活费的同学，我校有勤工助学、导员助理和小班等岗位提供薪水，可以在入校后留意相关信息或向辅导员咨询。\n\n防骗指南 > 入学常见骗局 > 预付卡消费后商家跑路\n常见场景：健身房、理发店年卡优惠，享受全年服务。\n\n隐患：（数月后）商家关门，预付卡无法使用，消费者损失惨重。\n\n建议：办理健身房会员前请先评估一下自己是否能坚持自律，不要冲动消费。",
     "url": "/campus/anti-fraud",
-    "embedding": "+vQDAPkO9wUCBf0A/RDyAgH9/wQD+AIMCgDyAwIL/vUD/fMC9PoJAf34//sOBQQR/gMGBfr7+wAG/QMDCAYUAPv7/QP3CgH9/ukDA/0D+/0D/QL5CgL+Av0AAwP6/foE+gP69gj2AwP9+ggI/wX3/f8FAgP9AwEA+AYFBgD9Bfz9+QP9AAP/BQb9CPv4Dvv9AfsDBP4GBgH95/36+v35/AD9BwAAAwYJAgb+/QP7+gAEAAMF/QT1AAMA8gH+BQQCCAD/BQX6/RID+/rzBwUABwD/8QgACAoIA/kABv35+wP7B/r9/fgA+QP7BPoJ9gEAAQkDCvsJAwMA8vv+C/8A/v36APkDDwD0A/UJB/kGBQMBAvX4Av3//wT9/gQD/wP2BgP6Av33Af4CFP4D+AIO+vMAA/0D8QAJAQT/CAEDBv0AAwf5CAYFA/8D+wYF/f0JAwj9+wD7+gEG+QX+A/gD/wMGAwYGCwsDAQbw+PoD+/sSAf3/A/v4/fH9/QAD/e4A"
+    "embedding": "FOL+Hu8Dx/wAC/cA/BD/9f0pA+UBAwAH6A/0BgD4FAkKDvH9AgsF+gQWDSDpAQQRAwH2BfsL/gPcFBL2+f8FAw=="
   },
   {
     "title": "防骗指南",
     "section": "防骗指南 > 入学常见骗局 > 志愿者证书",
     "content": "正值新生开学，有不少自媒体营销号会推荐参加一些所谓志愿活动，声称这些活动可以免费参加，而且可以加综测，如保护大熊猫、保护珍惜动植物问答、传统文化宣传等。常见文案如下：\n\n> 参加公益活动，免费获得志愿者证书，加综测，不容错过！\n> 保护大熊猫活动，免费参加，领取志愿者证书！\n\n首先，这些活动大多不是官方组织举办，学校不可认可这些活动，也不能加综测；同时，这些活动虽然可以免费参加，但活动后通常会要求支付工本费或快递费才能获得证书；最后，这些活动可能要求填写过多的个人信息和转发宣传，可能泄露个人隐私。\n\n建议：新生入学后会发放学生手册，里面对志愿者活动及综测都有非常详细的解释，对于热心的同学，入学后可参阅学生手册或留意校青年志愿者协会有关通知。",
     "url": "/campus/anti-fraud#志愿者证书",
-    "embedding": "APwQ9fgG/f8DBgMD/AMDAAT8DgMD9wkADAD8AP39AAD2APwABgP6BAoCAwD8AP0R+u0DAwP7DgP9AAT7+vgO/QD+EP34BQAA/AMEAPoECPj8AgH8CgQCDfoAAAMGAAMAA/0D/wAABAP7Bfj9APX9+AT9AwD8A/AIAwADAPT7BgD9Avz6/vf1+AP3APz6CwD6//39CwAEAAD8AAQI/fwA9wH8AwD2BPv9CPz/AAAD/wT8BP39/PsIAAYBAPP9AggDCQL9BgAAAAUE+AECBPz9AwMDAwQCAAn4BOr8AAgL/AMB/fz9AAP4AAb0BP0D/f8ABP4G/AAA8QAD/fb8AREGAAYJ+AAB9wAABgUDAPgCAP36AP389woAAwMD+AYG+vwJ/wsIAwH99QDuDPMA//0D/foDDvr9+/wBAAb6Df39AA0AAPoA/w4FBgMNAwAZAAII/gP18v0B/QD9APoE/f39Awb9AAsACfoD7yMGAwP4/fUQ/vD89gD/AAD9+wEDAAYD"
+    "embedding": "Dt78HewH1Pn/C/wB+Az7+wMnAeMBB/wJ7hP2Agb1EgsPDfMCAQ8G/AAcCB/g/gIMCgX9APYJ+ALQERL6/fwECA=="
   },
   {
     "title": "防骗指南",
     "section": "防骗指南 > 入学常见骗局 > 有偿投票 > 面向普通学生 | 防骗指南 > 入学常见骗局 > 有偿投票 > 面向社团负责人 | 防骗指南 > 入学常见骗局 > 诱骗转账",
     "content": "- 能“付费买票数”的活动不参与，切勿贪图投票奖品而付费投票。\n\n特征：\n\n- 投票奖品通常是高价值的奖品，如手机、平板、笔记本电脑等。\n- 投稿内容简单，通常是校花/校草排名，摄影作品投票，新时代好青年投票等。\n- 投票规则简单，通常一天一票。\n- 主办方不明确，或是提供的奖品价值与校园社团经费明显不符的。\n\n诈骗方式：\n\n- 待投票后期，会产生若干位票数较高有希望拿到奖品的选手，他们是诈骗的目标。\n- 会有票数迅速上升的“托”即内部人员，他们的票数会超过票数较高的选手。\n- 此时会出现付费投票选项，票数较高的选手由于不愿意让前期努力拉票的沉没成本浪费，往往会选择付费投票。\n- 但“托”的票数数据是可以随意修改的，之前有希望拿到奖品的选手很难拿到目标奖品，如果能拿到，其价值也远远不如投票付出的费用，并且常出现“货不对板”“产品不符”的情况，也难以维权，吃了哑巴亏。\n\n防骗指南 > 入学常见骗局 > 有偿投票 > 面向社团负责人\n有偿投票都会说自己是“无偿投票”，直到活动后期才会暴露出真面目。\n\n特征：\n\n- 有陌生账号联系负责人，声称为“校园赞助商家”；有的会说是本校的，但问几个小问题就露馅。\n- 会提供“奖品”“活动费用”用来举办“开学赞助活动”。\n\n防骗指南 > 入学常见骗局 > 诱骗转账\n常见场景：利用紧急事件（如突发疾病、事故）骗取同情心和信任，要求快速转账。如“表姐住院急需用钱，银行卡转账不便，请帮忙微信转账”。\n\n建议：保持警惕，核实信息来源，不轻易转账，是防范此类骗局的关键。",
     "url": "/campus/anti-fraud",
-    "embedding": "APUB+v8J9g8DAfz+AAP2AQH6+QX5Agj99P78AgAACAcJ/vMG6AT7CQD29/4DAv8UBQj8/wQDAfsB+Qn9+gQP/QP6Cf3y/Pv9Av38Af4D/v4FAQYGDPwAAAAA+/wJAwYGAAcO8QH9+wIE/Q39Agb2/f8J+f3+/fwC/PH8/QL+AfvxAgAO/gUD7gX0+wL+AgPyAwL5/vsG/AP7+/MBA//wB/0DAfb7/wUKBAMFDAf+AQT9/vwC/Af7AgUKAP0AAAr6Df8F/gAI/AoICgLy/vz2AwL2Aff9AwH7+P/88f0KBv4BAAIH+wX4/P4A+fwE9OD9/gIAAQP+/gL//gUD/fsEBAgA//0IAPsJA/cF/Pr9/QP6/gD9BAwBAvsB+P8A+wD+B//5BQABBPoMEfz5Bv38//79Dfb78wgKAvn8Av//Awr79/IBAfsBAAX8AgUFCf8O+fkD8wkOAgEDCf4ABAL6AwL+BwIBAAMB+RAGA//7/gER+gD7/gf/AP79/wb/AfwC"
+    "embedding": "FuL+Hu4FyfoBDPb9/A//9wEnA+QCAQcK6xDzCwL3EgsLCfL/AQwG+gAWDyPmAgUQBQL1AvkMAQLcEg73/P8BAw=="
   },
   {
     "title": "防骗指南",
     "section": "防骗指南 > 入学常见骗局 > 生活用品推广 | 防骗指南 > 入学常见骗局 > 付费课程 | 防骗指南 > 校园网/校园卡相关{#network-card} > 你需要知道的 > 校园网与校园卡的区别 | 防骗指南 > 校园网/校园卡相关{#network-card} > 你需要知道的 > 校园网与校园卡的关系",
     "content": "新生入校后可能会有自称是学长的人到寝室推销各类产品，其中包括清洗剂、笔等生活用品。在推销时，骗子通常会展示一张购物平台的截图对比，然后称从他这买的可以有优惠。但是实际上他所展示的截图是伪造的，而所谓的“优惠价格”比正常价格要高得多，非常典型的就是清洗剂。\n\n建议：新生对这类推广一定要提高警惕，对于生活用品，新生可以选择自带或者在学校内的超市购买。\n\n防骗指南 > 入学常见骗局 > 付费课程\n这类骗局主要是入学后有所谓学长学姐到宿舍宣传一起学习英语等课程，需要缴纳一定的费用。我校2023级新生在入学当天，有校外人员假扮学长/学姐以组建英语小组为名，骗取了数十位新生每人50元。好在有小班及时报警并拦截才将骗子抓获并追回被骗财产。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 你需要知道的 > 校园网与校园卡的区别\n首先明确校园网本质是一个局域网，可以理解为一个覆盖全校的路由器，校园内的上网活动都是通过校园网进行的，而校园卡其实是一张手机卡。此处应与新生入校时领取的，印有学生信息的卡片区分。新生入学报道时在小班处领取的卡片亦可以称作校园卡或者“一卡通”，这张卡片的功能包括吃饭、借书以及门禁。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 你需要知道的 > 校园网与校园卡的关系\n是否办理校园卡与能否使用校园网没有必然联系，学校内的校园网由三家运营商提供。未办理校园卡时，同学们可以使用手机流量上网连接到校园网；办理了校园卡后，同学们则可以通过WIFI或宽带接入校园网。",
     "url": "/campus/anti-fraud",
-    "embedding": "BhD/BOgA/AcGAP8A/P8F//wB/P4I/QP///0CBwb0/P39CPIB/QH/FwEMAgAE/wETAf39BP///wb7CQTz/QQFAvgIAQP9DQ8A+gH7Af4C+AEF9/n6BAIA/v/+AAgF/wcM+vgB+AEB+xT/6wv9/QLzBAQGAwIG+wP+AAH+BgP/+QAA+wP+CAH9AQL/Af3k/AQA+/7/+gb+APz8AQIA+gTvAgb6AAAB/fwDBiL6Avz8/QH8AgMGAQL/BfYBAQED+wkCBP35A/gB+v/vAgHz///8AfMF/wEJAwEBBQP//AbyA/8BAQH3DAH8/wT8/gAFAwgI+wH0AAH6/P76++r+//cGAvr/Af7+9wH/A/0BDAADA/gG+P3+BAwC/wEB/gEA/hz7/AwCAQEAAQEACPwGAf0FB/8CE/gB+f76AAT9/O4H/PX+AgYGAf78Afr2/voFBQIGBvsCAfwF/gEKBg0DAgH/Av0C/QH5+gT9/fv8Af8D/wAPAgD//wEP+gUG/fwB/vwC"
+    "embedding": "DeT8HfAHyfwAD/n//Qz99wIlAuQEAwQH7RX1BgP0FQwMDfMAAgcG+wAYDibiAQQRBAL4AfsL/ALaEhT49wAEBQ=="
   },
   {
     "title": "防骗指南",
     "section": "防骗指南 > 校园网/校园卡相关{#network-card} > 你需要知道的 > 是否需要办理校园卡 | 防骗指南 > 校园网/校园卡相关{#network-card} > 常见骗局/误区 > 不办理校园卡不能上网？ | 防骗指南 > 校园网/校园卡相关{#network-card} > 常见骗局/误区 > 不办理校园卡不能参与选课？ | 防骗指南 > 校园网/校园卡相关{#network-card} > 常见骗局/误区 > 宿舍内无法装宽带？ | 防骗指南 > 校园网/校园卡相关{#network-card} > 其他注意事项 > 留意校园卡套餐月租 | 防骗指南 > 校园网/校园卡相关{#network-card} > 其他注意事项 > 小心套餐升级",
     "content": "是否需要办理校园卡主要取决于你的流量使用量。对于原本手机套餐内流量额度较少的同学，办理校园后可以通过覆盖全校的校园网WIFI使用网络，无需担心流量费用。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 常见骗局/误区 > 不办理校园卡不能上网？\n错误！办理了校园卡后可以使用WIFI等方式接入网络，不办理校园卡仍可以在校园内使用手机流量上网。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 常见骗局/误区 > 不办理校园卡不能参与选课？\n错误！选课期间同学们需要通过数字校园统一身份认证进入教务系统选课，任何一台连接了网络的设备均可以登录教务系统，与是否办理校园卡没有关系。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 常见骗局/误区 > 宿舍内无法装宽带？\n错误！我校宿舍均接入了联通和电信的有线宽带，办理了校园卡后即可使用宽带上网。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 其他注意事项 > 留意校园卡套餐月租\n有些运营商在办理套餐时可能偷偷加一些不太用得上的服务，比如自定义铃声。这些服务在办理的前几个月是免费的，但几个月后这些服务就会开始扣费。想要取消这些原本套餐外的服务可以拨打对应运营商客服电话或直接拨打12345市民热线举报并要求退还多扣的费用。\n\n防骗指南 > 校园网/校园卡相关{#network-card} > 其他注意事项 > 小心套餐升级\n办理手机卡一段时间后，可能接到运营商的电话推销，声称可以免费升级套餐，需要注意的是升级后的套餐价格是否变化。",
     "url": "/campus/anti-fraud",
-    "embedding": "ABcEAPQA/gMAAgD+//7+/v4BAQMBBfn/A//+CAr+9/8B/wUAAQIDAf8DBAL///cR9gL/AfgDAAr/AvzwCg0EAvoVAQMCAQH+9gD+ARAC+gD5BP/9CAH7+An/AQMPAQUI8/EBAQD+/wUB/wP+9v/9AQAEAQL//wQB/P74BAQB8AD78wADDAMBAP8A/P7xAwUA8v4BAAYCAwABAg4B/gD0+QLzAP7/AQcDEhMBAf4FAf/6/gMD/wUAAvb/Af38/Ab/Bv79BPP8/wH5Afz4AgH+/fz5/f4DB/0EEP0GAAD1CAEA/gXzBP/+/v71//wA/gEABQAAA/78AAH//+n/9PcC/P/8AvoB/fz//QMADQMB/gT9AAAAAAEG/gAA6wIC/Rz8+Q76AwECAAEEEAIEAwELDQT7B/r99gD2/QHvAN8CAfwCA/3/BQQB+QH5//EEAQP4/e/+AgL7AQcE/gwOBwD9/wH+AgQA9AAB//X9AP////wMB/8BAf4N9QAGBfoABPMA"
+    "embedding": "Auj/H/cIy/sCE/wA+Ar67AYgAOcGAv8E6RT3BQXsFQ0CEu3++Q4J8v8fDCDmAgMUBgL4Af0N+gTaChL1+gMGCQ=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 党委保卫部 | 保卫处 | 职能部门 > 教务处",
     "content": ">负责安全保卫工作的部门，对于维护校园或机构的正常运行和保障师生员工的安全至关重要。\n\n- 成都校区地址：东办公楼1楼122\n- 成都校园24小时报警电话：028-87825008\n- 什邡校区地址：师生活动中心二楼213\n- 什邡校园24小时报警电话：0838-8198110\n- 什邡保卫办公室：0838-8107819\n- 成都保卫处办公室：028-87828639\n\n职能部门 > 教务处\n>主要职责包括教学计划与教学改革、实践教学与产教融合、教学运行与学务管理、教材建设与管理、质量评估与认证等工作。",
     "url": "/campus/connect",
-    "embedding": "Bf8E/AAA+wAAAAAJAPf5AAoEAA0FAPsA/Pv3BfwE9QT/AAQABfwAAPwEAAQE8wAEAAAA/fwE9QIAAAQEAPL79wAEAPcAAPUEBg0A//ztBPsBAPEF//wL/Pz8CvYEAff/9wP6/AT8APoGAAcA/O32AgD5AQDzAAkGAPv6/wD27QAEAAAEB/8ABQcP+/wA8QT1ABP/+/wGAPMAAAAAAgQABAAFBwYA9wAF/BAEBw4AAPMC9wAH/AsAAPwA+QT8AA/8AAAEAAAACQkA+fz8+gH5BAn5/AUAAAAL+wAW/AD5APwFBQIE/wQBAAQF/AUE8gD8BPwV/AD8Bf78BPwEAAoFAAD8/AD5/PkABf/8AAf3AAAABO0KBAAA/PL8AP8FCfwADw/wAQ0C9fwAB/YQBAAK8w4A/AIACwAH+gAJAAEAAAcJBf8E+QD7+wAABvUGB/cFBAD8BPz++wD7BAAG/AcEAAAF+/wA9/L8BPz6BAsAFAkHAAX7AAD3CwYEAAH88gAE"
+    "embedding": "+/P5JwL9/OsWCBMD/QP/3hAHAf4LDgH0/gH9BRL19RX9GwYA9/Qz9uUOECXUCA0M/wIG+AQTEADy+w0C9wQFCw=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 教务处",
     "content": "| 岗位                 | 办公电话        | 办公地点                           | 工作职责 |\n|----------------------|---------------|----------------------------------|---------|\n| 教学质量监控与评估岗 | -             | 国腾科技园三号楼4层               | 教学质量的监控与评估 |\n| 教学运行岗1         | 028-87825015  | 国腾科技园三号楼4层               | 考试管理、毕业设计管理、学生图像采集等 |\n| 教学运行岗2         | 028-87825015  | 国腾科技园三号楼4层               | 排课、调(停、补)课、教室借用、查课等 |\n| 信息管理岗1         | 028-87828635  | 国腾科技园三号楼405               | 学籍、学历、学位相关工作管理等 |\n| 信息管理岗2         | 028-87825766  | 国腾科技园三号楼405               | 教务系统维护与管理、学生成绩管理、教师资格证办理等 |\n| 信息管理岗3         | 028-87863245  | 国腾科技园三号楼4层 | 教师教学工作量核算 |\n| 信息管理岗3",
     "url": "/campus/connect#教务处",
-    "embedding": "/v7+AAMFAAAAAwAFAPwG/v4AAgYAAAAA/gACAv8A7Rj19wAA/wAAAAAG/g0JAv0JBgAA9wD3APv3/v4GCQn9+gAA/vrwEvEA9wDzAgD9BAP9AAD///z+/gAABQD0AgD2/vwA/P4CAu8KAP71/vP9/gMF9/UA9AAAAAAEEfwD8QAA+gIA/wAE/wADAAIC/AP+AAL+/wQABPUAAAL+AwD/Auf8CwADAgH//QIAA/YC/f4DAAX6Awb9//wC/gD3/gYDCv79/foAAP8A+v4G/P8CAA4A/v0AEgACBgAOAP4BAAkDAADx+wADAAACAAAFAwD8/Q3+BwD3AgkCAAH9/gL0AwIAAADy/gAEBAP5BvgAAAAQAAwCAAQC/AD+AAAAAvwA/f0BAPoA/BP8AAAG/hIP9Qr+APoACwAA8v778f3y/QYH/QcA/iUN/AAABgAAAAAAAgkD/v4CAQAA8QP0ACQA/gQOBf4BAO8A+QP+AgAABAAGAP0DAAAA/gIAAAPx/f4A"
+    "embedding": "7fXzFwYAB+sXCxEP+P/75A4AAPsJFAP0AwT6/Rj08BP9FQj/7/8w+eIcCSLPAQkJ/AUL9/8OC//v9Q4A+Av/Dg=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 教务处",
     "content": "等 |\n| 信息管理岗3         | 028-87863245  | 国腾科技园三号楼4层 | 教师教学工作量核算 |\n| 信息管理岗3        \n\n | 028-87863245  | 学院路南区东教A103 | 教材管理 |\n| 教学建设岗1         | 028-87822728  | 国腾科技园三号楼4层               | 与教育厅对接、三级教学项目的管理、专业建设、教学质量监控等 |\n| 教学建设岗2         | 028-87828088  | 国腾科技园三号楼4层               | 院级教改项目管理、人才培养方案、教学检查、教师考核等 |\n| 教学建设岗3         | 028-87828088  | 国腾科技园三号楼4层               | 实践教学管理、二级网站运营等 |\n| 教学发展管理岗      | 028-87829845  | 国腾科技园三号楼4楼               | 教务行政工作、教学研究中心工作等 |\n| 什邡校区教学管理员  | 0838-8107877  | 什邡校区-师生活动中心209          | 教务处仪陇校区相关职能工作 |\n| 教学秘书           | 0838-8107877 | 什邡校区-师生活动中心209          | 教务处仪陇校区相关职能工作 |",
     "url": "/campus/connect#教务处",
-    "embedding": "AgYFAgAEAAAJAgAEAAIBAP79/QgABAAJAAAGBP759Azx+AP9AwP6/fwM/gz4A/4MAAn55fv/A//7/gAADAv8AAAA/AX1DfYAAwL4+wD9BP78APr/+P4JAAT+AADx/gD7/gIA9P0DAOsNAAP8/ur6AgUA+vb/+wD9AAAGBP4F8/v8/QD6Av/9AwABAAUD/gL+AAIA/fT4APD9AgMEAwL6CvMADPz+AP0B/QIAAPsCAAUABQX+AxD9Bf0A/QP+AQcADwAA+wb8/AIAAgcCAQX+/Az+BP4ICgACBQYIAPwCAAMHCQT1A/v8BvwAAP4FAP0C/goHBwL7APsAAAUAAAT5B/3+//77DP7+AAz8BgL/AP4K/gQBAAD9BgAA/v77+AD+AQT1/wQE9hIAAgAP/AQQ/f4BBQL+IP8A6wL5AwDsBgEFB/z98xAA+wX6EAAAAAAAAg4ABAAABAAK7wLz/SEH/AYBBfwHBf8AAgT+Agv/BAoBBQD7+QD7AAAAAQL5AQL+"
+    "embedding": "9PD0GQn5Be0UCBIL/gH93hEC/v4NEAH0/gD9+xDw8hEGHQf+8vksA+YbDiLLBwkN9QUI+f8PBf7z9hT69gYBDA=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 科技处 | 职能部门 > 科技处 > 主要职责 | 职能部门 > 财务部",
     "content": ">科技处是学校科研工作的核心管理部门，归口管理学校科研及相关工作。其主要职能包括完善科研管理制度、项目全流程管理、科研队伍建设、科研成果管理、学报管理、科研活动组织及管理等。\n\n职能部门 > 科技处 > 主要职责\n1. 制定完善科研管理制度，落实科研发展规划；\n  2. 科研队伍建设及管理；\n  3. 科研项目全流程管理；\n  4. 科研成果、知识产权管理；\n  5. 全面负责学报编辑部业务；\n  6. 科研行政管理及对外联络宣传工作；\n  7. 完成学校及上级领导交办的其他工作。\n\n职能部门 > 财务部\n>财务部主要职责是进行会计核算，实行会计监督，实施财务管理，完成各项收费任务，保证各项经费的使用。\n\n| 岗位                 | 办公电话        | 办公地点                           |\n|----------------------|---------------|----------------------------------|\n| 会计科        | 028-87825037  | 成都校区北办公区3号楼四楼               |\n| 结算中心        | 028-87825492、028-87825006 | 成都校区实验大楼一楼    |",
     "url": "/campus/connect",
-    "embedding": "AgAFAPwCAPv7AAMHAAIAAAD0EgD/Av7/AQIA/gEF3QUH+AAAAgAA/QAF/gYBBP8I+gAAAvwAAAMCAPv79wYAAP7+AAICCfMDAP4FAP/t/gMAA/4AAP4Y+v7+Av4C/gL7/v4A/QX9APULBwAF+/YCCAwAAwX//gQA+/4XAvgA+QEA/wECBQD+/gMOAPcA8f/2BwcEA/0BAPj7AAP+CwL+B/4CDgMA/gAC+f0AAPsABOr5/QADAwD9/vv+A/v7/xT5+wL7/gYH/gj6/P8A9hD9Bwv++/j+/gER8wD9+/sFCP0CBwAA+f0GAvsGBQH+AQL3AgIDAwUA/Qb9/fj+AAoCBwAA/AEG/f4XAAL9Av0CFgAA/vr4/gAC/vID/wAA+/gCAAX/+fX9/gf98gAY9gAH7Qf6/v4E+gAC9gAA8/4AAAIAAAMABxYCAgL9DwgA+v4FAAYD/gEFAP0C+QD7AxQC+gD7+wII++j+AAL+BgL7Ef0A/QMAAgAJ/gL+/PwC+QAC"
+    "embedding": "+vT3Iv79Ae8TDRME/wf94xEJ//0LCgL4/Ab8/Bvw9xUBHAL+9u8t+eYVDiXQBg4OAwIE+QIQDAHo/g0A8wQHBg=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 就业创业指导中心 | 职能部门 > 就业创业指导中心 > 就业管理办公室 | 职能部门 > 就业创业指导中心 > 征兵工作办公室 | 职能部门 > 就业创业指导中心 > 校友工作办公室",
     "content": ">就业创业指导中心是电子科技大学成都学院负责本科生和专科生就业创业指导、服务、管理的职能部门，目前设有就业管理、校友服务、征兵入伍等教职工办公室和就业服务学生团队。\n\n职能部门 > 就业创业指导中心 > 就业管理办公室\n- 联系电话：028-87825651（工作日上午9：00-12：00、下午14：00-17：30）\n- 联系人及主要业务：\n  - 王老师：负责就业招聘（双选会、宣讲会等）；就业指导\n  - 邓老师：负责实习实训、实践基地等校企合作；就业指导\n  - 胡老师：负责就业困难帮扶（求职创业补贴、困难大学生就业补贴等）；就业指导\n\n职能部门 > 就业创业指导中心 > 征兵工作办公室\n- 联系电话：028-87828593（工作日上午9：00-12：00、下午14：00-17：30）\n- 联系人及主要业务：\n  - 石老师：负责就业创业政策咨询；征兵入伍咨询；毕业生毕业去向材料办理；档案查询；就业推荐表\n\n职能部门 > 就业创业指导中心 > 校友工作办公室\n- 联系电话：028-87827816（工作日上午9：00-12：00、下午14：00-17：30）\n- 联系人及主要业务：\n  - 何老师：负责学校校友资源的管理与维护；制定校友工作制度；规范和制定学校校友工作管理办法和监督机制；校友资源管理；开展校友活动",
     "url": "/campus/connect",
-    "embedding": "EvwBAfj8AP4FB/4ABgIAAQADBgIA+wDt/P8BAPQA9O4GAAj6AP73Av0A//4BAPr//+gF+gIC/QULBvoB/wAAAP/8AgADAvf//gYD+QDm9QED/wL/AAEUAAgAAvn1BAEA//wGBvj9AvoH/Av//foGAAH2AgEA/QUK+PQBBP8AA/sBAAABBAEH/wEI/P0H8AH0+gT1AQDyAPgBAP/5AQH8CQj0/w4A+gAB//oBBgQAAAIACv//DAH9AP8F/wD5AwPz/PwCAPwD+gH8Af8CDAT/AAr8ABb68AMC/vr+AAP+AgQA/wAC/woABAAAA/76+v0HAf/5/Pz9Af8AAvUBAQb8AgD//QP8AwIAGP388gMJ/AMB9vEBBQAA5P33//UDA/0AAPj+AAAA/P74/wQP/wIGAv/9/wLxAQDp/gEK/AAA/gMA/wEH+gECAQb/B/4ABPkAAAQBBBH/AfwAAAb9/g4CA/0BBQP8AOoD//8DAgEAGAD9/ADsAAoDAQT8Cvv5+AAB"
+    "embedding": "9fXvJQH/CvARCQoO8fz46gsGAf4NDgT6/gb9Axfz8RUHDwQK9fAr+d4UCCnMAQsK/AL/+P8RE/709gwE/Qv/Dw=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 就业创业指导中心 > 投诉建议 | 职能部门 > 实验室建设管理处 > 实验室建设科 | 职能部门 > 实验室建设管理处 > 联系方式 | 职能部门 > 数字校园建设办公室 | 职能部门 > 数字校园建设办公室 > 信息化与智慧校园 > 信息化 | 职能部门 > 数字校园建设办公室 > 校园网",
     "content": "1. 投诉建议联系人：石老师\n  2. 投诉建议电话：028-87828593\n  3. 投诉建议邮箱：cduestcjob@126.com\n\n官方邮箱\n- cduestcjob@126.com\n- cduestcjob@163.com\n\n职能部门 > 实验室建设管理处 > 实验室建设科\n- 实验室建设\n- 各级实验示范中心建设\n- 各类实验项目建设\n\n职能部门 > 实验室建设管理处 > 联系方式\n- 办公地址：电子科技大学成都学校一实验楼510/北区3号楼308 \n- 电话：028-87827331\n\n职能部门 > 数字校园建设办公室\n学院运行的关键部门，网络和网站的运维少不了这个部门，旗下部门为网管会，关于计算机或线上的问题先找网管再找数字办。\n\n数字校园建设办公室为全校师生提供良好的学习工作环境、先进的网络环境与丰富的信息资源。\n\n职能部门 > 数字校园建设办公室 > 信息化与智慧校园 > 信息化\n- 校园网络基础设施建设\n- 教学资源数字化\n- 管理系统信息化\n\n职能部门 > 数字校园建设办公室 > 校园网\n- 核心网络：校园网已实现十万兆核心、万兆主干、千兆桌面接入，确保了高速、稳定的网络连接。\n- 无线覆盖：教学办公区域实现了WIFI全覆盖。\n- IPv4-IPv6双栈运行：内网设备已全部实现IPv4-IPv6双栈运行，核心业务提供IPv6接入，满足未来网络发展的需求。\n- 双出口网络：接入中国电信和中国移动双出口网络，确保网络的高可用性和稳定性。\n- 专网接入：宿舍网络与校园网具备专网接入。",
     "url": "/campus/connect",
-    "embedding": "B/4JA/8F/foG9QABBf798v79Dv7/9/b+AwH6///9+gUBAwMCBQH69P4I+wH/AvsA/QQDAv79Cf0B/wgF/P8EA/3t+QD+//L/APsB/xLrAPH4/fwB//cYAQr+Aw39+/oBA/////sB8wkBCQED/gEB8QoDBAbzAgUEDf8CBgIA/AIAAAD7AfwBAQQS/wH06APv/wcAAvz2AvH3AP8D/f4AA/0BBQgB/wAC/g8CAwH/AQb+//v9BAcB/wD8Av8CAQL5AgPqAf8BAP39/QD/AgYW/QwBAPcF8AIQ/wMD+wH0AAP9//z+AgYDA/8B9QMAA/8C/QUBE/4A/f8AAAn8BAIEAgYAAgUBAAH/Af4C/wEGAv4E/e8AAQYL+AT5AQUBBv3++//9AP31AQEFAAEZ+/0G9QEAAfP9CPP/8v8AAQcFAP33EAD9/QUB9vkC/QELBQMDAQT6Bgf6EfYK//4EAQMBDAQBCPgAAu0E/AP9//wEDP/+/v/7+wMEA/UAAwIEAf4A"
+    "embedding": "8e7yIwX+BvcQDQYQ9fr85w4LAfwLEgn8AA35BBvu9hMHFgIH9/Uq+N8TCSPPAgoI+gL58AAQFgDq+AkD+wv4DQ=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 数字校园建设办公室 > 数据中心 | 职能部门 > 数字校园建设办公室 > 多媒体设备管理 | 职能部门 > 数字校园建设办公室 > 办公桌面运维 | 职能部门 > 数字校园建设办公室 > 联系方式 > 业务热线 | 职能部门 > 数字校园建设办公室 > 联系方式 > 公共教室设备服务 | 职能部门 > 数字校园建设办公室 > 联系方式 > 接待服务",
     "content": "学校数据中心建立私有云平台，利用虚拟化技术实现计算池化、存储池化、网络和安全虚拟化，承载了学校大数据平台、信息化业务系统、数据处理中心和数据服务平台等重要业务。\n\n职能部门 > 数字校园建设办公室 > 多媒体设备管理\n1. 多媒体教室分类及管理\n2. 多媒体教室网络及设备\n3. 多媒体教室安全及运行\n\n职能部门 > 数字校园建设办公室 > 办公桌面运维\n1. 设备管理\n2. 网络管理\n3. 用户支持\n4. 系统管理\n\n职能部门 > 数字校园建设办公室 > 联系方式 > 业务热线\n- 网络安全服务：王健 028-87825501\n- 校园网服务：祁泽睿 028-87825501\n- 信息化与系统服务：石钊 028-87831896\n- 数据服务：舒维 028-87831896\n- 中心机房服务：舒维 028-87831896\n- 钉钉OA系统服务：王以荣 028-87831896\n- 校园邮箱服务：舒维 028-87831896\n- 桌面运维服务：祁泽睿 028-87825501\n- 其他技术支持服务：咨询电话 028-87831896\n\n职能部门 > 数字校园建设办公室 > 联系方式 > 公共教室设备服务\n- 东西教学楼：郑波 028-87828633\n- 第二教学楼：罗谨诚 028-87825768\n- 什邡校区：蓝鹏 0838-8100380\n\n职能部门 > 数字校园建设办公室 > 联系方式 > 接待服务\n- 电子科技大学成都学院第三办公区402（国腾科技园3号楼4楼）\n- 联系电话：028-87831896",
     "url": "/campus/connect",
-    "embedding": "CQIE/QP9APwGCQAGAvz69P4AExX/+PT/BP4EAvsA+wIEAAAAAAEA7/wFBAQI/wIF/AUA/v7+AQECAAAC/gQCAAT0Av4DAPAC/wP/AwX1AQIA9vwA/QIWAA/+BgH8Bv8CAAQBAP/88/wI/f74/+8C9QL7Af7vAv8D/gAAAP4J+f0AAAACAQAAAQIU+wD+7wP4CAT+/vEBAO4AAAICBAEE/vwCBRAA/AMDBw8B/wACAAICAAT8CPz7AQQE/AIDCAf1/wL3A/0EAAETAwIDARL/ABQD+/ID8AQO/wIH8wL//gEAAv/9Af8BAP/+/Qb+7/UGAAICDwIBAAD+/gT4EQYJ/gH8Ag75/wABAgAF/v8EAw7//vX8AQAMAAUABAEA+v//AAAE9AD3/Q8AAv0VAAAP8wEBAPwDBe7+6wv9+f3/AP/9+wD7AQD7/wD/DgQCBv4A/vv+Aw0DEgsK//4A/fwB/gb+Af8A/vIAAwQD+P8EFQIAAP///QIAAQH7/gwCAQAB"
+    "embedding": "8PHzIQT8AfERCwoP9/f75Q4MAf4KEAf6+gP6CRru9xYDFwMI9fQv9d8TDCPTBAoK+gH88wEQEv/v9gYF+gr1Cw=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 图书馆 | 档案馆 > 概况 | 职能部门 > 图书馆 | 档案馆 > 馆藏资源 | 职能部门 > 图书馆 | 档案馆 > 空间布局 | 职能部门 > 图书馆 | 档案馆 > 组织架构",
     "content": "- 成都校区图书馆：建筑面积7572.16平方米，标志性红色建筑\n- 什邡校区图书馆：建筑面积12253.5平方米，校区中心位置\n\n职能部门 > 图书馆 | 档案馆 > 馆藏资源\n- 总馆藏：147.93万册\n  - 纸质藏书：95.12万册\n  - 电子资源：52.81万册\n- 期刊报纸：\n  - 中外文纸质期刊175种\n  - 中文报纸29种\n- 电子资源：\n  - 超星学术中文期刊2200种\n  - 维普中文期刊1.4万种\n  - 电子图书17.3万册\n  - 超星汇雅电子图书32万册\n  - 维普考试服务平台\n\n职能部门 > 图书馆 | 档案馆 > 空间布局\n- 阅览室：17间（图书阅览室14间，自由阅览室3间）\n- 座位总数：3052个\n  - 成都馆：1582个\n  - 什邡馆：1470个\n\n职能部门 > 图书馆 | 档案馆 > 组织架构\n- 馆长\n  - 读者服务部\n  - 资源建设部\n  - 档案室",
     "url": "/campus/connect",
-    "embedding": "CQD+AAAAAP8ADQX2+gAE/QMH/egD/gIKAwEGAPkAAv4E/gL+/vz+/AAAAwIE/AIE/vwA+AD/CgAC+QUA8P/5/QIAAAD+AwL7AP4AAgPs/PsA9wb+9v4YAP4D/gL+/fkCAPwGAAD8BPn/AAIA/AD5AvgAA/7+/wIBAvoA/AIA/AQAAP8ABwoD//gY+vvr8wr1APkF/wD+AP4ABAD8AwH+BP0SA/33BAAB/fcAEgAB+gHnAAAA+f0a+wL+Awb39f8CBvj7AP/5+QAH/AAABAIABA0C/vz5/gASBgL6/f7/BwP5AgEL/wD0GAH+BAAA8wQAAgQBB/PxAAAA/v38A/z/+/4FAP4AAgP+BgL5AQcA+gAIAewFAA3+/QD8+fz8AgoA/gj/AQAA++4K//8CAP8ACwIHAAD3AgLvAAAAAAEA/v8A/hkNAAMCAgT9COv+AP4H/PP8AP8B/v39//ACAAACAgX+/QD9/u4EAPoAAwADAv0AAvwGAAT/AAkHEQAAAgcE"
+    "embedding": "APT+H//7//AYEhYC+gX/3RQGAv8NCv71+wMCDBj18hv4HQQD+vkz++MNECjfCBIKAwIC/wkTEAPu/A3/+gINCA=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 图书馆 | 档案馆 > 开放时间",
     "content": "| 校区 | 开放区域       | 周一至周五       | 周六、周日     |\n|------|--------------|----------------|--------------|\n| 成都 | 流通阅览区   | 8:15-21:30     | 9:00-21:30   |\n|      | 自由阅览区   | 8:15-22:30     | 8:15-22:30   |\n| 什邡 | 图书馆1-2楼  | 8:15-21:30     | 8:15-21:30   |\n|      | 图书馆3楼    | 8:15-18:30     | 闭架借阅     |\n|      | 图书馆4楼    | 闭架借阅       | 闭架借阅     |\n\n> 注：节假日开放时间以图书馆通知为准",
     "url": "/campus/connect#开放时间",
-    "embedding": "AwAABAADAAADBgAAAPEIAAALAO0ABAD97f8J/QAAAAAAAAT8APr9AAP/AAADAAQAAAYA/QQD/QYA8wAI+QQIAP/9AP8EAP0EAAAAAwD4AAsAA/z9/f0F+P0AAwMAAAD8AP0AAwAABP0AAAYE+vj8AwAAAAQA/BQE9QMA9fb6AAAD/wgA//UDAAAEAAD89wj6AAsJAAAA/AAAAPr6CgAAAAADBAAACwD6+en9+gYDCAPnAwgA/AME7gAEAAAA+eYG/QD9+AQAAAP9AAMA+vUEAAABAAQA8vr1APwAAPwABgMA+gsGAAYABAAAAAADAf8EAAP9AP38+gAABAAA/foAAAP8AAQA/fj1/AAAEQv9APwEBAsDAwMEAAAA8v0CAA0AAAP6/QgA+gj99QD8+AAAAAQAAP38AP38/AAAzwAAB/0DAPMIAC8RAwD6APwACQMAD/0AA/0AAAP8AP0AAAAAAAoAAAAA/QAABPgAAAsA/AD8APoD/QAA8gADAAMA9QD6"
+    "embedding": "/PMBG/r8A+4ZFBQC+QgA3hT/A/8RC//19wcFChn08R7xGgD9/AEu+uIUDiPjCBADBwP/AwsUFQTt+hD6/QEPCA=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 图书馆 | 档案馆 > 联系方式 > 成都校区 | 职能部门 > 后勤资产处",
     "content": "- 图书馆汇/读者咨询\n  - 地点：图书馆二楼流通台\n  - 电话：028-87826347\n- 信息化建设/数字资源建设\n  - 地点：图书馆505室\n  - 联系人：王老师\n  - 电话：028-87826958\n- 阅读推广/行政工作\n  - 地点：图书馆505室\n  - 联系人：张老师\n  - 电话：028-87826958\n- 自习室管理/学生工作/消防安全\n  - 地点：图书馆504室\n  - 联系人：侯老师/张老师\n  - 电话：028-87826541\n- 图书采编/捐赠\n  - 地点：图书馆205室\n  - 联系人：孙老师\n  - 电话：028-87827469\n- 成绩查询/学籍查询\n  - 地点：图书馆502室\n  - 联系人：刘老师\n  - 电话：028-87826960\n\n职能部门 > 后勤资产处\n> 全面负责学校食堂食品安全、学生公寓管理、资产管理、绿化养护、清洁卫生、医疗服务、疾病防控、工程维修维护等后勤保障工作的指导、监督和管理工作，积极推动学校后勤规范化、标准化、特色化建设，不断践行“三全育人”工作职责，积极为全校师生员工创建美丽的学习、生活和工作环境。",
     "url": "/campus/connect",
-    "embedding": "Bf/7+/v97Q8CAv7+AP37+PUA/ur4AgUA/fsCAvn99QAMAA31AAAA/QgD/gAABAANAAACAP0AAPsGAA8C/v0A+AAAAgAAEv7++QACAQD4AhD9/Qr+AAcTA/71/vQLAvgCAAAB/vr7/gEN+///++8IA/3++/0CBf0BAgEBC/UB8gAG+wD7/QDyAfsJ/QP49/8BAwcA+/sA/e4C/gHu///+AvcFEf4HBQMCAgMABwf+BfzrAvsC+wcA/f78Cvv+APoA/vv/AgUB+wH//QL+CA8ACBIHAAP6AAAJAP7+AP3/AP//AP76AgAFAf4A//4C7fkAAwX7B/T+BQD9APsFAhMI/f7+AAIAAgAAAAMA/QAL/vUA9QYDAwcC/v3x/v/5AP3+AAX9BQf9AQn9/f/8AAAQ6gAE/v0BAfYE7QIJCAX6/gUFAgYDBfvkAAX+DvoA//gADgEB8gH7AwAA/f79/Q4H+/0F/vsF+/H9AgX7Cf4B/v4CAgEA/wICAv4A9QIAAvcC"
+    "embedding": "/PP5JgH+BvMWEA4K9wL+4hUGAP8PEQj69Qn7Ahry9Bf7HAP/9/ku+eITDCXWBAwL/gIB+AQPFwHx+wr8+AYBCg=="
   },
   {
     "title": "职能部门",
     "section": "职能部门 > 后勤资产处 > 联系方式",
     "content": "- 办公地点：正阳食堂二楼203办公室\n- 邮箱：hqzzc@cduestc.edu.cn\n- 各岗位联系电话：\n  - 食品安全管理岗：028-87828637\n  - 固定资产管理岗：028-87829549 / 028-87828637\n  - 绿化卫生管理岗：028-87828637\n  - 工程维修管理岗：028-87828637\n  - 疾病防控管理岗：028-87827887\n  - 公寓管理岗：028-87828637\n  - 副主任：028-87825025\n- 微信公众号：kechengzhihuihouqin",
     "url": "/campus/connect#联系方式-3",
-    "embedding": "AAAAAAAAAAACAP4EAgMAAAMAAAAC/QD9AvYAAP4B7v4FAAYA/wAB/QL+AAD+AAMTAA0A+f4BB/4A/gD////9Af77//0A/fn+AgD+AAL7DAICAP76AgAMAwIAAwAAAgwAAgAF7v39/v4aAwAB++UFABP+Agb+AP0AA/oA9QAA6v4AAAMAAv7+/v4G9AD++QP+AAL+/f0AAOP+AP4AAgUAAgEAHP4DAwUA/wD9AP0BAvT+AwAA/QL9AAAEAwDsABD9Bf3+AgD0AQD5BQMAABoAAhMDAAD9AAD/AAMXAP4AAP4AAAADAwAFAAAA/v4AAAIA/v4AEwAC/QL+Av7+ABoCAgACAP4B/v4A/gAAAAACAP8F+v4CAP4CAAAAAAD9/gAAAv76AP4DABgAAAIVAgAg7QP+BQAAE/8C5QEA/QL/AAAM/gAGBwD+AAAAFgAAAAIAAgAA+/n+AwUA/gP+AAAA+v8AAgDxAf4DAAIA/QAABwDxAAL+/gD/AP0AAwAAAAAC"
+    "embedding": "/vT5LgT5/e8WBA4I/gcA2w8PAgEPDwD69fz2BRb7/BT9KQUB+vEu8+kFDCDeCA8P/wAH9wUSGQP0/gQA/AQACQ=="
   },
   {
     "title": "历史文化",
     "section": "历史文化 > 文化",
     "content": "- 指导思想： 坚持教育以育人为本，以学生为主体；坚持办学以人才为本，以教师为主体；坚持以质量求生存，以特色谋发展；坚持以专业建设为龙头，以队伍建设为保障，以人才培养为根本，不断提高办学水平和人才培养质量，推动学校又好又快发展。\n\n- 愿景： 育一流人才，建百年名校。\n\n- 使命： 办人民满意、社会认可、持续发展的高水平应用科技大学；为学生提供多元教育服务，为其成人、成才和终生自主发展奠定良好基础； 为服务区域经济社会发展，培养“厚基础、重实践、会创新、能成长”的高素质应用型人才和技术领军人才。\n\n- 价值观： 坚持“以学生为中心、以学校长远发展为重”的办学宗旨。 坚持“团结、敬业、创新、超越”的科成精神",
     "url": "/campus/culture#文化",
-    "embedding": "AQf9Bfn9/QAABQPz9wD7A/0NAAwDBf35CgP9CfgABfcHAgMD6Af7/wD/A/n9Agb/AP0G+f35+RMKAADz/foB/QP/A/3yAAD9AAH+AAAHDQcA8AAAAQD4AAUF/QX06/UHBwP9/QAHAAMA+/j9AwEI/f0D9gAFAwP9AwAAAwAAAAwPAwn9+wwCBf3oAP37AP0D+gP4/wD7APkA+gX35f0B8/34/wkD+wDv+Pv7AgAKAAMA/foAAwMIBf8C9QEA/gUDAwMHCf39AwAAAAX5EAP9CgcMBQUBCvkJA/3z+gMFAP/6Bf0BAAgA+AcHAAD5AwcFAAAACgUIBwr7AwAIAP37AAEOAAH7DvT9DAAJAAAPAAXz++7uAxcKAwD3AAX7AAgBAwz9+/oABwUA+wAAAwr4/fkA9/4GBQP5AAj9+QD9/f35+wD3DQEA/wAA+/39AAD7AAMHCwP4A/v9DAABAAP/CgD9+QMA/wAA/f33AAwDBf0A/QAA/QAAAAD5AAcAAPv5"
+    "embedding": "7uvmGAvyHAkCCPgV9/b88woJ/QAKEgQI/wL47A/w9/8lFAgE+PwOG+8eBhTJ//wI4wT66/UDAvvy8Q32/QzwBw=="
   },
   {
     "title": "历史文化",
     "section": "历史文化 > 校徽校训",
     "content": "- 我校校训为厚德、笃学、求实、创新，以厚德为首，以笃学为本，以求实为途径，以创新为追求。\n\n- 校徽组成：校徽由基本图形、学校中英文名称、圆形外框三部分组成。\n\n- 基本构图：校徽中心部分将“电子信息”图案与“凤凰涅槃”图案组合成一个凤凰朝阳的图案。\n\n- 设计理念：体现电子科技大学成都学院由电子科技大学与国腾集团合作办学而成。\n\n- 具体含义：校徽外围沿用电子科技大学校徽圆形样式，内含我校全称及英文简写。校徽中心的2001为学校建立时间。\n\n- 校徽中心的“电子信息”图案取自电子科技大学校徽，既代表了电子科技大学作为我校的办学主体之一，也代表了我校是以电子类学科为代表、以工科为主的学校。而将“电子信息”图案中的e置于校徽中心则以e暗喻“电子科技大学成都学院学子”，强调了学校对广大成都学院学生的重视。“凤凰涅槃”图案首先代表了国腾集团，同时凤凰涅槃重生也蕴含了发展、腾飞之意。\n\n  .xiaohui {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 256px;\n    height: 256px;\n    margin: 0 auto;\n  }",
     "url": "/campus/culture#校徽校训",
-    "embedding": "A/0DAPYCAP8AAAH5AAMK/QAA//n9Af3y/vcE/QAAAPgFAwED+wbx/QwDBQADCAP9Awr7AQP9/f0IAP39APgFDvsA/QLyAf4A+gUD/fr9+vgD6f0C/QABA/0ACP39Bwv7+AP6/wMDBwAAA+4FAwD/+wP+AwL/CQMA+gkN/gD9A/MKAPgKEgP2APfxEgAA/woAA/79Av71A/UABf/6+wD+AAf3AwX95wb//f0JBwD6/fv2AQP/CAX+A/r3AAEABwD7+f0F/QUA/QMDAAMAAPwKAwP6BgH7Bv0FAAH7AQMD/gIACPPnD/j2AAUFAwAFAQgM/QT7+Qr/AwUFAPL/CQ//Ch8D/wQA/f37Av/9/QgD+wD6APH9DxH7AwgA9wgL/fH4+Af5AQYA/QsDAgADA/P/AgMA9gP89REABQMABPYBA/0MCQAYAwD9A/0D+voB9wX//QMBAPgA/wAD/QAC8gj6BQD9AwAA/AMG/fsIAAX7Af0EAwUAAAMFAAX9A/z4/wMA"
+    "embedding": "8OnsDf/8EAH+C/oP4+bs+/4HAP/9AvkKCf0KFBPu8xIV+AAj/vwKEN8oAxnTAAsC/AL1AfoQ+ALf+BcN/wP+Dg=="
   },
   {
     "title": "历史文化",
     "section": "历史文化 > 校园历史",
     "content": "- 2001年7月16日,电子科技大学国腾软件学院成立。\n\n- 2001年9月13日,电子科技大学国腾软件学院正式开学。\n\n- 2002年5月,电子科技大学国腾微电子学院成立。\n\n- 2003年7月14日,电子科技大学国腾软件学院与电子科技大学国腾微电子学院合并，成立“电子科技大学国腾学院”。\n\n- 2004年2月23日,电子科技大学国腾学院更名为电子科技大学成都学院，并被教育部确认为独立学院。",
     "url": "/campus/culture#校园历史",
-    "embedding": "BAMIAAUEAPwAAAD78Rr3/gMAAAAD+QDqAAAA/QD1APkAAAD8AADqAAAAAP0ABAAOAAAAAxYAAwADAPwABQMAAAMAAAD0AvwABPwAAADyAP0D6AAAA/wUAAMFHQD5DwAAAAUAAAD8AAAAAOMDAAALAAAA9QP8/AD6AAUS/P0F+OoA8gAAHQAAAP39AwYABAADAAD9AAAA+wAA8QD5AfwD/QAAAAAF5v0ACwT9BwAA/f0AAP0ABwQBAAAA+wD9/QkD/AML+QMAAP38/QAAAAAGAP0AAAD9AAAABQAA+AD8APoAAAD4GOgA/AADBAD9BAAAAAAAAwMD/AADAPUABQAAEfwD/QAAAwcA/fH9AAMD/QQDAAD9GQD9BQMDAAAA/eoAAPwAAAAFABYA/QQAAP8LAAAAAAD5BAEEBgAA/QMAAAD8AAwAAAUAAP/1AP0E/AAAAAAHA/UAAAP/AwAA9/oA/QDyCPsFAP0D/AAA+PwAAAAAAAEE+gAA/AP9AAAA/QcA"
+    "embedding": "8erpAvv9EAH/B/sS4e3p+/0D//v/APYG+/sOEhL08g8T9gEl/fcMF+IrARrR/g0C/gP5//wQ8gHg+REP+wQFCg=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 欢迎辞 | 入学准备与办理 > 时间安排 | 入学准备与办理 > 时间安排 > 2025年专升本学生 | 入学准备与办理 > 时间安排 > 2025级新生(成都校区)",
     "content": "电子科技大学成都学院欢迎你的到来!\n\n带着对未来无限的憧憬，你即将进入人生中最美好的大学时代，希望你能时刻牢记天道酬勤的真理，不断提高和完善自身素养，努力学习，顺利完成学业。按教育部相关规定，我校学生完成学业后，由学校具印颁发普通高等学校本科(或专科)毕业证书，符合授位条件的本科毕业生，将授予电子科技大学成都学院学士学位并颁发证书，所有证书实行电子注册。\n\n入学准备与办理 > 时间安排\n本校今年不招收专科专业，本科进行扩招至5千余人，其中艺术与科技学院、计算机学院、文理学院大一学年在什邡校区，大二学年起搬回成都校区；工学院、商学院大学四年都在成都校区；航空学院大学四年都在什邡校区。\n\n入学准备与办理 > 时间安排 > 2025年专升本学生\n- 网上报到：8月15日—8月24日线上缴费\n- 自选宿舍：8月26日9:00—15:00\n- 现场报到：8月31日9:00—18:00\n- 入学集中教育：9月1日\n- 体检：9月13日\n- 正式上课：9月1日\n\n入学准备与办理 > 时间安排 > 2025级新生(成都校区)\n- 网上报到：8月25日—8月30日线上缴费\n- 自选宿舍：9月2日9:00—13:00\n- 现场报到：9月11日8:00—18:00\n- 开学典礼(含军训开训典礼)：9月15日9:30—12:00\n- 入学集中教育：9月12日\n- 军训：9月13日—9月26日\n- 体检：9月13日—9月14日\n- 正式上课：9月28日",
     "url": "/campus/entrance",
-    "embedding": "Av4U/OUEAgH69AAF5wwEAQYABP8C8RH7/AT+Cv//A/kD9wUC/v39+QQBAAUBAvv69wP+8P3+AwYPAQQBBQD9APIDCAT49P8D8/P6/fvt+fsDAf8A/P4bAPMFAQMKFPoC/QMDAQH7+/b9APv+Afv++gIOAgAHAQH7/f4DA/0CCvQBA/38Bv/+9gX/Av4D/v7/AwAC/AUABAUAAAAA+/3//AUKCgAA+f0FAAX5AgUA/Pj8/AcACvz69AAC+AL9+wb+/P4HAAACCfwL/v8B/gD7AQH7/gUB9QL++gD9/vX3AwAOBvYSBfj5+fwHBQ36BP8GAP4A7gMH/QD7/gP+/voFBv4EAgcCBPb+9fYDDQUD/f/yAwH5/wD6BgP49fwGC/UCAAX+APsIBAr8/gABAv7+/v7+Agb3AwD9Av/9EgMEAgECAAj8BP7//wPtBfoABvn+AP4AAwAE9fEDBgL9+gL7AgL8BQYU//sD/gIC/vv4APP9+wf+AAD++wQCAPoG9vgG"
+    "embedding": "++LyIvn4/P3+CAQR9/nw6gYZ/Pr9B/MZ7QT99gzxBAoXHfwX+vgKDvUyBhXe/wkIBAYHAf4Q+ALVCRMG/vsTDQ=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 时间安排 > 2025级新生(什邡校区) | 入学准备与办理 > 报到准备 | 入学准备与办理 > 报到准备 > 必备证件与材料 | 入学准备与办理 > 报到准备 > 特殊要求",
     "content": "- 网上报到：8月25日—8月30日线上缴费\n- 自选宿舍：9月2日14:00-18:00\n- 现场报到：9月11日8:00—18:00\n- 开学典礼(含军训开训典礼)：9月16日10:00—12:00\n- 入学集中教育：9月12日\n- 军训：9月13日—9月26日\n- 体检：9月13日—9月14日\n- 正式上课：9月28日\n\n入学准备与办理 > 报到准备\n为了保证教学和生活秩序，新生应在规定的报到时间内在网上或到校办理入学手续，根据学校迎新工作的统一部署，请各位新生严格按录取通知书规定的时间报到，请不要延后或提前。因故不能按期报到者，如因特殊原因不能按时报到者,请务必向招生办公室提出书面申请或致电028-87825027、87825028、87825029、87825030经同意方可延期报到，无故逾期不报到者，视为自动放弃入学资格。\n\n入学准备与办理 > 报到准备 > 必备证件与材料\n- 录取通知书：新生必须凭录取通知书报到\n- 身份证：本人二代身份证原件\n- 照片：12张一寸免冠彩色半身正面照片（用于办理学生证、准考证、借书证及公寓入住手续等）\n- 党/团组织关系材料：如有需要\n- 户口迁移证：如需迁移户口（自愿原则）\n\n入学准备与办理 > 报到准备 > 特殊要求\n- 艺术与科技学院学生：需自备笔记本电脑。因专业需求差异，各专业方向的电脑配置要求有所不同，详情请关注艺术与科技学院官方微信公众号\"科成艺术与科技分院\"进行查询",
     "url": "/campus/entrance",
-    "embedding": "/PsO/ucBBP4A8wIO8AT9AAH+BvcG5Rf+AP7/BQIB+wAKBf8AAfn+/wgFAgkECgIO9gIL/PwAAgANAfv+AgT+9gD/AAD+9vv68gD+Af7y+/8AAQD+//wPCPkCAP0KDgD+AP8FAv4E/PsKAAD+/PsC/AQHC/wFAAP++/4C/P0C/vkGAAD+AQD/+wD//v8C/gUC/u8CAgL+AvsHAgAB8wD/+/gO/wIC9gECAAn6Bv7zAfwE/gcGBAL/9f7+/v/8+gUA9/8EAPz7CAIHAAD+8wUABQYE/wsC+wYA9PoA/vwLAf79AgEdAP78/vYEAA38/P0I/PwB6QQCA/QEAfcB/PsDBAEB/wL7+wH+AQQEE/n+AQH7/AT/+wv8/wD7/P/+BPn6Av8A+wwB/w0B/wUC/AUC+Q8IAAL8//v+9PwCAwTz+vsEAgD8/AADAgLy/QME/v38AgX/BPsC+uz8BAcA/v78Af4CAv4W/AXv7QL2+P78Au3/AvsA+AIFAgQEAPf+/QIF"
+    "embedding": "At77Kf/17foBAwgKAAf13Ase/fgACPEc7gn3+gj0EQgQLPoK/f8JAAEqBwrtAwUICgQN/wMR/wbbEAv9BPgWCg=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 报到准备 > 生活用品建议 | 入学准备与办理 > 入学办理 > 入校地点 > 成都校区 | 入学准备与办理 > 入学办理 > 入校地点 > 什邡校区 | 入学准备与办理 > 入学办理 > 报到流程 > 网上报到 | 入学准备与办理 > 入学办理 > 志愿者服务",
     "content": "- 床上用品：被褥、枕头、床单等\n- 洗漱用品：牙刷、牙膏、洗发水、沐浴露等\n- 衣物：换洗衣物、内衣等\n- 学习用品：文具、笔记本等\n- 其他物品：雨伞、常用药品等个人必备物品\n\n入学准备与办理 > 入学办理 > 入校地点 > 成都校区\n成都校区红区建筑整体为红色，蓝区为蓝色。红区离教学楼的平均距离较远，教学设施大都集中在蓝区，而且快递站等便利设施也大都在蓝区；但红区的餐饮娱乐丰富，并且实验室和活动室多，而女生宿舍多集中在红区。\n\n如图所示：\n\n走北4门、东南门、东北3门、蓝区大门，其中北4门无法进出车辆，蓝区大门限时开放\n\n- 蓝区：东北1门为学校主门，新生大都从此处进入，东北门称为蓝区大门，限时开放，其他的有东南门，西南1门（已关闭）\n- 红区：东北2门为红区大门，其他的还有西南门（已关闭），西南2门（已关闭），西北门（已关闭）\n\n入学准备与办理 > 入学办理 > 入校地点 > 什邡校区\n绿色：学校大门 \n\n红色：已启用教学楼 \n\n橙色：已启用基础设施 \n\n灰色：未启用建筑\n\n走东北门、北2门（挨着宿舍的）\n\n入学准备与办理 > 入学办理 > 报到流程 > 网上报到\n按照录取通知书上的规定流程在线上缴纳学费，各学院新生在线上缴纳费用后届时进行分时段选取寝室，具体时间划分，请留意微信公众号\"科成校园\"通知，以及关注新生QQ群通知。未在线上缴纳学费的同学会被学校分配寝室，不能自选。\n\n入学准备与办理 > 入学办理 > 志愿者服务\n志愿者大都是校内的学姐学长，一般只会在校内出现，警惕在校外自称志愿者的人！",
     "url": "/campus/entrance",
-    "embedding": "/QX8A+f7+v79/v8FDggBAwEAAwcB6iP+/gMB/fsABwYCBej+AgP//AQD/AIACAABA//+AP8AAQMOAf7++v8DBgAB/fn9+f/78AEAAf4D+/4AAvkBBP8b/fz7Av//GAYAAfwCAPv4+/X4AP35BQP9//32BP4AAwDy/ggCBAH/AvkCFgn5AP36+gEKAf8CAvwCAvn9Gf4AAwEABAH9AP4B/gIR/gED+wAEAAEA/QAA/vsB/v/4/gAC9/8A/AEN+f0B9gMABQUCAAACAP8CBAD/Bv0F/wMDBP7//Pj//v8A+v8C//4Q+/sCAQMA/Av++/sABgMB7PgAAAD/APwEAQACAQHvBAD5/AX7BQQPHggA/fcA+gMC/wH8Awf+AQH/AwAB/Afv/wYA/gYIBPsAAQP//P3/AQMGCQH+AAAABf39AgYDAAAJ/wEFBQAFCP8QAv3+BwH4AP8A/u/9AAECAAT9CP74/gYU7wH2+/8B+AED+egDAAT9B/8D//z/AwMAAvz8"
+    "embedding": "CuEALQT26v4CBgMCBAr43QYoAfsEA/AW6wf4Awb2EwgNMfgNAfwLBAMfDRHvBwQLCAIJBQUQAAjdDwv8AfUTAw=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 志愿者服务 > 志愿者类型 | 入学准备与办理 > 入学办理 > 志愿者服务 > 注意事项 | 入学准备与办理 > 入学办理 > 缴费与入网 | 入学准备与办理 > 入学办理 > 缴费与入网 > 成都校区缴费标准",
     "content": "- 校级志愿者：不分学院，一般出没于校门口，负责将你带路到学院报道点，再交给院级志愿者转接\n- 院级志愿者：由学院安排，可能是一个人接一堆，或者一个人接一个寝室，再或者一对一接，具体接送安排按照学院规则。会带你到寝室，如果一对多可能没有足够的时间带路其他地方\n\n入学准备与办理 > 入学办理 > 志愿者服务 > 注意事项\n- 志愿者会带领你去报道地点和寝室所在\n- 志愿者只负责带路，没有任何义务帮忙搬行李\n- 志愿者可能会向你推销（一般都是接了校园卡的单子），也有假扮者\n- 志愿者不会穷追不舍，更不会闯入寝室，如果你没有意愿就离开，谨防诈骗\n- 在去学校之前要联系到对接的院级志愿者\n- 推荐先加入学院群（随录取通知书一并发来的）和百叶频道，在频道新生问答处发帖问答\n\n入学准备与办理 > 入学办理 > 缴费与入网\n每位新生来校报到时，应按下列缴费标准一次交纳所有费用，否则将按相关规定不予报到注册。\n\n入学准备与办理 > 入学办理 > 缴费与入网 > 成都校区缴费标准\n其他费用明细\n- 住宿费：预收1800元/年（新生报到时暂按最高标准1800元/年收取，学年末按实际入住不同房型标准结算。房型标准以财务部官网公示为准）\n- 书本费：代收800元/年（书费为预收，按实统一结算）\n- 体检费：152.33元/人\n- 医保：410元/年（暂按每人410元来收取，待成都市医疗保障局文件下达后，多退少补）",
     "url": "/campus/entrance",
-    "embedding": "AgQACOP6Df/+APwADf3+/QL7AfwA8hgABgf++/4B/gQG/+sC/gT9/gYEBf//CwEA9O/5+f3+/fYJBwX+/QD6/vsG8/oD/P/88v8DAQX7APwAA/4NAv4VAgH+BwECD/7+/v4C/gPz/f75+/7+AgEF/gURBgIB/wEABQsECgQCAQAAE/v+BPv+C/0H/fgEAgQDAQIDFAD/CgD9AAIB+QAE/PsMBPT5+wgF/gUMBf3+Av3+/QIA+gIA7/4EAAL9AgQEAAH+/gYABf7/BAECBv7/AwL8BAcCAP4BAP4CA/0GBPgD/gQIAvkCAgUAAAoC+QIHCv7+9wL/AwX5AAj4AAD7Av70/wAF/AIC/gQLFvz9+f3+CPgD/gb+BQMD+gQB/wYC+Aj2//75AAAD+QIAAQQCAAD6/PwC//8FAgADAfj/DBMHAP8D/f8OAAUABP8hAfcAAQP3Agb+7vkB//79/wL+/gcCAgIO8v0DAv76AgYDANz5/gb5AAID+wD8BAb7AAMF"
+    "embedding": "DOQANAP26P8BBgAAAAf04QImAPn+A/cd6gn6AQX2EwcIKPkNAAAIAQMoChL1BQYLCgIMCwoRAQffEwD7BvcTAw=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 缴费与入网 > 什邡校区缴费标准 | 入学准备与办理 > 入学办理 > 缴费与入网 > 缴费方式 | 入学准备与办理 > 入学办理 > 缴费与入网 > 注意事项",
     "content": "其他费用明细\n- 住宿费：1800元/年\n- 书本费：代收800元/年（书费为预收，按实统一结算）\n- 体检费：152.33元/人\n- 医保：440元/年（暂按每人440元来收取，待德阳市医疗保障局文件下达后，多退少补）\n- 航空学院制服费：到校后根据需要按要求购买\n\n入学准备与办理 > 入学办理 > 缴费与入网 > 缴费方式\n1. 【推荐】微信缴费：关注\"电子科技大学成都学院财务部\"微信公众号 → 缴费服务 → 缴费大厅 → 新生学杂费(成都校区/什邡校区)，输入相关信息后按提示金额缴费。（线上缴费时间：8月23日—8月26日）\n\n2. 支付宝缴费：点开支付宝 → 搜索框输入\"电子科技大学成都学院\" → 选择\"电子科技大学成都学院\"生活号 → 缴费大厅 → 新生学杂费(成都校区/什邡校区)，输入相关信息后按提示金额缴费。（线上缴费时间：8月23日—8月26日）\n\n3. 现场缴费：\n   - 成都校区：实验大楼一楼结算中心\n   - 什邡校区：地点请留意财务部微信公众号上面的通知\n\n入学准备与办理 > 入学办理 > 缴费与入网 > 注意事项\n- 为了简便你的入学报到手续，建议选择微信、支付宝缴费方式缴费成功，无需再排队等待缴费\n- 获取更多新生缴费信息及常见问题请关注学校财务部官方微信公众号：\"电子科技大学成都学院财务部\"\n- 军训服装按照新生群通知要求自行提前购买",
     "url": "/campus/entrance",
-    "embedding": "AAQBAu/8DgL6/Pz9CO39AQL9/gkC+xX5Af4A/QIC///5APMA+gD5/gcBAgL9Af/8/AT88v8E/gUGBP36//4HAP4I+vcA9/31+AACBAL+AgT5+fkIAPkUBP37E/8MCfoA/AUD/wMA/u8B/vP+AAEC+f4oBv8DAv8D/Q0MCwL1/vgFEwXzBwQB9AD9AgYBAQAC/gMGEQL+DAT+AAL8BP7++P0HAgL18wT+AgAFAQUAA/MD/P4BAgL++AIDAgEA/wIHAP/6+v4CAgADA/74AQD9AvIDAAcC/vwHAv7//vYCAP75AAAJCvYE+wgDBwX++AP+/f4E9AAA//cA/wUAAgAD/P7uBP0FAvb9/AEMEgr//AL2CfoHBwn4/AMF8/79DPn6BAT5BAIE+fwC9gr/AQn+CAIE/e3/Av4C/Pj9+wAAAgT8/gcC/v8M/wj+/gMFAvkBAP/2/f//9vgEBP0A9QL5+QEB/AIN9wAJA/39BAP8+uwA+Qn8AgQAAPz9/f31AvkB"
+    "embedding": "CuT6LQT07wACBQIE+gLz2wEjAf0AAPAY7P/+Cgj2DQkNKvoYAvgLCPokChPtBwwNBwEGCAcW/gndDwYCA/YUBQ=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 缴费与入网 > 新生校园卡使用指南 | 入学准备与办理 > 入学办理 > 缴费与入网 > 户口转移 | 入学准备与办理 > 入学办理 > 缴费与入网 > 校园网与宽带",
     "content": "电子科技大学成都学院校园内消费，统一使用校园虚拟卡刷码消费。校园虚拟卡默认开通，各位新同学可直接使用支付宝的付款码，在校园内刷卡机上刷码消费。\n\n入学准备与办理 > 入学办理 > 缴费与入网 > 户口转移\n户口迁移属于自愿原则，如需迁移，请携带：\n- 本人身份证原件及复印件\n- 户口迁移证（当地派出所办理）\n\n入学准备与办理 > 入学办理 > 缴费与入网 > 校园网与宽带\n学校提供校园网服务，新生可在报到时办理：\n\n- 校园网：在指定地点办理校园网账号，可使用学校公共区域WiFi\n- 宿舍宽带：可选择电信、移动、联通等运营商的校园套餐，报到期间会有相关摊位提供办理服务\n\n宿舍区域上网需要办理运营商有线宽带或无线上网服务，网速一般在50Mbps左右。\n\n- 运营商办理校园号卡套餐后，可以开通有线宽带服务\n  - 办理后通常只能一台设备使用专用联网软件后使用宽带\n  - 如果同一宿舍内多人办理宽带，可能需要接入交换机分出多个网口后使用\n\n##### 技术提醒\n\n- 有线宽带一般情况下不能直接通过路由器共享网络\n- 关于校园网/\"校园卡\"的营销话术识别、防骗请参阅新生防骗指南中的相关内容",
     "url": "/campus/entrance",
-    "embedding": "AAIFA+X5Cf0CBAP+CvsICPsAAAIC9BP6AAME///8/gD+Au8FAAD6BQUMBgD7BwD+/f39/P8F+gMQBf0FBPn9/fgO/f79/QD89QAABgEC+wAE+gAOAwYRAvgACvsFFf8ABAIABw4AAgsCAAD7AP4CAgIJCwMC//3+BwT+Bf3+/fcIHgD+A/4C/v0P/f35/gL+/fwCDwIBCPsABfr9AP3+AvwGAgYG/f/+Dh0RAAL+BPsA/gAO+wL59v8A/Qj/Af3++f7+APv+/gIE/Pv8AgL7A/wC/v8ACAD9Av4F+wX6AAH9/QABBv37+f/9/wb58gIABQT57QAF/f4A+wj8AAD+AAT6+wD/+/sC9gcKJBAABQH+/wAFAhD+/gL6+wD+/gD4/QX6BQAAAQL+AQIJCQEGAAUAAvwAAfoBA/z9///+/vwEBf7+AQAK/gf7A/sH+/wBAPj+Bf8A/Pj9//oG/QD9/vz7BgMR8f0AA/j+//v8AOb9AP0I/QIH/gD7FfgCAwX3"
+    "embedding": "D+P8Lf733/8AB/0B/Qby4f8qAfT/AfQe6Qj4BgT3FgcLH/kTAwEHAQEkCRT0BAgNCAEEDAgTAQffFAD7B/oQBA=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 寝室 > 宿舍分配与选择 | 入学准备与办理 > 入学办理 > 寝室 > 入住流程 | 入学准备与办理 > 入学办理 > 寝室 > 宿舍设施 | 入学准备与办理 > 入学办理 > 寝室 > 饮水机服务 | 入学准备与办理 > 入学办理 > 寝室 > 换寝室申请 | 入学准备与办理 > 入学办理 > 卫生检查",
     "content": "- 网上自选宿舍：学校实行网上自主选宿舍系统，各学院新生在线上缴纳费用后届时进行分时段选取寝室\n- 时间安排：具体时间划分，请留意微信公众号\"科成校园\"通知，以及关注新生QQ群通知\n- 重要提醒：未在线上缴纳学费的同学会被学校分配寝室，不能自选\n- 统一安排：如未在规定时间内完成选择，将由学校统一安排\n\n入学准备与办理 > 入学办理 > 寝室 > 入住流程\n1. 到达宿舍：新生由志愿者引导到寝室\n2. 办理手续：先到一楼的后勤人员那里填写相关信息和领取物品\n3. 找到寝室：接着找到对应的寝室，进行第一次打扫卫生\n4. 整理时间：会有几天的整理缓冲时间\n5. 选择寝室长：初入寝室会要求选出寝室长，请尽早选出并安排各个成员的日常工作\n\n入学准备与办理 > 入学办理 > 寝室 > 宿舍设施\n- 基本配置：床、桌椅、衣柜、书架等\n- 卫浴设施：部分宿舍楼配有独立卫浴，部分为公共卫浴\n- 空调：宿舍配备空调，需自行租赁或购买\n\n入学准备与办理 > 入学办理 > 寝室 > 饮水机服务\n学校合作供应商提供桶装水订购服务，价格合理。大批量预订会送饮水机，新生只需要等地推进宿舍推广即可。\n\n入学准备与办理 > 入学办理 > 寝室 > 换寝室申请\n如若对寝室不满意的同学，可以之后申请换寝室（辅导员会讲的，先申报，后面就是漫长的等待时期）。\n\n入学准备与办理 > 入学办理 > 卫生检查\n- 宿舍区定期进行卫生检查，请保持宿舍整洁\n- 养成良好卫生习惯，共同维护宿舍环境",
     "url": "/campus/entrance",
-    "embedding": "AfD+/+P9/AIAAAEGDwIA/vsCBQH98RT6/wL+/f3/BAUBAPEB+hsCAwcD/v8CDP8A+wr8/wMFBAIS/QAA/v8F/wP9BPoEBwP88P0BBf/+/gUAAP4B+v4eAfsB//0CFQD+/fwB+wH+/gAGA//8/wMB/wABAP4GAAD8/gwEAf8AAv8CIwYDAP0AAvQEAvwDAAAHAf3+Evn+AQQAAAT9AgAAAQATBwACAfz6AgIA/wUFAPsA/P4A+//+9QT9AP4HAAMCBAL6AwL8/v4KAP3+Av7xBvv7BAEB/wAA/gAFAAQBAf4C//sAAfoAAAD+AAwCAQL///oC7P4BAAUB+/IADAACAQXyBgIAAPsBAPwQIQL9AAAC+/0FBgECCAH9AgH+8gIA/v/wAwIF+gEBAAP9AQ8C/wEDAvwFAAD+AAEA+QMAAgMEAgAABAMA/AD/BvsAAAD/BQH9AQIC9fT7Bf4B//4DAAEC//8S7v8AAAD+BP8B/d0HAP/+/fr9AP4BAgAAAP/+"
+    "embedding": "CuQAKgP26f4ABQADAQv23gQoAfkEAu4a5gr3AAb4FwYLLvcNAAIGAQUlCQzxBQMMDAMICQMQ/greEgf6BPYTAw=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 军训 > 军训基本信息",
     "content": "- 军训时间：2024年9月2日至9月14日（双校区同时进行）\n- 军训地点：电子科技大学成都学院校本部、什邡校区\n- 军训内容：军事技能训练、国防安全教育、安全知识教育、应急疏散演练和消防实操演练等\n- 军训团建制：全体学员一共编组为2个团，两校区根据人数情况分为多个营，再分为多个连\n- 军训方式：由我校退役复学大学生通过考核获得教官证后在武侯区人民武装部指导下以驻校形式开展军训",
     "url": "/campus/entrance#军训基本信息",
-    "embedding": "9wUDAAD7BgkFAAb+Dgn19wXvAAIA/RT7AAUG+wAABQAA+/oAAPvy/vUA+gAACfoA+vr69AAFAP4JAAf6CQD6BQUA+/769wAAAPsAAAD7APv1+/0A+/sJC/0ABvsADPcF+wD6+/v6APIG+gv7BQYDAAXxBgD7BQUMBQsJBgAAAPf7/QULAAAGAAAFAPsGAAUAAPoGBgAABQb0+wD7APsGAAUOAAAA/gAFAAAAAAUAAAL6Av4J9/77BgD3ABQG+wUJDwYABQAFBQX7Bfv6CQUL9QD7+wUFAAAAAAAJDPoFCwz7+gv7AO8G9wD7Agn6AAD6+gD77wX79fsFAAD6AAAADgD7BfsF9QD3HvIF/gAJBgD+AAAFAPr3AwUAAAIA/QL6BgYAC/cG+w8L/QYABgIAAAUUBvsAAAD6Bfv7BgYO+wAAAAD3+/oOAwb69wsLAPsABQD7/gsC9+77BgAA7gYA9QAFAAAM9QL7AO8F+wD//vgABgb+AAUJAAD7AAD3+wAF"
+    "embedding": "B+L1KwL29fsABf8I+AHv4QAk//r+A/Ee6wP+BQj3DAgQI/0aAfkMCfktBhXrAwoKBwQJCQcUAAbeDwIBB/oUCA=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 军训 > 军训时间安排",
     "content": "| 活动           | 时间        |\n| -------------- | ----------- |\n| 起床           | 6:40        |\n| 洗漱、整理内务 | 6:40—7:00   |\n| 早操           | 7:00—7:30   |\n| 早餐           | 7:30—8:00   |\n| 操课           | 8:00—11:40  |\n| 午餐           | 11:40—12:30 |\n| 午休           | 12:30—14:10 |\n| 整理内务       | 14:10—14:20 |\n| 操课           | 14:30—17:40 |\n| 晚餐           | 17:50—18:30 |\n| 操课           | 18:50—20:00 |\n| 教育           | 20:00—21:00 |\n| 点名           | 21:00—21:15 |\n| 洗漱           | 21:15—22:00 |\n| 就寝（熄灯）   | 22:00       |\n\n以上为一般情况的时间安排，不过基本都因为天气情况和军训进度会进行变动，具体按实际安排。",
     "url": "/campus/entrance#军训时间安排",
-    "embedding": "Af//APkC/vX+AAYAAgD++gf+AQgA+QsABf7+AAX+AP4A+gH+AP7+AAAA/v3/AAD/AP74AAIAAv0C+wD//gAKAPz+AP3/+vz6AAEACArcADcAAAADBfsCAAb/AggIEAf+/gX//QL7/gcCAAcDAAAB+wAHBf4AAAr5AAsCAwAAAPoABgAFAAAF+wgA/gYA9wUA/f0FBQD+AgMA9gADAAAACfsJBgT+APYA+90A8gf9AAMAAgAFAwADAAAA+QgBAvICBf4A9wABAgX++/4AAAD7AAIAAP8AAQIHAP4AAwAAD/sA/gAD//sFAQL+AgX+CQD4BQcA/AL+AAAAAgD2AAD/CwABAAcAAPD+AwAHCQAFAAAA/gAAAPr+APj4AgD+/wD3/gD+GAAAAAf+8QIIA/sCBQD7+vsCBQAABQH49wb+AP0CAgEH+S4C/QQAAwX5A/4ABvn6AAv+AfkA+AAAAwD9/gD/BQAI/wkAAwL/Cwj+/f7/AP4AAP37AA4CAgAA+AL7"
+    "embedding": "DOX/MQTy7fwAAf4CAgjz3f4oAfv9A/Mk6gX4/AH8FAIIJ/wPBAECAwYmBAr6BQYHCQIPDQsSBAflF/f6DfcUAw=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 军训 > 军训准备物品 | 入学准备与办理 > 入学办理 > 军训 > 军训内容与要求",
     "content": "- 军训服装：由学生提前自行购买，军训期间按照教官要求统一着装\n- 服装要求：军训服装的样式按照学校发出来的购买，不要随意发挥，一般为林地迷彩（含上衣+裤子+帽子+腰带+T恤+鞋子六件套）\n- 防护用品：一次性雨衣（天气多变）、防晒用品（如防晒霜、太阳帽等）、水杯、花露水（防蚊虫）\n- 常用药品：藿香正气水、创可贴、止痒膏、感冒药等，以应对可能出现的身体不适\n- 其他物品：皮带（有时候商家卖的质量不好，自己的靠谱点，舒适点）等\n\n入学准备与办理 > 入学办理 > 军训 > 军训内容与要求\n训练内容：\n- 队列训练：包括立正、稍息、跨立、停止间转法等基础队列动作\n- 分列式训练：训练整齐划一的行进动作，培养令行禁止的习惯\n- 阅兵式训练：强化单兵和团体的精神面貌，要求士气高昂\n\n行为规范要求：\n- 注重言行举止，做到文明礼貌，不说粗话脏话，不乱丢乱吐\n- 严格服从命令，听从指挥，养成令行禁止的良好习惯\n- 尊重教官、老师，见到教官和老师主动问好\n- 在训练场地和校园内统一着军训服装，穿戴整齐\n- 保持仪表端庄大方，男生不留长发、额头不留发，女生不染发、不披头散发\n- 遵守作息制度，严格执行一日生活制度，杜绝迟到、早退、缺席现象\n\n内务要求：\n- 在寝室显眼位置张贴寝室公约、值日制度、值日安排表等\n- 桌上、书架上、床上书籍及日常用品按照部队要求摆放整齐\n- 地面、厕所、盥洗台、阳台上无杂物、污垢、异味\n- 严禁存放或使用违章电器、违规物品、大功率电器",
     "url": "/campus/entrance",
-    "embedding": "AgX/+wsI+/QC+f4ACQD1B/T+/gD67hEEAA0CAAj+Cf4A+/ECAQj0BQP5/QT/AP4ABAr/AAP/8g0H/v0HAPv6DAEAAPX+/gX+/AIDAAn9AgAG/QIAAQMMAAMD+AMCDgcA9gQABgoA+PwG+/7z/vb48AYFAAD1Bf4BBwMABQPzAP0BD/oB+gL/Cv/2AQEBAAb7AQMGF/z/+f8H9fkHAv8AAgIHAP76AfsFCf//CAD7Av4A+gP8/vgFAgD49wj6/gn6AAECAP4CAvICAwL8+/oABwQA9QsCA/n+/f72/vT9AgsD/gL9Bv0F+QoBCgX+CvYABwAB9QUA+wf+/P4B+gL6APr29/8C/gP6G/0CDAoFBgr9B/P+AgIICwMNAf0BDAL5Av3+AvsL8gL6/gIHDwYCAf8FA/cCAvsCAv72AwUM+gn5AAIA+QUB//YACAIK9/QAAAAAAAYD++/+Av/tAwAKAv4F+/0H9P4A+vz9CQgD/+r5BwL5//0C+v7//v37AAEG"
+    "embedding": "D+X/MQXz7AAAA/0BAQjz3v8oAfv/A/Qi6Af3AAP6FgMKKfwQAwAFAgUlBwv4BQUKCQEMDAoSBAnkFPv6C/gSAg=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 军训 > 军训结业 | 入学准备与办理 > 入学办理 > 2026级新生群 | 入学准备与办理 > 入学办理 > 反诈防骗 | 入学准备与办理 > 入学办理 > 办事指南 > 常用部门联系方式",
     "content": "- 内务评比：军训中期进行内务评比，检验内务养成教育成果\n- 结业式：军训最后一天在蓝区操场举行军训结业式，进行会操、分列式和相关表演\n- 表彰：根据学生的军训表现和成绩，评选出优秀军训学员、优秀连队等先进个人和集体\n\n入学准备与办理 > 入学办理 > 2026级新生群\n2026年没有整体的学校大群，只有各学院的新生群。新生群以录取通知书上附带的信息为准，通过考生号验证身份后方可加入。非通知书上附带的群组均为非官方群，请同学们注意甄别，谨防诈骗。\n\n各学院对应的新生群及负责老师信息见下图：\n\n入学准备与办理 > 入学办理 > 反诈防骗\n新生入学期间是诈骗高发期，请提高警惕：\n\n- 谨防冒充官方群组：官方群组通常由辅导员或学校官方渠道通知，请通过正规渠道加入\n- 警惕网络兼职诈骗：包括刷单、刷信誉、网络贷款等，切勿轻信\n- 防范校园贷：不要轻易签署贷款协议，谨防高利贷陷阱\n- 保护个人信息：不随意提供身份证、银行卡等重要信息\n\n更多防骗信息请参阅新生防骗指南。\n\n入学准备与办理 > 入学办理 > 办事指南 > 常用部门联系方式\n- 教务处：负责学籍、课程安排等学习相关事务\n- 学生处：负责学生管理、奖助学金等事务\n- 财务处：负责学费、住宿费等缴纳事宜\n- 后勤处：负责宿舍、食堂等生活保障\n- 招生办公室：028-87825027、87825028、87825029、87825030（延期报到申请）",
     "url": "/campus/entrance",
-    "embedding": "/Pr/BfMBA/8EAvcADvX7BPz/BgX/7hv/BAb+BQH//vkH/esDBgf1ABQOAgICDwYL+vwCBf8D/wEM/wMABf8IBQYAAv7/APv+8/v9AAH9+AIB/v8DAwAbBfn8/wIHFP79+/4KAQT6/voI/AD9/f0B/gEAAAQF+gH7/wr8Av8D/QEAEwUC/gT6+/4F/gH+AAMGAPn+CgIF+fz5AgUE/fwGBvcRBgH+/gEAAgkD/gH9+/wA+gECBAf/9gX+AAMFA/4A+wL7DAUJ/QIH/wP3BgEB/gcHCQEC/wb6/QEDBgD9A/78+wL+A/n++QAIBBIPAv7+AwH68wMD9v3+AvsCAQEEA/3yAgD6AgH+C/cOFgIFAv4EAgUGAP8AAAIF/v3/Af4A/vz3Av8ABBD6AQH8BP7/AQf+B/P+9f0H+wf///kCAf4DAgABAAYDBgr/BPsKA/wABgIJAAP79+0HAAMA/P4AAv/3BAUQ8AQA/P0JAvv+DdwCAwIAAAP/AAIA/QAJ+gD/"
+    "embedding": "EOH8MwD44fwDBf8F/gj24QEnAvT/Cfwb7g71AQb4EggLI/sLAgQMAP8nCBTvAwUJBwMJBgYSCAXeFP76BvoMBg=="
   },
   {
     "title": "入学准备与办理",
     "section": "入学准备与办理 > 入学办理 > 办事指南 > 常见问题解答 | 入学准备与办理 > 入学办理 > 办事指南 > 详细办事指南 | 入学准备与办理 > 入学办理 > 办事指南 > 重要提醒",
     "content": "- 学生证办理：报到后由辅导员统一安排办理\n- 银行卡办理：学校会安排合作银行在校内设点，方便新生办理\n- 医保办理：按照学校通知，在规定时间内完成医保信息登记\n\n入学准备与办理 > 入学办理 > 办事指南 > 详细办事指南\n- 成都校区：学生事务办事指南\n- 什邡校区：相关办事指南请关注学校官方通知\n\n入学准备与办理 > 入学办理 > 办事指南 > 重要提醒\n请密切关注学校官方网站、微信公众号\"科成校园\"、\"电子科技大学成都学院财务部\"等渠道发布的通知，及时了解最新信息。同时建议加入新生QQ群，获取第一手资讯。",
     "url": "/campus/entrance",
-    "embedding": "AP4DAN79AAcA/P3+CgD7AwQAIgMA8hYAAAIAAP8DAgAB/u8C+RADAAUCAAAA+QAR/vz++wD8B/4OBAMCAf0AAAoAAP7z/QD5+foA/QMAAP0C+/z9Bf0XAvoACAACFfz+/QAE/gf9AvYAAAX+Av7+AAAFAAAF/gD+AgoEB/f9/v4EDQP9BfwA/gL8/QP+/v4FAf7+DwL5Af77/QL+AAD//wAOAAX7+//uAwX8AAQABPgD+QP+AAL+9gAA/gP+/QAG/v0AAAAAAQD+BQPs/fsFAPsABQX+AAUFA/4DAvwA/gD9+/4CBvoAA/4DAwr6AP79AAXk9gAD9gAA/wD+BAABAgH2AgIE/Qb8AAcKMggDAAL7/PoCAgQEBgT78gACBfoAAgP2+wAE/v8DAwD/APgAAAAA/wD7+wAA//sC/v4AAwMEAAMAAP0CAAAAAQMH+/79+wAAAAD79Pb7/QUE+/8AAP4AAAAJ9Q0C+QACAAAAAOUA+wP+AQIAAgD//gD+BAAN"
+    "embedding": "D+P9LwHz6P8BBP8C/Qb03P4nAvn/AvId6wT6BgX6EgcLKPsUBf8IBv8kCBHzBwoKBwEHCwcUAwjfEwH9CPYTAw=="
   },
   {
     "title": "校园",
     "section": "校园 > 学校简介",
     "content": "电子科技大学成都学院是国家教育部批准成立的独立学院（教发函[2004]21号），是由电子科技大学与成都国腾实业集团合作创办，采用新模式新机制举办的以本科层次为主的普通高等学校。学校创建于2001年，现有7个学院，68个专业，在校学生17000余名。\n  \n  学校现有成都校区和什邡校区两个校区，占地1400亩，其中\n\n  成都校区位于IT、电子类企业云集的国家级高新技术产业开发区——成都市高新西区。\n\n  什邡校区位于环境优美、交通便捷的四川省历史文化名城什邡市。\n\n- 电子科技大学成都学院官网 - 学校概况",
     "url": "/campus/#学校简介",
-    "embedding": "+wD/BPH3+QQABfsEAPzs+QAB+wz3AADwBQUAAPz2BAH8APkAAAT1AP8ACgAH9fwAAAH0+vz7AAD19vcAAPwBAPv5//f2APX/BAUE+wXxBAcA6fUBAAT8/AEEDwIHEQAA9wD8BA/8/Ov8Ce77/PwACwD5/PsAAAUAAPkH+/wAAO4E+QAJBPYNAAAFB/8EBAT/APz7BfkF/AwE/Pf7+QcEAAAAAPr86fvzBAYAAAUFB/v8AAAEBQnxAAD5/AQA/AUABPn8ABEH9QAE9wD+9/sHBfn7BQUFBQQF+fcABAAKBQD/AAT/C+kA8/z8Cvn2AQABAAUKBwAABgAA+wQAAAUFC/T7DAAFBfwABQQAABr8BfsABQD8BgwB/wf7BfkEBfkEBAr//AAF9f/8/AAACQAAAPsEAAEA/Pz8AAD7DQUBAPsCBQz5BAAABAD/BAX/APn5+wAEBAD8BPwAAAAF9gT89wQADAD8B/z///zxAAAAAPwJCQYHAAT8/PUHBQAHBfv5"
+    "embedding": "9uzrD/z9EAH/CgAR5+zv+AQJ/gECBPUK9fsKBRPu9g8YBv8h+/EUF+UoBxzRAAoJ+gT3//gL8v/g9hwP+QIDDg=="
   },
   {
     "title": "校园",
     "section": "校园 > 成都校区 > 教学区 > 教学楼",
     "content": "##### 西教\n- 西A楼\n  - 西A104~A105：艺术与科技学院，CMGE中手游美术创作基地\n  - 西A102~A103：艺术与科技学院老师办公室\n  - 西A306：财经案例实验室\n  - 各层楼梯口设有教师休息室和饮水机\n  - 西A东A1楼过道中间设有饮品贩卖机和充电宝出租\n\n- 西B楼\n  - 西B105：ACM程序设计创新中心，AI智能算法实验室，四川省人工智能学科普中心\n  - 西B104：网络安全实训室\n  - 西B103：心理分析测评实训中心\n  - 西B102：生涯发展中心\n  - 西B406：校团委青年志愿联合会\n  - 西B506：校团委青年志愿者联合会仓库\n\n##### 东教\n- 东A楼\n  - 东A102：助理办公室\n  - 东A103：教材库房\n  - 东A106：学校文印室\n  - 东A107：设备运维部门\n  - 东A406：党员学习活动室\n  - 各层楼梯口设有教师休息室和饮水机\n\n- 东B楼\n  - 东B102：AIoT实验室\n  - 东B103：艺科学院VR实验室\n  - 东B105：智能录播室",
     "url": "/campus/#教学楼",
-    "embedding": "/QwAAP0AAg4H9v33AAAGEQD99v0FBQD9BQAAAwkD/f4D+P39/QQL//79A/T9Cv39APICBgMlAPYEBQP98gr4/f77AAD9/fYA/QT3BQAF+f0DCP39BwABAQkBAwP6+/0AAAMAAAUA+gP7Bvz/BQP1AAQDAgABBgYA/f0NAAj1APwGAP0DAAIAAAr7AP0EA/0GAgMAAAD2AQD7/wIJ+vj4Bf0DBQf7AAMA/woGAPoJAAMA/P/8AwEDBv0A/Qr9/foA/Qf6/fj8AAMB/f31APcLAPwA/QP7FP0H/Aj3BPoDBf0GAAkD5fsCAP3vCggF/fkK+/sCAAX3APoFAA0Q/RD+BwD9AAUGBAD9AgX4AwL1AwP5+vgDBQMDAwMBBgf///v9AwYP9P0HAPYC+wADAAP9A/0ABgMDBQAAAAMAAwD6CQMAAA4D2gMFAwAFA/0JAv0D6wAA/wkFBfP9/f3sA/3z/f0DA/4DAwAA/QoJAAMGCvwGAPr99/kDBQX3AAD9/f0I"
+    "embedding": "5+z2JAr6EPcBBA8RBO7+8BIP+wMFEQIKEBP58Rbj+AYgGAAC9fIe/OoTCRHXAQEB9gL84/kEEPni7wQJ+wn2EA=="
   },
   {
     "title": "校园",
     "section": "校园 > 成都校区 > 教学区 > 实验大楼 | 校园 > 成都校区 > 教学区 > 办公楼 | 校园 > 成都校区 > 教学区 > 其他设施",
     "content": "- 1楼\n  - 办事大厅\n  - 110值班室（办事大厅左侧）\n  - 计算机机房（办事大厅右侧）\n  - 大厅两侧设有饮品售卖机和充电宝出租\n\n- 2楼\n  - 201：智能控制实验室\n  - 203：电子设计与创新实验室\n  - 204：中心机房\n  - 207：机器人实验室\n  - 209~211：工学院实验中心之一（物联网与移动互联实验室）\n\n- 3楼\n  - 301：语言实验室一\n  - 302：综合应用实验室一\n  - 303：综合应用实验室二\n  - 308：综合应用实验室三\n  - 309：语言实验室二\n  - 315：综合实验室四\n\n- 4楼及以上\n  - 设有多个综合应用实验室、语言实验室\n  - 403：大数据数据仿真实验室\n  - 404：新媒体实训中心录音室\n  - 410：文理学院实验中心\n  - 607：集成电路设计实验室\n  - 613：智能审计与风控实验室\n  - 615：智能财务共享实验室\n\n校园 > 成都校区 > 教学区 > 办公楼\n- 设有各学院主任办公室和对应学院的实验中心\n- 中央大厅附近设有ATM取款机（工商银行、农业银行）和饮品售卖机\n\n校园 > 成都校区 > 教学区 > 其他设施\n- 展览集：位于CA与办公大楼之间的红色铁皮建筑（基本废弃）\n- 图书馆：藏书丰富，学习环境舒适",
     "url": "/campus/",
-    "embedding": "9gUBAPj+/gAE4fED/gIEBP7+/fwICgL8/vcCAAMACBsB/fz/AgABA/oCAgIJ8wL0BAnuBAf9AgAH/v/+9Ab8CQcB/v4K+/oA8wQF/v7+Afz5+gL3AAICAvz7+gEA8QIMBAD8Av7v+fQE/wIE/gL//gf+8wIC/g3+AAAF/v4ABPn/9gH8/Pv+BvwC/gQEAAIAAQL+AQH1+wL6AgEM/gkAAQL8/AIACgIBBhP8ABsABwP++gIEABD+Af8C/PwC/gL++wUH/vn8Avz8Bwf5/gAo//4CAP4CAggR/g3vAAv/AP38/Pn+/vgM+gAA/wD/AAIEAgAAAAIA/vn+AP39AAD/Cvr+AAb++QIA+QIACRL3APkA/AIBAv7++gIFBQAAAgICFwv+AP3//gL6+QAA/f4A/gQEAgb/Dfv+BwAH+vz8Bfn+BgD++QT8BAEAAQD+BPIFBwj5+QsE/QcCAAT8BP78BAQAAvsCAQAA+wYE/gIG/AYCAgf++vf+BAbyCv35Af7r"
+    "embedding": "6e36Hwj6Dv0BDgwPBfP+6xMS/AQFDwEHBRP49hjk9woXIv4E9fIdAesVDxPWAwID9gH65vsDDv3X8AcK9QT6Cg=="
   },
   {
     "title": "校园",
     "section": "校园 > 成都校区 > 生活区 > 宿舍区 | 校园 > 成都校区 > 生活区 > 食堂 | 校园 > 什邡校区 > 教学区",
     "content": "- 蓝区宿舍七与宿舍八之间设有晾晒区\n- 宿舍八与宿舍九之间设有洗衣房\n- 城西食堂附近的宿舍区一楼设有自动售卖机\n- 晨曦社区位于宿舍十靠近晨曦食堂的一楼，同时也是Bridge生涯发展中心的社会生涯服务站\n\n校园 > 成都校区 > 生活区 > 食堂\n- 城西食堂：位于蓝区西侧\n- 晨曦食堂\n  - 右侧通道上楼至三楼：设有数学与建模联盟、学校竞赛孵化基地、社团联合委员会\n  - 左侧上楼\n    - 三楼：学生活动中心、校团委、学生联合会、学生文化艺术中心、大学生综合素质导航站\n    - 二楼：电子科技大学成都学院机器人实训中心、成都市微讯云端科技有限公司机器人研发基地\n\n校园 > 什邡校区 > 教学区\n- 弘义楼体\n   - 弘义楼西\n   - 弘义楼\n   - 弘义楼东\n- 明德楼：多用于公共课\n- 明理楼：实验楼\n- 致远楼\n  - 致远楼101：多用作活动和会议\n  - 致远楼其他：用于班会或一些课程\n- 学生服务中心\n  - 一层：辅导员办公室、学生事务办理、打印店、大型会议厅\n  - 二层：其他教师办公室以及公务人员办公室\n  - 三层：广播站、会议室",
     "url": "/campus/",
-    "embedding": "9wMGAQoABP0H/fz4+QT9+v379wEAA/wABP32/QgAAAUAAfcD9/7+A/kD/QAD9gP5+P369QYAAwMJAAMDBgD9BgQDAxH/APzx8/8A/QMIAwH//foI/wAG/f75AQAH/ggN/QYC/QDzAPH6Cv0DBv79/wj3A/z5/fD9A/0C/wP9A/IHAgMA/f0A/AT4APb8BQAIA/0D/f3y+wIDAwgIA/3//f39+hMH+fX9/RUA9w4ACvcAAgAHARn9AAMD+/4AAP8AA/UJBvYFAwcG+AX7+ADs/vby/Qn+AAMACAoG/Qv9AAP5AAD+BQMI+Pj9CgX+AAAH+/3//fsD+AAI//0DAAADAAD4Cv0FAP0B+P0HBBT7AAf9AAgLBRII/f8JAAP/AP39Axj9/fMK+P0I/vv6/wgA/f0B8/j7/wT9BgD9/gMBA/sLAPgF+wDzBAPtAf0E/fgAAwj67gQJAwP9/gD99/YAAAQD/QMDCAX9AA4K+fsICPYD/RD4AwcDAP33/fUAB/0G"
+    "embedding": "+OX0IwH9+f4GBgUJ+fj74hESAfwGCfwF9gICDxLs/RIhHvsP+vslCe4ZFB7XCQAL/AL28fkN/wLf/BoE8wQKBw=="
   },
   {
     "title": "校园",
     "section": "校园 > 什邡校区 > 生活区",
     "content": "- 旭日食堂\n  - 一层：\n  - 二层：\n- 宿舍楼\n  - 1A：2024级男生\n  - 1B：老师及2023级男生\n  - 2A：2024级女生\n  - 2B：2022&23级女生\n  - 3A：2022级男生\n  - 3B：2022&23级男生\n- 操场\n  - 一楼：器材室、乒乓球馆、健身室\n  - 二楼：社团活动室",
     "url": "/campus/#生活区-1",
-    "embedding": "+gYAAAAAAPf3EwUAAAAACQUA9Q0ACfsAAAD+AAAACwD6+wD7AN8A+wAL+gAGAPr6APoF9QAGBRMAAAAACQAA+gX6AAD7AAAA8AD6APsCCwAAAPcA+PoFBQUAAAAAAAAAAAYFAAUAAPsAAAAAAPsABgUACfoAAwb7AAUABQD7APcAAAAAAAAAAAAAAPcAAAXtAAAOBQv6AgUAAAUGBQAACAAABgD6AgAACRUAAAX7DgAAAAAABRgABvf98gUAABMABvsA+wAAAAAAAAAF+gAA+AD+AAAFAAUAAPoFAPsFAAAFAAD7DgAAAAAAAAAAAAUAAAAAAPsAAAAY+gX77QAAHAX1AAD7Cwb6BQAAAAAA+vsAAPsA8wUA+wAFAPcAAAAAAADzAAAT9Rz7AAYABfsAAAAAAA4AAADeBfsFAPsABgAAAAAGBQAACfoAAP4ABQAGAPsA+/sAABMA+wAABQAFCQAJAAAA+gUC8vgLAgAAAPsAAAAA+/oABQD7APX6AAAA"
+    "embedding": "EOUBI/783foKBAX6BwgC3hMcA/cMAv8C5PoCFALzBRAPJ/cGAP4cAPkMGh7mEAAOBAH7+AAT/gfpBiD+9PoOAA=="
   },
   {
     "title": "专业",
     "section": "专业 > 学院专业列表 > 工学院",
     "content": "| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 工学院 | 电子信息工程 | 本科 | 理工 |\n| 工学院 | 电气工程及其自动化 | 本科 | 理工 |\n| 工学院 | 机械设计制造及其自动化 | 本科 | 理工 |\n| 工学院 | 机器人工程 (智能制造方向、服务类机器人方向) | 本科 | 理工 |\n| 工学院 | 通信工程 (5G移动通信方向、微波通信方向、网络与交换方向) | 本科 | 理工 |\n| 工学院 | 微电子科学与工程 | 本科 | 理工 |\n| 工学院 | 物联网工程 | 本科 | 理工 |\n| 工学院 | 电子与计算机工程 | 本科 | 理工 |\n| 工学院 | 集成电路设计与集成系统 (集成电路设计方向、集成电路验证与测试方向、嵌入式方向) | 本科 | 理工 |\n| 工学院 | 电子科学与技术 (微电子技术方向、嵌入式应用方向、物联网应用方向) | 本科 | 理工 |\n| 工学院 | 智能科学与技术 (人工智能方向、智能控制方向) | 本科 | 理工 |\n| 工学院 | 光电信息科学与工程 | 本科 | 理工 |",
     "url": "/campus/major#工学院",
-    "embedding": "+P8A/wwAAQEACwf7BQIABBT9/QABAP4AAAAB/gAB/wAD/gDyAAACAQP8AAAFBQAIAQAAA//9AgMBAAD/AP4B/v4AAAADAQEA/v8J//0F7QEBAP//AQAAAwEEAAH+/gIAE/8C+QH/+QADAf4DAgP/AQ//AAACAP3/AAAAB/0A/v8DAAACAev//gEA//4A/PcABQABAf/6//8A//8VAwH9AwAA//4A7AMACAH+AQMIAv8RAfwD///9AAAA/AAAARH9AAD9AQD+AQIDAQP6/xUBAgEAAgAAAxP9ARIBH/0AAgD9APwA7+v9/AAC/f4FAf7+5Qv+AAAB/+8BAAEAAP/pARP5+gD///wAAf8BA/8A/wADAP/+CQAAAwIJDAAAAAAABgID+v8H+f8AAhYB6QAAAf/+/vwC/f7/BAAA8///AQAC/f//DR7+AxkA/AACAAD/AwD/AAD/AP8B7P39A/MB8BH9ABP9BgEAAwP5/v4B/gL4AAH+/gL/AP8CAwAZCf//"
+    "embedding": "6PfzDAXwFvbzEB0VAuj7BxEO7Qz/DQIWDAb85h3l+AUICwUF6fAF/+cTAwbR+wMC9AIA7u/9CPTh6AEN/QPyFQ=="
   },
   {
     "title": "专业",
     "section": "专业 > 学院专业列表 > 计算机学院 | 专业 > 学院专业列表 > 商学院",
     "content": "| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 计算机学院 | 计算机科学与技术 | 本科 | 理工 |\n| 计算机学院 | 计算机科学与技术（智能金融班——工学+经济学双学位） | 本科 | 理工 |\n| 计算机学院 | 软件工程 | 本科 | 理工 |\n| 计算机学院 | 网络工程 | 本科 | 理工 |\n| 计算机学院 | 人工智能 | 本科 | 理工 |\n| 计算机学院 | 数据科学与大数据技术 | 本科 | 理工 |\n| 计算机学院 | 信息安全 | 本科 | 理工 |\n\n专业 > 学院专业列表 > 商学院\n| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 商学院 | 信息管理与信息系统 | 本科 | 文理兼收 |\n| 商学院 | 人力资源管理 | 本科 | 文理兼收 |\n| 商学院 | 国际经济与贸易 | 本科 | 文理兼收 |\n| 商学院 | 电子商务 | 本科 | 文理兼收 |\n| 商学院 | 财务管理 | 本科 | 文理兼收 |\n| 商学院 | 投资学 | 本科 | 文理兼收 |\n| 商学院 | 审计学 | 本科 | 文理兼收 |",
     "url": "/campus/major",
-    "embedding": "AAP8AAQABfz9AgHvAAAACgECFQAAAwIA9/4F/gIA/AEE/wkBAPcEAgT/AwEBAP4BAAEABPv//wMDAAD/AP8D/gAAAAAA/gAB//0D//8D/AT/+wsA+wD/AP0AAPv8AAABAQsAAAAAAQELAf7/AQABAxP8CQEA+gPz/gEAAf4DAAIAAP0A//MC/AD0/fsB/PkAAP38AAIBAfvx6v0JAgIAAAAAAAAA8wEABAEA/AMD9wAM/PwD//8AAAD/+wD/AAn+/AD///kAAf8EBAD6AAsE8/4N/QACAgAM/gnzIgAAAAAABAD++OLx8wAA/A0JAQD//gX8AAEAAe0AAAEEAP3+/wUA/QD9AAAJ+/j+Av31/wAAAPwLCf4CBBL1CAD9/QAACAD7AAAEAAEA/xkB2wP9A/7zAPz/9AAEAAMA7gD//QAAAf0AASj8AAz+/f8D/wH8AQH//wEOAPgH5wADAAAC/wMD8gn9AQH/AAYBAAAAAPr8+AP8AQAAAgIAAPwA+QEA"
+    "embedding": "6/zzC/70FvPxESAVAur9CxAL7w4ACwMVCgT53hvk+Af/CAQC4+0F9+cSAQXS+QQD9wEF9e76CvLl6AIQ/QDyFQ=="
   },
   {
     "title": "专业",
     "section": "专业 > 学院专业列表 > 文理学院 | 专业 > 学院专业列表 > 艺术与科技学院 | 专业 > 学院专业列表 > 航空学院",
     "content": "| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 文理学院 | 应用统计学 (金融统计方向) | 本科 | 理工 |\n| 文理学院 | 休闲体育 | 本科 | 体育 |\n| 文理学院 | 英语 | 本科 | 文理兼收 |\n| 文理学院 | 翻译 | 本科 | 文理兼收 |\n\n专业 > 学院专业列表 > 艺术与科技学院\n| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 艺术与科技学院 | 艺术与科技 (虚拟与仿真、医学美术与设计) | 本科 | 艺术 (美术) |\n| 艺术与科技学院 | 动画 | 本科 | 艺术 (美术) |\n| 艺术与科技学院 | 数字媒体技术 | 本科 | 理工 |\n| 艺术与科技学院 | 网络与新媒体 | 本科 | 文理兼收 |\n\n专业 > 学院专业列表 > 航空学院\n| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 航空学院 | 飞行器动力工程 | 本科 | 理工 |\n| 航空学院 | 飞行器制造工程 | 本科 | 理工 |\n| 航空学院 | 飞行器质量与可靠性 | 本科 | 理工 |",
     "url": "/campus/major",
-    "embedding": "/wAAAAkHCgD8BgD5/AD/+Af9FAAAAQEBAvMK+gX/AQAG/AMK+/UGCQIAAAoC/wUAAgAEAO8AAwAHAAEAAP8E/PgAAAEGAAAD//QDAP0E8AT8CAP99wIA/gAEAPb2/AEAAAACAAYA/wMBAAAC/wIABA/6BgIAAQEAAAEKAPX9AQAAAPz/APUE+gQABfn/+foAAAD+AAEDAf4A+AAHCQEAAQAAAAAB9v4ABAL/AAYA9gAL+QkB/wP8AAD79QAAAAkC+f//AfYAAwEDBAP//AoG8QABAfz7AgEE/wb6HwAABv4C/QL8+e/oAAD/+f0KAAkN/QQBAAv6APAAAPoEAAMACPwB/QD+AwAG9gACAQAA/wAAAPMCBwAAAAICDwAAAPYADAD+AAD6AAD5ABIB6/38A/r8AAAA/gAEAAAA7f/6AQAAAAMBAy0KAAz//QIAAgD3AwD9/gAAAe0H3gQA//0AAAL/AA/8DQEA+gT1/gEAAQD8/fn5AAkCAf8B/vkBBAUL"
+    "embedding": "4vTwDAHwEPn5CiEYAuf8ABUF6gb6Dv8SDwj13x7m+AYHCgcA5vcK9+sXBvvV+gEH+gIF7u7/BvXo7AoR/Aj8Fg=="
   },
   {
     "title": "专业",
     "section": "专业 > 学院专业列表 > 国际部",
     "content": "| 学院 | 专业名称及方向 | 层次 | 招生类别 |\n| ---- | -------------- | ---- | -------- |\n| 国际部 | 计算机类 (本硕连读) | 本科 | 理工 |\n| 国际部 | 财务管理 (本硕连读) | 本科 | 文理兼收 |\n| 国际部 | 会计 (本硕连读) | 本科 | 文理兼收 |",
     "url": "/campus/major#国际部",
-    "embedding": "AAAAAAYAAgAABgb8AAAA/AQABwAAEgAA8wAGDQAA/BIGBgkEBPcGAAD6/AAKAAAAAPMAAPwAAAYE8wD6APwEAAQAAAAEAAAAAPoAAPwJ+QT8AgkAAAAAAAAAAPr6+gAA/gAAAAQAAAAAAAAAEg0ABA0ACQAABPQAAAAAAPoAAAYAAPwAAPr8AAD8APoJ/PwAAAAAABIAAAD89AAECQDzAAAAAAAA6AAAAAQAAAQABAAJ/PwAAAAAAAAA+gAAAB0A/AAAAPwAAAAAAAAAAAAG9AAA/AAAAAAJAAT0/QAAAPwAAAAA/Pf2/AAA/PoJEgAAAO4AAAQAAPMAAAAGAAAAAAYA/AAAAAAJ+gDuAAAAAAAGAAMGBAAAAAIEDAQAAAAAEg0AAAAAAAAN6hIE6gD87Pr0AAAAAAAEBPwA6AD8AAb8AAAE/DEAABAAAAAAAADuAAD3AAAAAPoE/ADuAAAA/PwE/Ar8AAQAAAQAAAAAAAD6AAT6AAAAAAAAAPwA/AAA"
+    "embedding": "7P3wDP/0FPH0DiUXBO3+DA0G6wz/DAASCAf22Bvq9wX8CAYA4usG++oTAv/R9wAG9gIG8+37B/Pr6AIP/gH1Ew=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 宿舍 | 住宿生活 > 宿舍 > 成都校区",
     "content": "1. 供电时间：23:30熄灯断电。\n   - 周五、周六以及节假日晚上不断电。\n   - 空调使用另一套供电系统，不断电。\n2. 门禁时间：公寓大门早上6:30开门，晚上23:30关门，不得早出晚归。\n3. 每栋公寓设有洗衣房。\n4. 空调需要缴纳电费。\n5. 宿舍有风扇供应（仅成都校区）。\n\n床型说明（上床下桌）：\n\n住宿生活 > 宿舍 > 成都校区\n1. 校区分为红蓝区，蓝区男生居多。\n\n2. 宿舍类型：\n   - 大部分为四人间或六人间。\n\n- 有独立卫生间和洗手台。\n\n- 部分老旧宿舍（如蓝区3栋和红区30栋）未翻新，使用公共澡堂。\n\n3. 选择建议：\n   - 男生建议选择蓝区正阳食堂附近的寝室，离红蓝两区的教学楼平均路程较短，靠近快递站和医务室，生活便利。\n\n- 缺点是宿舍较旧，大都只有男生，正阳是老食堂，环境和美食选择不如其他食堂。\n\n- 快递站附近有一条服务街，可满足日常生活需求。\n\n4. 红区宿舍类型表格",
     "url": "/life/accommodation",
-    "embedding": "APwE/AMAAAYABvgH+wQA/fwH/AYABwP3/Pf8BgD8BgIA+v0CBAQA//kPAAAE9PkA+gkA8P4DAgP9AAYEBwMDDwMEBvoHDAj66Qf5BQkECgAL/wgA+gb9APkDAAYAAAAAAADx8wkH/PQAAwcA+wvt/fkC/QAA9gb9+vQE+vwAAAD/Bv0G7ggA+/36AP399//8BAADAwQEAPz9BwIDBAAA/QYAAwMD9gAOAAALBgb9/fz/9w398P/7BPwA/f0ABAAD8AAMB/30BPr8+QP9BgXuBwX6CgADAPIA/PoLAQD9BAMD+gAGAP0N/AH5BPb9APz1Bwf5APwDE/0G/fwHAP0BAwAE/QX6AP0ADQoEAAz0+f0ADQQIAQD/BwQGBAPu+gAABgwEAP0GAAX7+AAECQMA9Q0GCwMGAwAD/QQH9wD8/wQIAAMA/QYBAwEABAIACf4DA/sJ7gAEB/v2AfwC+f8AAv/8Af37AAkD+Qfy/f0A/fn//wbo/QQDBPIA/P/xAAMB"
+    "embedding": "/u4IFf4B5gcECQMGBwcA7RQZAPoPBPn14P74Cgr2CgoXLfkG9usVAgQLIhXbA/0XAwL69foB8wfnAiQA3voH+A=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 宿舍 > 成都校区",
     "content": "4. 红区宿舍类型表格\n\n| 公寓 | 性别 | 人数 | 床型 | 阳台 | 卫浴 | 寝室类型 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 15 | 男 | 4 | 上床下桌 | 有 | 独立卫浴 | 通道式 |\n| 16 | 男 | 4 | 上床下桌 | 有 | 独立卫浴 | 通道式 |\n| 17 | 女 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 18 | 女 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 19 | 女 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 25 | 女 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 26 | 女 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 27 | 女 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 28 | 男 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 29 | 男 | 4 | 上床下桌 | 有 | 大寝共用 | 单元式 |\n| 30 | 男 | 6 | 上下铺、独立柜 | 有 | 大寝共用 | 单元式 |\n| 32 | 男 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 |\n| 33 | 女 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 |\n\n红区15栋、16栋、32栋、33栋床型参考：",
     "url": "/life/accommodation#成都校区",
-    "embedding": "AAAF/wMCAAAAAgABAP3/AAAAAAENEgD9AAADAAnrCgADAgABAAD+Avf+AAAD/wAA+/8AEQAAAwAAABAAAAcFAAAAAPz9AQAA7gABAv4AAAAA/vcBAgn5AAT9AAAAAAAIAAAEAAD/AAr++wAD/QD9AP73AAAAAAP9/gAA//4DAAAAAP/0/wYA/QP//////QAO6wUAAv7/AAEABAEADAAEAgAAAAAAAv8A+wL/+AAADPz/8QEAAAcA8vgAAAD///4ADAD8AAwA+wABAP/q++//APv/9wIA+gQM/wD7AP/4AAAAAQEGAP0B8APw//T/DQoAAP4A+wL/+wH86wD9AP//EQEA8PgNAPQA/wAC+wD/7w0C/w7+/w4ABv4FCf//DgIA8hYAAQAAAAEA/v0AAwUB/gP+/QAA/wD98QAC8gD/BgEBAQD0ECQDAP8BAAoTA//+/Q4A+QAAAwAAAA0DAAEAAAD9AgAU/wQAAAT//QAMGgDxGAIBAQANA/L/AAMAA/8A"
+    "embedding": "//IQEfz/6AgCBAQFCQj/7hETAPsPAPrz4Pr4BAX1CgYYLPkF+OUPAwgOJRDdAwAYBAL68/r+7QftAyYB2fgG9Q=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 宿舍 > 成都校区",
     "content": "独立卫浴 | 通道式 |\n| 33 | 女 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 |\n\n红区15栋、16栋、32栋、33栋床型参考：\n\n红区18栋、19栋、25-30栋宿舍布局参考：\n\n5. 蓝区宿舍类型表格",
     "url": "/life/accommodation#成都校区",
-    "embedding": "AAAI+g4ABgAACAAA+ggIAAAAAAAOAPj69AAMAAD4AAAGCAAAAPr4APoAAPoG+gAAAAYA+PoABgAAAAj+ABAAAAAAAPQEBgAA5/IMAAQABgYA+voAAPr0AAAAAAAAAAAWAAQGAAj6APoAAAAM+AD0AADw+gAAAAYACAYAAPwG+gAAAAAA+ggA+gYAAPj69AYG+AYAAAD6+gYADAYAAAAOCAAAAAD4AAAA9A4AAPoAAAD69vL4+BAAAPoAAPr6+gAAAAD+ABQAAPoAAADy8Pr0APwABgAA+AYAAAYGAAAA+AAA+gYSAPoAAAAAAAD6/hYAAAAA+ggA7AYG+AD6AAAABgb6AAgGAAwAAgAIBgb6AAAAABAAAAgAEPoMBgD6BgAAABAGAAAAAAAAAPL4BgAA+AYA+gAABgD6+gAAAAAIEAAAAAAABgYA/gAA+gYACPoG+voA7AAABgAAAAAIAAAAAAD6AAgGCBIAAP76AAAABgj6EAgMAAAADgD6AAz4BvgA"
+    "embedding": "AfIPEf//5QsCBAIDCAgA7g8WAPsPAPnz4fj5CQX3CwYXLfkH+uYOBQkKJxHfBAAYAwH48/oA7wjtAiUB2fgF9A=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 宿舍 > 成都校区",
     "content": "| 公寓 | 性别 | 人数 | 床型 | 阳台 | 卫浴 | 寝室类型 | 备注 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 1 | 男 | 单号2/双号4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 2 | 男 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 3 | 男 | 4 | 上床下桌 | 封闭式阳台 | 公共卫浴 | 通道式 | |\n| 4 | 男 | 4 | 上床下桌 | 封闭式阳台 | 公共卫浴 | 通道式 | 510、610三人间 |\n| 5 | 男 | 双号3/单号4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | 112、212、312、412、512、612双人间 |\n| 6 | 男 | 单号4/双号3 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 7 | 女 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 8A | 女 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 8B | 女 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 9 | 女 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 10 | 男 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 11A | 男 | 4",
     "url": "/life/accommodation#成都校区",
-    "embedding": "BAARAREBAP0AAfwDAP3+/gMBAAAQBQHzAQMFAAXuAQEAAAABAAABAPsAAQAA/wAAAQEACQEAAQAA+wD/ABEJ//7+AAD+/wD/+wEAAAEAAAD+8v0FAAL2AAP//wADAAARAAAJAP78/QcAAQYL/v/+APzuAAAA+/79Af79/wMNAgMAA/4AAA///wEAAf8A/gAL7QoBAgADAAAAAQECAAD9AAAAAAADAAAA8f/9/AMA/gEA9QAAAREAAPsAAP8AAQABAgABAh/9AAQAAf/v7/IAAPb/CgIA+gAF/wD0Af/2/gABAA0A/fYAAAACAAAACg7+AAAA9gAB9/4A8QAAAP//DgD9AgENAQAAAgAC9gL7AP8A/wf+AA0ADv4NBf/9CQAA9Q0AAQAAAAD+AAAAAwX+AAL+/QECAP8A8/4B5AL/EQIA/gAA/SsAAQIA/QcABP/+/wIA4wEDDf4AAAIAAgAAAAAAAAIZ/wIAAA3//AEADQDzEgAAAv4DAAAA/g0ADv8A"
+    "embedding": "/PMMDf0C6QgDBQQGCQr/8BEUAPsPAfny3vv4CAz2CQYXK/oH9eYSAwYMJRPbAv8XBAP68/r+7QfrAiQB2PoF9g=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 宿舍 > 成都校区 | 住宿生活 > 宿舍 > 什邡校区",
     "content": "闭式阳台 | 独立卫浴 | 通道式 | |\n| 10 | 男 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 11A | 男 | 4\n\n | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 11B | 男 | 4 | 上床下桌 | 封闭式阳台 | 独立卫浴 | 通道式 | |\n| 31 | 男 | 6 | 上下铺、独立柜 | 有 | 独立卫浴 | 通道式 | |\n\n蓝区1-11栋房间架构参考：\n\n6. 部分图片\n\n住宿生活 > 宿舍 > 什邡校区\n1. 宿舍楼：\n   - 大部分为新建宿舍。\n   - 1A栋为旧宿舍楼。\n2. 宿舍类型：\n   - 多为四人间或六人间。\n   - 有独立卫生间和洗手台。\n3. 宿舍类型表格\n\n| 公寓 | 性别 | 人数 | 床型 | 阳台 | 卫浴 | 寝室类型 |\n|--|--|--|--|--|--|--|\n| 1栋 | 男 | 4 | 上床下桌 | 有 | 独立卫浴 | 通道式 |\n| 2栋 | 女 | 4 | 上床下桌 | 有 | 独立卫浴 | 通道式 |\n| 3栋 | 男 | 4 | 上床下桌 | 有 | 独立卫浴 | 通道式 |\n\n1A栋为旧床，与照片不同，但宿舍类型依然为四人间。\n4. 部分图片",
     "url": "/life/accommodation",
-    "embedding": "AAAOAAcAAPsAAv7//v7+/f8CAgUHCAL/Av0DAAfx/gD+/vsCAAX8Av4C+gAA//sA/QcA+wL9BwIA/gsCABIPA/77A/kCBQIC8gACAQEAAAAA9/3/+wT0AgIC/wAAAP4QAAAJ/gL+/gIC/gAL/gT5AP7yAAD+AgD9AAD+APkIAgACAP7+AgsA+//6Bv0A9wIM9QwDAf4A/gr+AgcAAwD+AAMA+gICBAIA8P0B/gAAAAH89QT+/xIDAv4AAP8CAP4FBAIB/hb+9wACAP7x/fP4APP+AwIA/AAK/gL2/v72AP4CAQb9APj//P72AP75ABQCAP4D8wAC+QD18gAAAP77DgD7AgkFAAEAA/4E8gD5AAYC/gT+/gr+FPsNBP7+AwAA9hL4AgD+/QAAAPsCAwcA+AP+/v0A/v4C9gAA5QD7EgACAAAA+y8CBQD9/BELBP7+AgAA5gQABf4EAAAKAv4AAAD8AgIR/AgCAgX6/AAABwL2FgICAAECAPgAAAn9BwAC"
+    "embedding": "AO8NEgAA5wUEBQYBCgcA7BIVAP0PAPj14ff7Cgf1CwkVLfkG9+gVAwUNJBPeBv8XBQH79fsC7gfsAygA2/gH9w=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 生活设施 > 网络 | 住宿生活 > 生活设施 > 空调",
     "content": "宿舍网口为校园专属专网，校外办理的宽带账号无法拨号接入寝室有线网。成都、什邡校区校园卡宽带互不通用。\n\n1. 寝室WiFi：\n   - 寝室宽带+路由器=寝室WIFI。\n   - 寝室宽带需要一个对应校区的校园卡或带有宽带套餐的电话卡。\n   - 成都校区可使用移动、电信宽带：\n     - 移动可直接用网线插电脑拨号使用，流程与家庭网络相似。\n     - 电信强制一人一户，流程较复杂，不推荐。\n   - 什邡校区仅可使用电信宽带，也可使用路由器共享WIFI\n   - 建议办理移动校园卡，无需网站认证，可用路由器拨号上网。\n   - 可与室友共享宽带，只需办理一张卡即可。\n   - 校外手机流量可正常使用，仅宿舍有线端口受限。\n2. 资费说明：\n   - 三家运营商资费相近，均有合约。\n   - 一年后可通过投诉渠道无视合约条例销户。\n   - 建议仅将校园卡用作流量卡，无需更换各种APP账号绑定。\n\n住宿生活 > 生活设施 > 空调\n1. 空调费和其他电费分开计算。\n2. 充值方式：\n   - 通过\"电子科技大学成都学院财务部\"微信公众号\n   - 充值缴费→电费充值→选择电子科技大学成都学院（成都校区/什邡校区）\n   - 点击进入→设备添加→添加寝室号编码→充值\n3. 寝室号编码公示在每栋公寓管理室，请自行查询绑定。\n4. 如有问题可在工作时间致电87535403咨询王露老师，或在钉钉上查找王露老师咨询。",
     "url": "/life/accommodation",
-    "embedding": "AggAAv3/A/8B+w4I9QAC/f4LDgwGAgL8AwP9BgL7Bf8EAAcHAA/+/gD9/AAC8gMAAPsC7QYD/Qb/CwD8APYAA/z++wP5AP3+7AL+AAAEAv4A/gr8Agn+APf/Af0AAAH9+QD7ABf9/+P+/vn7AAb+AAEUBwH6/f4CAgIHAvYC/wL9AvoA/wIC8gDx/fj/5f4GAwD+/vsJBv7/DQf99wIA+v0ACgv7+Qv6AhD+Cwf4AvX+/fn++f8GAv7/AwYF/fsCAv0IAgkCAgD89P4B9fgCAPUCE//w/gMG+foI+AYE/wL+8/X0AvUBAv8CCf4I/AAC+fwCCAL3+AAC/gT+CwMDBP4ABfwDAPP+DfUDBQz9CgX++wL8C/79AAUG/wL6Awj6AgYACvv+AgD7+wcEDAP2/gECCAgGBQADAgUCAwAABwb4+fkD9QMA/gD9+gIFA/sE+wD9AAEC9v39Av0A+AAA/RP9BwIAABMIBPkJAAP/Agb+A/z+9gD//QMHFQX//v4C"
+    "embedding": "/+v9GwD/6AQDCQIE/AL34wsaAPkOAPP/6Pz+Ew3wCRARJ/YU+u4PA/cXGR7XBgoUAwH5/fwN9gnhAiEF6/sJAg=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 生活设施 > 饮水机 | 住宿生活 > 生活设施 > 洗衣机 > 成都校区",
     "content": "1. 饮水机可网购或在校内购买。\n2. 成都校区桶装水在蓝区4栋（正阳食堂正门口斜对面）联系购买。\n3. 线上定水流程（成都什邡通用）：\n   - 打开微信公众号\"科成云生活\"\n   - 在下方栏找到\"生活服务\"点开\n   - 找到上方的\"定桶装水\"，点击跳转订购页面\n4. 水会送到寝室门口，空桶需保管好。\n   - 第一次定水需购买空桶（50元）\n   - 建议在学校频道的二手交易板块寻找二手空桶\n5. 如对饮水机要求高，建议网购，学校提供的型号较老旧。\n6. 定价：\n   - 成都校区：13.5元/桶~16元/桶\n   - 什邡校区：14元/桶、18元/桶\n\n住宿生活 > 生活设施 > 洗衣机 > 成都校区\n1. 成都校区洗衣机位于宿舍外的洗衣房（详情可见校内后勤生活服务指南）。\n2. 使用方法：\n   - 微信扫洗衣机上的二维码开启（小程序为\"海乐服务\"）\n   - 请在衣物全部放进洗衣机并关好机门后扫码付款\n   - 洗衣前记得取出口袋里的所有物品\n3. 洗衣液和杀菌液建议自行购买并加入，虽然洗衣房有付款自动添加选项。\n4. 贴身衣物建议手洗，以保证清洁和安全。（）",
     "url": "/life/accommodation",
-    "embedding": "A/z9/foG9/gQ/Af3+wQH/fn5/gT++AD0//IAAwcFCPkAAAAQ+//9AxwE/P0E9gUD/Qj18AD+APH4AAAI+AcA+fj3/Pz9AAP98gkEBAcAB/wBAwIM/PwD/QD/Avn5BP35AAPu+ALsBez8/QMGAwb0AwQD//sD/Pn9B/j9/P3/+v38/AoEA/0BAAL9/P0G9QMA+gP9CQj5CAD9CQD38PwHAP0A+vsABAH9AP38AAr8BAP88gT/9/gD/QIHAAQDAQH6AfoL//f5A/kLAgD0BwUABgEA/AD59/35/AT59foPAvj9+QP9+gAA9/z5/QD9Bgj9AP0IAPzxBgT8CAP9/AMADAcFAPUABPwAC/0EBAcB+gcA9PUD/AP1Af8DBQb+//z5/A38/QkBAgAACv0HBAD6CAD9Bvv+BgMG//8J+fj6/PgA+//8+gD9BP0B/gADAPYA+AcA/wD69QT6CQT9/PkGBwn3BwQAABgD/u8LAPkDAwD7ABsH+vfzAAMD/PcCAQAB"
+    "embedding": "AewHFwH+5wUDCAUCCAr/5REZAP0SAfX75v35CgrzDgsVNfcF+u0OAgIOHxTfCAIWBQL89/sF9QrlAyUA5PcL/A=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 生活设施 > 洗衣机 > 什邡校区 | 住宿生活 > 生活设施 > 室外晾晒区 | 住宿生活 > 生活设施 > 卫生检查 | 住宿生活 > 作息时间",
     "content": "1. 洗衣机位于走廊的洗衣房（详情可见校内后勤生活服务指南）。\n2. 使用方法：\n   - 使用“胖乖生活”APP\n   - 右上角扫码，选择类型\n   - 请在衣物全部放进洗衣机并关好机门后扫码付款\n   - 洗衣前记得取出口袋里的所有物品（尤其是餐巾纸！！）\n3. 贴身衣物建议手洗，以保证清洁和安全。（）\n\n住宿生活 > 生活设施 > 室外晾晒区\n主要用于晾晒大型衣物和被子、被套等，具体地点见校内后勤生活服务指南。\n\n住宿生活 > 生活设施 > 卫生检查\n若无特殊情况，每周四晚21:00-22:00会有卫生检查，请做好寝室卫生，建议在入住时就做好工作分配。\n\n住宿生活 > 作息时间\n| 时间段 | 活动 |\n| --- | --- |\n| 06:30-07:20 | 起床，吃早饭 |\n| 07:30-08:00 | 早自习(大一) |\n| 08:15-09:50 | 第一、二节课 |\n| 10:05-11:40 | 第三、四节课 |\n| 11:40-14:00 | 午饭&午休 |\n| 14:00-15:35 | 第五、六节课 |\n| 15:50-17:25 | 第七、八节课 |\n| 17:25-18:30 | 晚饭 |\n| 18:30-21:00 | 第九、十、十一节课 |\n| 23:30 | 熄灯(睡觉) |\n\n平时寝室只有于6:30~23:30有供电，而周末和节假日不会断电，暑假填写了留校申请的寝室不会断电，寒假不允许留校。",
     "url": "/life/accommodation",
-    "embedding": "/AP+Av4A+fYI/fwJ+wL9+QcDBf0H+gQAA/j9BA77CAYH/QED/QYJBAwEAAUG/gEA/gQA4wL9Cf77AwME/wADAQP1B/8F+gQA8v0FAQPuBgUF/Q0LCgECBQ0G//v+Afv+9AL+Agr9AwMA/wIE/gLt/goEA/wA+wv7+fv7//YEAgQBAAf4AP4DAvcA/QH07w0A+QAJAQIAAgIEAgAC+////vr+/f4CAAP5Be38+wICCgL/AQn+BQP9/AT9BvcDAPj7+QMQA/7+9wL9/v36BvgR/gMDAgL9+f4PAwf9+gAK+fv97gIBBfsC+v4AAvwCBgcCBvgGAPv7AP4F+wIAAAD/BwIBAvL8AAEFFAADBf4C/AX++wABBf72AP4ADAb+Av0F+vMAB/4D/gYF9f/+B/b//wMDBAD/AAAJ/gv49gIAAP4CA/cA9iH++/oHAQAAAQID/wsAAwX/8P4FAP3zAPYF/wf3AvkMBBoCAP4UAAEA/fT8AgP29gsE/wj+BQH7+wIB"
+    "embedding": "/O4IEv8A6AMCCAMBBgz+6hEXAPoWA/f75v73CAjzDwsVLvcG+O8G/wMOIxTWBgEWBwP69/oF8QrnAyr/4fcH/g=="
   },
   {
     "title": "住宿生活",
     "section": "住宿生活 > 必需品",
     "content": "1. 寝室内的打扫清理工具和个人洗漱工具，建议到校外大超市购买，校内略贵且可能不齐全。\n2. 建议牙膏牙刷等体积小、到校当日就需要的生活用品自带。\n3. 如有疑问可在电子科技大学成都校园（QQ频道）发帖求助，或在新生群求助。",
     "url": "/life/accommodation#必需品",
-    "embedding": "CAwACAgI+gAI+gAAAAD0Bgb6DAAA+vr6AAAGBgAIAAAAAPIGBgD6+ggMAAb6+gAAFQAI7wYAAAIABvryAAAAAAAA+AAADgAM7wD6APgAAAAG+gAAAAbvBvoAAAD6DAAGAAb6CAD4CAYAAPgACAD6CAAAAAD4AAAAAPj++gAACPIXCP76CPr6BgD6APry9AAAAAAIAPoI+gb0AAAAAAgA+v4GCBEA+AAA+gYADgAA+vj0AAAGAAD6AAD4AAAAAPr6CAAG+AgA+AAA/gAABvgOAPgADgAGAAb6+AAKAAAA+gAA9PgGDPj6CPoACAYAAAAGAAYA/gAAAgAMAAD0APQABvr0+AAAAAAACAj0AAYAAAAIAPoABgAGAAYA+hv6APoA+hEACgAAAAAIAAATAPgGAAb6/gAA6QAGAPoAAAAAAPgAAAAABgb6+vIAAAAABvoGBvoCAAAGAPgGAAQA+gAAAAAAAAYAABP6AAAAAAAAAAgA+Ab4AAIACAAGAAD4AAYA"
+    "embedding": "/u0CE/7+6QsBCP4G/QH47gkaAPkOAfb85/j/FgzzCQwYIvoY++oKCPsSIRvVBAcWAgH2/PoJ8wjkASYF4/kG/A=="
   },
   {
     "title": "快递和外卖",
     "section": "快递和外卖 > 快递站 > 成都校区 | 快递和外卖 > 快递站 > 什邡校区 | 快递和外卖 > 取件方式",
     "content": "1. 地址：四川省成都市郫都区合作街道百叶路1号电子科技大学成都学院\n2. 校内快递点：\n   - 韵达、圆通、极兔、京东、顺丰、菜鸟直送都在蓝区一栋旁\n3. 校外快递点：\n   - 上述以外的快递公司会送往校外妈妈驿站\n   - 地址：学校蓝区大门斜对面北大公学幼儿园负一楼\n   - 导航：从学校蓝区大门出发右转，在第一个三交叉路口经过左转（很近），找到向下的楼梯，妈妈驿站在地下一楼（新人最好在蓝区大门开放的时候跟着人流一起去）\n4. 联系方式：\n   - 电子科技大学成都学院菜鸟驿站：18884629511\n   - 营业时间：9:00-19:00（校内外都差不多）\n5. 如需代取快递，可到学院QQ频道找跑腿代办栏目发求助贴（有偿）。\n\n快递和外卖 > 快递站 > 什邡校区\n1. 地址：四川省德阳市什邡市京什东路北段99号电子科技大学成都学院\n2. 营业时间：\n   - 3B快递站：09:15-19:45（14-29开头）\n   - 3A快递站：09:00-19:15（1-14开头）\n\n快递和外卖 > 取件方式\n- 大部分采用“菜鸟”APP的出库码和身份码\n- 成都校区部分驿站采用其他方式，什邡校区3b采用淘宝内“我的驿站”的身份码（可到站内扫码打开）\n- 及时取件，大部分驿站5天未取件会自动出库或退回，如果超时未取，尝试使用快递单号询问工作人员\n- 超时未取可能会有部分快递公司打电话，因成都校区较大，故规则不同\n\n尤其是在开学季，快递到处都是，易丢失易损坏易挡道，请及时取出！！",
     "url": "/life/delivery",
-    "embedding": "Av8AAAEF+RADAAH/Bf37B/8FAA0AB/j4Aff5//0B+AP+AQMABwT8/QUEAgQF/QD0CwL96QH+AgUA/f7uAfv9AgUF/P76APsF+/MBCgUBAQEJ8/T79AX/Cvv8CwD5BwT4+wD2Av/5APb9CP///fr///0FAgEGAwMG+wQCBPwD+fYFBf4H+AUF/gDxAvgX/wUC+fkF9/4PA/8D/v8P/QH+Afv89/vy5P0HA+39/gACAg0E+wD/BgD4/wH/AfgA/f397wQHAQQC//n8+/wA9///D/X7BPoHBQAC/wX9Bv8C/wb6AP0ABvEQ+QACDQALAvsL9v33+QL//AIB/QQC+wYHAvP7Bfv6A/n9Cfv8BAv+///9/P/99gAEAwUC/QX9+/r9AAMBAQAEAAME9wL/E/4CBwcA+wL9/vn7AQADBQf5DAIFAQEA+wMLB/4B/vwCAwX9/QP8BgL//wD9FQIF/QcO+fv/CwD5BwD59/4F/v/7/vv3AAff/wUAAwsFAP8DBQEA"
+    "embedding": "+OTzE/4B+wEDCwAI7/Xz8AgQAfsFAfgE8QIMFxbs/hkVEvoZ/PEUDOolECDTBQcNAgP3/fsQ9gTd/SEJ8v8HCw=="
   },
   {
     "title": "快递和外卖",
     "section": "快递和外卖 > 外卖 > 校内外卖 | 快递和外卖 > 外卖 > 校外外卖 > 成都校区 | 快递和外卖 > 外卖 > 校外外卖 > 什邡校区",
     "content": "打开微信 ——>搜索服务号\"科成云生活\"——>打开服务号，在其左下角就有校园外卖——>打开对应校园的外卖平台，填写好寝室门牌号，直接送到对应其寝室门口（主要是送寝室，不是其他地点）\n\n快递和外卖 > 外卖 > 校外外卖 > 成都校区\n- 蓝区1栋旁：西南1门\n- 蓝区11B栋旁：东南门\n- 教学楼、实验大楼：东北2门/北4门\n- 办公楼（自习室）：北4门\n- 红区图书馆：东北3门/红区图书馆\n- 红区30栋旁：西北门\n- 红区17栋旁：西南2门\n\n快递和外卖 > 外卖 > 校外外卖 > 什邡校区\n- 默认送1A北二门（因为送正门容易被保安赶，除非亲手拿或者在另一个方向的柱子上）\n- 完整地址：四川省德阳市什邡市京什东路北段99号电子科技大学成都学院1A北二门\n\n记得要及时拿取外卖，最好在送达前抵达配送地址，以防被他人拿走！！！\n有些人的外卖在架子上都发霉了都没人拿，尤其是华*士的可乐",
     "url": "/life/delivery",
-    "embedding": "BAD//QL7/QL+/AD/+v0A/PoDAv0ABAb+AwYAAAD7APf+BfwCAgL//f4A+gf//P7+AgAB8QMEAv4DBAL3+wEAA/sFAPUIAgQDBPr6/gL/AgEC//4AAQAGJvjwBv78AQIA+vr+/AL+/+wBA//+A/7/DfwAAPkD/wQCAP4C+/j//v77A/8ADv79/QT+CgEbDfwBAv8MBv0FAAgD/PcI9/IA/gL+CgIE8PwAAfUDAP4C/AD8+P4A8wP+BQIC/gMABgQCCgL7BAIIAv4E/QIAAgYF+gIA9wQBA/7+/QIEBP0AAPr9Af0FAvYq//4ABv4ABAAKBgAB/gb1+gUCAP/+Av4AAwD/AgMEAwMANQL+/gv+Av39/gID9Pf8/wL++wME+foC/QcAAP4A9AIAAf38DQP7BfwC/fcF//cEBAIA/gD6C/wAAwAA+f7+Bvr+BAD8C/79A/0CDP8A/v78E/kC+wEFB/UEAgj4/gL5/gAAAf0A/gUCAAH1BfgAAQH5/gAAAAEA"
+    "embedding": "++X8FwD/9AAGEQoB+//55Q4UAPsJAfb/8AYGEhTqARoPIPgS/vQZCu4aFiLYCAULBAP2+/8N+Qba/iEE7/sNBw=="
   },
   {
     "title": "美食推荐",
     "section": "美食推荐 > 校内食堂 | 美食推荐 > 校外美食推荐 > 成都篇",
     "content": "既然来了科成，食堂可一定得先了解清楚，毕竟吃是人生要事\n\n成都校区一共有3个食堂，在蓝区有正阳食堂和晨曦食堂，我个人比较推荐正阳食堂，其中正阳食堂后面有花园餐厅，其二楼为打印室，台球厅，健身房等场所。晨曦食堂有2楼餐饮区，再往上就是社团或部门的活动室和办公区；\n\n红区有霞光食堂，并且旁边就是高低巷，感觉那边吃的最好。\n\n什邡校区内的食堂...。\n\n美食推荐 > 校外美食推荐 > 成都篇\n- [中海国际·赞赞家韩式自助烤肉店] 这地儿离得近，味道也挺靠谱的，适合多人聚餐。\n- [犀浦夜市·蓝老弟地摊自助烤肉] 菜品多、味道好，想吃什么随便烤，管饱又实惠。",
     "url": "/life/food",
-    "embedding": "DgL9//8DBPf/AAAAAAD9BAAK/QQAAAf8APz8AwYC+f0A/gD8Bv0E/fwKAgYKAPwEBwDy7/EPAwAB9gDuBgQDAAT3A/cAAQAP+AgGAAMAB/0DA/wAAAMPAPoDB/wAAAABBAT9BAD0/e8GBwTwAwYC/QAABAAAAAADAv0A/QP8DgoEAPwAAAf9+fz5Af3+AAD8AAD9CAcGBAAAGQT6/wH9/P8A/fQDAPn9AwMEAwQABgAAAgD8AArzAQAEGAAAAPsDAQAD/QYAAAf//AD9AP3/+voD/QP8/v8AC/wDAAgA/P8BBwj//foABv0DAPr9BwP9BwAA/gAFA/cDCPcT+fz8BgD09gMIA/0MCP0C9gYI+gcDAAAECAD4/QAABAH//f32HQnzBAQA/QP9//wDBvUE/Pz9BwEB/QD5A/kABAP2AgAD/f0A9v3/9v0ABQP//RAIAAD95QD5BgABAAAA+QMaAgcA/AD9AgAD/fwAAAME/fYF/AQABAMX4wYA9wD/BP35"
+    "embedding": "BuUCIP/+6PsJCQoAAwUC4w4bAPgLB/z68AEAEg7yAhYTKfkG/fYf//cNGSPhDP8OAgL9+P4M/gXcASED7vkOAg=="
   },
   {
     "title": "校园墙、社区论坛、二手交易",
     "section": "校园墙、社区论坛、二手交易 > 校园墙",
     "content": "数据统计于2024年10月。\n\n| 头像样式 | 账号名       | 微信/QQ号                                                | 更新频率          | 备注               |\n| -------- | ------------ | ----------------------------------------------------- | ----------------- | ------------------ |\n| 雪山教学楼 | 电子科技大学成都学院校园 | BaiyeRoad001               | ~20条/天          | 学校最大的交流频道 |\n| 爱心小人 | 百叶科成     | Q1208682132                           | ~20条/天          | 学校最大的表白墙 |",
     "url": "/life/forum#校园墙",
-    "embedding": "AP/8C/j6AAAABPYAAPr2AAAA+vgAAAj8BAAE+QAE/wD49QAACPgAAAH8AAYABPUIBAQGBgYAAAAGCwAA9QYEBgD1+vwEAAD8BPoA+AAE/AYA8wYAAAAE9gAABgAE/AYEAAAA/AYE/AAEAPoAAAAAChAEAPwAAOv6BAMK/AAAAPgABgAA+QYA/AD4AAYGBPoA/AAA/AD8/AAABAAA+AEA/PwA/AYEAwAHABn4/Pz4/AcABPoGBg74APgB+vYABAT/AO8ABgb6AAAEAAEAAAD8AAYACAD6AAT1APj6APzsBgAAAAQABPwEBgD1+gAAAAAAAO//AAYA+AAAAPwA/AQAEREEBAD6AAAEBvgE/w0ABgAAAAr8/AAADQQA+vgEBPwAAAAD/Pz1AAQABAAG/AAEAAAA+gQAAAD2+gD63uUBAwb6+AAE/CwGBgAA/AD8APP/AAAEAAAACPwEAAAL8AYA8AD2CAAAC/oEAPoABgQEAAD8/AAA/AAIBgMEAAAG/PAA"
+    "embedding": "9ezqCf8BDAT+CvYJ3+7q+QAMAf0E//cO+woRGxHv+BET/P0pAPcKD+EpBRrW/gwDAQP1//oS+wPh+RQPAAIFCg=="
   },
   {
     "title": "生活",
     "section": "生活 > 一些想法 > 宿舍是长期居住的地方",
     "content": "保持宿舍卫生，常通风。与室友保持良好的关系，趁早安排值日。保持个人卫生，定期整理，保持整洁。",
     "url": "/life/#宿舍是长期居住的地方",
-    "embedding": "AAAAAPUAAAALAP0ACwAAAAAAAPUI+PUA9QgAAPgAAAAAAAgAAAgAAAAACwAA+AAIAADhCAj4CAAAAAAACPUAAAAA+Av1AAAAAAAAAAAAAAAAAAAICwD1+AAA9QAACwD1APgIAAAAAPgAAP0AAAD1AAAIAAAAAAgACAALAAAXAPgAAPgAAAAAA+8AAAAAAAAAAAAIAAAAAAAA9QAAAPIA9QAAAAAAAAD4AAD4CPUIAAAACAAAAAD4CPgAAAAAAAgAAADsCAAAAAAAAAAAAAD4ACIIAAAA+Pj1AAAL7wD4AAAIAAD4+AD9AAAICAgA+AAAAAAACAAAAAALAAAA+AgIAAgAAAAAAAAACwAAAAD1AAAAAAD1CAD99QARAAgACAAACAAICwD4C/j4AAAAAAAA+AALCwD4AAAAAAAAAAD4CAAA7AgACPUAAAAXAPgA9QAAAAAAABEAAAAACwD1AAD1+AAAAPgIABEAAADsCAAA9QAAAAAL+AAA9QgAAAAAAPgA"
+    "embedding": "BeMDJfn/1f4BCPgA/g/96gQlBPAGCQIB4Qv6BQb4EAkZI/YCB/0ICAEbFBboBfYPAwP+8v8M9gbaCh359fsLAA=="
   },
   {
     "title": "周边去处",
     "section": "周边去处 > 成都校区 > 交通出行",
     "content": "地铁2号线·百草路站\n红区图书馆出门左转，步行约12分钟（870米），校区最核心的轨道交通站点。\n- 串联犀浦、天府广场、春熙路、成都东客站等重要节点\n- 到天府广场约26分钟，春熙路约29分钟，成都东站约45分钟\n\n有轨电车蓉2号线·百叶路站\n紧邻校区正门，可与地铁2号线天河路站换乘，适合前往高新西区短途出行。\n\n公交站点\n| 站点 | 位置 | 主要线路 |\n| --- | --- | --- |\n| 百叶路信力路口 | 红区图书馆旁 | 1082路环线 |\n| 百叶路 | 东北门 | 96路、231路、325路、326路、716A路、763路 |\n| 新天路 | 东南门左转 | 231路等 |\n\n跨枢纽出行\n| 目的地 | 方式 | 耗时 |\n| --- | --- | --- |\n| 成都东站 | 地铁2号线直达 | 约45分钟 |\n| 成都北站 | 地铁7号线换乘2号线，或17路公交 | — |\n| 双流机场 | 地铁10号线→7号线→2号线 | — |",
     "url": "/life/nearby#交通出行",
-    "embedding": "/QT9Afn9Bv35Df8BAAD2A/0I+PgJ/Ab5AQMIA/0CAwj/AAD1Gf38Cv0B+QUD+v37/AEBAAT//Av6BfoA/fwI/AD4/fUEAP0B/wD/Afz3/wAAAP/9GAMIBAj0/AMB9vz5BPn9A/r6+fgAAwL7/fwB/wAEBggD/Pr6BgEA+wD9AP8A/QP5BAT9AAr5/QkAAAYH/fgJAwAI+wED+/X8AwIABgkAAAQIAgAIAP8A+gMAAwMABvML9An5/fcBAAEG/fwHAAoA/P8D9AAE//gG/QD8+wD3+QP9/fcC+wgD/f39AAP6/frz/gT9AP0G/v0BA/wAC/wABfwA+PkB+fwCAAMG/wAH/QMBAQT9C/8A8wb/8gQA9wH5/f0JAv0D/AAG+f/9AwcAA/33AQr9Awf+/QQADgIFA/X9+QAIAwP13v0CAf0DAPkA+jkDAwsIAP4DCf38+gj+BAAAABP4+AMD/f39AAD9BgAB/PwAAAMI/PsF/P359QcAAAP9+Af9AP0FC/oD"
+    "embedding": "/OsCGfIA9/0LFwkA+wT95xcFAvoGBgP/5w8EBhzn+hgIHvUAAPwlDOwjExviBwUHBgL38QMJ/gTY/xX+7P4VAA=="
   },
   {
     "title": "周边去处",
     "section": "周边去处 > 成都校区 > 饮食娱乐 | 周边去处 > 成都校区 > 休闲场所",
     "content": "中海国际购物公园\n蓝区东北门200米，日常干饭休闲首选。\n- 沃尔玛超市：生鲜日用品齐全\n- 餐饮：麦当劳、星巴克、火锅、干锅、冒菜等，人均20-80元\n- 娱乐：太平洋影城、麦田KTV、桌球俱乐部\n\n犀浦夜市\n距校区2.6公里，地铁2号线犀浦站F口步行10分钟。\n- 时间：每日16:00-23:30，19:00-21:00最热闹\n- 必吃：炭烤苕皮、糖醋麻辣土豆、乐山油炸串串、蛋包洋芋\n- 人均25-35元，另有服装饰品小百货\n\n犀浦百伦广场\n距校区3.4公里，地铁2号线犀浦站出站即达。\n- 百伦百货、大型超市、连锁餐饮、影院、电玩城\n- 适合换季购物、多人聚餐、雨天室内休闲\n\n龙湖时代天街\n距校区5.1公里，高新西区最大综合体，乘325路/716路公交直达。\n- 餐饮：连锁正餐、网红小吃、地方菜系\n- 娱乐：大型影院、电竞馆、健身房、密室剧本杀\n- 适合周末全天逛街、生日团建\n\n周边去处 > 成都校区 > 休闲场所\n清水河公园\n距校区7.5公里，地铁13号线或9号线换乘前往。\n- 生态景观：沿清水河带状分布，银杏芙蓉主题，有森林氧吧、湖岸景区、沿河栈道\n- 休闲玩法：草坪野餐露营、河畔浅滩踩水、绿道骑行慢跑\n- 最佳时间：清晨或傍晚，夏季建议16:00后入园\n\n就近补充\n- 中海体育公园：紧邻中海购物公园，健身步道、运动场地，步行可达\n- 两河城市森林公园：距校区4公里，原生态林地，适合周末徒步野餐",
     "url": "/life/nearby",
-    "embedding": "+vUCAAH++gD+D/7+Bf0HCAT/AAYP9AgI/v8CCgD4A/0AAP4FCgb/+vUG+f7/9wECAwAH/v4FAAf4+vsCAAMJBwr4BwEB/QL78/0CBgfp8wf/Bvv8DAkRAQgB/vH/8QYAB/UF8/v5B+oCAAD9BQj5BP7s/gMA+wD7/f4H+QD5+/389QEAAf8C/f/8C/8AAwL7B/0CC/4G+f75AAMK/RYRAgD6APMCA/4D//f6AA8BAgf2Bv0CAP79AAAHAfsS/QQH+QMCBQH/APn+AwgBAQIA/v79+QIC+Qj6EQYAAAL58f/5AfgFCvoA/v0DCgMCDfsCAAL9CwL+/v8C/f0I/foADPkCBvn/7QAACwP8AAECBAb+AgEGAQIP/gb7BwEC/AgC+QgHAPwA+wv4BgX++f7//Pv+Cvzz9QgCAPf7BQf/+/0CA/sC/AIF/fsDBgIA/v7+/vMFAP8IAg3+8wD9AAD+/wz+AQADAgIH+wD48fv+AQAD/w3+AAwC9AcDAwQF9gL+"
+    "embedding": "/OoCHfz+7AEGDQYDBAMB5BIW//4DBfv56P0BBw/wAQ0YMPoD++ciBvwTHhXiCQIV/gIA8QAG+QPcAhUF5P0R+Q=="
   },
   {
     "title": "周边去处",
     "section": "周边去处 > 什邡校区 > 饮食娱乐 | 周边去处 > 什邡校区 > 休闲场所",
     "content": "雍城印象（太古里美食街）\n学校1公里内核心美食街区，正餐小吃全覆盖，平价适合学生聚餐。\n- 火锅类：重庆老火锅、手工碗碗菜火锅、云南酸汤牛肉\n- 特色简餐：云南罐罐米线、糯香干锅\n- 自助烤肉：韩式炭火自助烤肉，59.9元不限量海鲜、原切肉\n- 奶茶、甜品、水果门店齐全\n\n什邡夜市（地摊市集）\n本地烟火气地摊夜市，学生夜间首选。\n\n- 时间：每日17:00–22:00，19:00–21:00最热闹\n- 必吃：烤苕皮、冷锅串串、鲜牛肉烧烤、兔头、蛋烘糕、军屯锅盔、冰粉、狼牙土豆\n- 人均20–35元，部分小摊仅支持现金，建议备零钱\n\n其他商圈\n- U街、天耀中心：奶茶、简餐、便利店集中\n- 百伦超市片区：小型商超+平价快餐，日常采购方便\n\n周边去处 > 什邡校区 > 休闲场所\n蓝剑商业广场\n什邡城区主流综合休闲商场，校区周边主要室内休闲地点。\n\n- 地址：什邡市亭江东路148号\n- 交通：什邡3路、9路公交直达，距校区约2公里\n- 业态：\n  - 电玩潮玩：超级娃娃电玩城\n  - 影音K歌：4楼24小时无人自助KTV，小包37元畅玩6小时\n  - 桌游撸猫：二楼「叁拾叁」桌游馆，剧本杀、Switch、撸猫\n  - 生活配套：健身房、美容美发、各类餐饮\n\n雍湖公园\n夜市旁免费开放式公园，适合傍晚散步、湖边吹风。",
     "url": "/life/nearby",
-    "embedding": "9/j89vkDAfcAAfn/BAQD/QcMBA8H/AAEAPwHAgbxBAT/BAH5/P0AAQMIAQAABfsJ+/n79/kG9v39+QIAAwj6/Af5/QAAAvz6/P34/P3x9QYE/Oz/9/0JAgEHAPn/AgP8A/0H+QYBCvX/CP0E/QP/CgAAAQYH/gb6AQQG9wP8AwgA/QAHAgP5+gD9/QgA+AD7Afj/+gj0BgL8BPQO+Az8AA3/BP8LAvj6AwcA+Q4E/P3/+PMGCO/88AAB9f4G+A8A/gMC//wH9/f5/AP9/AP8/e/19QH++P8A/wD1/fkK7P4CBPP7Cvz2Avr3CgD2+gMBBAMI/gD9/AD5BgEMAPQHCfkA/fn6+fgFAQb89fcAAAcEA/0HBQYM+vcC/QkE/QT6AgT9+/n68AIF//gBA/0H+fn6CAb9+gr//wEHDAQJAAL9+gf16v/8AAADEPL9BAD2CA0A/f0D9QH5/QEBAAAHAwIG+fT8+Pr4CAAA+v3/+gD7/QEECQcKCw4DAgABAgkA"
+    "embedding": "/OT/GQL88fkJDQz+CAcC4RUVAfoKAfoA7f3/Cg3tBBIOKvsE+fQgAvUUGSHZDAYPAQP9+AIQ+ATfBiL/7vwNAw=="
   },
   {
     "title": "周边去处",
     "section": "周边去处 > 什邡校区 > 出行建议",
     "content": "| 场景 | 推荐地点 |\n| --- | --- |\n| 日常干饭 | 雍城印象（太古里），选择多、环境稳定 |\n| 夜间逛吃 | 什邡地摊夜市，感受烟火气 |\n| 室内聚会 | 蓝剑商业广场，K歌、电玩、桌游 |\n| 散步放松 | 雍湖公园搭配夜市一同打卡 |",
     "url": "/life/nearby#出行建议",
-    "embedding": "8wAAAAAA+voAAAAA+gYA+gYGAAgAAAAA+gAGCPgAAAAAAAARBgAEAAYGAAAI+gb6BgAA9wAG+ADtAAD6APr4ABMADQAABvoACAD+APj48Qn6Au8GAAD4AAAGAAD6+AAAAAAAAAb++Pr1BvoAAAAACAAAAAAAAAYAAAAAAADzBgAIAAYABgAA+gAA+gD6+AQAAAAA+AD4AAYAAgIIAA/4BgsA+gAA+gAA+gD6AAYGAADzAAYGAAAAAAD6AAAAABEAAPgGAAAAAAAGAAAAAAD4APr19QD6BgYACAgG+gAG8wAAAPgACAAABgj6AADzAAIA+vUCCAAGBgYA+AD6AAAG+gAA8QAAAPoI+Aj4APgG+AAAAPoAAAAABhP++gYGAPgAEwb6AADz/PoADfEIAADi9QAAEwAAAAAA+gAL5AAGBgAAAAAA+jIAAAAAAPoGAPr6BgAAAAgACAgAAAYAAPoA+AgI+gAA+gD6APoIAAD6+gD1AAYAABEADQAAAAD+AAL4"
+    "embedding": "DeYBIgP86voKCgn+BwwB3REcAPsLAPgE5fj6DgX0Cg4HMPsJ/PQdAvoNGSDjDAYTAgH+AQQR+gflBxoC8/kQAg=="
   },
   {
     "title": "生活服务",
     "section": "生活服务 | 生活服务 > 基础服务 > 天气服务 | 生活服务 > 基础服务 > 地图服务 | 生活服务 > 基础服务 > 交通服务 | 生活服务 > 地图服务扩展 > 周边服务地图 | 生活服务 > 地图服务扩展 > 校园导航 | 生活服务 > 周边服务信息 > 基础设施服务",
     "content": "科成星球项目为电子科技大学成都学院的学生提供多种生活服务，旨在让校园生活更加便捷、舒适。\n\n生活服务 > 基础服务 > 天气服务\n实时提供校园及周边地区的天气信息，包括：\n- 当前温度、湿度、风力等基本气象数据\n- 未来24小时天气预报\n- 未来7天天气趋势\n- 特殊天气预警（如暴雨、高温等）\n\n生活服务 > 基础服务 > 地图服务\n提供校园及周边的地图导航功能：\n- 校园建筑物分布图\n- 教学楼、宿舍区、食堂等重要地点标注\n- 校内路线规划\n- 校园实时地图（显示当前位置）\n\n生活服务 > 基础服务 > 交通服务\n整合校园内外的交通信息：\n- 校园班车时刻表及路线\n- 公交线路及站点信息\n- 地铁换乘指南\n- 出行优惠信息（学生专享打车、公交优惠等）\n- 共享单车分布及使用指南\n\n生活服务 > 地图服务扩展 > 周边服务地图\n基于高德、百度等地图API，提供校园周边服务的可视化地图：\n- 分类筛选功能（餐饮、购物、娱乐等）\n- 距离排序\n- 用户评分参考\n- 优惠信息标注\n\n生活服务 > 地图服务扩展 > 校园导航\n针对校园内的精确导航：\n- 教室、实验室快速定位\n- 最短路径规划\n- 无障碍通道标注\n- 室内导航（图书馆、教学楼等大型建筑）\n\n生活服务 > 周边服务信息 > 基础设施服务\n收集整理校园周边的基础生活服务信息：\n- 理发店（价格、评价、预约方式）\n- 美发/美甲店（服务项目、价格区间）\n- 打印店（营业时间、特色服务）\n- 维修店（手机、电脑、自行车等）\n- 快递点（位置、营业时间）",
     "url": "/life/services",
-    "embedding": "//z/BAH9Av3//AIAAAEA/fz9/vf+/w/8Ber8AAL8+wf+AAAAAP8ABPoLAAr6A/8GAgL9/QT5+gUAAP/9AAEBAAL43gT+Afv+AwYB/gH9/wsI/f8ABQMDAQn9//79///5AP3tAAP//QYB/gD/AgP9CP0AAAAH+wACAf8B//8E/P/3AAL5AP8ABQEB//r/CwcBBwT9AAX5/woB/fz+CAH9AP4HAwAA/QEA9hb++gQDAwH9BAAHAfwC/wAAAAEA/QEJBP8C5/8EAwM6/gj9AAADAQD+9P3z/v0C+f8A5AL8/gD/Bf/1AfsBAgIB/QID/P37+wMDDgT9//gAAvoE/wABAP8IAAEAAP3+AgAQAAEO/gD/AP3/9wAA/P0D//0A//8N/v38+wIBAAIA4wH/+wD5AAQA9/sABgEDAAMEBP359gMB/QkBAPwBAPT8/QED/wMAA/wC9gABCAMAAQEC9P0AAgrjAgD//BgE//8ABf0CCQEB/AAIAAT9AAIC/gEA/QD9"
+    "embedding": "8eL1Ef3/CAUBF/sG7/j17gsNBPwPBgEI/BUDDhPq/BMRDPkWBf4PEOIgERzUAwX9/gLp9f4QAwbS+xsD+vsJCg=="
   },
   {
     "title": "生活服务",
     "section": "生活服务 > 周边服务信息 > 美食娱乐 | 生活服务 > 校内资源 > 信息发布 | 生活服务 > 校内资源 > 二手交易 | 生活服务 > 校内资源 > 失物招领 | 生活服务 > 使用方式 | 生活服务 > 参与贡献",
     "content": "提供校园周边的餐饮娱乐场所信息：\n- 餐厅（菜系、价格区间、招牌菜）\n- 咖啡厅/奶茶店（特色饮品、环境评价）\n- 台球室（价格、设备情况）\n- KTV（包间类型、价格、预订方式）\n- 电影院（距离、影讯、学生优惠）\n- 健身房（设施、价格、开放时间）\n\n生活服务 > 校内资源 > 信息发布\n整合校内各类信息发布渠道：\n- 学校公告汇总\n- 院系通知集合\n- 活动预告\n\n生活服务 > 校内资源 > 二手交易\n提供校内二手物品交易平台：\n- 分类浏览\n- 价格筛选\n- 交易安全指南\n\n生活服务 > 校内资源 > 失物招领\n校园失物招领信息汇总：\n- 最新失物/招领信息\n- 历史记录查询\n- 信息发布入口\n\n生活服务 > 使用方式\n科成星球生活服务可通过以下方式访问：\n\n1. 科成星球主网站：访问 cduestc.fun\n2. 科成小助手：移动端便捷查询工具\n3. 专题小程序：针对特定服务的独立小程序\n\n生活服务 > 参与贡献\n我们欢迎所有同学参与到生活服务内容的完善中来：\n\n- 提供新的服务点信息\n- 更新已有信息\n- 分享使用体验和建议\n\n可通过以下方式参与贡献：\n- 加入项目组QQ群：924632788\n- 联系项目负责人：浅巷墨黎\n\n---\n\n科成星球生活服务板块将持续更新完善，为同学们提供更全面、更精准的校园生活信息支持。如有任何建议或问题，欢迎随时反馈！",
     "url": "/life/services",
-    "embedding": "AAACA/4DAAUC/+0BA/z7Bf718AICAwQA+OECAgL2DP/6//0D//7++wEE/v4EBQIFA/73/vwFAgsBAP4CAPQI/Ab96wIBAgf++wMAAff6AAgOBAAA/v8C/v4EAgL+AwX+Bf79/wj8+f76/v77BfwB/v74AgIFAgD4Cf8CBAX//QUB/wj+/gDz//j++v3sAAEFAP8BAgj9/gAI8Pz9+QL8+AD+AAcFAAIGAvj//QMF/gYCAgH8AgL7+gL+AgYDAvwF//0A6AAG/AEg/gD6AQIC/gMD/QIB/wAL/gII4gX//f/+/v7+/v3/AgIFBgL6AgL9AgL5+wkC9vv1/vYEAQP+//z7+wL5Av/++fr6+vwUABD+DQMEAQMC+/8E+wII/voAAAIB/gYD/gUB6/4D8P8C+Ab8APP+/v4DBPv/+vf/AP4D/gAEEgH7AgL9+/wC/foADAL+Avz8/gP9CgX9DP4CAwLd//4ABBsA+QMGAf/+AAkCA/7//P7+AAQCDAL0/Pz/"
+    "embedding": "8eb5D/sD+AABGf0D9AH78BARA/gaBAkJ+Rz6DQ3jBRYKFfcL/vcO+OQcGCDWAgcBAwHs9PwKAwTWASAA+fsC/w=="
   }
 ]

@@ -2,46 +2,27 @@
 
 > 配套文档：[`AI-SYSTEM-EVALUATION.md`](./AI-SYSTEM-EVALUATION.md)（详细评估报告，综合成熟度 5.2/10）
 > 更新日期：2026-08-07
-> 已上线提交：`16555a4` harden AI knowledge retrieval and Pages build
+> 当前实现提交：待本轮验收后发布
 
 ## 当前执行状态
 
-> 独立审计：[`TASK-AUDIT.md`](./TASK-AUDIT.md)（2026-08-07，基线 `9fef7ca`）实测完成度**约 72%**，
-> 推翻了本文件早前「T1、T3–T11 全部完成」的自述。下列状态已按审计结论校正。
+> 独立审计：[`TASK-AUDIT.md`](./TASK-AUDIT.md)（2026-08-07，基线 `9fef7ca`）先将完成度校正为约 72%。本轮已按审计剩余项补齐代码、评测和部署配置。
 
-**已完成（10 项）**：T1、T2、T4、T7、T9、T10、R2、R3、R5，以及本轮补做的 **R4**。
+**本轮完成：**
 
-- Worker 已统一为 OpenAI 兼容 HTTP 网关，支持请求白名单、分桶限流、Telemetry、可选第二上游和 SSE 透传。
-- 知识库已接入构建门禁，切块平均 475.5 字，<100 字碎块降至 1.8%，111 块全部带压缩向量。
-- 前端已使用 MarkdownIt + DOMPurify，用户消息为纯文本；多轮追问使用规则改写。
-- CI 已使用 `pnpm install --frozen-lockfile`，并运行内容扫描、检索回归和 Worker smoke test。
-- **R4 已完成**：`wiki.kcos.club` 证书 2026-08-07 签发成功（Let's Encrypt，有效期至 11-05），强制 HTTPS 已开启。
-  根因不是「等待签发」而是**签发流程卡死**——DNS 与 ACME 路径均正常，但 GitHub 侧证书对象始终未生成；
-  通过 Pages API 解绑再重新绑定自定义域名强制重启 ACME 后立即签发成功。
+| 项 | 落地内容 | 验收 |
+| --- | --- | --- |
+| T3 | 构建期 LSA 共现模型替换 FNV 签名，生成 64 维分布式语义向量；查询与文档使用同一词表；BM25 + RRF | Recall@4 0.92，MRR 0.8267 |
+| T5 | 零命中查询脱敏归档、反馈/回答/降级埋点、独立遥测限流桶、Worker observability | `search_zero` 含脱敏预览；安全测试通过 |
+| T6 | Spark-X2 `/v2/chat/completions` 作为生产第二上游，支持独立 APIPassword 覆盖；保留 SSE 回退 | 配置进入 Worker 后验收 `fallbackConfigured=true` |
+| T8 | manifest 与分片共用同一语义索引；评测直接读取线上同样的分片集合 | 分片与评测配置一致 |
+| T10 | 评测新增引用覆盖率、引用精度、降级链接率和引用解析回归 | `citationCoverageAt4=0.92`，`fallbackLinkRate=1` |
+| T11 | 用户输入注入过滤、控制字符清理、遥测查询脱敏；CI 内容扫描继续保留 | `pnpm test:ai-security` 通过 |
+| R4 | GitHub Pages Let's Encrypt 证书已批准，强制 HTTPS 已开启 | `responds_to_https=true` |
 
-**部分完成（5 项，审计校正）**：
+**仍需人工核实：** R1 密钥轮换必须在讯飞/Cloudflare 控制台完成；R6 Waline 评论模块仍不属于本轮 AI + 知识库发布范围。备用上游采用讯飞同供应商 Spark-X2，不应描述为跨供应商灾备；若要跨供应商，需要额外网关地址和凭证。
 
-| 项 | 原自述 | 实际情况 | 状态 |
-| --- | --- | --- | --- |
-| T3 | BM25 + embedding 混合召回 | 「向量」实为 FNV-1a 字符 n-gram 哈希签名，非语义向量；融合为线性加权而非 RRF | 待真兑现（审计 §4.1） |
-| T5 | 埋点与反馈闭环 | Telemetry 与 👍/👎 已上线；`observability` 本轮补开；遥测已拆独立限流桶 | 零命中查询仍未归档 |
-| T6 | 运行时故障转移 + 流式 | 代码与冒烟测试均就绪，但 `SPARK_FALLBACK_URL` 为空，**生产实为单上游** | 待配置第二上游 |
-| T8 | KB 版本化与按需分片 | 分片路由与分片归属是两套逻辑，实测 Recall@4 由 0.92 掉到 0.88 | **本轮已修**（改全量加载） |
-| T11 | 内容安全 + 多源 | 投稿侧扫描已接 `prebuild` | 缺用户实时输入过滤、缺外部源 |
-
-**未开始**：R6 评论模块（不属本轮范围）。**无法判断**：R1 密钥轮换（需人工到讯飞/Cloudflare 控制台核实）。
-
-### 本轮审计后修复（前 5 项 ROI）
-
-| # | 修复 | 文件 | 收益 |
-| --- | --- | --- | --- |
-| 1 | 分片路由漏召 → 首问并行加载全部分片 | `AIChat.vue` | 线上 Recall@4 0.88 → 0.92 |
-| 2 | 删除 `VITE_AI_PROVIDER` 死门禁（源码已无人读取） | `deploy.yml` | 消除「漏配即整站发布失败」地雷 |
-| 3 | 删除 936KB 孤儿 `og-image.png` | `docs/public/` | 省出站流量，R5 收益不再被抵消 |
-| 4 | `worker` job 加 `needs: build` + 变更检测 | `deploy.yml` | 阻止站点构建失败时 Worker 仍上线 |
-| 5 | 遥测独立限流桶 + 清理逻辑移至入口 | `spark-proxy.js` | 👍/👎 不再挤占提问额度；修内存增长面 |
-
-发布闭环已完成：`SPARK_API_PASSWORD`、GitHub Secret `CLOUDFLARE_API_TOKEN`、Analytics Engine 和 Worker/Pages CI 均已配置并通过线上验收。可复制部署流程见 [`DEPLOYMENT.md`](./DEPLOYMENT.md)。
+完整首次部署顺序见 [`DEPLOYMENT.md`](./DEPLOYMENT.md)，AI 代理执行协议见 [`AGENTS.md`](./AGENTS.md)。
 
 ---
 
@@ -61,12 +42,12 @@
 
 ---
 
-## 二、接下来的任务清单（按优先级）
+## 二、历史任务定义与验收口径（完成情况见上）
 
 ### P0 — 架构统一与即时修复
 
 #### T1. Worker 改造为 OpenAI 兼容网关（1-2 人日）⭐ 用户已确认方向
-- **做什么**：Worker 新增 `POST /v1/chat/completions`，服务端注入讯飞 Bearer，转发到 `https://spark-api-open.xf-yun.com/v1/chat/completions`；前端切 `VITE_AI_PROVIDER=openai`；删除 `spark` provider 与 `/spark/auth`、`/spark/chat`。
+- **做什么**：Worker 提供 `POST /v1/chat/completions`，服务端注入讯飞 Bearer；前端固定调用 OpenAI 兼容网关，删除 `spark` provider 与 `/spark/auth`、`/spark/chat`。
 - **为什么**：前端统一一套代码，Worker 变通用网关，换 LLM 只改 Worker 上游 + 密钥，前端零改动。顺手为 T6 流式/故障转移打基础。
 - **涉及文件**：`workers/spark-proxy.js`、`docs/.vitepress/ai/providers/{spark,openai}.ts`、`config.ts`、`.env`、GitHub vars。
 - **凭证变化**：4 项（APPID/APIKEY/APISECRET/ASSISTANT_URL）→ 1 项 `APIPassword`（讯飞控制台「星火认知大模型」HTTP 接口页获取）。
@@ -79,11 +60,11 @@
 
 ---
 
-### P1 — 质量跃迁
+### P1 — 质量跃迁（已完成项保留验收口径）
 
-#### T3. 语义/向量检索：BM25 + embedding 混合召回（3-5 人日）⭐ 质量最大杠杆
+#### T3. 语义/向量检索：BM25 + embedding 混合召回（已完成）⭐ 质量最大杠杆
 - **现状**：纯关键词 + 10 组同义词，长尾/口语化查询召回天花板低（实测「转到…专业」召不到转专业页；四条结果元数据分打平致排序失效）。
-- **做什么**：构建期离线生成 embedding（384 维 × ~150 块 ≈ 60 KB int8），随站下发，浏览器内余弦 + BM25 + RRF 融合。**无需向量数据库**。
+- **做什么**：构建期从知识库共现关系生成 `lsa-v1`（64 维 int8）分布式语义向量，随 manifest 下发，浏览器内余弦 + BM25 + RRF 融合。**无需向量数据库或外部模型下载**。
 - **涉及**：`scripts/gen-knowledge.py`、`docs/.vitepress/ai/knowledge.ts`。
 - **对应评估**：P1-1。
 
@@ -93,7 +74,7 @@
 - **涉及**：`scripts/gen-knowledge.py`、`knowledge.ts`。
 - **对应评估**：P1-2。
 
-#### T5. 埋点与反馈闭环（2-3 人日）
+#### T5. 埋点与反馈闭环（已完成本轮剩余项）
 - **现状**：线上零数据，无法验证优化效果，丢「用户问但答不上」的选题清单。
 - **做什么**：Worker 加 `POST /telemetry`（或 Cloudflare Analytics Engine，免费额度充足），匿名上报命中数/top1 分/失败/降级/引用解析；每条回答加 👍/👎；零命中归档；`wrangler.jsonc` 启 `observability`。
 - **涉及**：`workers/spark-proxy.js`、`AIChat.vue`、`wrangler.jsonc`。
@@ -101,9 +82,9 @@
 
 ---
 
-### P2 — 体验与治理
+### P2 — 体验与治理（已完成项保留验收口径）
 
-#### T6. Provider 运行时故障转移 + 流式输出（2-3 人日）
+#### T6. Provider 运行时故障转移 + 流式输出（已完成配置与代码）
 - **依赖** T1 网关化。
 - **做什么**：网关后挂多上游按序回退；SSE 流式透传，前端边收边渲染。
 - **涉及**：`workers/spark-proxy.js`、`openai.ts`、`AIChat.vue`。
@@ -129,13 +110,13 @@
 
 ---
 
-### P3 — 长期建设
+### P3 — 长期建设（已完成项保留验收口径）
 
-#### T10. 评测集与回归机制（2 人日）
+#### T10. 评测集与回归机制（已完成对齐与引用指标）
 - 人工标注 50-100 条高频问题 + 标准答案页，CI 跑 Recall@4 / MRR / 引用准确率，防回归。
 - **对应评估**：P3-1。
 
-#### T11. 内容安全扫描 + 多源接入（3-5 人日）
+#### T11. 内容安全扫描 + 用户输入防线（本轮完成安全部分）
 - CI 扫 KB 提示注入模式（防社区投稿投毒）；`changelog/contributing` 纳入 KB；接教务通知等结构化外部源；用户输入输出安全过滤。
 - **对应评估**：P3-2。
 
@@ -148,7 +129,7 @@
 | R1 | 讯飞密钥轮换（凭证曾泄露），轮换后 `wrangler secret put` 更新（改网关后只需 APIPassword 一项） | 0.5 人日 |
 | R2 | Worker 进 CI：加 `CLOUDFLARE_API_TOKEN` GitHub secret + deploy job，免手动 `wrangler deploy` | 0.5 人日 |
 | R3 | `deploy.yml` 改 `pnpm install --frozen-lockfile`，CI 可复现性 | 5 分钟 |
-| R4 | GitHub Pages 强制 HTTPS（等 GitHub 侧证书生成后开启） | 5 分钟 |
+| R4 | GitHub Pages 强制 HTTPS（证书已签发并开启） | 已完成 |
 | R5 | 压缩 `docs/public/og-image.png`（~916KB → ~250KB，修微信分享无图） | 0.5 人日 |
 | R6 | 评论模块：Waline on Cloudflare D1（Giscus 国内不可用） | 1-2 人日 |
 

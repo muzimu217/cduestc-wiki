@@ -48,7 +48,7 @@ try {
     const telemetry = await worker.fetch(new Request('https://spark-api.kcos.club/telemetry', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ event: 'feedback', rating: 1 }),
+        body: JSON.stringify({ event: 'search_zero', queryPreview: '校园网怎么连接 13800138000', rating: 1 }),
     }), env)
     assert.equal(telemetry.status, 202)
 

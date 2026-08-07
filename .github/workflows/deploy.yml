@@ -51,6 +51,9 @@ jobs:
       - name: Retrieval regression
         run: pnpm eval:retrieval
 
+      - name: AI input security regression
+        run: pnpm test:ai-security
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

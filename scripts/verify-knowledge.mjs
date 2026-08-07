@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer'
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -9,6 +10,12 @@ for (const requiredFile of ['index.html', 'knowledge.json', 'knowledge-manifest.
         throw new Error(`missing required build artifact: ${requiredFile}`)
 }
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+if (manifest.semantic?.model !== 'lsa-v1'
+    || manifest.semantic?.dimension !== 64
+    || !manifest.semantic?.tokens
+    || Object.keys(manifest.semantic.tokens).length < 100) {
+    throw new Error('knowledge manifest is missing the corpus semantic index')
+}
 const manifestFiles = manifest.shards && typeof manifest.shards === 'object'
     ? Object.entries(manifest.shards)
     : [['all', manifest.file]]
@@ -35,6 +42,13 @@ if (manifest.entries !== entries.length || entries.length !== canonicalEntries.l
 
 if (!Array.isArray(entries) || entries.length === 0)
     throw new Error('knowledge.json must contain at least one entry')
+
+for (const entry of entries) {
+    if (typeof entry.embedding !== 'string'
+        || Buffer.from(entry.embedding, 'base64').length !== manifest.semantic.dimension) {
+        throw new Error(`knowledge entry has an invalid semantic embedding: ${entry.url}`)
+    }
+}
 
 const pageCache = new Map()
 

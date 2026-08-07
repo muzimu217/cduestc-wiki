@@ -188,9 +188,10 @@ import { ref, nextTick, onMounted, onUnmounted } from 'vue'
 import DOMPurify from 'dompurify'
 import MarkdownIt from 'markdown-it'
 import { rewriteRetrievalQuery, searchKnowledge, selectRelatedSources } from '../ai/knowledge'
-import type { KnowledgeEntry } from '../ai/knowledge'
+import type { KnowledgeEntry, SemanticIndex } from '../ai/knowledge'
 import { activeAIProvider } from '../ai/provider'
 import { OPENAI_CONFIG } from '../ai/config'
+import { redactTelemetryQuery, sanitizeUserInput } from '../ai/security'
 
 // 状态管理
 const isOpen = ref(false)
@@ -217,8 +218,9 @@ const textareaRef = ref<HTMLTextAreaElement>()
 const knowledgeBase = ref<KnowledgeEntry[]>([])
 const knowledgeStatus = ref<'idle' | 'loading' | 'ready' | 'empty' | 'error'>('idle')
 let knowledgeLoadPromise: Promise<void> | null = null
-let knowledgeManifestPromise: Promise<{ version?: string; file?: string; shards?: Record<string, string> }> | null = null
+let knowledgeManifestPromise: Promise<{ version?: string; file?: string; shards?: Record<string, string>; semantic?: SemanticIndex }> | null = null
 const loadedKnowledgeShards = new Set<string>()
+const knowledgeSemanticIndex = ref<SemanticIndex>()
 
 // 分片按文档 URL 首段划分（见 gen-knowledge.py），而按查询关键词做路由是另一套
 // 独立逻辑，两者必然错配。实测 50 条评测集：全量 Recall@4=0.92，关键词路由仅 0.88，
@@ -242,6 +244,7 @@ const loadKnowledge = async () => {
           return response.json()
         })
       const manifest = await knowledgeManifestPromise
+      knowledgeSemanticIndex.value = manifest.semantic
       const shardMap = manifest.shards && typeof manifest.shards === 'object'
         ? manifest.shards
         : { all: manifest.file || 'knowledge.json' }
@@ -388,8 +391,22 @@ const adjustTextareaHeight = () => {
 
 // 发送消息
 const sendMessage = async () => {
-  const message = currentInput.value.trim()
+  const sanitizedInput = sanitizeUserInput(currentInput.value)
+  const message = sanitizedInput.text
   if (!message || isLoading.value) return
+
+  if (sanitizedInput.blocked) {
+    currentInput.value = ''
+    messages.value.push({
+      id: `blocked_${Date.now()}`,
+      content: '这个问题包含不适合作为知识库问答指令的内容，请改用具体的校园问题提问。',
+      isUser: false,
+      timestamp: Date.now(),
+    })
+    sendTelemetry('input_blocked', { queryPreview: redactTelemetryQuery(message) })
+    scrollToBottom()
+    return
+  }
 
   if (!checkRateLimit()) {
     messages.value.push({
@@ -433,15 +450,14 @@ const sendMessage = async () => {
   await loadKnowledge()
 
   // 先检索知识库，获取相关链接
-  const sources = searchKnowledge(knowledgeBase.value, retrievalQuery)
+  const sources = searchKnowledge(knowledgeBase.value, retrievalQuery, knowledgeSemanticIndex.value)
   if (!sources.length)
-    sendTelemetry('search_zero')
+    sendTelemetry('search_zero', { queryPreview: redactTelemetryQuery(retrievalQuery) })
 
   let answer = ''
   let citedSourceIds: string[] = []
   let streamingMessage: ChatMessage | null = null
   if (activeAIProvider.isConfigured()) {
-    recordRequest()
     requestController = new AbortController()
     streamingMessage = {
       id: `ai_${Date.now()}`,
@@ -467,6 +483,7 @@ const sendMessage = async () => {
       })
       answer = response.content
       citedSourceIds = response.citedSourceIds
+      recordRequest()
     } catch (error) {
       console.warn(`${activeAIProvider.label}调用失败:`, error)
       if (streamingMessage) {

@@ -25,6 +25,7 @@ pnpm install --frozen-lockfile
 pnpm build
 pnpm test:worker
 pnpm eval:retrieval
+pnpm test:ai-security
 ~~~
 
 ### 2. 修改部署标识
@@ -45,7 +46,6 @@ REPO="OWNER/REPOSITORY"
 SITE_DOMAIN="wiki.example.com"
 WORKER_DOMAIN="spark-api.example.com"
 
-gh variable set VITE_AI_PROVIDER --repo "$REPO" --body openai
 gh variable set VITE_OPENAI_PROXY_URL --repo "$REPO" --body "https://$WORKER_DOMAIN/v1/chat/completions"
 gh variable set VITE_AI_TELEMETRY_URL --repo "$REPO" --body "https://$WORKER_DOMAIN/telemetry"
 gh variable set VITE_OPENAI_MODEL --repo "$REPO" --body generalv3.5
@@ -69,10 +69,30 @@ printf '\n'
 printf '%s' "$DEPLOY_SPARK_PASSWORD" \
   | CLOUDFLARE_API_TOKEN="$DEPLOY_CF_TOKEN" \
     pnpm exec wrangler secret put SPARK_API_PASSWORD --config wrangler.jsonc
-unset DEPLOY_CF_TOKEN DEPLOY_SPARK_PASSWORD
 ~~~
 
 不要把凭证发送到聊天窗口、写入 .env、VITE_*、Markdown、JSON 或 Git commit。讯飞 WebSocket Assistant 的四要素不能替代当前 HTTP 网关所需的 APIPassword。
+
+`wrangler.jsonc` 已配置讯飞 Spark-X2 HTTP 接口作为第二上游：
+
+~~~text
+SPARK_FALLBACK_URL=https://spark-api-open.xf-yun.com/v2/chat/completions
+SPARK_FALLBACK_MODEL=spark-x
+~~~
+
+默认复用 `SPARK_API_PASSWORD`。如果控制台为备用模型签发了独立 APIPassword，再额外写入：
+
+~~~sh
+read -r -s -p "Spark fallback APIPassword: " DEPLOY_SPARK_FALLBACK_PASSWORD
+printf '\n'
+printf '%s' "$DEPLOY_SPARK_FALLBACK_PASSWORD" \
+  | CLOUDFLARE_API_TOKEN="$DEPLOY_CF_TOKEN" \
+    pnpm exec wrangler secret put SPARK_FALLBACK_API_PASSWORD --config wrangler.jsonc
+unset DEPLOY_SPARK_FALLBACK_PASSWORD
+unset DEPLOY_CF_TOKEN DEPLOY_SPARK_PASSWORD
+~~~
+
+备用上游只有在主上游超时、429 或 5xx 时才会调用；`/health` 的 `fallbackConfigured` 字段必须为 `true` 才表示配置已经进入 Worker。
 
 ### 5. 启用 Analytics Engine
 
@@ -117,7 +137,9 @@ git commit -m "update knowledge"
 git push origin main
 ~~~
 
-.github/workflows/deploy.yml 会自动执行：锁定依赖安装、知识库生成与校验、内容扫描、VitePress 构建、检索回归、Pages 部署、Worker smoke test 和 Worker 部署。
+.github/workflows/deploy.yml 会自动执行：锁定依赖安装、知识库生成与校验、内容扫描、LSA 语义索引生成、VitePress 构建、检索与引用回归、输入安全回归、Pages 部署、Worker smoke test 和 Worker 部署。
+
+知识库 manifest 会携带 `lsa-v1` 语义索引：构建期从文档共现关系生成 64 维分布式向量，浏览器用同一词表编码查询，再与 BM25 通过 RRF 合并。它不依赖外部模型下载或向量数据库。
 
 查看最近一次结果：
 
@@ -154,6 +176,8 @@ gh run watch "$RUN_ID" --repo "$REPO" --exit-status
 ~~~
 
 预期状态码为 403。
+
+`/health` 预期包含 `{"status":"ok","fallbackConfigured":true}`。遥测中的 `search_zero` 会记录经过邮箱、手机号、URL 和长数字脱敏的查询预览，供内容补录使用，不记录完整对话。
 
 ## Pages HTTPS 检查
 
