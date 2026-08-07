@@ -64,6 +64,13 @@ function json(body, status = 200, origin = '*') {
     })
 }
 
+function noContent(origin) {
+    return new Response(null, {
+        status: 204,
+        headers: withCors({}, origin),
+    })
+}
+
 function validateMessages(messages) {
     if (!Array.isArray(messages) || messages.length < 1 || messages.length > MAX_MESSAGES)
         throw new TypeError('Invalid message list')
@@ -186,7 +193,7 @@ function redactTelemetryText(value) {
 
 async function handleTelemetry(request, env, origin) {
     if (request.method === 'OPTIONS')
-        return json(null, 204, origin)
+        return noContent(origin)
     if (request.method !== 'POST')
         return json({ error: { message: 'Method not allowed', type: 'invalid_request_error' } }, 405, origin)
     if (isRateLimited(request, 'telemetry', TELEMETRY_RATE_LIMIT))
@@ -223,7 +230,7 @@ async function handleTelemetry(request, env, origin) {
 
 async function handleChatCompletion(request, env, origin) {
     if (request.method === 'OPTIONS')
-        return json(null, 204, origin)
+        return noContent(origin)
     if (request.method !== 'POST')
         return json({ error: { message: 'Method not allowed', type: 'invalid_request_error' } }, 405, origin)
     if (isRateLimited(request))
