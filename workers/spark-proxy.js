@@ -117,7 +117,7 @@ function getUpstreams(env) {
             model: env.SPARK_MODEL || 'generalv3.5',
         },
     ]
-    if (env.SPARK_FALLBACK_URL && env.SPARK_FALLBACK_API_PASSWORD) {
+    if (env.SPARK_FALLBACK_URL && (env.SPARK_FALLBACK_API_PASSWORD || env.SPARK_API_PASSWORD)) {
         upstreams.push({
             name: 'spark-x2-fallback',
             url: env.SPARK_FALLBACK_URL,
