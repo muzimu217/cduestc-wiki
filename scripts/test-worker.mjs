@@ -31,6 +31,19 @@ try {
     const health = await worker.fetch(new Request('https://spark-api.kcos.club/health'), env)
     assert.equal(health.status, 200)
 
+    const preflight = await worker.fetch(new Request('https://spark-api.kcos.club/v1/chat/completions', {
+        method: 'OPTIONS',
+        headers: {
+            'Origin': origin,
+            'Access-Control-Request-Method': 'POST',
+            'Access-Control-Request-Headers': 'content-type',
+        },
+    }), env)
+    assert.equal(preflight.status, 204)
+    assert.equal(preflight.headers.get('Access-Control-Allow-Origin'), origin)
+    assert.equal(preflight.headers.get('Access-Control-Allow-Methods'), 'POST, OPTIONS')
+    assert.equal(await preflight.text(), '')
+
     const forbidden = await worker.fetch(new Request('https://spark-api.kcos.club/telemetry', {
         method: 'POST',
         headers: { ...headers, Origin: 'https://evil.example' },
