@@ -9,3 +9,7 @@ docs/public/knowledge.*.[0-9a-f]*.json
 .env.*.local
 .dev.vars*
 .wrangler/
+
+# 本地工具临时产物
+.playwright-cli/
+.workbuddy/
