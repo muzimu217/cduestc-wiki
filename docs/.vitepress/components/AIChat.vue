@@ -459,14 +459,6 @@ const sendMessage = async () => {
   let streamingMessage: ChatMessage | null = null
   if (activeAIProvider.isConfigured()) {
     requestController = new AbortController()
-    streamingMessage = {
-      id: `ai_${Date.now()}`,
-      content: '',
-      isUser: false,
-      timestamp: Date.now(),
-    }
-    messages.value.push(streamingMessage)
-    scrollToBottom()
 
     try {
       const response = await activeAIProvider.chat({
@@ -475,10 +467,17 @@ const sendMessage = async () => {
         history,
         signal: requestController.signal,
         onToken: token => {
-          if (streamingMessage) {
-            streamingMessage.content += token
-            scrollToBottom()
+          if (!streamingMessage) {
+            streamingMessage = {
+              id: `ai_${Date.now()}`,
+              content: '',
+              isUser: false,
+              timestamp: Date.now(),
+            }
+            messages.value.push(streamingMessage)
           }
+          streamingMessage.content += token
+          scrollToBottom()
         },
       })
       answer = response.content
