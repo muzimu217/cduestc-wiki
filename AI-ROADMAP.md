@@ -13,7 +13,7 @@
 - 前端已使用 MarkdownIt + DOMPurify，用户消息为纯文本；多轮追问使用规则改写；50 条检索评测当前 Recall@4=0.92、MRR=0.8267。
 - CI 已使用 `pnpm install --frozen-lockfile`，并运行内容扫描、检索回归和 Worker smoke test。
 
-仍需外部凭证/平台状态才能完成发布闭环：写入 `SPARK_API_PASSWORD`、添加 GitHub Secret `CLOUDFLARE_API_TOKEN`，以及等待 GitHub Pages 自定义域名证书生成后开启 HTTPS。R6 评论模块不属于本轮 AI + 知识库发布范围。
+发布闭环已完成：`SPARK_API_PASSWORD`、GitHub Secret `CLOUDFLARE_API_TOKEN`、Analytics Engine 和 Worker/Pages CI 均已配置并通过线上验收。R4 的最后一步是等待 GitHub Pages 自定义域名证书完成签发后开启 HTTPS；可复制部署流程见 [`DEPLOYMENT.md`](./DEPLOYMENT.md)。R6 评论模块不属于本轮 AI + 知识库发布范围。
 
 ---
 

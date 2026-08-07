@@ -27,6 +27,11 @@
 
 项目采用 VitePress 构建。
 
+完整的首次配置、AI 代理执行协议、GitHub Pages 与 Cloudflare Worker 发布流程，见：
+
+- [一键部署手册](./DEPLOYMENT.md)
+- [AI 部署执行协议](./AGENTS.md)
+
 ### 安装依赖
 
 ```sh
@@ -80,12 +85,12 @@ wrangler deploy --config wrangler.jsonc
 | 本机 8787 关闭 | 通过 |
 | Tunnel Spark 路由删除 | 通过 |
 | Worker 健康检查 | 通过 |
-| 云端 HTTP 网关健康检查 | 等待新 APIPassword 写入后复验 |
-| 线上页面实际提问 | 等待新 Worker 发布后复验 |
+| 云端 HTTP 网关健康检查 | 通过 |
+| 线上页面实际提问 | 通过 |
 | 控制台错误 | 无 |
 | Pages 部署 | 成功 |
 
-> 安全提醒：APIPassword 属于敏感凭证，必须通过 `wrangler secret put SPARK_API_PASSWORD` 写入 Worker，不能写进 `.env`、GitHub Pages 变量或前端源码。CI 自动发布还需要 GitHub Secret `CLOUDFLARE_API_TOKEN`。
+> 安全提醒：APIPassword 属于敏感凭证，必须通过 `wrangler secret put SPARK_API_PASSWORD` 写入 Worker，不能写进 `.env`、GitHub Pages 变量或前端源码。CI 自动发布还需要 GitHub Secret `CLOUDFLARE_API_TOKEN`。复制仓库后的完整配置顺序见 [`DEPLOYMENT.md`](./DEPLOYMENT.md)。
 
 ### 推送
 
