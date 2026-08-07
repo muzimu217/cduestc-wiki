@@ -456,7 +456,6 @@ const sendMessage = async () => {
 
   let answer = ''
   let citedSourceIds: string[] = []
-  let streamingMessage: ChatMessage | null = null
   if (activeAIProvider.isConfigured()) {
     requestController = new AbortController()
 
@@ -466,29 +465,12 @@ const sendMessage = async () => {
         sources,
         history,
         signal: requestController.signal,
-        onToken: token => {
-          if (!streamingMessage) {
-            streamingMessage = {
-              id: `ai_${Date.now()}`,
-              content: '',
-              isUser: false,
-              timestamp: Date.now(),
-            }
-            messages.value.push(streamingMessage)
-          }
-          streamingMessage.content += token
-          scrollToBottom()
-        },
       })
       answer = response.content
       citedSourceIds = response.citedSourceIds
       recordRequest()
     } catch (error) {
       console.warn(`${activeAIProvider.label}调用失败:`, error)
-      if (streamingMessage) {
-        messages.value = messages.value.filter(message => message !== streamingMessage)
-        streamingMessage = null
-      }
     } finally {
       requestController = null
     }
@@ -520,18 +502,13 @@ const sendMessage = async () => {
       : '🔍 当前AI服务暂不可用，知识库中暂未找到相关页面。\n\n您可以尝试换个关键词，或直接浏览左侧菜单查找信息。'
   }
 
-  if (streamingMessage) {
-    streamingMessage.content = answer
-    streamingMessage.links = relatedLinks.length > 0 ? relatedLinks : undefined
-  } else {
-    messages.value.push({
-      id: `fallback_${Date.now()}`,
-      content: answer,
-      isUser: false,
-      timestamp: Date.now(),
-      links: relatedLinks.length > 0 ? relatedLinks : undefined,
-    })
-  }
+  messages.value.push({
+    id: `${providerAnswered ? 'ai' : 'fallback'}_${Date.now()}`,
+    content: answer,
+    isUser: false,
+    timestamp: Date.now(),
+    links: relatedLinks.length > 0 ? relatedLinks : undefined,
+  })
 
   // 生成建议问题
   generateSuggestedQuestions(message, answer)
