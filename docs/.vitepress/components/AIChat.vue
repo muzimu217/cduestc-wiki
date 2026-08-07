@@ -747,7 +747,7 @@ onUnmounted(() => {
 .chat-messages {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
+  padding: 10px 12px 8px;
   scroll-behavior: smooth;
 }
 
@@ -799,7 +799,7 @@ onUnmounted(() => {
 .message {
   display: flex;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .user-message {
@@ -893,6 +893,18 @@ onUnmounted(() => {
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
   border-bottom-left-radius: 4px;
+}
+
+.ai-message .message-text.vp-doc p {
+  margin: 8px 0;
+}
+
+.ai-message .message-text.vp-doc > :first-child {
+  margin-top: 0;
+}
+
+.ai-message .message-text.vp-doc > :last-child {
+  margin-bottom: 0;
 }
 
 .message-time {
