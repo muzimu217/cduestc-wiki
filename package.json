@@ -12,6 +12,7 @@
     "preview": "vitepress preview docs",
     "lint": "eslint .",
     "eval:retrieval": "tsx scripts/evaluate-retrieval.ts",
+    "test:ai-security": "tsx scripts/test-ai-security.ts",
     "scan:content": "node scripts/scan-content.mjs",
     "test:worker": "node scripts/test-worker.mjs"
   },

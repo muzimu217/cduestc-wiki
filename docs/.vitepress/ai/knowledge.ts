@@ -8,6 +8,12 @@ export interface KnowledgeEntry {
     embedding?: string
 }
 
+export interface SemanticIndex {
+    model: string
+    dimension: number
+    tokens: Record<string, string>
+}
+
 interface WeightedTerm {
     value: string
     weight: number
@@ -15,6 +21,8 @@ interface WeightedTerm {
 
 interface ScoredEntry extends KnowledgeEntry {
     metadataScore: number
+    lexicalScore: number
+    semanticScore: number
     score: number
 }
 
@@ -27,7 +35,8 @@ const MAX_SOURCES = 4
 const MAX_SOURCE_LENGTH = 1_600
 const MIN_SOURCE_SCORE = 6
 const MAX_CHUNKS_PER_PAGE = 4
-const EMBEDDING_DIMENSION = 384
+const RRF_K = 60
+const SEMANTIC_MIN_SCORE = 0.12
 
 const LOW_SIGNAL_TERMS = new Set([
     '一下',
@@ -119,26 +128,19 @@ function normalizeEmbeddingText(value: string) {
         .join('')
 }
 
-function fnv1a(bytes: Uint8Array) {
-    let value = 2166136261
-    for (const byte of bytes)
-        value = Math.imul(value ^ byte, 16777619) >>> 0
-    return value
+function getSemanticTokens(value: string) {
+    const text = normalizeEmbeddingText(value)
+    const tokens: string[] = []
+    const chinese = [...text].filter(character => /[\u4E00-\u9FFF]/u.test(character)).join('')
+    for (const length of [2, 3, 4]) {
+        for (let index = 0; index <= chinese.length - length; index++)
+            tokens.push(chinese.slice(index, index + length))
+    }
+    tokens.push(...text.match(/[a-z0-9]+/g) || [])
+    return tokens
 }
 
-function buildQueryEmbedding(value: string) {
-    const text = normalizeEmbeddingText(value)
-    const vector = new Float32Array(EMBEDDING_DIMENSION)
-    const encoder = new TextEncoder()
-    for (const length of [2, 3, 4]) {
-        for (let index = 0; index <= text.length - length; index++) {
-            const hash = fnv1a(encoder.encode(text.slice(index, index + length)))
-            const bucket = hash % EMBEDDING_DIMENSION
-            const weight = length === 3 ? 1.35 : 1
-            vector[bucket] += ((hash >> 8) & 1) ? weight : -weight
-        }
-    }
-
+function normalizeVector(vector: Float32Array) {
     let norm = 0
     for (const component of vector)
         norm += component * component
@@ -148,12 +150,28 @@ function buildQueryEmbedding(value: string) {
     return vector
 }
 
-function decodeEmbedding(value?: string) {
+function buildQueryEmbedding(value: string, semanticIndex?: SemanticIndex) {
+    if (!semanticIndex?.dimension || !semanticIndex.tokens)
+        return null
+
+    const vector = new Float32Array(semanticIndex.dimension)
+    for (const token of getSemanticTokens(value)) {
+        const encoded = semanticIndex.tokens[token]
+        const entryVector = decodeEmbedding(encoded, semanticIndex.dimension)
+        if (!entryVector)
+            continue
+        for (let index = 0; index < vector.length; index++)
+            vector[index] += entryVector[index]
+    }
+    return vector.some(component => component !== 0) ? normalizeVector(vector) : null
+}
+
+function decodeEmbedding(value: string | undefined, dimension: number) {
     if (!value)
         return null
     try {
         const binary = atob(value)
-        if (binary.length !== EMBEDDING_DIMENSION)
+        if (binary.length !== dimension)
             return null
         return Int8Array.from(binary, character => character.charCodeAt(0) > 127
             ? character.charCodeAt(0) - 256
@@ -182,7 +200,8 @@ function scoreEntry(
     documentFrequency: Map<string, number>,
     documentCount: number,
     averageContentLength: number,
-    queryEmbedding: Float32Array,
+    queryEmbedding: Float32Array | null,
+    semanticDimension: number,
 ) {
     const title = normalize(entry.title)
     const section = normalize(entry.section || '')
@@ -209,7 +228,9 @@ function scoreEntry(
     }, { metadata: 0, content: 0 })
     return {
         ...scores,
-        semantic: cosineSimilarity(queryEmbedding, decodeEmbedding(entry.embedding)),
+        semantic: queryEmbedding
+            ? cosineSimilarity(queryEmbedding, decodeEmbedding(entry.embedding, semanticDimension))
+            : 0,
     }
 }
 
@@ -233,12 +254,17 @@ function getSourceId(url: string) {
     return `kb_${(hash >>> 0).toString(36)}`
 }
 
-export function searchKnowledge(entries: KnowledgeEntry[], query: string): KnowledgeSource[] {
+export function searchKnowledge(
+    entries: KnowledgeEntry[],
+    query: string,
+    semanticIndex?: SemanticIndex,
+): KnowledgeSource[] {
     const terms = getQueryTerms(query)
     if (!entries.length || !terms.length)
         return []
 
-    const queryEmbedding = buildQueryEmbedding(query)
+    const queryEmbedding = buildQueryEmbedding(query, semanticIndex)
+    const semanticDimension = semanticIndex?.dimension || 0
     const documentFrequency = new Map<string, number>()
     const averageContentLength = entries.reduce((total, entry) => total + normalize(entry.content).length, 0) / entries.length
     for (const term of terms) {
@@ -251,41 +277,69 @@ export function searchKnowledge(entries: KnowledgeEntry[], query: string): Knowl
 
     const pages = new Map<string, ScoredEntry[]>()
     for (const entry of entries) {
-        const scores = scoreEntry(entry, terms, documentFrequency, entries.length, averageContentLength, queryEmbedding)
+        const scores = scoreEntry(entry, terms, documentFrequency, entries.length, averageContentLength, queryEmbedding, semanticDimension)
         const lexicalScore = scores.metadata + scores.content
-        const score = lexicalScore + Math.max(0, scores.semantic - 0.35) * 8
-        if (score < MIN_SOURCE_SCORE && scores.semantic < 0.78)
+        const semanticScore = scores.semantic
+        if (lexicalScore < MIN_SOURCE_SCORE && semanticScore < SEMANTIC_MIN_SCORE)
             continue
 
         const pageUrl = getPageUrl(entry.url)
         const pageEntries = pages.get(pageUrl) || []
-        pageEntries.push({ ...entry, metadataScore: scores.metadata, score })
+        pageEntries.push({
+            ...entry,
+            metadataScore: scores.metadata,
+            lexicalScore,
+            semanticScore,
+            score: lexicalScore + Math.max(0, semanticScore) * 8,
+        })
         pages.set(pageUrl, pageEntries)
     }
 
-    return [...pages.entries()]
-        .map(([pageUrl, pageEntries]) => {
-            const rankedEntries = pageEntries.sort((a, b) => b.score - a.score)
-            const bestEntry = rankedEntries[0]
-            const content = rankedEntries.slice(0, MAX_CHUNKS_PER_PAGE)
+    const pageResults = [...pages.entries()].map(([pageUrl, pageEntries]) => {
+        const rankedEntries = pageEntries.sort((a, b) => b.score - a.score)
+        const bestEntry = rankedEntries[0]
+        return {
+            pageUrl,
+            pageEntries: rankedEntries,
+            bestEntry,
+            lexicalScore: Math.max(...rankedEntries.map(entry => entry.lexicalScore)),
+            semanticScore: Math.max(...rankedEntries.map(entry => entry.semanticScore)),
+        }
+    })
+    const lexicalRanks = new Map(pageResults
+        .filter(result => result.lexicalScore > 0)
+        .sort((a, b) => b.lexicalScore - a.lexicalScore)
+        .map((result, index) => [result.pageUrl, index + 1]))
+    const semanticRanks = new Map(pageResults
+        .filter(result => result.semanticScore >= SEMANTIC_MIN_SCORE)
+        .sort((a, b) => b.semanticScore - a.semanticScore)
+        .map((result, index) => [result.pageUrl, index + 1]))
+
+    return pageResults
+        .map((result) => {
+            const lexicalRank = lexicalRanks.get(result.pageUrl)
+            const semanticRank = semanticRanks.get(result.pageUrl)
+            const rrfScore = (lexicalRank ? 0.98 / (RRF_K + lexicalRank) : 0)
+                + (semanticRank ? 0.02 / (RRF_K + semanticRank) : 0)
+            const content = result.pageEntries.slice(0, MAX_CHUNKS_PER_PAGE)
                 .map(entry => `${entry.section || entry.title}\n${entry.content}`)
                 .join('\n\n')
                 .slice(0, MAX_SOURCE_LENGTH)
 
             return {
                 source: {
-                    id: getSourceId(pageUrl),
-                    title: bestEntry.title,
-                    section: bestEntry.section || bestEntry.title,
+                    id: getSourceId(result.pageUrl),
+                    title: result.bestEntry.title,
+                    section: result.bestEntry.section || result.bestEntry.title,
                     content,
-                    url: bestEntry.url,
-                    metadataScore: bestEntry.metadataScore,
-                    relevanceScore: bestEntry.score,
+                    url: result.bestEntry.url,
+                    metadataScore: result.bestEntry.metadataScore,
+                    relevanceScore: result.lexicalScore + result.semanticScore * 8,
                 },
-                score: bestEntry.score,
+                score: rrfScore,
             }
         })
-        .sort((a, b) => b.score - a.score)
+        .sort((a, b) => b.score - a.score || b.source.relevanceScore - a.source.relevanceScore)
         .slice(0, MAX_SOURCES)
         .map(result => result.source)
 }

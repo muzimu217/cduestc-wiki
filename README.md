@@ -52,7 +52,6 @@ pnpm run dev
 复制 `.env.example` 中需要的配置到 `docs/.env.local`。AI 服务由站点维护者在构建或部署时选择，页面不会向访客提供切换入口或密钥设置。正式站默认使用 OpenAI 兼容模式：
 
 ```sh
-VITE_AI_PROVIDER=openai
 VITE_OPENAI_PROXY_URL=https://spark-api.kcos.club/v1/chat/completions
 VITE_OPENAI_MODEL=generalv3.5
 ```
@@ -66,9 +65,9 @@ wrangler secret put SPARK_API_PASSWORD
 wrangler deploy --config wrangler.jsonc
 ```
 
-`SPARK_API_PASSWORD` 从讯飞控制台对应模型的 HTTP 接口认证信息中获取。Worker 固定主上游 URL、模型、temperature 和 max_tokens，只接收有限数量的 `system/user/assistant` 消息，并对 IP 做 best-effort 限流。配置 `SPARK_FALLBACK_URL` 和 `SPARK_FALLBACK_API_PASSWORD` 后，会在主上游超时、429 或 5xx 时自动回退；凭证只保留在 Worker Secret 中。
+`SPARK_API_PASSWORD` 从讯飞控制台对应模型的 HTTP 接口认证信息中获取。Worker 固定主上游 URL、模型、temperature 和 max_tokens，只接收有限数量的 `system/user/assistant` 消息，并对 IP 做 best-effort 限流。生产默认将讯飞 Spark-X2（`https://spark-api-open.xf-yun.com/v2/chat/completions`，模型 `spark-x`）作为第二上游，并复用主 APIPassword；配置 `SPARK_FALLBACK_API_PASSWORD` 后可覆盖为独立凭证。凭证只保留在 Worker Secret 中。
 
-知识库构建会生成带哈希版本的 `core/campus/study/life` 分片、384 维压缩向量，并在浏览器内执行 BM25 + 余弦混合检索。`pnpm build` 同时运行内容安全扫描、页面锚点校验和 sitemap 生成；`pnpm eval:retrieval` 执行 50 条回归查询。
+知识库构建会生成带哈希版本的 `core/campus/study/life` 分片、`lsa-v1` 64 维分布式语义向量，并在浏览器内执行 BM25 + RRF 混合检索。`pnpm build` 同时运行内容安全扫描、页面锚点校验和 sitemap 生成；`pnpm eval:retrieval` 使用线上同一套分片和 manifest，执行 50 条回归查询并检查引用覆盖率、引用精度和降级链接率。零命中查询会以脱敏预览写入 Analytics Engine。
 
 ### AI Worker 状态
 

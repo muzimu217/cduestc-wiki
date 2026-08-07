@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-import base64, hashlib, json, re, os, struct, unicodedata
+import base64, hashlib, json, math, os, re, struct, unicodedata
+from collections import Counter
 
 docs_dir = 'docs'
 knowledge = []
 MAX_CHUNK_LENGTH = 650
 OVERLAP_LENGTH = 80
 MIN_MERGE_LENGTH = 300
-EMBEDDING_DIMENSION = 384
+SEMANTIC_DIMENSION = 64
+SEMANTIC_VOCAB_SIZE = 512
+SEMANTIC_MODEL_VERSION = 'lsa-v1'
 
 def clean_md(text):
     """清理 markdown 语法，保留纯文本"""
@@ -95,44 +98,93 @@ def merge_small_sections(sections, page_url):
         merged.append(section)
     return merged
 
-def fnv1a(data):
-    value = 2166136261
-    for byte in data:
-        value ^= byte
-        value = (value * 16777619) & 0xffffffff
-    return value
-
-def build_embedding(entry):
-    """Build a deterministic compact vector without a remote model dependency.
-
-    Character n-grams preserve useful Chinese phrase overlap and make the vector
-    reproducible in both Python build scripts and the browser search runtime.
-    """
-    text = normalize_for_embedding(' '.join([
-        entry.get('title', ''),
-        entry.get('section', ''),
-        entry.get('content', ''),
-    ]))
-    vector = [0.0] * EMBEDDING_DIMENSION
-    grams = []
-    for length in (2, 3, 4):
-        grams.extend(text[index:index + length] for index in range(max(0, len(text) - length + 1)))
-    for gram in grams:
-        digest = fnv1a(gram.encode('utf-8'))
-        index = digest % EMBEDDING_DIMENSION
-        sign = 1.0 if ((digest >> 8) & 1) else -1.0
-        weight = 1.35 if len(gram) == 3 else 1.0
-        vector[index] += sign * weight
-
-    norm = sum(value * value for value in vector) ** 0.5 or 1.0
-    quantized = [max(-127, min(127, round(value / norm * 127))) for value in vector]
-    return base64.b64encode(struct.pack(f'{EMBEDDING_DIMENSION}b', *quantized)).decode('ascii')
-
 def normalize_for_embedding(value):
-    return ''.join(
-        character for character in value.lower()
-        if not character.isspace() and not unicodedata.category(character).startswith('P')
-    )
+    return ''.join(character for character in value.lower()
+                   if not character.isspace() and not unicodedata.category(character).startswith('P'))
+
+def semantic_tokens(value):
+    """Tokenize Chinese phrases and Latin words for the corpus LSA model."""
+    text = normalize_for_embedding(value)
+    tokens = []
+    chinese = ''.join(character for character in text if '\u4e00' <= character <= '\u9fff')
+    for length in (2, 3, 4):
+        tokens.extend(chinese[index:index + length]
+                      for index in range(max(0, len(chinese) - length + 1)))
+    tokens.extend(re.findall(r'[a-z0-9]+', text))
+    return tokens
+
+def quantize_vector(vector):
+    norm = math.sqrt(sum(value * value for value in vector)) or 1.0
+    quantized = [max(-127, min(127, round(value / norm * 127))) for value in vector]
+    return base64.b64encode(struct.pack(f'{len(quantized)}b', *quantized)).decode('ascii')
+
+def stable_projection(context_index):
+    """Map a PPMI context row into a compact deterministic latent space."""
+    digest = hashlib.sha256(f'{SEMANTIC_MODEL_VERSION}:{context_index}'.encode()).digest()
+    return int.from_bytes(digest[:2], 'big') % SEMANTIC_DIMENSION, 1.0 if digest[2] & 1 else -1.0
+
+def build_semantic_model(entries):
+    """Train a compact corpus-level LSA embedding from document co-occurrence.
+
+    This is a real distributional embedding: terms that occur in the same
+    documents share PPMI context vectors, then a deterministic projection
+    reduces them to 64 dimensions. It needs no network model or runtime service.
+    """
+    document_tokens = [Counter(semantic_tokens(' '.join([
+        entry.get('title', ''), entry.get('section', ''), entry.get('content', '')
+    ]))) for entry in entries]
+    document_frequency = Counter()
+    for tokens in document_tokens:
+        document_frequency.update(tokens.keys())
+
+    vocabulary = [token for token, frequency in document_frequency.most_common()
+                  if frequency >= 2][:SEMANTIC_VOCAB_SIZE]
+    vocabulary.sort()
+    token_index = {token: index for index, token in enumerate(vocabulary)}
+    size = len(vocabulary)
+    cooccurrence = [[0.0] * size for _ in range(size)]
+    for tokens in document_tokens:
+        present = [token_index[token] for token in tokens if token in token_index]
+        for left in present:
+            for right in present:
+                if left != right:
+                    cooccurrence[left][right] += 1.0
+
+    column_totals = [sum(row[column] for row in cooccurrence) for column in range(size)]
+    total = sum(column_totals) or 1.0
+    token_vectors = {}
+    for row_index, row in enumerate(cooccurrence):
+        row_total = sum(row) or 1.0
+        projected = [0.0] * SEMANTIC_DIMENSION
+        for context_index, count in enumerate(row):
+            if not count or not column_totals[context_index]:
+                continue
+            ppmi = max(0.0, math.log((count * total) / (row_total * column_totals[context_index])))
+            dimension, sign = stable_projection(context_index)
+            projected[dimension] += ppmi * sign
+        token_vectors[vocabulary[row_index]] = quantize_vector(projected)
+
+    entry_embeddings = []
+    for tokens in document_tokens:
+        vector = [0.0] * SEMANTIC_DIMENSION
+        total_weight = 0.0
+        for token, frequency in tokens.items():
+            encoded = token_vectors.get(token)
+            if not encoded:
+                continue
+            raw = base64.b64decode(encoded)
+            idf = math.log((len(entries) + 1) / (document_frequency[token] + 1)) + 1
+            weight = min(frequency, 3) * idf
+            total_weight += weight
+            for index, value in enumerate(struct.unpack(f'{SEMANTIC_DIMENSION}b', raw)):
+                vector[index] += value * weight
+        entry_embeddings.append(quantize_vector(vector) if total_weight else '')
+
+    return {
+        'model': SEMANTIC_MODEL_VERSION,
+        'dimension': SEMANTIC_DIMENSION,
+        'tokens': token_vectors,
+    }, entry_embeddings
 
 def split_by_sections(content, page_title, page_url):
     """按 ## / ### 标题分块，每块带 section 和 anchor"""
@@ -226,8 +278,9 @@ for root, dirs, files in os.walk(docs_dir):
         sections = split_by_sections(content, title, url)
         knowledge.extend(sections)
 
-for entry in knowledge:
-    entry['embedding'] = build_embedding(entry)
+semantic_model, embeddings = build_semantic_model(knowledge)
+for entry, embedding in zip(knowledge, embeddings):
+    entry['embedding'] = embedding
 
 output_path = 'docs/public/knowledge.json'
 serialized_knowledge = json.dumps(knowledge, ensure_ascii=False, indent=2) + '\n'
@@ -264,6 +317,7 @@ with open('docs/public/knowledge-manifest.json', 'w', encoding='utf-8') as f:
         'file': versioned_filename,
         'shards': shard_files,
         'entries': len(knowledge),
+        'semantic': semantic_model,
     }, f, ensure_ascii=False, indent=2)
     f.write('\n')
 
