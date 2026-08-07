@@ -23,6 +23,7 @@
     "@zinkawaii/stylelint-config": "^0.3.0",
     "eslint": "^9.22.0",
     "markdown-it-mathjax3": "^4.3.2",
+    "pagefind": "1.5.2",
     "pinia": "^3.0.1",
     "qrcode": "^1.5.4",
     "stylelint": "^16.15.0",
