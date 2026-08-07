@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-import json, re, os, unicodedata
+import base64, hashlib, json, re, os, struct, unicodedata
 
 docs_dir = 'docs'
-skip_files = {'changelog.md', 'contributing.md'}
 knowledge = []
+MAX_CHUNK_LENGTH = 650
+OVERLAP_LENGTH = 80
+MIN_MERGE_LENGTH = 300
+EMBEDDING_DIMENSION = 384
 
 def clean_md(text):
     """清理 markdown 语法，保留纯文本"""
@@ -44,6 +47,92 @@ def slugify(text):
     text = re.sub(r'-{2,}', '-', text)
     text = re.sub(r'^-+|-+$', '', text)
     return re.sub(r'^(\d)', r'_\1', text)
+
+def get_overlap(text, max_length):
+    tail = text[-max_length:]
+    boundary = max(tail.rfind(mark) for mark in '。！？!?')
+    return tail[boundary + 1:].strip() if boundary >= 0 else tail
+
+def split_text(text):
+    """按段落和句子拆分，控制块长并保留句边界附近的少量重叠。"""
+    units = []
+    for paragraph in [part.strip() for part in text.split('\n\n') if part.strip()]:
+        sentences = [part.strip() for part in re.split(r'(?<=[。！？!?])', paragraph) if part.strip()]
+        for sentence in sentences or [paragraph]:
+            if len(sentence) <= MAX_CHUNK_LENGTH:
+                units.append(sentence)
+                continue
+            units.extend(sentence[index:index + MAX_CHUNK_LENGTH]
+                         for index in range(0, len(sentence), MAX_CHUNK_LENGTH))
+
+    chunks = []
+    current = ''
+    for unit in units:
+        if current and len(current) + len(unit) + 2 > MAX_CHUNK_LENGTH:
+            chunks.append(current.strip())
+            overlap = get_overlap(current, OVERLAP_LENGTH)
+            candidate = f'{overlap}\n\n{unit}' if overlap else unit
+            current = candidate if len(candidate) <= MAX_CHUNK_LENGTH else unit
+        else:
+            current = f'{current}\n\n{unit}' if current else unit
+    if current.strip():
+        chunks.append(current.strip())
+    return chunks
+
+def merge_small_sections(sections, page_url):
+    """把相邻短节合成可检索上下文，合并后退回页面级链接避免错误锚点。"""
+    merged = []
+    for section in sections:
+        if merged:
+            previous = merged[-1]
+            combined_length = len(previous['content']) + len(section['content']) + 2
+            if (len(previous['content']) < MIN_MERGE_LENGTH or len(section['content']) < MIN_MERGE_LENGTH) \
+                and combined_length <= MAX_CHUNK_LENGTH:
+                previous['content'] += f"\n\n{section['section']}\n{section['content']}"
+                previous['section'] = f"{previous['section']} | {section['section']}"
+                previous['url'] = page_url
+                continue
+        merged.append(section)
+    return merged
+
+def fnv1a(data):
+    value = 2166136261
+    for byte in data:
+        value ^= byte
+        value = (value * 16777619) & 0xffffffff
+    return value
+
+def build_embedding(entry):
+    """Build a deterministic compact vector without a remote model dependency.
+
+    Character n-grams preserve useful Chinese phrase overlap and make the vector
+    reproducible in both Python build scripts and the browser search runtime.
+    """
+    text = normalize_for_embedding(' '.join([
+        entry.get('title', ''),
+        entry.get('section', ''),
+        entry.get('content', ''),
+    ]))
+    vector = [0.0] * EMBEDDING_DIMENSION
+    grams = []
+    for length in (2, 3, 4):
+        grams.extend(text[index:index + length] for index in range(max(0, len(text) - length + 1)))
+    for gram in grams:
+        digest = fnv1a(gram.encode('utf-8'))
+        index = digest % EMBEDDING_DIMENSION
+        sign = 1.0 if ((digest >> 8) & 1) else -1.0
+        weight = 1.35 if len(gram) == 3 else 1.0
+        vector[index] += sign * weight
+
+    norm = sum(value * value for value in vector) ** 0.5 or 1.0
+    quantized = [max(-127, min(127, round(value / norm * 127))) for value in vector]
+    return base64.b64encode(struct.pack(f'{EMBEDDING_DIMENSION}b', *quantized)).decode('ascii')
+
+def normalize_for_embedding(value):
+    return ''.join(
+        character for character in value.lower()
+        if not character.isspace() and not unicodedata.category(character).startswith('P')
+    )
 
 def split_by_sections(content, page_title, page_url):
     """按 ## / ### 标题分块，每块带 section 和 anchor"""
@@ -101,20 +190,8 @@ def split_by_sections(content, page_title, page_url):
 
         cleaned = clean_md(section_content)
         if len(cleaned) > 30:
-            # 长内容再拆分（每块最多约 1200 字，相邻块带 150 字重叠保上下文）
-            if len(cleaned) > 1200:
-                overlap = 150
-                paragraphs = [p.strip() for p in cleaned.split('\n\n') if p.strip()]
-                chunks = []
-                cur = ''
-                for p in paragraphs:
-                    if len(cur) + len(p) > 1200 and cur:
-                        chunks.append(cur.strip())
-                        cur = (cur[-overlap:] + '\n\n' + p) if len(cur) > overlap else (cur + '\n\n' + p)
-                    else:
-                        cur = (cur + '\n\n' + p) if cur else p
-                if cur.strip():
-                    chunks.append(cur.strip())
+            if len(cleaned) > MAX_CHUNK_LENGTH:
+                chunks = split_text(cleaned)
                 for ch in chunks:
                     sections.append({
                         'title': page_title,
@@ -130,12 +207,13 @@ def split_by_sections(content, page_title, page_url):
                     'url': f'{page_url}#{anchor}'
                 })
 
-    return sections
+    return merge_small_sections(sections, page_url)
 
 # 遍历所有 markdown 文件
 for root, dirs, files in os.walk(docs_dir):
+    dirs[:] = [directory for directory in dirs if directory not in {'.vitepress', 'public'}]
     for f in sorted(files):
-        if not f.endswith('.md') or f in skip_files:
+        if not f.endswith('.md'):
             continue
         path = os.path.join(root, f)
         with open(path, 'r', encoding='utf-8') as fh:
@@ -148,9 +226,46 @@ for root, dirs, files in os.walk(docs_dir):
         sections = split_by_sections(content, title, url)
         knowledge.extend(sections)
 
+for entry in knowledge:
+    entry['embedding'] = build_embedding(entry)
+
 output_path = 'docs/public/knowledge.json'
-with open(output_path, 'w', encoding='utf-8') as f:
-    json.dump(knowledge, f, ensure_ascii=False, indent=2)
+serialized_knowledge = json.dumps(knowledge, ensure_ascii=False, indent=2) + '\n'
+version = hashlib.sha256(serialized_knowledge.encode('utf-8')).hexdigest()[:12]
+versioned_filename = f'knowledge.{version}.json'
+versioned_path = os.path.join('docs/public', versioned_filename)
+
+shards = {'core': [], 'campus': [], 'study': [], 'life': []}
+for entry in knowledge:
+    first_segment = entry['url'].split('/')[1] if entry['url'].startswith('/') else ''
+    shard = first_segment if first_segment in {'campus', 'study', 'life'} else 'core'
+    shards[shard].append(entry)
+
+shard_files = {}
+for shard_name, shard_entries in shards.items():
+    filename = f'knowledge.{shard_name}.{version}.json'
+    shard_files[shard_name] = filename
+    with open(os.path.join('docs/public', filename), 'w', encoding='utf-8') as f:
+        json.dump(shard_entries, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+
+for filename in os.listdir('docs/public'):
+    if re.fullmatch(r'knowledge(?:\.[a-z]+)?\.[0-9a-f]{12}\.json', filename) \
+        and filename not in {versioned_filename, *shard_files.values()}:
+        os.remove(os.path.join('docs/public', filename))
+
+for path in (output_path, versioned_path):
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(serialized_knowledge)
+
+with open('docs/public/knowledge-manifest.json', 'w', encoding='utf-8') as f:
+    json.dump({
+        'version': version,
+        'file': versioned_filename,
+        'shards': shard_files,
+        'entries': len(knowledge),
+    }, f, ensure_ascii=False, indent=2)
+    f.write('\n')
 
 print(f'Generated {len(knowledge)} knowledge chunks -> {output_path}')
 

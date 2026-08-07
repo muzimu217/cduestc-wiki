@@ -2,12 +2,36 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const distRoot = path.resolve('docs/.vitepress/dist')
-const knowledgePath = path.join(distRoot, 'knowledge.json')
-for (const requiredFile of ['index.html', 'knowledge.json', 'sitemap.xml', 'robots.txt', 'CNAME']) {
+const canonicalKnowledgePath = path.join(distRoot, 'knowledge.json')
+const manifestPath = path.join(distRoot, 'knowledge-manifest.json')
+for (const requiredFile of ['index.html', 'knowledge.json', 'knowledge-manifest.json', 'sitemap.xml', 'robots.txt', 'CNAME']) {
     if (!fs.existsSync(path.join(distRoot, requiredFile)))
         throw new Error(`missing required build artifact: ${requiredFile}`)
 }
-const entries = JSON.parse(fs.readFileSync(knowledgePath, 'utf8'))
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+const manifestFiles = manifest.shards && typeof manifest.shards === 'object'
+    ? Object.entries(manifest.shards)
+    : [['all', manifest.file]]
+if (!manifestFiles.length || manifestFiles.some(([, file]) => typeof file !== 'string' || !/^[\w.-]+\.json$/.test(file)))
+    throw new Error('knowledge manifest has invalid shard file names')
+const shardEntries = manifestFiles.map(([shard, file]) => {
+    const knowledgePath = path.join(distRoot, file)
+    if (!fs.existsSync(knowledgePath))
+        throw new Error(`knowledge manifest points to missing ${shard} file: ${file}`)
+    const values = JSON.parse(fs.readFileSync(knowledgePath, 'utf8'))
+    if (!Array.isArray(values))
+        throw new Error(`knowledge shard is not an array: ${file}`)
+    return values
+})
+const entries = shardEntries.flat()
+const canonicalEntries = JSON.parse(fs.readFileSync(canonicalKnowledgePath, 'utf8'))
+const entryKeys = entries.map(entry => `${entry.url}\n${entry.content}`)
+if (manifest.entries !== entries.length || entries.length !== canonicalEntries.length
+    || new Set(entryKeys).size !== entries.length
+    || new Set(entryKeys).size !== new Set(canonicalEntries.map(entry => `${entry.url}\n${entry.content}`)).size
+    || entryKeys.some(key => !canonicalEntries.some(entry => `${entry.url}\n${entry.content}` === key))) {
+    throw new Error('knowledge shards do not match canonical knowledge.json')
+}
 
 if (!Array.isArray(entries) || entries.length === 0)
     throw new Error('knowledge.json must contain at least one entry')

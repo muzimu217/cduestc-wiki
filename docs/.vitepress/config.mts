@@ -47,6 +47,7 @@ export default defineConfig({
 
     head: [
         ['link', { rel: 'icon', href: '/logo.svg' }],
+        ['meta', { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://sdk.51.la https://*.51.la; style-src 'self' 'unsafe-inline' https://lib.baomitu.com; font-src 'self' https://lib.baomitu.com; img-src 'self' data: https:; connect-src 'self' https://spark-api.kcos.club https://*.51.la; frame-src 'none'" }],
         ['link', { rel: 'stylesheet', href: 'https://lib.baomitu.com/font-awesome/6.5.1/css/all.min.css', media: 'none', onload: 'media="all"' }],
         // 51LA 统计代码（同步安装，置于 head 内；hashMode 适配 SPA，screenRecord 开启录屏）
         ['script', { charset: 'UTF-8', id: 'LA_COLLECT', src: '//sdk.51.la/js-sdk-pro.min.js' }],
@@ -59,11 +60,11 @@ export default defineConfig({
         ['meta', { property: 'og:site_name', content: '科成星球' }],
         ['meta', { property: 'og:title', content: '科成星球 | 电子科技大学成都学院校园生活百科' }],
         ['meta', { property: 'og:description', content: '电子科技大学成都学院第三方公益校园生活百科' }],
-        ['meta', { property: 'og:image', content: 'https://wiki.kcos.club/og-image.png' }],
+        ['meta', { property: 'og:image', content: 'https://wiki.kcos.club/og-image.jpg' }],
         ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
         ['meta', { name: 'twitter:title', content: '科成星球 | 电子科技大学成都学院校园生活百科' }],
         ['meta', { name: 'twitter:description', content: '电子科技大学成都学院第三方公益校园生活百科' }],
-        ['meta', { name: 'twitter:image', content: 'https://wiki.kcos.club/og-image.png' }],
+        ['meta', { name: 'twitter:image', content: 'https://wiki.kcos.club/og-image.jpg' }],
     ],
     markdown: {
         math: true,

@@ -1,0 +1,11 @@
+{
+  "version": "4ad9e9d2ea27",
+  "file": "knowledge.4ad9e9d2ea27.json",
+  "shards": {
+    "core": "knowledge.core.4ad9e9d2ea27.json",
+    "campus": "knowledge.campus.4ad9e9d2ea27.json",
+    "study": "knowledge.study.4ad9e9d2ea27.json",
+    "life": "knowledge.life.4ad9e9d2ea27.json"
+  },
+  "entries": 111
+}

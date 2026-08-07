@@ -37,28 +37,28 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         env:
           VITE_AI_PROVIDER: ${{ vars.VITE_AI_PROVIDER }}
           VITE_OPENAI_PROXY_URL: ${{ vars.VITE_OPENAI_PROXY_URL }}
+          VITE_AI_TELEMETRY_URL: ${{ vars.VITE_AI_TELEMETRY_URL }}
           VITE_OPENAI_MODEL: ${{ vars.VITE_OPENAI_MODEL }}
-          VITE_SPARK_AUTH_URL: ${{ vars.VITE_SPARK_AUTH_URL }}
         run: |
           case "$VITE_AI_PROVIDER" in
-            spark)
-              test -n "$VITE_SPARK_AUTH_URL" || { echo "VITE_SPARK_AUTH_URL is required for spark"; exit 1; }
-              ;;
             openai)
               test -n "$VITE_OPENAI_PROXY_URL" || { echo "VITE_OPENAI_PROXY_URL is required for openai"; exit 1; }
               ;;
             *)
-              echo "VITE_AI_PROVIDER must be spark or openai"
+              echo "VITE_AI_PROVIDER must be openai"
               exit 1
               ;;
           esac
           pnpm build
+
+      - name: Retrieval regression
+        run: pnpm eval:retrieval
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -78,3 +78,32 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Worker smoke test
+        run: pnpm test:worker
+
+      - name: Deploy Cloudflare Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --config wrangler.jsonc

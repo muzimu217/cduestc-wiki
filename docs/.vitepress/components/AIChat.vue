@@ -71,10 +71,13 @@
             </div>
             <div class="message-content">
               <div
+                v-if="message.isUser"
                 class="message-text"
-                :class="{ 'vp-doc': !message.isUser }"
+              >{{ message.content }}</div>
+              <div
+                v-else
+                class="message-text vp-doc"
                 v-html="formatMessage(message.content)"
-                @click="handleMessageClick"
               ></div>
               <!-- 相关页面链接 -->
               <div v-if="!message.isUser && message.links && message.links.length > 0" class="message-links">
@@ -97,6 +100,22 @@
                 </div>
               </div>
               <div class="message-time">{{ formatTime(message.timestamp) }}</div>
+              <div v-if="!message.isUser" class="message-feedback">
+                <button
+                  :class="{ active: message.feedback === 'up' }"
+                  @click="rateMessage(message, 'up')"
+                  v-tip="'有帮助'"
+                >
+                  <Icon icon="ri:thumb-up-line" />
+                </button>
+                <button
+                  :class="{ active: message.feedback === 'down' }"
+                  @click="rateMessage(message, 'down')"
+                  v-tip="'没帮助'"
+                >
+                  <Icon icon="ri:thumb-down-line" />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -165,24 +184,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, onMounted, onUnmounted, h, createVNode } from 'vue'
-import { searchKnowledge, selectRelatedSources } from '../ai/knowledge'
+import { ref, nextTick, onMounted, onUnmounted } from 'vue'
+import DOMPurify from 'dompurify'
+import MarkdownIt from 'markdown-it'
+import { rewriteRetrievalQuery, searchKnowledge, selectRelatedSources } from '../ai/knowledge'
 import type { KnowledgeEntry } from '../ai/knowledge'
 import { activeAIProvider } from '../ai/provider'
-import Tip from './Tip.vue'
+import { OPENAI_CONFIG } from '../ai/config'
 
 // 状态管理
 const isOpen = ref(false)
 const currentInput = ref('')
 const isLoading = ref(false)
 const hasUnread = ref(false)
-const messages = ref<Array<{
+type ChatMessage = {
   id: string
   content: string
   isUser: boolean
   timestamp: number
   links?: Array<{ title: string; url: string }>
-}>>([])
+  feedback?: 'up' | 'down'
+}
+const messages = ref<ChatMessage[]>([])
 const suggestedQuestions = ref<string[]>([])
 let requestController: AbortController | null = null
 
@@ -194,25 +217,64 @@ const textareaRef = ref<HTMLTextAreaElement>()
 const knowledgeBase = ref<KnowledgeEntry[]>([])
 const knowledgeStatus = ref<'idle' | 'loading' | 'ready' | 'empty' | 'error'>('idle')
 let knowledgeLoadPromise: Promise<void> | null = null
+let knowledgeManifestPromise: Promise<{ version?: string; file?: string; shards?: Record<string, string> }> | null = null
+const loadedKnowledgeShards = new Set<string>()
+
+const getKnowledgeShardKeys = (query: string) => {
+  const normalized = query.toLowerCase()
+  const keys = new Set<string>()
+  if (/(宿舍|寝室|食堂|快递|校园网|生活|校区|成都|什邡)/u.test(normalized)) keys.add('life')
+  if (/(专业|选课|考试|成绩|奖学金|竞赛|专升本|实验室|课程|学习)/u.test(normalized)) keys.add('study')
+  if (/(入学|军训|校园|校区|成都|什邡|社团|学院|防骗|网络|连接)/u.test(normalized)) keys.add('campus')
+  if (!keys.size) {
+    keys.add('core')
+    keys.add('campus')
+    keys.add('study')
+    keys.add('life')
+  } else {
+    keys.add('core')
+  }
+  return [...keys]
+}
 
 // 加载知识库
-const loadKnowledge = async () => {
-  if (knowledgeBase.value.length || knowledgeLoadPromise)
-    return knowledgeLoadPromise || Promise.resolve()
+const loadKnowledge = async (query = '') => {
+  if (knowledgeLoadPromise)
+    return knowledgeLoadPromise
 
   knowledgeStatus.value = 'loading'
   knowledgeLoadPromise = (async () => {
     try {
-      const res = await fetch('/knowledge.json')
-      if (!res.ok)
-        throw new Error(`HTTP ${res.status}`)
+      knowledgeManifestPromise ||= fetch('/knowledge-manifest.json', { cache: 'no-store' })
+        .then(async response => {
+          if (!response.ok)
+            throw new Error(`HTTP ${response.status}`)
+          return response.json()
+        })
+      const manifest = await knowledgeManifestPromise
+      const shardMap = manifest.shards && typeof manifest.shards === 'object'
+        ? manifest.shards
+        : { all: manifest.file || 'knowledge.json' }
+      const requestedKeys = Object.keys(manifest.shards || {}).length
+        ? getKnowledgeShardKeys(query)
+        : ['all']
+      const files = requestedKeys
+        .map(key => [key, shardMap[key]] as const)
+        .filter((entry): entry is readonly [string, string] => typeof entry[1] === 'string')
+        .filter(([key]) => !loadedKnowledgeShards.has(key))
 
-      const data = await res.json()
-      if (!Array.isArray(data))
-        throw new Error('知识库格式无效')
-
-      knowledgeBase.value = data
-      knowledgeStatus.value = data.length ? 'ready' : 'empty'
+      const responses = await Promise.all(files.map(async ([key, file]) => {
+        const response = await fetch(`/${file}?v=${encodeURIComponent(manifest.version || '')}`, { cache: 'force-cache' })
+        if (!response.ok)
+          throw new Error(`HTTP ${response.status}`)
+        const data = await response.json()
+        if (!Array.isArray(data))
+          throw new Error('知识库格式无效')
+        loadedKnowledgeShards.add(key)
+        return data as KnowledgeEntry[]
+      }))
+      knowledgeBase.value = [...knowledgeBase.value, ...responses.flat()]
+      knowledgeStatus.value = knowledgeBase.value.length ? 'ready' : 'empty'
       console.log(`知识库加载完成: ${knowledgeBase.value.length} 条`)
     }
     catch (e) {
@@ -272,6 +334,23 @@ const recordRequest = () => {
   localStorage.setItem(RATE_LIMIT_KEY, Date.now().toString())
   cooldownLeft.value = RATE_LIMIT_SECONDS
   startCooldownTimer()
+}
+
+const sendTelemetry = (event: string, payload: Record<string, number | string> = {}) => {
+  if (!OPENAI_CONFIG.telemetryUrl)
+    return
+
+  void fetch(OPENAI_CONFIG.telemetryUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event, provider: activeAIProvider.id, ...payload }),
+    keepalive: true,
+  }).catch(() => {})
+}
+
+const rateMessage = (message: ChatMessage, rating: 'up' | 'down') => {
+  message.feedback = rating
+  sendTelemetry('feedback', { rating: rating === 'up' ? 1 : -1 })
 }
 
 const startCooldownTimer = () => {
@@ -355,39 +434,67 @@ const sendMessage = async () => {
   adjustTextareaHeight()
   scrollToBottom()
   isLoading.value = true
+  const requestStartedAt = Date.now()
 
-  await loadKnowledge()
+  const previousQueries = history
+    .filter(item => item.role === 'user')
+    .map(item => item.content)
+  const retrievalQuery = rewriteRetrievalQuery(message, previousQueries)
+  await loadKnowledge(retrievalQuery)
 
   // 先检索知识库，获取相关链接
-  const retrievalQuery = [
-    ...history.filter(item => item.role === 'user').slice(-2).map(item => item.content),
-    message,
-  ].join(' ')
   const sources = searchKnowledge(knowledgeBase.value, retrievalQuery)
+  if (!sources.length)
+    sendTelemetry('search_zero')
 
   let answer = ''
   let citedSourceIds: string[] = []
+  let streamingMessage: ChatMessage | null = null
   if (activeAIProvider.isConfigured()) {
     recordRequest()
     requestController = new AbortController()
+    streamingMessage = {
+      id: `ai_${Date.now()}`,
+      content: '',
+      isUser: false,
+      timestamp: Date.now(),
+    }
+    messages.value.push(streamingMessage)
+    scrollToBottom()
 
     try {
       const response = await activeAIProvider.chat({
         message,
         sources,
         history,
-        signal: requestController.signal
+        signal: requestController.signal,
+        onToken: token => {
+          if (streamingMessage) {
+            streamingMessage.content += token
+            scrollToBottom()
+          }
+        },
       })
       answer = response.content
       citedSourceIds = response.citedSourceIds
     } catch (error) {
       console.warn(`${activeAIProvider.label}调用失败:`, error)
+      if (streamingMessage) {
+        messages.value = messages.value.filter(message => message !== streamingMessage)
+        streamingMessage = null
+      }
     } finally {
       requestController = null
     }
   }
 
   const providerAnswered = Boolean(answer)
+  sendTelemetry(providerAnswered ? 'answer' : 'fallback', {
+    sourceCount: sources.length,
+    topScore: sources[0]?.relevanceScore || 0,
+    citedCount: citedSourceIds.length,
+    latencyMs: Date.now() - requestStartedAt,
+  })
   const relatedSources = selectRelatedSources(
     sources,
     providerAnswered ? citedSourceIds : [],
@@ -397,7 +504,7 @@ const sendMessage = async () => {
     url: source.url
   }))
 
-  // 当前 Provider 失败后只降级到本地知识库，不跨供应商调用。
+  // Provider 失败后降级到本地知识库，不伪造模型答案。
   if (!answer) {
     const hasLinks = relatedLinks.length > 0
     answer = knowledgeStatus.value === 'error'
@@ -407,14 +514,18 @@ const sendMessage = async () => {
       : '🔍 当前AI服务暂不可用，知识库中暂未找到相关页面。\n\n您可以尝试换个关键词，或直接浏览左侧菜单查找信息。'
   }
 
-  const aiMessage = {
-    id: `${providerAnswered ? 'ai' : 'fallback'}_${Date.now()}`,
-    content: answer,
-    isUser: false,
-    timestamp: Date.now(),
-    links: relatedLinks.length > 0 ? relatedLinks : undefined
+  if (streamingMessage) {
+    streamingMessage.content = answer
+    streamingMessage.links = relatedLinks.length > 0 ? relatedLinks : undefined
+  } else {
+    messages.value.push({
+      id: `fallback_${Date.now()}`,
+      content: answer,
+      isUser: false,
+      timestamp: Date.now(),
+      links: relatedLinks.length > 0 ? relatedLinks : undefined,
+    })
   }
-  messages.value.push(aiMessage)
 
   // 生成建议问题
   generateSuggestedQuestions(message, answer)
@@ -461,116 +572,20 @@ const scrollToBottom = () => {
   })
 }
 
-const escapeHtml = (content: string) => content.replace(/[&<>"']/g, (character) => {
-  const entities: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }
-  return entities[character]
+const markdown = new MarkdownIt({
+  breaks: true,
+  html: false,
+  linkify: false,
+  typographer: false,
 })
 
-const isSafeLink = (url: string) => /^(https?:\/\/|mailto:|\/(?!\/)|\.{1,2}\/|#)/i.test(url)
-
-// 格式化消息内容 - 增强的Markdown支持
-const formatMessage = (content: string) => {
-  let result = escapeHtml(content)
-  
-  // 先处理代码块，避免代码块内的内容被错误格式化
-  const codeBlocks: string[] = []
-  result = result.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-    const index = codeBlocks.length
-    codeBlocks.push(`<pre><code class="${lang || ''}">${code.trim()}</code></pre>`)
-    return `__CODE_BLOCK_${index}__`
-  })
-  
-  // 处理行内代码，避免被其他格式化影响
-  const inlineCodes: string[] = []
-  result = result.replace(/`([^`]+)`/g, (match, code) => {
-    const index = inlineCodes.length
-    inlineCodes.push(`<code>${code}</code>`)
-    return `__INLINE_CODE_${index}__`
-  })
-  
-  // 按行处理，避免跨行匹配问题
-  const lines = result.split('\n')
-  const processedLines = lines.map(line => {
-    // 跳过代码块占位符行
-    if (line.includes('__CODE_BLOCK_') || line.includes('__INLINE_CODE_')) {
-      return line
-    }
-    
-    // 跳过标题格式，保持为普通文本
-    
-    // 有序列表 - 数字开头
-    if (/^\d+\.\s/.test(line)) {
-      const content = line.replace(/^\d+\.\s/, '')
-      return `<li data-list-type="ol">${content}</li>`
-    }
-    // 无序列表 - 必须在行首
-    else if (/^[-*+]\s/.test(line)) {
-      const content = line.substring(2)
-      return `<li data-list-type="ul">${content}</li>`
-    }
-    // 引用块
-    else if (line.startsWith('> ')) {
-      return `<blockquote>${line.substring(2)}</blockquote>`
-    }
-    
-    return line
-  })
-  
-  result = processedLines.join('\n')
-  
-  // 包装连续的列表项
-  result = result.replace(/(<li data-list-type="ul">.*<\/li>\n?)+/g, (match) => {
-    return `<ul>${match.replace(/\n/g, '').replace(/ data-list-type="ul"/g, '')}</ul>`
-  })
-  result = result.replace(/(<li data-list-type="ol">.*<\/li>\n?)+/g, (match) => {
-    return `<ol>${match.replace(/\n/g, '').replace(/ data-list-type="ol"/g, '')}</ol>`
-  })
-  
-  // 其他格式化
-  result = result
-    // 链接格式 [文本](链接)
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, url) => {
-      if (!isSafeLink(url)) return label
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
-    })
-    
-    // 删除线
-    .replace(/~~(.*?)~~/g, '<del>$1</del>')
-    
-    // 加粗和斜体 - 更精确的匹配
-    .replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    
-    // 下划线加粗和斜体
-    .replace(/___([^_]+)___/g, '<strong><em>$1</em></strong>')
-    .replace(/__([^_]+)__/g, '<strong>$1</strong>')
-    .replace(/_([^_]+)_/g, '<em>$1</em>')
-    
-    // 高亮文本
-    .replace(/==([^=]+)==/g, '<mark>$1</mark>')
-    
-    // 换行
-    .replace(/\n/g, '<br>')
-  
-  // 恢复代码块
-  codeBlocks.forEach((block, index) => {
-    result = result.replace(`__CODE_BLOCK_${index}__`, block)
-  })
-  
-  // 恢复行内代码
-  inlineCodes.forEach((code, index) => {
-    result = result.replace(`__INLINE_CODE_${index}__`, code)
-  })
-  
-  return result
-}
+const formatMessage = (content: string) => DOMPurify.sanitize(markdown.render(content), {
+  ALLOWED_ATTR: ['class', 'href', 'rel', 'target'],
+  ALLOWED_TAGS: [
+    'a', 'blockquote', 'br', 'code', 'del', 'em', 'h1', 'h2', 'h3', 'h4',
+    'li', 'ol', 'p', 'pre', 'strong', 'ul',
+  ],
+})
 
 // 格式化时间
 const formatTime = (timestamp: number) => {
@@ -589,31 +604,6 @@ const formatTime = (timestamp: number) => {
       hour: '2-digit',
       minute: '2-digit'
     })
-  }
-}
-
-// 处理消息中的链接点击
-const handleMessageClick = (event: Event) => {
-  const target = event.target as HTMLElement
-  
-  // 处理Tip链接点击
-  if (target.classList.contains('tip-link')) {
-    event.preventDefault()
-    const url = target.getAttribute('data-url')
-    
-    if (url) {
-      // 复制链接到剪贴板
-      navigator.clipboard?.writeText(url).then(() => {
-        // 显示复制成功的提示
-        target.setAttribute('data-tip', '链接已复制！')
-        setTimeout(() => {
-          target.setAttribute('data-tip', '点击复制链接')
-        }, 2000)
-      }).catch(() => {
-        // 如果复制失败，直接打开链接
-        window.open(url, '_blank')
-      })
-    }
   }
 }
 
@@ -876,25 +866,6 @@ onUnmounted(() => {
 /* 只保留必要的消息布局样式，其他样式由 vp-doc 类提供 */
 
 /* Tip链接样式 - 项目特有组件 */
-.message-text .tip-link {
-  position: relative;
-  color: var(--vp-c-brand-1);
-  text-decoration: underline dashed var(--vp-c-text-3);
-  text-underline-offset: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.message-text .tip-link:hover {
-  color: var(--vp-c-brand-2);
-  text-decoration-color: var(--vp-c-brand-1);
-}
-
-.message-text .tip-link:active {
-  transform: scale(0.98);
-}
-
-
 .user-message .message-text {
   background: var(--vp-c-brand-1);
   color: white;
@@ -935,16 +906,6 @@ onUnmounted(() => {
   color: white;
 }
 
-.user-message .message-text .tip-link {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration-color: rgba(255, 255, 255, 0.5);
-}
-
-.user-message .message-text .tip-link:hover {
-  color: white;
-  text-decoration-color: rgba(255, 255, 255, 0.8);
-}
-
 .ai-message .message-text {
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
@@ -956,6 +917,28 @@ onUnmounted(() => {
   color: var(--vp-c-text-3);
   margin-top: 4px;
   padding: 0 14px;
+}
+
+.message-feedback {
+  display: flex;
+  gap: 4px;
+  padding: 2px 10px 0;
+}
+
+.message-feedback button {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--vp-c-text-3);
+  cursor: pointer;
+}
+
+.message-feedback button:hover,
+.message-feedback button.active {
+  background: var(--vp-c-bg-mute);
+  color: var(--vp-c-brand-1);
 }
 
 /* 相关页面链接 */

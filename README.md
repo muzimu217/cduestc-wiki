@@ -40,7 +40,7 @@ pnpm run dev
 
 ### 搜索收录与分享卡片
 
-`pnpm build` 构建完成后会自动扫描 VitePress 输出目录，生成 `sitemap.xml` 与 `robots.txt`，便于百度、谷歌等搜索引擎抓取。站点 `<head>` 已注入 Open Graph / Twitter 分享卡片元信息，分享任意页面到微信/QQ 时会显示统一的品牌卡片图 `/og-image.png`。
+`pnpm build` 构建完成后会自动扫描 VitePress 输出目录，生成 `sitemap.xml` 与 `robots.txt`，便于百度、谷歌等搜索引擎抓取。站点 `<head>` 已注入 Open Graph / Twitter 分享卡片元信息，分享任意页面到微信/QQ 时会显示统一的品牌卡片图 `/og-image.jpg`（约 102 KB）。
 
 ### AI 助手配置
 
@@ -48,39 +48,28 @@ pnpm run dev
 
 ```sh
 VITE_AI_PROVIDER=openai
-VITE_OPENAI_PROXY_URL=https://example.com/api/ai/openai
-VITE_OPENAI_MODEL=step-3.5-flash
+VITE_OPENAI_PROXY_URL=https://spark-api.kcos.club/v1/chat/completions
+VITE_OPENAI_MODEL=generalv3.5
 ```
 
-`VITE_OPENAI_PROXY_URL` 指向站点自己的后端代理。代理接收 OpenAI Chat Completions 格式的请求并返回兼容响应；上游 API Key、Base URL 等敏感配置必须只保存在后端环境中，不能写入 `VITE_*` 变量或前端源码。
+`VITE_OPENAI_PROXY_URL` 指向站点自己的后端代理。代理接收 OpenAI Chat Completions 格式的请求并返回兼容响应；前端支持 SSE 增量输出，上游 API Key、Base URL 等敏感配置必须只保存在后端环境中，不能写入 `VITE_*` 变量或前端源码。
 
-讯飞演示模式使用独立链路：
-
-```sh
-VITE_AI_PROVIDER=spark
-VITE_SPARK_AUTH_URL=https://spark-api.kcos.club/spark/auth
-```
-
-讯飞 WebSocket 代理运行在 Cloudflare Workers，代码和路由配置分别位于 `workers/spark-proxy.js` 与 `wrangler.jsonc`。首次部署前通过 Wrangler 写入以下 Worker Secrets：
+当前 Worker 使用讯飞 OpenAI 兼容 HTTP 接口作为上游，前端只调用一个标准 `POST /v1/chat/completions` 网关：
 
 ```sh
-wrangler secret put SPARK_APP_ID
-wrangler secret put SPARK_API_KEY
-wrangler secret put SPARK_API_SECRET
-wrangler secret put SPARK_ASSISTANT_URL
+wrangler secret put SPARK_API_PASSWORD
 wrangler deploy --config wrangler.jsonc
 ```
 
-Worker 通过 60 秒短期会话代理讯飞 WebSocket。API Key、API Secret 和讯飞签名 URL 都只保留在 Worker 内，不能写入 `VITE_*` 变量或前端源码。服务由 Cloudflare 常驻运行，不依赖开发者电脑或 Tunnel。两个 Provider 的链路彼此独立；当前 Provider 失败时只降级到本地知识库，不会自动调用另一个 Provider。
+`SPARK_API_PASSWORD` 从讯飞控制台对应模型的 HTTP 接口认证信息中获取。Worker 固定主上游 URL、模型、temperature 和 max_tokens，只接收有限数量的 `system/user/assistant` 消息，并对 IP 做 best-effort 限流。配置 `SPARK_FALLBACK_URL` 和 `SPARK_FALLBACK_API_PASSWORD` 后，会在主上游超时、429 或 5xx 时自动回退；凭证只保留在 Worker Secret 中。
 
-### 讯飞 Worker 迁移状态
+知识库构建会生成带哈希版本的 `core/campus/study/life` 分片、384 维压缩向量，并在浏览器内执行 BM25 + 余弦混合检索。`pnpm build` 同时运行内容安全扫描、页面锚点校验和 sitemap 生成；`pnpm eval:retrieval` 执行 50 条回归查询。
 
-已将上述本地 Tunnel 方案迁移至 Cloudflare Workers，线上 AI 不再依赖开发者电脑：
+### AI Worker 状态
 
-- Worker 通过 `spark-api.kcos.club` 同时提供 HTTP 鉴权（`/spark/auth`）与 WebSocket 代理（`/spark/chat`）。
-- 4 项讯飞配置（`SPARK_APP_ID`、`SPARK_API_KEY`、`SPARK_API_SECRET`、`SPARK_ASSISTANT_URL`）已存入 Cloudflare Worker Secrets；仓库源码与前端构建产物均不含真实值。
-- 本机 `scripts/spark-auth-server.mjs`（8787 服务）、LaunchAgent、本地凭据及 Tunnel 中 `spark-api.kcos.club → 8787` 路由均已删除。
-- `workers_dev` 因当前网络存在 DNS 污染，生产改为官方推荐的 Worker 自定义域名方式（`wrangler.jsonc` 中 `routes[].custom_domain = true`），同时启用 Custom Domains、WebSockets 与 Secrets。
+- Worker 通过 `spark-api.kcos.club` 提供 OpenAI 兼容 HTTP 网关。
+- 讯飞 APIPassword 只存储在 `SPARK_API_PASSWORD` Worker Secret，不进入前端或仓库。
+- 生产部署使用 `wrangler deploy --config wrangler.jsonc`，健康检查为 `/health`。
 
 核心代码位于 `workers/spark-proxy.js` 与 `wrangler.jsonc`。
 
@@ -91,13 +80,12 @@ Worker 通过 60 秒短期会话代理讯飞 WebSocket。API Key、API Secret �
 | 本机 8787 关闭 | 通过 |
 | Tunnel Spark 路由删除 | 通过 |
 | Worker 健康检查 | 通过 |
-| 云端真实讯飞 WebSocket | 通过 |
-| 线上页面实际提问 | 通过 |
+| 云端 HTTP 网关健康检查 | 等待新 APIPassword 写入后复验 |
+| 线上页面实际提问 | 等待新 Worker 发布后复验 |
 | 控制台错误 | 无 |
 | Pages 部署 | 成功 |
-| 上游提交 | Draft PR #15 |
 
-> 安全提醒：iFlytek 凭证曾出现在对话记录中，建议在讯飞开放平台后台轮换一次 API Key / Secret，并通过 `wrangler secret put SPARK_API_KEY` / `wrangler secret put SPARK_API_SECRET` 同步更新对应 Worker Secrets。
+> 安全提醒：APIPassword 属于敏感凭证，必须通过 `wrangler secret put SPARK_API_PASSWORD` 写入 Worker，不能写进 `.env`、GitHub Pages 变量或前端源码。CI 自动发布还需要 GitHub Secret `CLOUDFLARE_API_TOKEN`。
 
 ### 推送
 
