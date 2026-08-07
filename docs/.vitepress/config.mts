@@ -47,7 +47,7 @@ export default defineConfig({
 
     head: [
         ['link', { rel: 'icon', href: '/logo.svg' }],
-        ['meta', { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://sdk.51.la https://*.51.la; style-src 'self' 'unsafe-inline' https://lib.baomitu.com; font-src 'self' https://lib.baomitu.com; img-src 'self' data: https:; connect-src 'self' https://spark-api.kcos.club https://*.51.la; frame-src 'none'" }],
+        ['meta', { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://sdk.51.la https://*.51.la; style-src 'self' 'unsafe-inline' https://lib.baomitu.com; font-src 'self' https://lib.baomitu.com https://oss.cduestc.fun; img-src 'self' data: https:; connect-src 'self' https://spark-api.kcos.club https://*.51.la https://api.iconify.design https://api.unisvg.com https://api.simplesvg.com; frame-src 'none'" }],
         ['link', { rel: 'stylesheet', href: 'https://lib.baomitu.com/font-awesome/6.5.1/css/all.min.css', media: 'none', onload: 'media="all"' }],
         // 51LA 统计代码（同步安装，置于 head 内；hashMode 适配 SPA，screenRecord 开启录屏）
         ['script', { charset: 'UTF-8', id: 'LA_COLLECT', src: '//sdk.51.la/js-sdk-pro.min.js' }],
