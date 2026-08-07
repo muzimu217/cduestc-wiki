@@ -282,13 +282,53 @@ const loadKnowledge = async () => {
   await knowledgeLoadPromise
 }
 
-// 快速问题
-const quickQuestions = [
+const allQuestions = [
   '宿舍条件怎么样？',
   '有哪些实验室可以加入？',
   '食堂好吃吗？',
-  '如何选课？'
+  '如何选课？',
+  '怎么加入社团？',
+  '军训要准备什么？',
+  '校园网怎么连？',
+  '快递怎么取？',
+  '新生防骗指南',
+  '图书馆开放时间？',
+  '实验室招新条件？',
+  '宿舍几点熄灯？',
+  '选课系统打不开怎么办？',
+  '社团活动多吗？',
+  '宽带怎么装？',
+  '食堂价格怎么样？',
+  '宿舍有空调吗？',
+  '实验室几点开始？',
 ]
+
+const usedQuestions = new Set<string>()
+
+const shuffle = (array: string[]): string[] => {
+  const shuffled = [...array]
+  for (let index = shuffled.length - 1; index > 0; index--) {
+    const randomIndex = Math.floor(Math.random() * (index + 1))
+    const selected = shuffled[index]
+    shuffled[index] = shuffled[randomIndex]
+    shuffled[randomIndex] = selected
+  }
+  return shuffled
+}
+
+const getRandomQuestions = (count = 4): string[] => {
+  let available = allQuestions.filter(question => !usedQuestions.has(question))
+  if (available.length < count) {
+    usedQuestions.clear()
+    available = allQuestions
+  }
+  const selected = shuffle(available).slice(0, count)
+  selected.forEach(question => usedQuestions.add(question))
+  return selected
+}
+
+const quickQuestions = getRandomQuestions()
+
 
 // 切换聊天窗口
 const toggleChat = async () => {
@@ -524,26 +564,31 @@ const sendMessage = async () => {
 // 根据上下文生成建议问题
 const generateSuggestedQuestions = (question: string, answer: string) => {
   const topicKeywords: Record<string, string[]> = {
-    '宿舍': ['宿舍怎么换？', '宿舍有空调吗？', '宿舍几点熄灯？'],
-    '食堂': ['哪个食堂好吃？', '食堂营业时间？', '食堂价格怎么样？'],
-    '选课': ['选课什么时候开始？', '怎么选体育课？', '选课系统打不开怎么办？'],
-    '社团': ['有哪些社团？', '怎么加入社团？', '社团活动多吗？'],
-    '实验室': ['怎么加入实验室？', '有哪些实验室？', '实验室招新条件？'],
-    '军训': ['军训多长时间？', '军训要准备什么？', '军训可以请假吗？'],
-    '校园网': ['校园网怎么连？', '校园卡怎么办？', '宽带怎么装？'],
-    '快递': ['快递站在哪？', '快递怎么取？', '可以寄快递吗？'],
-    '防骗': ['新生防骗指南', '怎么识别诈骗？', '校园贷是什么？'],
-    '图书馆': ['图书馆开放时间？', '怎么借书？', '图书馆有WiFi吗？'],
+    '宿舍': ['宿舍怎么换？', '宿舍有空调吗？', '宿舍几点熄灯？', '宿舍门禁几点？', '宿舍怎么缴费？'],
+    '食堂': ['哪个食堂好吃？', '食堂营业时间？', '食堂价格怎么样？', '学校有几个食堂？', '食堂可以刷什么？'],
+    '选课': ['选课什么时候开始？', '怎么选体育课？', '选课系统打不开怎么办？', '怎么查课程成绩？', '学分不够怎么办？'],
+    '社团': ['有哪些社团？', '怎么加入社团？', '社团活动多吗？', '社团招新什么时候开始？', '参加社团需要面试吗？'],
+    '实验室': ['怎么加入实验室？', '有哪些实验室？', '实验室招新条件？', '实验室主要研究什么？', '如何联系实验室负责人？'],
+    '军训': ['军训多长时间？', '军训要准备什么？', '军训可以请假吗？', '军训期间怎么洗澡？', '军训服装在哪里领取？'],
+    '校园网': ['校园网怎么连？', '校园卡怎么办？', '宽带怎么装？', '校园网密码怎么改？', '校园网故障找谁？'],
+    '快递': ['快递站在哪？', '快递怎么取？', '可以寄快递吗？', '快递柜怎么使用？', '校内收货地址怎么填？'],
+    '防骗': ['新生防骗指南', '怎么识别诈骗？', '校园贷是什么？', '接到陌生电话怎么办？', '兼职信息怎么辨别？'],
+    '图书馆': ['图书馆开放时间？', '怎么借书？', '图书馆有WiFi吗？', '如何预约自习座位？', '图书逾期怎么办？'],
   }
+  const generalQuestions = [
+    '校园网怎么连接？',
+    '图书馆几点开放？',
+    '学校有哪些社团？',
+    '有哪些实验室可以加入？',
+    '食堂营业到几点？',
+    '新生报到需要准备什么？',
+  ]
 
   const combined = question + answer
-  for (const [keyword, questions] of Object.entries(topicKeywords)) {
-    if (combined.includes(keyword)) {
-      suggestedQuestions.value = questions
-      return
-    }
-  }
-  suggestedQuestions.value = []
+  const topicQuestions = Object.entries(topicKeywords)
+    .find(([keyword]) => combined.includes(keyword))?.[1]
+    || generalQuestions
+  suggestedQuestions.value = shuffle(topicQuestions).slice(0, 3)
 }
 
 // 滚动到底部

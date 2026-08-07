@@ -1,11 +1,11 @@
 {
-  "version": "021e5cbcea75",
-  "file": "knowledge.021e5cbcea75.json",
+  "version": "0d05f3777ca3",
+  "file": "knowledge.0d05f3777ca3.json",
   "shards": {
-    "core": "knowledge.core.021e5cbcea75.json",
-    "campus": "knowledge.campus.021e5cbcea75.json",
-    "study": "knowledge.study.021e5cbcea75.json",
-    "life": "knowledge.life.021e5cbcea75.json"
+    "core": "knowledge.core.0d05f3777ca3.json",
+    "campus": "knowledge.campus.0d05f3777ca3.json",
+    "study": "knowledge.study.0d05f3777ca3.json",
+    "life": "knowledge.life.0d05f3777ca3.json"
   },
   "entries": 111,
   "semantic": {
