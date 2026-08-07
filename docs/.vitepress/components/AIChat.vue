@@ -49,8 +49,10 @@
                   :key="question"
                   @click="sendQuickQuestion(question)"
                   class="quick-btn"
+                  type="button"
                 >
-                  {{ question }}
+                  <span>{{ question }}</span>
+                  <Icon icon="ri:arrow-right-line" class="question-arrow" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -140,13 +142,15 @@
               您可能还想问：
             </div>
             <div class="suggested-list">
-              <button 
-                v-for="question in suggestedQuestions.slice(0, 3)" 
+              <button
+                v-for="question in suggestedQuestions.slice(0, 3)"
                 :key="question"
                 @click="sendQuickQuestion(question)"
                 class="suggested-btn"
+                type="button"
               >
-                {{ question }}
+                <span>{{ question }}</span>
+                <Icon icon="ri:arrow-right-line" class="question-arrow" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -823,23 +827,76 @@ onUnmounted(() => {
 .quick-questions {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .quick-btn {
-  padding: 8px 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px 10px 16px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   font-size: 14px;
+  line-height: 1.45;
+  text-align: left;
+  animation: question-option-in 0.45s both;
 }
+
+.quick-btn:nth-child(2) { animation-delay: 0.05s; }
+.quick-btn:nth-child(3) { animation-delay: 0.1s; }
+.quick-btn:nth-child(4) { animation-delay: 0.15s; }
 
 .quick-btn:hover {
   border-color: var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+.quick-btn:active,
+.suggested-btn:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.quick-btn:focus-visible,
+.suggested-btn:focus-visible {
+  outline: 3px solid var(--vp-c-brand-soft);
+  outline-offset: 2px;
+}
+
+.question-arrow {
+  flex: 0 0 auto;
+  color: var(--vp-c-brand-1);
+  font-size: 18px;
+  opacity: 0.7;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.quick-btn:hover .question-arrow,
+.suggested-btn:hover .question-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@keyframes question-option-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 消息样式 */
@@ -1068,10 +1125,11 @@ onUnmounted(() => {
 /* Dify建议问题 */
 .suggested-questions {
   margin: 12px 0 8px 0;
-  padding: 8px 12px;
-  background: var(--vp-c-bg-soft);
+  padding: 10px 12px 12px;
+  background: linear-gradient(145deg, var(--vp-c-bg-soft), var(--vp-c-bg-mute));
   border-radius: 8px;
   border: 1px solid var(--vp-c-divider);
+  animation: question-option-in 0.35s ease both;
 }
 
 .suggested-title {
@@ -1080,40 +1138,59 @@ onUnmounted(() => {
   gap: 4px;
   font-size: 12px;
   color: var(--vp-c-text-2);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 500;
 }
 
 .suggested-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 }
 
 .suggested-btn {
-  padding: 4px 8px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 0;
+  padding: 8px 10px 8px 12px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 11px;
-  line-height: 1.3;
-  flex: 1;
-  min-width: 80px;
-  max-width: 120px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: left;
+  flex: 1 1 calc(50% - 8px);
+  animation: question-option-in 0.4s both;
 }
+
+.suggested-btn:nth-child(2) { animation-delay: 0.06s; }
+.suggested-btn:nth-child(3) { animation-delay: 0.12s; }
 
 .suggested-btn:hover {
   border-color: var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.suggested-btn .question-arrow {
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-btn,
+  .suggested-questions,
+  .suggested-btn {
+    animation: none;
+    transition: none;
+  }
 }
 
 /* 输入区域 */
