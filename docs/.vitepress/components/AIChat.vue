@@ -192,18 +192,39 @@ const textareaRef = ref<HTMLTextAreaElement>()
 
 // 知识库
 const knowledgeBase = ref<KnowledgeEntry[]>([])
+const knowledgeStatus = ref<'idle' | 'loading' | 'ready' | 'empty' | 'error'>('idle')
+let knowledgeLoadPromise: Promise<void> | null = null
 
 // 加载知识库
 const loadKnowledge = async () => {
-  try {
-    const res = await fetch('/knowledge.json')
-    if (res.ok) {
-      knowledgeBase.value = await res.json()
+  if (knowledgeBase.value.length || knowledgeLoadPromise)
+    return knowledgeLoadPromise || Promise.resolve()
+
+  knowledgeStatus.value = 'loading'
+  knowledgeLoadPromise = (async () => {
+    try {
+      const res = await fetch('/knowledge.json')
+      if (!res.ok)
+        throw new Error(`HTTP ${res.status}`)
+
+      const data = await res.json()
+      if (!Array.isArray(data))
+        throw new Error('知识库格式无效')
+
+      knowledgeBase.value = data
+      knowledgeStatus.value = data.length ? 'ready' : 'empty'
       console.log(`知识库加载完成: ${knowledgeBase.value.length} 条`)
     }
-  } catch (e) {
-    console.warn('知识库加载失败:', e)
-  }
+    catch (e) {
+      knowledgeStatus.value = 'error'
+      console.warn('知识库加载失败:', e)
+    }
+    finally {
+      knowledgeLoadPromise = null
+    }
+  })()
+
+  await knowledgeLoadPromise
 }
 
 // 快速问题
@@ -335,12 +356,19 @@ const sendMessage = async () => {
   scrollToBottom()
   isLoading.value = true
 
+  await loadKnowledge()
+
   // 先检索知识库，获取相关链接
-  const sources = searchKnowledge(knowledgeBase.value, message)
+  const retrievalQuery = [
+    ...history.filter(item => item.role === 'user').slice(-2).map(item => item.content),
+    message,
+  ].join(' ')
+  const sources = searchKnowledge(knowledgeBase.value, retrievalQuery)
 
   let answer = ''
   let citedSourceIds: string[] = []
   if (activeAIProvider.isConfigured()) {
+    recordRequest()
     requestController = new AbortController()
 
     try {
@@ -352,7 +380,6 @@ const sendMessage = async () => {
       })
       answer = response.content
       citedSourceIds = response.citedSourceIds
-      recordRequest()
     } catch (error) {
       console.warn(`${activeAIProvider.label}调用失败:`, error)
     } finally {
@@ -364,8 +391,6 @@ const sendMessage = async () => {
   const relatedSources = selectRelatedSources(
     sources,
     providerAnswered ? citedSourceIds : [],
-    message,
-    providerAnswered ? answer : message
   )
   const relatedLinks = relatedSources.map(source => ({
     title: source.title,
@@ -375,7 +400,9 @@ const sendMessage = async () => {
   // 当前 Provider 失败后只降级到本地知识库，不跨供应商调用。
   if (!answer) {
     const hasLinks = relatedLinks.length > 0
-    answer = hasLinks
+    answer = knowledgeStatus.value === 'error'
+      ? '🔍 知识库暂时无法加载，请稍后重试。'
+      : hasLinks
       ? '🔍 当前AI服务暂不可用，以下是根据您的问题为您找到的相关页面：'
       : '🔍 当前AI服务暂不可用，知识库中暂未找到相关页面。\n\n您可以尝试换个关键词，或直接浏览左侧菜单查找信息。'
   }
@@ -600,7 +627,6 @@ const handleClickOutside = (event: Event) => {
 
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
-  loadKnowledge()
 })
 
 onUnmounted(() => {

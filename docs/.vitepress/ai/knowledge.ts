@@ -25,6 +25,7 @@ export interface KnowledgeSource extends AIKnowledgeSource {
 const MAX_SOURCES = 4
 const MAX_SOURCE_LENGTH = 1_600
 const MIN_SOURCE_SCORE = 6
+const MAX_CHUNKS_PER_PAGE = 4
 
 const LOW_SIGNAL_TERMS = new Set([
     '一下',
@@ -153,7 +154,7 @@ export function searchKnowledge(entries: KnowledgeEntry[], query: string): Knowl
         .map(([pageUrl, pageEntries]) => {
             const rankedEntries = pageEntries.sort((a, b) => b.score - a.score)
             const bestEntry = rankedEntries[0]
-            const content = rankedEntries.slice(0, 2)
+            const content = rankedEntries.slice(0, MAX_CHUNKS_PER_PAGE)
                 .map(entry => `${entry.section || entry.title}\n${entry.content}`)
                 .join('\n\n')
                 .slice(0, MAX_SOURCE_LENGTH)
@@ -179,8 +180,6 @@ export function searchKnowledge(entries: KnowledgeEntry[], query: string): Knowl
 export function selectRelatedSources(
     sources: KnowledgeSource[],
     citedSourceIds: string[],
-    query: string,
-    answer: string,
 ) {
     const citedIds = new Set(citedSourceIds.map(id => id.toLowerCase()))
     const citedSources = sources.filter(source => citedIds.has(source.id))
@@ -188,21 +187,12 @@ export function selectRelatedSources(
         return citedSources
 
     const bestSource = sources[0]
-    if (!bestSource || bestSource.metadataScore < 48)
+    if (!bestSource || bestSource.relevanceScore < MIN_SOURCE_SCORE)
         return []
 
-    const secondSource = sources[1]
-    if (secondSource) {
-        const hasScoreLead = bestSource.relevanceScore >= secondSource.relevanceScore * 1.05
-        const hasMetadataLead = bestSource.metadataScore >= secondSource.metadataScore + 12
-        if (!hasScoreLead || !hasMetadataLead)
-            return []
-    }
-
-    const normalizedAnswer = normalize(answer)
-    const topicMatchesAnswer = getQueryTerms(query)
-        .filter(term => term.weight >= 5)
-        .some(term => normalizedAnswer.includes(term.value))
-
-    return topicMatchesAnswer ? [bestSource] : []
+    // Retrieval already applies a relevance threshold. Keep the fallback useful
+    // when a provider fails or omits the citation marker, while avoiding weak tail results.
+    const relevanceFloor = Math.max(MIN_SOURCE_SCORE, bestSource.relevanceScore * 0.35)
+    const fallbackSources = sources.filter(source => source.relevanceScore >= relevanceFloor)
+    return fallbackSources.slice(0, 3)
 }

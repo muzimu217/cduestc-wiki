@@ -38,7 +38,7 @@ export const openAIProvider: AIProvider = {
                         ...request.history,
                         { role: 'user', content: buildGroundedUserPrompt(request.message, request.sources) },
                     ],
-                    temperature: 0.7,
+                    temperature: 0.2,
                     max_tokens: 1024,
                 }),
                 signal: controller.signal,

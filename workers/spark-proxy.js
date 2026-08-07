@@ -1,8 +1,15 @@
 const SESSION_TTL_MS = 60_000
-const MAX_REQUEST_CHARS = 128_000
+const MAX_REQUEST_CHARS = 32_000
+const MAX_MESSAGES = 12
+const MAX_MESSAGE_CHARS = 8_000
+const UPSTREAM_TIMEOUT_MS = 35_000
+const AUTH_RATE_LIMIT = 12
+const AUTH_RATE_WINDOW_MS = 60_000
+const authAttempts = new Map()
+const consumedSessions = new Map()
 
 function getAllowedOrigins(env) {
-    return new Set(env.SPARK_ALLOWED_ORIGINS
+    return new Set(String(env.SPARK_ALLOWED_ORIGINS || '')
         .split(',')
         .map(origin => origin.trim())
         .filter(Boolean))
@@ -10,6 +17,25 @@ function getAllowedOrigins(env) {
 
 function getOrigin(request) {
     return request.headers.get('Origin') || ''
+}
+
+function getClientKey(request) {
+    return request.headers.get('CF-Connecting-IP')
+        || request.headers.get('X-Forwarded-For')?.split(',')[0].trim()
+        || getOrigin(request)
+}
+
+function isRateLimited(request) {
+    const now = Date.now()
+    const key = getClientKey(request)
+    const previous = authAttempts.get(key)
+    if (!previous || now - previous.startedAt >= AUTH_RATE_WINDOW_MS) {
+        authAttempts.set(key, { startedAt: now, count: 1 })
+        return false
+    }
+
+    previous.count += 1
+    return previous.count > AUTH_RATE_LIMIT
 }
 
 function json(body, status = 200, origin = '*') {
@@ -83,12 +109,25 @@ async function hasValidSession(request, env, url) {
 
     try {
         const key = await importHmacKey(env.SPARK_API_SECRET)
-        return crypto.subtle.verify(
+        const isValid = await crypto.subtle.verify(
             'HMAC',
             key,
             base64UrlToBytes(token),
             new TextEncoder().encode(buildSessionMessage(origin, expiresAt, nonce)),
         )
+        if (!isValid)
+            return false
+
+        const currentTime = Date.now()
+        for (const [sessionKey, sessionExpiresAt] of consumedSessions) {
+            if (sessionExpiresAt <= currentTime)
+                consumedSessions.delete(sessionKey)
+        }
+        const sessionKey = `${origin}:${expiresAt}:${nonce}:${token}`
+        if (consumedSessions.has(sessionKey))
+            return false
+        consumedSessions.set(sessionKey, expiresAt)
+        return true
     }
     catch {
         return false
@@ -145,6 +184,9 @@ async function handleAuth(request, env, url, origin) {
     if (request.method !== 'POST')
         return json({ error: 'Method not allowed' }, 405, origin)
 
+    if (isRateLimited(request))
+        return json({ error: 'Too many authentication requests' }, 429, origin)
+
     const expiresAt = Date.now() + SESSION_TTL_MS
     const nonce = bytesToBase64Url(crypto.getRandomValues(new Uint8Array(18)))
     const socketUrl = new URL(url)
@@ -164,6 +206,10 @@ async function handleWebSocket(request, env) {
     workerSocket.accept()
 
     const sparkSocket = new WebSocket(await buildSignedSparkUrl(env))
+    const upstreamTimeout = setTimeout(() => {
+        safeClose(workerSocket, 1011, 'Upstream timeout')
+        safeClose(sparkSocket, 1011, 'Upstream timeout')
+    }, UPSTREAM_TIMEOUT_MS)
     let pendingRequest = null
     let requestForwarded = false
 
@@ -185,8 +231,31 @@ async function handleWebSocket(request, env) {
             if (!payload || typeof payload !== 'object' || Array.isArray(payload))
                 throw new TypeError('Payload must be an object')
 
-            payload.header = { ...payload.header, app_id: env.SPARK_APP_ID }
-            sparkSocket.send(JSON.stringify(payload))
+            const messages = payload.payload?.message?.text
+            if (!Array.isArray(messages) || messages.length < 1 || messages.length > MAX_MESSAGES)
+                throw new TypeError('Invalid message list')
+            if (messages.at(-1)?.role !== 'user')
+                throw new TypeError('The last message must be from the user')
+            if (messages.some(message => !message || !['user', 'assistant'].includes(message.role)
+                || typeof message.content !== 'string'
+                || message.content.length > MAX_MESSAGE_CHARS)) {
+                throw new TypeError('Invalid message content')
+            }
+
+            const uid = typeof payload.header?.uid === 'string' && /^[\w-]{1,64}$/.test(payload.header.uid)
+                ? payload.header.uid
+                : 'wiki_guest'
+            const safePayload = {
+                header: { app_id: env.SPARK_APP_ID, uid },
+                parameter: {
+                    chat: { domain: 'general', temperature: 0.2, max_tokens: 1024 },
+                },
+                payload: { message: { text: messages.map(message => ({
+                    role: message.role,
+                    content: message.content,
+                })) } },
+            }
+            sparkSocket.send(JSON.stringify(safePayload))
             requestForwarded = true
         }
         catch {
@@ -196,16 +265,24 @@ async function handleWebSocket(request, env) {
     }
 
     workerSocket.addEventListener('message', (event) => {
-        if (sparkSocket.readyState === WebSocket.OPEN)
+        if (sparkSocket.readyState === WebSocket.OPEN) {
             forwardRequest(event.data)
-        else if (pendingRequest === null)
+        }
+        else if (pendingRequest === null) {
             pendingRequest = event.data
-        else safeClose(workerSocket, 1008, 'Only one request is allowed')
+        }
+        else {
+            safeClose(workerSocket, 1008, 'Only one request is allowed')
+            safeClose(sparkSocket, 1008, 'Only one request is allowed')
+        }
     })
 
     sparkSocket.addEventListener('open', () => {
         if (pendingRequest !== null) {
-            forwardRequest(pendingRequest)
+            if (workerSocket.readyState === WebSocket.OPEN)
+                forwardRequest(pendingRequest)
+            else
+                safeClose(sparkSocket, 1000, 'Browser closed')
             pendingRequest = null
         }
     })
@@ -214,12 +291,17 @@ async function handleWebSocket(request, env) {
             workerSocket.send(event.data)
     })
 
-    workerSocket.addEventListener('close', () => safeClose(sparkSocket, 1000, 'Browser closed'))
+    workerSocket.addEventListener('close', () => {
+        clearTimeout(upstreamTimeout)
+        pendingRequest = null
+        safeClose(sparkSocket, 1000, 'Browser closed')
+    })
     sparkSocket.addEventListener('close', event => safeClose(
         workerSocket,
         event.code === 1006 ? 1011 : event.code,
         event.reason || 'Spark closed',
     ))
+    sparkSocket.addEventListener('close', () => clearTimeout(upstreamTimeout))
     workerSocket.addEventListener('error', () => safeClose(sparkSocket))
     sparkSocket.addEventListener('error', () => safeClose(workerSocket))
 

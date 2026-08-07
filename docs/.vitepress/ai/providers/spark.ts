@@ -19,7 +19,14 @@ async function getSignedWebSocketUrl(signal?: AbortSignal): Promise<Required<Spa
     const data = await response.json() as SparkAuthResponse
     const url = data.url?.trim()
     const appId = data.appId?.trim()
-    if (!url?.startsWith('wss://') || !appId)
+    let isSameHost = false
+    try {
+        isSameHost = Boolean(url) && new URL(url).hostname === new URL(SPARK_CONFIG.authUrl).hostname
+    }
+    catch {
+        isSameHost = false
+    }
+    if (!url?.startsWith('wss://') || !appId || !isSameHost)
         throw new Error('讯飞签名服务返回的数据无效')
 
     return { url, appId }
@@ -78,7 +85,7 @@ export const sparkProvider: AIProvider = {
                 ws.send(JSON.stringify({
                     header: { app_id: appId, uid },
                     parameter: {
-                        chat: { domain: 'general', temperature: 0.5, max_tokens: 1024 },
+                        chat: { domain: 'general', temperature: 0.2, max_tokens: 1024 },
                     },
                     payload: {
                         message: {

@@ -26,6 +26,11 @@ jobs:
         with:
           version: 9
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -37,8 +42,23 @@ jobs:
       - name: Build
         env:
           VITE_AI_PROVIDER: ${{ vars.VITE_AI_PROVIDER }}
+          VITE_OPENAI_PROXY_URL: ${{ vars.VITE_OPENAI_PROXY_URL }}
+          VITE_OPENAI_MODEL: ${{ vars.VITE_OPENAI_MODEL }}
           VITE_SPARK_AUTH_URL: ${{ vars.VITE_SPARK_AUTH_URL }}
-        run: pnpm build
+        run: |
+          case "$VITE_AI_PROVIDER" in
+            spark)
+              test -n "$VITE_SPARK_AUTH_URL" || { echo "VITE_SPARK_AUTH_URL is required for spark"; exit 1; }
+              ;;
+            openai)
+              test -n "$VITE_OPENAI_PROXY_URL" || { echo "VITE_OPENAI_PROXY_URL is required for openai"; exit 1; }
+              ;;
+            *)
+              echo "VITE_AI_PROVIDER must be spark or openai"
+              exit 1
+              ;;
+          esac
+          pnpm build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

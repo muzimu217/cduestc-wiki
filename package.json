@@ -4,8 +4,11 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
+    "predev": "python3 scripts/gen-knowledge.py",
+    "prebuild": "python3 scripts/gen-knowledge.py",
     "dev": "vitepress dev docs --host",
     "build": "vitepress build docs && node scripts/gen-sitemap.mjs",
+    "postbuild": "node scripts/verify-knowledge.mjs",
     "preview": "vitepress preview docs",
     "lint": "eslint ."
   },

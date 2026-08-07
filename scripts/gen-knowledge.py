@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, re, os
+import json, re, os, unicodedata
 
 docs_dir = 'docs'
 skip_files = {'changelog.md', 'contributing.md'}
@@ -8,6 +8,7 @@ knowledge = []
 def clean_md(text):
     """清理 markdown 语法，保留纯文本"""
     text = re.sub(r'^---.*?---\s*', '', text, flags=re.DOTALL)
+    text = re.sub(r'```[\s\S]*?```', '', text)
     text = re.sub(r'<[^>]+>', '', text)
     text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
     text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)
@@ -32,16 +33,28 @@ def get_url(filepath):
     return url
 
 def slugify(text):
-    """生成锚点 ID：中文保留原样，英文转小写去特殊字符"""
-    text = re.sub(r'[^\w一-鿿\s-]', '', text)
-    text = text.strip()
-    return text
+    """复刻 VitePress 默认 slugify，确保知识库深链和页面锚点一致。"""
+    text = re.sub(r'!\[([^\]]*)\]\([^)]*\)', r'\1', text)
+    text = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', text)
+    text = unicodedata.normalize('NFKD', text)
+    text = re.sub(r'[\u0300-\u036f]', '', text)
+    text = re.sub(r'[\x00-\x1f]', '', text)
+    text = text.strip().lower()
+    text = re.sub(r'[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"\'“”‘’<>,.?/]+', '-', text)
+    text = re.sub(r'-{2,}', '-', text)
+    text = re.sub(r'^-+|-+$', '', text)
+    return re.sub(r'^(\d)', r'_\1', text)
 
 def split_by_sections(content, page_title, page_url):
     """按 ## / ### 标题分块，每块带 section 和 anchor"""
     # 提取所有标题及其位置
     heading_pattern = re.compile(r'^(#{1,4})\s+(.+)$', re.MULTILINE)
-    headings = list(heading_pattern.finditer(content))
+    masked_content = re.sub(
+        r'```[\s\S]*?```',
+        lambda match: re.sub(r'[^\n]', ' ', match.group(0)),
+        content,
+    )
+    headings = list(heading_pattern.finditer(masked_content))
 
     if not headings:
         # 没有子标题，整篇作为一个块
@@ -51,6 +64,8 @@ def split_by_sections(content, page_title, page_url):
         return []
 
     sections = []
+    used_anchors = {}
+    heading_stack = []
     # 标题前的内容（引言）
     intro_end = headings[0].start()
     intro = content[:intro_end].strip()
@@ -67,8 +82,11 @@ def split_by_sections(content, page_title, page_url):
     # 按标题分块
     for i, match in enumerate(headings):
         level = len(match.group(1))  # ## = 2, ### = 3
-        heading_text = match.group(2).strip()
-        anchor = slugify(heading_text)
+        heading_text = clean_md(match.group(2).strip())
+        base_anchor = slugify(heading_text)
+        duplicate_count = used_anchors.get(base_anchor, 0)
+        used_anchors[base_anchor] = duplicate_count + 1
+        anchor = base_anchor if duplicate_count == 0 else f'{base_anchor}-{duplicate_count}'
 
         # 块内容：从当前标题到下一个同级或更高级标题
         start = match.end()
@@ -76,14 +94,10 @@ def split_by_sections(content, page_title, page_url):
         section_content = content[start:end].strip()
 
         # 构建层级上下文（如"宿舍 > 成都校区"）
-        section_path = heading_text
-        if level >= 3:
-            # 找父标题
-            for j in range(i - 1, -1, -1):
-                parent_level = len(headings[j].group(1))
-                if parent_level < level:
-                    section_path = f"{headings[j].group(2).strip()} > {heading_text}"
-                    break
+        while heading_stack and heading_stack[-1][0] >= level:
+            heading_stack.pop()
+        heading_stack.append((level, heading_text))
+        section_path = ' > '.join(item[1] for item in heading_stack)
 
         cleaned = clean_md(section_content)
         if len(cleaned) > 30:
