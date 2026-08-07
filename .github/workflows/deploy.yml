@@ -41,20 +41,11 @@ jobs:
 
       - name: Build
         env:
-          VITE_AI_PROVIDER: ${{ vars.VITE_AI_PROVIDER }}
           VITE_OPENAI_PROXY_URL: ${{ vars.VITE_OPENAI_PROXY_URL }}
           VITE_AI_TELEMETRY_URL: ${{ vars.VITE_AI_TELEMETRY_URL }}
           VITE_OPENAI_MODEL: ${{ vars.VITE_OPENAI_MODEL }}
         run: |
-          case "$VITE_AI_PROVIDER" in
-            openai)
-              test -n "$VITE_OPENAI_PROXY_URL" || { echo "VITE_OPENAI_PROXY_URL is required for openai"; exit 1; }
-              ;;
-            *)
-              echo "VITE_AI_PROVIDER must be openai"
-              exit 1
-              ;;
-          esac
+          test -n "$VITE_OPENAI_PROXY_URL" || { echo "VITE_OPENAI_PROXY_URL is required"; exit 1; }
           pnpm build
 
       - name: Retrieval regression
@@ -81,28 +72,49 @@ jobs:
 
   worker:
     runs-on: ubuntu-latest
+    # 站点构建失败时不应把 Worker 单独推上生产，避免前后端版本漂移
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      # 纯文档改动不必重新部署生产 Worker
+      - name: Detect worker changes
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only HEAD^ HEAD 2>/dev/null | grep -qE '^(workers/|wrangler\.jsonc|scripts/test-worker\.mjs)'; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Setup pnpm
+        if: steps.changes.outputs.changed == 'true'
         uses: pnpm/action-setup@v4
         with:
           version: 11
 
       - name: Setup Node.js
+        if: steps.changes.outputs.changed == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
       - name: Install dependencies
+        if: steps.changes.outputs.changed == 'true'
         run: pnpm install --frozen-lockfile
 
       - name: Worker smoke test
+        if: steps.changes.outputs.changed == 'true'
         run: pnpm test:worker
 
       - name: Deploy Cloudflare Worker
+        if: steps.changes.outputs.changed == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

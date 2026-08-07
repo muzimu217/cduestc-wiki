@@ -6,14 +6,42 @@
 
 ## 当前执行状态
 
-本轮代码实现已完成 T1、T3、T4、T5、T6、T7、T8、T9、T10、T11（内容安全扫描与本地多源纳入）以及 R2/R3/R5：
+> 独立审计：[`TASK-AUDIT.md`](./TASK-AUDIT.md)（2026-08-07，基线 `9fef7ca`）实测完成度**约 72%**，
+> 推翻了本文件早前「T1、T3–T11 全部完成」的自述。下列状态已按审计结论校正。
 
-- Worker 已统一为 OpenAI 兼容 HTTP 网关，支持请求白名单、限流、Telemetry、可选第二上游和 SSE 透传。
-- 知识库已接入构建门禁，切块平均 475.6 字，111 块全部带压缩向量，并按 `core/campus/study/life` 分片按需加载。
-- 前端已使用 MarkdownIt + DOMPurify，用户消息为纯文本；多轮追问使用规则改写；50 条检索评测当前 Recall@4=0.92、MRR=0.8267。
+**已完成（10 项）**：T1、T2、T4、T7、T9、T10、R2、R3、R5，以及本轮补做的 **R4**。
+
+- Worker 已统一为 OpenAI 兼容 HTTP 网关，支持请求白名单、分桶限流、Telemetry、可选第二上游和 SSE 透传。
+- 知识库已接入构建门禁，切块平均 475.5 字，<100 字碎块降至 1.8%，111 块全部带压缩向量。
+- 前端已使用 MarkdownIt + DOMPurify，用户消息为纯文本；多轮追问使用规则改写。
 - CI 已使用 `pnpm install --frozen-lockfile`，并运行内容扫描、检索回归和 Worker smoke test。
+- **R4 已完成**：`wiki.kcos.club` 证书 2026-08-07 签发成功（Let's Encrypt，有效期至 11-05），强制 HTTPS 已开启。
+  根因不是「等待签发」而是**签发流程卡死**——DNS 与 ACME 路径均正常，但 GitHub 侧证书对象始终未生成；
+  通过 Pages API 解绑再重新绑定自定义域名强制重启 ACME 后立即签发成功。
 
-发布闭环已完成：`SPARK_API_PASSWORD`、GitHub Secret `CLOUDFLARE_API_TOKEN`、Analytics Engine 和 Worker/Pages CI 均已配置并通过线上验收。R4 的最后一步是等待 GitHub Pages 自定义域名证书完成签发后开启 HTTPS；可复制部署流程见 [`DEPLOYMENT.md`](./DEPLOYMENT.md)。R6 评论模块不属于本轮 AI + 知识库发布范围。
+**部分完成（5 项，审计校正）**：
+
+| 项 | 原自述 | 实际情况 | 状态 |
+| --- | --- | --- | --- |
+| T3 | BM25 + embedding 混合召回 | 「向量」实为 FNV-1a 字符 n-gram 哈希签名，非语义向量；融合为线性加权而非 RRF | 待真兑现（审计 §4.1） |
+| T5 | 埋点与反馈闭环 | Telemetry 与 👍/👎 已上线；`observability` 本轮补开；遥测已拆独立限流桶 | 零命中查询仍未归档 |
+| T6 | 运行时故障转移 + 流式 | 代码与冒烟测试均就绪，但 `SPARK_FALLBACK_URL` 为空，**生产实为单上游** | 待配置第二上游 |
+| T8 | KB 版本化与按需分片 | 分片路由与分片归属是两套逻辑，实测 Recall@4 由 0.92 掉到 0.88 | **本轮已修**（改全量加载） |
+| T11 | 内容安全 + 多源 | 投稿侧扫描已接 `prebuild` | 缺用户实时输入过滤、缺外部源 |
+
+**未开始**：R6 评论模块（不属本轮范围）。**无法判断**：R1 密钥轮换（需人工到讯飞/Cloudflare 控制台核实）。
+
+### 本轮审计后修复（前 5 项 ROI）
+
+| # | 修复 | 文件 | 收益 |
+| --- | --- | --- | --- |
+| 1 | 分片路由漏召 → 首问并行加载全部分片 | `AIChat.vue` | 线上 Recall@4 0.88 → 0.92 |
+| 2 | 删除 `VITE_AI_PROVIDER` 死门禁（源码已无人读取） | `deploy.yml` | 消除「漏配即整站发布失败」地雷 |
+| 3 | 删除 936KB 孤儿 `og-image.png` | `docs/public/` | 省出站流量，R5 收益不再被抵消 |
+| 4 | `worker` job 加 `needs: build` + 变更检测 | `deploy.yml` | 阻止站点构建失败时 Worker 仍上线 |
+| 5 | 遥测独立限流桶 + 清理逻辑移至入口 | `spark-proxy.js` | 👍/👎 不再挤占提问额度；修内存增长面 |
+
+发布闭环已完成：`SPARK_API_PASSWORD`、GitHub Secret `CLOUDFLARE_API_TOKEN`、Analytics Engine 和 Worker/Pages CI 均已配置并通过线上验收。可复制部署流程见 [`DEPLOYMENT.md`](./DEPLOYMENT.md)。
 
 ---
 
@@ -29,7 +57,7 @@
 | 多轮检索 | retrievalQuery 拼接最近 2 条用户消息 | P2-1（部分） |
 | KB 懒加载 | `onMounted` 不再加载，首次提问时 `loadKnowledge()` | P2-4（部分） |
 
-线上实测：`spark-api.kcos.club/health` → ok；非法 Origin → 403；`wiki.kcos.club/knowledge.json` → 242 块。
+线上实测：`spark-api.kcos.club/health` → ok；非法 Origin → 403；知识库切块重构后为 **111 块**（原 242 块为改造前数据）。
 
 ---
 

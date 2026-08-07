@@ -4,6 +4,8 @@ const MAX_MESSAGE_CHARS = 12_000
 const MAX_TOTAL_MESSAGE_CHARS = 40_000
 const UPSTREAM_TIMEOUT_MS = 35_000
 const RATE_LIMIT = 12
+// 遥测是无成本的轻量写入，与提问共用配额会让连点几次 👍/👎 就把提问额度耗尽
+const TELEMETRY_RATE_LIMIT = 60
 const RATE_WINDOW_MS = 60_000
 const requestAttempts = new Map()
 
@@ -24,23 +26,28 @@ function getClientKey(request) {
         || getOrigin(request)
 }
 
-function isRateLimited(request) {
+function isRateLimited(request, bucket = 'chat', limit = RATE_LIMIT) {
     const now = Date.now()
-    const key = getClientKey(request)
+
+    // 清理放在入口而非「新窗口」分支内：持续高频请求会一直命中已有窗口，
+    // 原先的写法在真正需要清理的攻击场景下反而永远不会执行
+    if (requestAttempts.size > 10_000) {
+        for (const [storedKey, attempt] of requestAttempts) {
+            if (now - attempt.startedAt >= RATE_WINDOW_MS)
+                requestAttempts.delete(storedKey)
+        }
+    }
+
+    // 按用途分桶，避免遥测与提问互相挤占配额
+    const key = `${bucket}:${getClientKey(request)}`
     const previous = requestAttempts.get(key)
     if (!previous || now - previous.startedAt >= RATE_WINDOW_MS) {
-        if (requestAttempts.size > 10_000) {
-            for (const [storedKey, attempt] of requestAttempts) {
-                if (now - attempt.startedAt >= RATE_WINDOW_MS)
-                    requestAttempts.delete(storedKey)
-            }
-        }
         requestAttempts.set(key, { startedAt: now, count: 1 })
         return false
     }
 
     previous.count += 1
-    return previous.count > RATE_LIMIT
+    return previous.count > limit
 }
 
 function json(body, status = 200, origin = '*') {
@@ -168,7 +175,7 @@ async function handleTelemetry(request, env, origin) {
         return json(null, 204, origin)
     if (request.method !== 'POST')
         return json({ error: { message: 'Method not allowed', type: 'invalid_request_error' } }, 405, origin)
-    if (isRateLimited(request))
+    if (isRateLimited(request, 'telemetry', TELEMETRY_RATE_LIMIT))
         return json({ error: { message: 'Too many requests', type: 'rate_limit_error' } }, 429, origin)
 
     try {

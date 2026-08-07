@@ -220,25 +220,15 @@ let knowledgeLoadPromise: Promise<void> | null = null
 let knowledgeManifestPromise: Promise<{ version?: string; file?: string; shards?: Record<string, string> }> | null = null
 const loadedKnowledgeShards = new Set<string>()
 
-const getKnowledgeShardKeys = (query: string) => {
-  const normalized = query.toLowerCase()
-  const keys = new Set<string>()
-  if (/(宿舍|寝室|食堂|快递|校园网|生活|校区|成都|什邡)/u.test(normalized)) keys.add('life')
-  if (/(专业|选课|考试|成绩|奖学金|竞赛|专升本|实验室|课程|学习)/u.test(normalized)) keys.add('study')
-  if (/(入学|军训|校园|校区|成都|什邡|社团|学院|防骗|网络|连接)/u.test(normalized)) keys.add('campus')
-  if (!keys.size) {
-    keys.add('core')
-    keys.add('campus')
-    keys.add('study')
-    keys.add('life')
-  } else {
-    keys.add('core')
-  }
-  return [...keys]
-}
+// 分片按文档 URL 首段划分（见 gen-knowledge.py），而按查询关键词做路由是另一套
+// 独立逻辑，两者必然错配。实测 50 条评测集：全量 Recall@4=0.92，关键词路由仅 0.88，
+// 且「校园网怎么连接」（目标页 /study/network）这类高频问题会稳定漏召。
+// 因此首次提问一律并行加载全部分片：总字节与全量一致（gzip 后约 50-60KB），
+// 内容哈希版本化与并行请求的收益仍然保留，但不再有路由漏召。
+const getKnowledgeShardKeys = (shardMap: Record<string, string>) => Object.keys(shardMap)
 
 // 加载知识库
-const loadKnowledge = async (query = '') => {
+const loadKnowledge = async () => {
   if (knowledgeLoadPromise)
     return knowledgeLoadPromise
 
@@ -256,7 +246,7 @@ const loadKnowledge = async (query = '') => {
         ? manifest.shards
         : { all: manifest.file || 'knowledge.json' }
       const requestedKeys = Object.keys(manifest.shards || {}).length
-        ? getKnowledgeShardKeys(query)
+        ? getKnowledgeShardKeys(shardMap)
         : ['all']
       const files = requestedKeys
         .map(key => [key, shardMap[key]] as const)
@@ -440,7 +430,7 @@ const sendMessage = async () => {
     .filter(item => item.role === 'user')
     .map(item => item.content)
   const retrievalQuery = rewriteRetrievalQuery(message, previousQueries)
-  await loadKnowledge(retrievalQuery)
+  await loadKnowledge()
 
   // 先检索知识库，获取相关链接
   const sources = searchKnowledge(knowledgeBase.value, retrievalQuery)
