@@ -2,7 +2,7 @@
 
 科成星球是电子科技大学成都学院第三方公益校园生活百科。
 
-[访问在线版 cduestc.fun](https://cduestc.fun)。
+[访问在线版 wiki.kcos.club](https://wiki.kcos.club/)。
 
 ## 加入我们
 
@@ -17,7 +17,7 @@
 
 ## 更新日志
 
-阅读[在线版](https://cduestc.fun/changelog)或仓库内[源文档](/docs/changelog.md)。
+阅读[在线版](https://wiki.kcos.club/changelog)或仓库内[源文档](/docs/changelog.md)。
 
 ## 鸣谢
 
