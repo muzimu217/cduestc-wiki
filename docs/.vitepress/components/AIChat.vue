@@ -104,19 +104,40 @@
               <div class="message-time">{{ formatTime(message.timestamp) }}</div>
               <div v-if="!message.isUser" class="message-feedback">
                 <button
-                  :class="{ active: message.feedback === 'up' }"
+                  :class="{ active: message.feedback === 'up', liking: message.feedbackState === 'liking' }"
+                  aria-label="有帮助"
                   @click="rateMessage(message, 'up')"
                   v-tip="'有帮助'"
                 >
                   <Icon icon="ri:thumb-up-line" />
                 </button>
                 <button
-                  :class="{ active: message.feedback === 'down' }"
+                  :class="{
+                    active: message.feedback === 'down',
+                    'dislike-warn': message.feedbackState === 'dislike-warn',
+                    'dislike-confirmed': message.feedbackState === 'dislike-confirmed',
+                  }"
+                  aria-label="没帮助"
                   @click="rateMessage(message, 'down')"
                   v-tip="'没帮助'"
                 >
                   <Icon icon="ri:thumb-down-line" />
                 </button>
+                <!-- 反馈浮层：气泡文案与星星粒子，绝对定位于反馈区上方 -->
+                <div
+                  v-if="message.feedbackState && message.feedbackState !== 'idle'"
+                  class="feedback-overlay"
+                  :class="message.feedbackState"
+                >
+                  <span class="feedback-bubble">
+                    {{ feedbackBubbles.get(message.id) }}
+                    <i v-if="message.feedbackState === 'dislike-warn'" class="kaomoji">(；ω；)</i>
+                    <i v-else-if="message.feedbackState === 'dislike-confirmed'" class="kaomoji">(´；ω；)`</i>
+                  </span>
+                  <span v-if="message.feedbackState === 'liking'" class="feedback-stars" aria-hidden="true">
+                    <i v-for="n in 6" :key="n" class="star">★</i>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -208,7 +229,9 @@ type ChatMessage = {
   isUser: boolean
   timestamp: number
   links?: Array<{ title: string; url: string }>
-  feedback?: 'up' | 'down'
+  feedback?: 'up' | 'down' | null
+  // 反馈动效状态：赞动画中 / 首次踩求饶中 / 二次踩已生效
+  feedbackState?: 'idle' | 'liking' | 'dislike-warn' | 'dislike-confirmed'
 }
 const messages = ref<ChatMessage[]>([])
 const suggestedQuestions = ref<string[]>([])
@@ -386,9 +409,55 @@ const sendTelemetry = (event: string, payload: Record<string, number | string> =
   }).catch(() => {})
 }
 
+// 反馈气泡文案池
+const LIKE_BUBBLES = ['感谢喵～', '谢谢你喵', '收到鼓励喵']
+const DISLIKE_WARN_BUBBLES = ['求求别点差评喵…', '再给我一次机会喵', '我会努力变好的喵']
+const DISLIKE_CONFIRM_BUBBLE = '好吧…我记下了喵'
+
+// 已被「求饶」拦截过一次的消息（弱引用，随消息销毁自动回收）
+const dislikeWarned = new WeakSet<ChatMessage>()
+// 每条消息当前的气泡文案与归位定时器
+const feedbackBubbles = new Map<string, string>()
+const feedbackTimers = new Map<string, ReturnType<typeof setTimeout>>()
+
+const pickRandom = (list: string[]) => list[Math.floor(Math.random() * list.length)]
+
+// 延时归位：动画结束后回到 idle，重复触发时先清掉旧定时器
+const resetFeedbackState = (message: ChatMessage, expected: NonNullable<ChatMessage['feedbackState']>, delay: number) => {
+  const oldTimer = feedbackTimers.get(message.id)
+  if (oldTimer) clearTimeout(oldTimer)
+  feedbackTimers.set(message.id, setTimeout(() => {
+    if (message.feedbackState === expected)
+      message.feedbackState = 'idle'
+    feedbackTimers.delete(message.id)
+  }, delay))
+}
+
 const rateMessage = (message: ChatMessage, rating: 'up' | 'down') => {
-  message.feedback = rating
-  sendTelemetry('feedback', { rating: rating === 'up' ? 1 : -1 })
+  if (rating === 'up') {
+    // 赞仅做 UI 反馈，不上报 telemetry
+    message.feedback = 'up'
+    message.feedbackState = 'liking'
+    feedbackBubbles.set(message.id, pickRandom(LIKE_BUBBLES))
+    resetFeedbackState(message, 'liking', 1200)
+    return
+  }
+  // 踩已生效后不再响应
+  if (message.feedbackState === 'dislike-confirmed') return
+  // 首次踩：不修改 feedback、不上报，仅抖动求饶
+  if (!dislikeWarned.has(message) && message.feedbackState !== 'dislike-warn') {
+    message.feedbackState = 'dislike-warn'
+    feedbackBubbles.set(message.id, pickRandom(DISLIKE_WARN_BUBBLES))
+    dislikeWarned.add(message)
+    resetFeedbackState(message, 'dislike-warn', 1800)
+    return
+  }
+  // 二次踩：确认生效，仅此刻上报一次
+  message.feedback = 'down'
+  message.feedbackState = 'dislike-confirmed'
+  feedbackBubbles.set(message.id, DISLIKE_CONFIRM_BUBBLE)
+  sendTelemetry('feedback', { rating: -1 })
+  resetFeedbackState(message, 'dislike-confirmed', 1200)
 }
 
 const startCooldownTimer = () => {
@@ -406,6 +475,10 @@ const startCooldownTimer = () => {
 const clearHistory = () => {
   messages.value = []
   suggestedQuestions.value = []
+  // 反馈状态随消息一并清空（WeakSet 无需手动清理）
+  feedbackTimers.forEach(timer => clearTimeout(timer))
+  feedbackTimers.clear()
+  feedbackBubbles.clear()
 }
 
 // 发送快速问题
@@ -656,6 +729,8 @@ onMounted(() => {
 onUnmounted(() => {
   requestController?.abort()
   if (cooldownTimer) clearInterval(cooldownTimer)
+  feedbackTimers.forEach(timer => clearTimeout(timer))
+  feedbackTimers.clear()
   document.removeEventListener('click', handleClickOutside)
 })
 </script>
@@ -1019,6 +1094,7 @@ onUnmounted(() => {
 }
 
 .message-feedback {
+  position: relative;
   display: flex;
   gap: 4px;
   padding: 2px 10px 0;
@@ -1038,6 +1114,123 @@ onUnmounted(() => {
 .message-feedback button.active {
   background: var(--vp-c-bg-mute);
   color: var(--vp-c-brand-1);
+}
+
+/* 赞：暖橙高亮 + 弹性缩放 */
+.message-feedback button.liking {
+  color: #FFB23E;
+  animation: feedback-like-pop 0.28s ease-out;
+}
+
+/* 首次踩：低饱和灰蓝 + 左右抖动 */
+.message-feedback button.dislike-warn {
+  color: #8a97a8;
+  animation: feedback-dislike-shake 0.3s ease-in-out;
+}
+
+/* 二次踩：置灰降饱和，无位移 */
+.message-feedback button.dislike-confirmed {
+  color: var(--vp-c-text-3);
+  filter: saturate(0.3);
+  opacity: 0.7;
+}
+
+/* 反馈浮层：气泡与粒子容器 */
+.feedback-overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  margin-bottom: 6px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.feedback-bubble {
+  display: inline-block;
+  max-width: 220px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border-bottom-left-radius: 4px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-1);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  animation: feedback-bubble-in 0.25s ease-out;
+}
+
+.feedback-bubble .kaomoji {
+  font-style: normal;
+  margin-left: 4px;
+  color: var(--vp-c-text-2);
+}
+
+/* 星星粒子：从按钮位置向上喷射、轻微旋转并淡出 */
+.feedback-stars {
+  position: absolute;
+  bottom: 100%;
+  left: 4px;
+  width: 0;
+  height: 0;
+}
+
+.feedback-stars .star {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-style: normal;
+  font-size: 10px;
+  color: #FFB23E;
+  opacity: 0;
+  animation: feedback-star-burst 0.6s ease-out forwards;
+}
+
+.feedback-stars .star:nth-child(1) { --star-x: -14px; --star-r: -40deg; animation-delay: 0s; }
+.feedback-stars .star:nth-child(2) { --star-x: -6px; --star-r: 30deg; animation-delay: 0.05s; font-size: 8px; }
+.feedback-stars .star:nth-child(3) { --star-x: 2px; --star-r: -20deg; animation-delay: 0.1s; font-size: 12px; }
+.feedback-stars .star:nth-child(4) { --star-x: 10px; --star-r: 45deg; animation-delay: 0.08s; font-size: 8px; }
+.feedback-stars .star:nth-child(5) { --star-x: 18px; --star-r: -35deg; animation-delay: 0.15s; }
+.feedback-stars .star:nth-child(6) { --star-x: 6px; --star-r: 15deg; animation-delay: 0.2s; font-size: 9px; }
+
+@keyframes feedback-like-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes feedback-dislike-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+@keyframes feedback-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes feedback-star-burst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--star-x, 0), -36px) rotate(var(--star-r, 0deg)) scale(1);
+  }
 }
 
 /* 相关页面链接 */
@@ -1191,6 +1384,17 @@ onUnmounted(() => {
     animation: none;
     transition: none;
   }
+
+  /* 反馈动效降级：仅保留气泡文字，无 transform 与粒子 */
+  .message-feedback button.liking,
+  .message-feedback button.dislike-warn,
+  .feedback-bubble {
+    animation: none;
+  }
+
+  .feedback-stars {
+    display: none;
+  }
 }
 
 /* 输入区域 */
@@ -1332,9 +1536,15 @@ onUnmounted(() => {
     width: 56px;
     height: 56px;
   }
-  
+
   .chat-icon {
     font-size: 22px;
+  }
+
+  /* 反馈气泡宽度自适应，不溢出 .chat-window */
+  .feedback-bubble {
+    max-width: calc(100vw - 120px);
+    white-space: normal;
   }
 }
 
