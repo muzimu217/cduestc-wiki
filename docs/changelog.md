@@ -2,6 +2,8 @@
 
 ## 2026
 
+- 8月25日：更新兄弟 Wiki 友链中西邮 Wiki 的地址（xuptcampus.com → wiki.cooo.site，对方已更换域名）
+
 - 8月8日：AI 系统全面演进与文档清理（整合 fork 相对 upstream 的全部改进）
   - AI 后端网关化：spark-proxy 改造为 OpenAI 兼容网关，凭证改为服务端注入，并增加请求体白名单、限流、遥测（telemetry）与 Spark-X2 降级上游
   - 检索质量提升：构建期引入 LSA 共现语义向量 + BM25 + RRF 融合，Recall@4 达 0.92 / MRR 0.827；知识库切块重构（242→111 块），并新增版本化分片与 manifest

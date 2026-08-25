@@ -7,7 +7,7 @@
 
 ## 兄弟 Wiki
 
-- [西邮 Wiki](https://xuptcampus.com/) (西安邮电大学校园指南)
+- [西邮 Wiki](https://wiki.cooo.site/) (西安邮电大学校园指南)
 - [FZU Wiki](https://fzuwiki.west2.online/) (福州大学校园指南)
 - [HDU 计算机科学讲义](https://hdu-cs.wiki/) (杭州电子科技大学)
 - [重庆大学资源共享计划](https://cqu-openlib.cn/) (重庆大学资源共享计划)
