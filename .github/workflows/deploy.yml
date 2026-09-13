@@ -116,6 +116,16 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         run: pnpm test:worker
 
+      - name: Sync remote fallback secret
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          SPARK_FALLBACK_API_PASSWORD: ${{ secrets.SPARK_FALLBACK_API_PASSWORD }}
+        run: |
+          test -n "$SPARK_FALLBACK_API_PASSWORD" || { echo "SPARK_FALLBACK_API_PASSWORD secret is required"; exit 1; }
+          printf '%s' "$SPARK_FALLBACK_API_PASSWORD" \
+            | pnpm exec wrangler secret put SPARK_FALLBACK_API_PASSWORD --config wrangler.jsonc
+
       - name: Deploy Cloudflare Worker
         if: steps.changes.outputs.changed == 'true'
         uses: cloudflare/wrangler-action@v3

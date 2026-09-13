@@ -73,17 +73,17 @@ printf '%s' "$DEPLOY_SPARK_PASSWORD" \
 
 不要把凭证发送到聊天窗口、写入 .env、VITE_*、Markdown、JSON 或 Git commit。讯飞 WebSocket Assistant 的四要素不能替代当前 HTTP 网关所需的 APIPassword。
 
-`wrangler.jsonc` 已配置讯飞 Spark-X2 HTTP 接口作为第二上游：
+`wrangler.jsonc` 已配置 `hub.oaifree.com` 的 OpenAI 兼容接口作为第二上游，模型为 `deepseek-ai/DeepSeek-V3`：
 
 ~~~text
-SPARK_FALLBACK_URL=https://spark-api-open.xf-yun.com/v2/chat/completions
-SPARK_FALLBACK_MODEL=spark-x
+SPARK_FALLBACK_URL=https://hub.oaifree.com/v1/chat/completions
+SPARK_FALLBACK_MODEL=deepseek-ai/DeepSeek-V3
 ~~~
 
-默认复用 `SPARK_API_PASSWORD`。如果控制台为备用模型签发了独立 APIPassword，再额外写入：
+备用上游必须使用独立的 OpenAI 兼容 Bearer Token，不会复用讯飞的 `SPARK_API_PASSWORD`。在本机终端安全写入：
 
 ~~~sh
-read -r -s -p "Spark fallback APIPassword: " DEPLOY_SPARK_FALLBACK_PASSWORD
+read -r -s -p "Remote fallback API token: " DEPLOY_SPARK_FALLBACK_PASSWORD
 printf '\n'
 printf '%s' "$DEPLOY_SPARK_FALLBACK_PASSWORD" \
   | CLOUDFLARE_API_TOKEN="$DEPLOY_CF_TOKEN" \
@@ -92,7 +92,18 @@ unset DEPLOY_SPARK_FALLBACK_PASSWORD
 unset DEPLOY_CF_TOKEN DEPLOY_SPARK_PASSWORD
 ~~~
 
-备用上游只有在主上游超时、429 或 5xx 时才会调用；`/health` 的 `fallbackConfigured` 字段必须为 `true` 才表示配置已经进入 Worker。
+若使用仓库自带的 GitHub Actions，建议同时把同一令牌写入 GitHub Secret `SPARK_FALLBACK_API_PASSWORD`：
+
+~~~sh
+read -r -s -p "Remote fallback API token: " DEPLOY_FALLBACK_PASSWORD
+printf '\n'
+printf '%s' "$DEPLOY_FALLBACK_PASSWORD" | gh secret set SPARK_FALLBACK_API_PASSWORD --repo "$REPO"
+unset DEPLOY_FALLBACK_PASSWORD
+~~~
+
+Worker job 会在每次 Worker 发布前将该 GitHub Secret 同步到 Cloudflare Worker Secret。不要把它写入 GitHub Variables。
+
+备用上游只有在主上游超时、429 或 5xx 时才会调用；`/health` 的 `fallbackConfigured` 字段必须为 `true` 才表示备用 Token 已经进入 Worker。备用 Token 缺失时，Worker 会保持单上游状态，不会把讯飞凭证发送到远程网关。
 
 ### 5. 启用 Analytics Engine
 

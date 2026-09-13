@@ -124,11 +124,13 @@ function getUpstreams(env) {
             model: env.SPARK_MODEL || 'generalv3.5',
         },
     ]
-    if (env.SPARK_FALLBACK_URL && (env.SPARK_FALLBACK_API_PASSWORD || env.SPARK_API_PASSWORD)) {
+    const fallbackPassword = env.SPARK_FALLBACK_API_PASSWORD
+        || (env.SPARK_FALLBACK_REUSE_PRIMARY === 'true' ? env.SPARK_API_PASSWORD : '')
+    if (env.SPARK_FALLBACK_URL && fallbackPassword) {
         upstreams.push({
-            name: 'spark-x2-fallback',
+            name: env.SPARK_FALLBACK_NAME || 'remote-fallback',
             url: env.SPARK_FALLBACK_URL,
-            password: env.SPARK_FALLBACK_API_PASSWORD || env.SPARK_API_PASSWORD,
+            password: fallbackPassword,
             model: env.SPARK_FALLBACK_MODEL || 'gpt-4o-mini',
         })
     }
