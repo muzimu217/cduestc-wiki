@@ -73,11 +73,11 @@ printf '%s' "$DEPLOY_SPARK_PASSWORD" \
 
 不要把凭证发送到聊天窗口、写入 .env、VITE_*、Markdown、JSON 或 Git commit。讯飞 WebSocket Assistant 的四要素不能替代当前 HTTP 网关所需的 APIPassword。
 
-`wrangler.jsonc` 已配置 `hub.oaifree.com` 的 OpenAI 兼容接口作为第二上游，模型为 `deepseek-ai/DeepSeek-V3`：
+`wrangler.jsonc` 已配置 `hub.oaifree.com` 的 OpenAI 兼容接口作为第二上游，模型为 `MiniMax-M2.5`：
 
 ~~~text
 SPARK_FALLBACK_URL=https://hub.oaifree.com/v1/chat/completions
-SPARK_FALLBACK_MODEL=deepseek-ai/DeepSeek-V3
+SPARK_FALLBACK_MODEL=MiniMax-M2.5
 ~~~
 
 备用上游必须使用独立的 OpenAI 兼容 Bearer Token，不会复用讯飞的 `SPARK_API_PASSWORD`。在本机终端安全写入：
