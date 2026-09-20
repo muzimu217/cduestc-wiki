@@ -35,7 +35,8 @@ async function readStream(response: Response, onToken?: (content: string) => voi
                 break
             }
             try {
-                const token = JSON.parse(data).choices?.[0]?.delta?.content
+                const payload = JSON.parse(data)
+                const token = payload.choices?.[0]?.delta?.content ?? payload.choices?.[0]?.message?.content
                 if (typeof token === 'string' && token) {
                     content += token
                     onToken?.(token)

@@ -16,9 +16,11 @@
     "SPARK_ALLOWED_ORIGINS": "https://wiki.kcos.club,http://127.0.0.1:5175",
     "SPARK_OPENAI_URL": "https://spark-api-open.xf-yun.com/v1/chat/completions",
     "SPARK_MODEL": "generalv3.5",
-    "SPARK_FALLBACK_NAME": "oaifree-minimax",
-    "SPARK_FALLBACK_URL": "https://hub.oaifree.com/v1/chat/completions",
-    "SPARK_FALLBACK_MODEL": "MiniMax-M2.5",
+    "SPARK_PRIMARY_PRESET": "spark",
+    "SPARK_FALLBACK_NAME": "groq",
+    "SPARK_FALLBACK_URL": "https://api.groq.com/openai/v1/chat/completions",
+    "SPARK_FALLBACK_MODEL": "qwen/qwen3.8-27b",
+    "SPARK_FALLBACK_PRESET": "groq",
     "SPARK_FALLBACK_REUSE_PRIMARY": "false"
   },
   "analytics_engine_datasets": [

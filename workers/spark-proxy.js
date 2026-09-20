@@ -9,6 +9,35 @@ const TELEMETRY_RATE_LIMIT = 60
 const RATE_WINDOW_MS = 60_000
 const requestAttempts = new Map()
 
+const UPSTREAM_PRESETS = {
+    spark: {
+        name: 'spark-primary',
+        url: 'https://spark-api-open.xf-yun.com/v1/chat/completions',
+        model: 'generalv3.5',
+    },
+    siliconflow: {
+        name: 'siliconflow',
+        url: 'https://api.siliconflow.cn/v1/chat/completions',
+        model: 'Qwen/Qwen2.5-7B-Instruct',
+    },
+    groq: {
+        name: 'groq',
+        url: 'https://api.groq.com/openai/v1/chat/completions',
+        model: 'llama-3.3-70b-versatile',
+    },
+    zhipu: {
+        name: 'zhipu',
+        url: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+        model: 'glm-4.7-flash',
+        extra: { thinking: { type: 'disabled' } },
+    },
+    oaifree: {
+        name: 'oaifree',
+        url: 'https://hub.oaifree.com/v1/chat/completions',
+        model: 'MiniMax-M2.5',
+    },
+}
+
 function getAllowedOrigins(env) {
     return new Set(String(env.SPARK_ALLOWED_ORIGINS || '')
         .split(',')
@@ -115,26 +144,65 @@ function withCors(headers, origin) {
     return result
 }
 
+function passthrough(upstreamResponse, origin) {
+    return new Response(upstreamResponse.body, {
+        status: upstreamResponse.status,
+        headers: withCors({
+            'Content-Type': upstreamResponse.headers.get('Content-Type') || 'application/json',
+        }, origin),
+    })
+}
+
+function getPreset(name) {
+    return UPSTREAM_PRESETS[String(name || '').trim().toLowerCase()] || null
+}
+
+function resolveUpstream(options) {
+    const preset = getPreset(options.preset)
+    const url = String(options.url || preset?.url || '').trim()
+    const password = String(options.password || '').trim()
+    if (!url || !password)
+        return null
+
+    return {
+        name: String(options.name || preset?.name || 'remote').trim() || 'remote',
+        url,
+        password,
+        model: String(options.model || preset?.model || 'gpt-4o-mini').trim(),
+        extra: preset?.extra && typeof preset.extra === 'object' ? preset.extra : {},
+    }
+}
+
 function getUpstreams(env) {
-    const upstreams = [
-        {
-            name: 'spark-primary',
-            url: env.SPARK_OPENAI_URL || 'https://spark-api-open.xf-yun.com/v1/chat/completions',
-            password: env.SPARK_API_PASSWORD,
-            model: env.SPARK_MODEL || 'generalv3.5',
-        },
-    ]
     const fallbackPassword = env.SPARK_FALLBACK_API_PASSWORD
         || (env.SPARK_FALLBACK_REUSE_PRIMARY === 'true' ? env.SPARK_API_PASSWORD : '')
-    if (env.SPARK_FALLBACK_URL && fallbackPassword) {
-        upstreams.push({
-            name: env.SPARK_FALLBACK_NAME || 'remote-fallback',
+
+    return [
+        resolveUpstream({
+            preset: env.SPARK_PRIMARY_PRESET || 'spark',
+            name: env.SPARK_PRIMARY_NAME,
+            url: env.SPARK_OPENAI_URL,
+            model: env.SPARK_MODEL,
+            password: env.SPARK_API_PASSWORD,
+        }),
+        resolveUpstream({
+            preset: env.SPARK_FALLBACK_PRESET,
+            name: env.SPARK_FALLBACK_NAME,
             url: env.SPARK_FALLBACK_URL,
+            model: env.SPARK_FALLBACK_MODEL,
             password: fallbackPassword,
-            model: env.SPARK_FALLBACK_MODEL || 'gpt-4o-mini',
-        })
-    }
-    return upstreams
+        }),
+    ].filter(Boolean)
+}
+
+function shouldFailover(status) {
+    return status === 401 || status === 403 || status === 404
+        || status === 408 || status === 409 || status >= 429
+}
+
+function isUnavailableModelError(text) {
+    const sample = String(text || '').slice(0, 1_000).toLowerCase()
+    return /model[_ ]?(not found|does not exist|invalid)|unknown model|no such model|invalid_model/.test(sample)
 }
 
 async function fetchUpstream(upstream, payload) {
@@ -148,7 +216,11 @@ async function fetchUpstream(upstream, payload) {
                 'Content-Type': 'application/json',
                 'Accept': payload.stream ? 'text/event-stream' : 'application/json',
             },
-            body: JSON.stringify({ ...payload, model: upstream.model }),
+            body: JSON.stringify({
+                ...payload,
+                ...upstream.extra,
+                model: upstream.model,
+            }),
             signal: controller.signal,
         })
     }
@@ -237,7 +309,9 @@ async function handleChatCompletion(request, env, origin) {
         return json({ error: { message: 'Method not allowed', type: 'invalid_request_error' } }, 405, origin)
     if (isRateLimited(request))
         return json({ error: { message: 'Too many requests', type: 'rate_limit_error' } }, 429, origin)
-    if (!env.SPARK_API_PASSWORD)
+
+    const upstreams = getUpstreams(env)
+    if (!upstreams.length)
         return json({ error: { message: 'AI gateway is not configured', type: 'configuration_error' } }, 503, origin)
 
     let payload
@@ -262,8 +336,8 @@ async function handleChatCompletion(request, env, origin) {
 
     const startedAt = Date.now()
     let lastError = 'Upstream request failed'
-    const upstreams = getUpstreams(env)
     for (const [index, upstream] of upstreams.entries()) {
+        const last = index === upstreams.length - 1
         try {
             const upstreamResponse = await fetchUpstream(upstream, payload)
             writeTelemetry(env, {
@@ -273,15 +347,29 @@ async function handleChatCompletion(request, env, origin) {
                 latencyMs: Date.now() - startedAt,
             })
 
-            if (upstreamResponse.ok || upstreamResponse.status < 429 || index === upstreams.length - 1) {
-                return new Response(upstreamResponse.body, {
-                    status: upstreamResponse.status,
+            if (upstreamResponse.ok)
+                return passthrough(upstreamResponse, origin)
+
+            if (!last && shouldFailover(upstreamResponse.status)) {
+                lastError = `Upstream returned HTTP ${upstreamResponse.status}`
+                continue
+            }
+
+            if (!last && upstreamResponse.status === 400) {
+                const text = await upstreamResponse.text()
+                if (isUnavailableModelError(text)) {
+                    lastError = 'Upstream model unavailable'
+                    continue
+                }
+                return new Response(text, {
+                    status: 400,
                     headers: withCors({
                         'Content-Type': upstreamResponse.headers.get('Content-Type') || 'application/json',
                     }, origin),
                 })
             }
-            lastError = `Upstream returned HTTP ${upstreamResponse.status}`
+
+            return passthrough(upstreamResponse, origin)
         }
         catch (error) {
             lastError = error?.name === 'AbortError' ? 'Upstream request timed out' : 'Upstream request failed'
@@ -299,8 +387,14 @@ async function handleChatCompletion(request, env, origin) {
 export default {
     async fetch(request, env) {
         const url = new URL(request.url)
-        if (url.pathname === '/health' && request.method === 'GET')
-            return json({ status: 'ok', fallbackConfigured: getUpstreams(env).length > 1 })
+        if (url.pathname === '/health' && request.method === 'GET') {
+            const upstreams = getUpstreams(env)
+            return json({
+                status: 'ok',
+                fallbackConfigured: upstreams.length > 1,
+                upstreams: upstreams.map(item => item.name),
+            })
+        }
 
         const origin = getOrigin(request)
         if (!getAllowedOrigins(env).has(origin))

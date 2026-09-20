@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 上游编排台</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --card: #fffdf8;
+      --ink: #1c241c;
+      --muted: #5c675c;
+      --line: #d9d2c5;
+      --accent: #1f6b4a;
+      --accent-2: #c45c26;
+      --danger: #9b2c2c;
+      --ok: #1f6b4a;
+      --shadow: 0 12px 32px rgba(28, 36, 28, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.5 ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 400px at 10% -10%, #e7f0e4, transparent 50%),
+        var(--bg);
+    }
+    main {
+      width: min(100% - 1.5rem, 64rem);
+      margin: 0 auto;
+      padding: 1.25rem 0 3rem;
+    }
+    h1 { font-size: 1.5rem; margin: 0 0 .35rem; }
+    .lead, .hint, label, .log { color: var(--muted); }
+    .banner {
+      background: #fff3d8;
+      border: 1px solid #e6d2a6;
+      border-radius: 12px;
+      padding: .75rem 1rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .status, .grid, .card, .log-wrap {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .status, .card, .log-wrap { padding: 1rem; }
+    .status { margin-bottom: 1rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+    @media (min-width: 768px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 1.85rem; }
+    }
+    h2 { margin: 0 0 .75rem; font-size: 1.05rem; }
+    label { display: block; font-size: .82rem; margin: .7rem 0 .25rem; }
+    input, textarea, select {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .65rem .75rem;
+      font: inherit;
+      background: #fff;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: .4rem 0 .2rem; }
+    button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 999px;
+      padding: .65rem 1rem;
+      font: inherit;
+      cursor: pointer;
+    }
+    .chip { background: #eef5ee; color: var(--ink); }
+    .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+    .primary { background: var(--accent); color: white; }
+    .secondary { background: #ece7dc; }
+    .danger { background: var(--accent-2); color: white; }
+    .checks { display: grid; gap: .45rem; margin: .5rem 0 0; }
+    .checks label { display: flex; gap: .5rem; align-items: center; margin: 0; color: var(--ink); }
+    .checks input { width: auto; min-height: 0; }
+    .log-wrap { margin-top: 1rem; }
+    .log {
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .85rem;
+      min-height: 10rem;
+      max-height: 22rem;
+      overflow: auto;
+      margin: 0;
+      color: var(--ink);
+    }
+    .ok { color: var(--ok); }
+    .bad { color: var(--danger); }
+    code { font-family: ui-monospace, Menlo, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AI 上游编排台</h1>
+    <p class="lead">只在本机打开。填 OpenAI 兼容地址和密钥后会自动拉取模型列表，选好再探测、测试并部署。前端和知识库不用改。启动命令：<code>pnpm ai:console</code></p>
+    <div class="banner">密钥只写入 Cloudflare / GitHub Secret，不会进 Git，也不会出现在这个页面的本地缓存里。</div>
+    <section class="status" id="status">正在读取当前配置…</section>
+    <div class="grid">
+      <form class="card" id="primary">
+        <h2>主上游</h2>
+        <div class="chips" data-slot="primary"></div>
+        <label>名称</label><input name="name" placeholder="siliconflow / zhipu / groq">
+        <label>API 地址</label><input name="url" placeholder="https://api.siliconflow.cn/v1">
+        <label>模型名（填密钥后自动拉取）</label>
+        <select name="modelSelect"><option value="">先获取模型列表</option></select>
+        <input name="model" placeholder="也可手动填写模型名">
+        <button type="button" class="chip load-models" data-slot="primary">获取模型</button>
+        <label>API 密钥（留空表示沿用现有 Secret）</label><input name="key" type="password" autocomplete="off">
+      </form>
+      <form class="card" id="fallback">
+        <h2>备用上游</h2>
+        <div class="chips" data-slot="fallback"></div>
+        <label>名称</label><input name="name" placeholder="zhipu">
+        <label>API 地址</label><input name="url" placeholder="https://open.bigmodel.cn/api/paas/v4">
+        <label>模型名（填密钥后自动拉取）</label>
+        <select name="modelSelect"><option value="">先获取模型列表</option></select>
+        <input name="model" placeholder="也可手动填写模型名">
+        <button type="button" class="chip load-models" data-slot="fallback">获取模型</button>
+        <label>API 密钥（留空表示沿用现有 Secret）</label><input name="key" type="password" autocomplete="off">
+      </form>
+    </div>
+    <div class="checks">
+      <label><input type="checkbox" id="probe" checked> 部署前先探测上游是否真能返回内容</label>
+      <label><input type="checkbox" id="deploy" checked> 测试通过后部署到线上 Worker</label>
+      <label><input type="checkbox" id="syncGithub" checked> 同步 fallback 密钥到 GitHub Secret</label>
+      <label><input type="checkbox" id="push"> 只提交并推送 wrangler.jsonc，避免下次 CI 覆盖</label>
+    </div>
+    <div class="actions">
+      <button class="secondary" id="reload" type="button">刷新当前配置</button>
+      <button class="secondary" id="probeOnly" type="button">只探测，不部署</button>
+      <button class="primary" id="apply" type="button">测试并部署到线上</button>
+    </div>
+    <section class="log-wrap">
+      <h2>日志</h2>
+      <pre class="log" id="log">等待操作。</pre>
+    </section>
+  </main>
+  <script>
+    const logEl = document.getElementById("log")
+    const statusEl = document.getElementById("status")
+    let presets = {}
+
+    function log(line) {
+      const prefix = logEl.textContent === "等待操作。" ? "" : logEl.textContent + "
+"
+      logEl.textContent = prefix + line
+      logEl.scrollTop = logEl.scrollHeight
+    }
+
+    function formData(id) {
+      const form = document.getElementById(id)
+      return {
+        name: form.name.value.trim(),
+        url: form.url.value.trim(),
+        model: form.model.value.trim() || form.modelSelect.value.trim(),
+        key: form.key.value.trim(),
+        preset: form.name.value.trim(),
+      }
+    }
+
+    async function loadModels(slot, silent) {
+      const item = formData(slot)
+      if (!item.url || !item.key) {
+        if (!silent) log(slot + "：需要 API 地址和密钥才能获取模型")
+        return
+      }
+      const response = await fetch("/api/models", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: item.url, key: item.key }),
+      })
+      const result = await response.json()
+      const form = document.getElementById(slot)
+      const select = form.modelSelect
+      select.innerHTML = ""
+      const ids = (result.chatModels && result.chatModels.length) ? result.chatModels : (result.models || [])
+      if (!ids.length) {
+        select.innerHTML = "<option value="">没有拉到模型</option>"
+        log(`${slot} 获取模型失败：${result.error || "empty"}`)
+        return
+      }
+      ids.forEach(id => {
+        const opt = document.createElement("option")
+        opt.value = id
+        opt.textContent = id === result.recommended ? `${id}（推荐）` : id
+        select.appendChild(opt)
+      })
+      const chosen = result.recommended || ids[0]
+      select.value = chosen
+      form.model.value = chosen
+      log(`${slot} 已获取 ${ids.length} 个可用模型，推荐 ${chosen}`)
+    }
+
+    function fillSlot(id, item) {
+      const form = document.getElementById(id)
+      if (!item) return
+      form.name.value = item.name || ""
+      form.url.value = item.url || ""
+      form.model.value = item.model || ""
+    }
+
+    function applyPreset(slot, key) {
+      const preset = presets[key]
+      if (!preset) return
+      fillSlot(slot, { name: preset.name || key, url: preset.url, model: preset.model })
+    }
+
+    function renderChips() {
+      document.querySelectorAll(".chips").forEach(node => {
+        node.innerHTML = ""
+        Object.entries(presets).forEach(([key, preset]) => {
+          const button = document.createElement("button")
+          button.type = "button"
+          button.className = "chip"
+          button.textContent = key
+          button.title = preset.hint || preset.url
+          button.addEventListener("click", () => applyPreset(node.dataset.slot, key))
+          node.appendChild(button)
+        })
+      })
+    }
+
+    async function loadStatus() {
+      const response = await fetch("/api/status")
+      const data = await response.json()
+      presets = data.current.presets || {}
+      renderChips()
+      fillSlot("primary", data.current.primary)
+      fillSlot("fallback", data.current.fallback)
+      const live = data.live?.ok
+        ? `<span class="ok">线上 health 正常</span> · ${JSON.stringify(data.live.body)}`
+        : `<span class="bad">线上 health 未通</span> · ${data.live?.error || data.live?.status || ""}`
+      statusEl.innerHTML = `
+        <p><strong>当前主上游</strong>：<code>${data.current.primary.model}</code> @ <code>${data.current.primary.url}</code></p>
+        <p><strong>当前备用</strong>：<code>${data.current.fallback.model}</code> @ <code>${data.current.fallback.url}</code></p>
+        <p>${live}</p>`
+    }
+
+    async function probeSelected() {
+      logEl.textContent = "开始探测…"
+      for (const slot of ["primary", "fallback"]) {
+        const item = formData(slot)
+        if (!item.url || !item.model || !item.key) {
+          log(slot + "：地址/模型/密钥不完整，跳过")
+          continue
+        }
+        const response = await fetch("/api/probe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(item),
+        })
+        const result = await response.json()
+        log(`${slot} ${result.ok ? "OK" : "FAIL"} HTTP ${result.status} ${result.content || result.error || ""}`)
+      }
+    }
+
+    async function apply() {
+      logEl.textContent = "开始测试并部署…"
+      const plan = {
+        primary: formData("primary"),
+        fallback: formData("fallback"),
+        probe: document.getElementById("probe").checked,
+        deploy: document.getElementById("deploy").checked,
+        syncGithub: document.getElementById("syncGithub").checked,
+        push: document.getElementById("push").checked,
+      }
+      const response = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(plan),
+      })
+      const reader = response.body.getReader()
+      const decoder = new TextDecoder()
+      let buffer = ""
+      while (true) {
+        const { value, done } = await reader.read()
+        if (done) break
+        buffer += decoder.decode(value, { stream: true })
+        const chunks = buffer.split("
+
+")
+        buffer = chunks.pop() || ""
+        for (const chunk of chunks) {
+          const line = chunk.split("
+").filter(item => item.startsWith("data:")).map(item => item.slice(5).trim()).join("")
+          if (!line) continue
+          const event = JSON.parse(line)
+          log(JSON.stringify(event))
+        }
+      }
+      await loadStatus()
+    }
+
+    document.querySelectorAll(".load-models").forEach(button => {
+      button.addEventListener("click", () => loadModels(button.dataset.slot).catch(error => log(String(error))))
+    })
+    ;["primary", "fallback"].forEach(slot => {
+      const form = document.getElementById(slot)
+      form.modelSelect.addEventListener("change", () => {
+        if (form.modelSelect.value) form.model.value = form.modelSelect.value
+      })
+      form.key.addEventListener("change", () => loadModels(slot, true).catch(error => log(String(error))))
+      form.url.addEventListener("change", () => loadModels(slot, true).catch(error => log(String(error))))
+    })
+    document.getElementById("reload").addEventListener("click", () => loadStatus().catch(error => log(String(error))))
+    document.getElementById("probeOnly").addEventListener("click", () => probeSelected().catch(error => log(String(error))))
+    document.getElementById("apply").addEventListener("click", () => apply().catch(error => log(String(error))))
+    loadStatus().catch(error => {
+      statusEl.innerHTML = `<span class="bad">读取失败：${error}</span>`
+    })
+  </script>
+</body>
+</html>

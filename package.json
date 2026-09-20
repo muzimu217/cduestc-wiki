@@ -14,7 +14,9 @@
     "eval:retrieval": "tsx scripts/evaluate-retrieval.ts",
     "test:ai-security": "tsx scripts/test-ai-security.ts",
     "scan:content": "node scripts/scan-content.mjs",
-    "test:worker": "node scripts/test-worker.mjs"
+    "test:worker": "node scripts/test-worker.mjs && node scripts/switch-ai-upstream.mjs --self-test",
+    "switch:ai-upstream": "node scripts/switch-ai-upstream.mjs",
+    "ai:console": "node scripts/ai-upstream-console.mjs"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.8.1",

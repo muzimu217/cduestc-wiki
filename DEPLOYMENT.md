@@ -105,7 +105,45 @@ Worker job 会在每次 Worker 发布前将该 GitHub Secret 同步到 Cloudflar
 
 备用上游只有在主上游超时、429 或 5xx 时才会调用；`/health` 的 `fallbackConfigured` 字段必须为 `true` 才表示备用 Token 已经进入 Worker。备用 Token 缺失时，Worker 会保持单上游状态，不会把讯飞凭证发送到远程网关。
 
-### 5. 启用 Analytics Engine
+### 5. 切换免费 OpenAI 兼容上游
+
+前端永远只请求站点自己的 Worker。知识库检索在浏览器本地完成，和哪家 LLM 无关。以后要换成免费模型，只改 Worker 上游三要素：
+
+- API 地址（OpenAI 兼容的 `/v1` 或完整 `/chat/completions`）
+- 模型名
+- API 密钥（只进 Secret，不进 Git）
+
+本机网页编排（推荐）：打开后自己填各家地址、模型名和密钥，勾选测试并部署即可。页面只监听 127.0.0.1，不会发到 GitHub Pages。
+
+~~~sh
+pnpm ai:console
+# 浏览器打开 http://127.0.0.1:8799/
+~~~
+
+本机一键注入（默认写入 fallback 槽，讯飞主上游可继续留着）：
+
+~~~sh
+pnpm switch:ai-upstream --list
+pnpm switch:ai-upstream --preset siliconflow
+pnpm switch:ai-upstream --preset zhipu
+pnpm switch:ai-upstream --preset groq
+pnpm switch:ai-upstream --url https://api.example.com/v1 --model my-model
+~~~
+
+脚本会更新 `wrangler.jsonc` 里的 URL/模型名，并把密钥写入 Worker Secret；fallback 槽还会同步 GitHub Secret `SPARK_FALLBACK_API_PASSWORD`。然后提交 `wrangler.jsonc` 推送 main，或本机 `wrangler deploy --config wrangler.jsonc`。
+
+当前推荐（都是 OpenAI 兼容，密钥在各自控制台创建）：
+
+| 预设 | 适合 | 默认模型 | 地址 |
+| --- | --- | --- | --- |
+| siliconflow | 国内、中文 RAG | Qwen/Qwen2.5-7B-Instruct | https://api.siliconflow.cn/v1 |
+| zhipu | 国内官方免费层 | glm-4.7-flash | https://open.bigmodel.cn/api/paas/v4 |
+| groq | 速度优先 | llama-3.3-70b-versatile | https://api.groq.com/openai/v1 |
+
+不要用深度思考 / R1 类模型做校园问答：引用格式差、延迟高、免费额度更易打满。某一家挂了或开始收费，再跑一次脚本换另外一家即可。
+
+### 6. 启用 Analytics Engine
+
 
 在目标 Cloudflare 账户启用 Workers Analytics Engine：
 
@@ -115,7 +153,7 @@ https://dash.cloudflare.com/<ACCOUNT_ID>/workers/analytics-engine
 
 启用后，wrangler.jsonc 中的 AI_TELEMETRY binding 会在 Worker 部署时生效。
 
-### 6. 配置 Pages DNS
+### 7. 配置 Pages DNS
 
 自定义 Pages 子域名必须直接指向仓库所属账户的 Pages 域名：
 
@@ -128,7 +166,7 @@ https://dash.cloudflare.com/<ACCOUNT_ID>/workers/analytics-engine
 
 证书签发期间不要使用 Cloudflare Proxy。否则 Pages health 会显示 is_proxied=true、is_https_eligible=false，并且强制 HTTPS 会返回“证书尚未生成”。不要为同一主机添加额外 A、AAAA 或 CNAME 记录。
 
-### 7. 配置 Pages 自定义域名
+### 8. 配置 Pages 自定义域名
 
 ~~~sh
 gh auth login
@@ -225,7 +263,7 @@ gh api --method PUT \
 | pagefind: not found | 保留 pagefind 显式依赖并重新锁定依赖 |
 | Wrangler 报 workerd 构建被忽略 | pnpm-workspace.yaml 保留 workerd: true |
 | Worker 报 10089 | 在 Cloudflare 账户启用 Analytics Engine |
-| Worker 返回 503 AI gateway is not configured | 重新写入 SPARK_API_PASSWORD |
+| Worker 返回 503 AI gateway is not configured | 写入主上游或 fallback 的 API 密钥，也可用 pnpm switch:ai-upstream |
 | Pages 报 certificate not yet created | Pages DNS 改为 DNS-only，删除同主机额外记录，再重跑 /pages/health |
 | Pages 构建成功但未部署 | 检查 pages: write、id-token: write 和 github-pages environment |
 

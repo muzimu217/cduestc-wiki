@@ -12,7 +12,16 @@ export const CAMPUS_SYSTEM_PROMPT = `你是“星辰AI助手”，由科成星�
 4. 涉及政策、费用、时间、招生、考试或学籍时，提醒用户以学校最新官方通知为准。
 5. 涉及专业选择或职业规划时，只提供参考，提醒用户结合自身情况决定。
 6. 遇到心理危机、人身安全或紧急情况，优先建议联系学校相关部门、专业机构或拨打110/120；此类回答不受200字限制。
-7. 使用参考资料时，只能引用消息中提供的来源编号，不得编造来源。`
+7. 使用参考资料时，只能引用消息中提供的来源编号，不得编造来源。
+8. 不要输出思考过程、分析步骤或 <think> 标签。`
+
+export function stripModelReasoning(content: string) {
+    return content
+        .replace(/<think>[\s\S]*?<\/think>/gi, ' ')
+        .replace(/<\/?think>/gi, ' ')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+}
 
 export function buildGroundedUserPrompt(message: string, sources: AIKnowledgeSource[]) {
     const context = sources.map(source => `[来源 ${source.id}]
@@ -37,13 +46,18 @@ ${message}
 - 只标注回答中实际使用且与问题直接相关的来源。
 - 回答正文不要输出链接或来源编号。
 - 回答末尾另起一行输出 [[sources:来源编号]]，多个编号用英文逗号分隔，例如 [[sources:kb_abc,kb_def]]。
-- 未使用任何参考资料时输出 [[sources:]]。`
+- 未使用任何参考资料时输出 [[sources:]]。
+- 不要输出思考过程、分析步骤或 <think> 标签。
+
+格式示例：
+宿舍一般是四人间，具体以学院安排为准。
+[[sources:kb_abc]]`
 }
 
 export function parseGroundedResponse(rawContent: string): AIChatResponse {
     const citedSourceIds: string[] = []
     const markerPattern = /\[\[(?:sources?|来源)\s*[:：]\s*[^\]]{0,200}\]\]|\[来源\s+[^\]]{0,200}\]/gi
-    const content = rawContent.replace(markerPattern, (marker: string) => {
+    const content = stripModelReasoning(rawContent).replace(markerPattern, (marker: string) => {
         for (const id of marker.match(/kb_[a-z0-9]+/gi) || []) {
             const normalizedId = id.toLowerCase()
             if (!citedSourceIds.includes(normalizedId))

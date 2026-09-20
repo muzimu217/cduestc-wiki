@@ -29,7 +29,7 @@ pnpm eval:retrieval
 
 - GitHub 登录状态，或让用户在本机执行 gh auth login
 - Cloudflare API Token：账户范围 Workers 编辑权限；若 AI 要直接切换 DNS，另需 Zone DNS 编辑权限
-- 远程兜底模型 Bearer Token：写入 GitHub Secret `SPARK_FALLBACK_API_PASSWORD`，由 CI 同步到 Worker
+- 远程兜底模型 Bearer Token：写入 GitHub Secret `SPARK_FALLBACK_API_PASSWORD`，由 CI 同步到 Worker。以后换免费 OpenAI 兼容模型时，本机运行 `pnpm switch:ai-upstream`，只改 API 地址、模型名和密钥；不要把密钥发给聊天或写入仓库。
 - 讯飞 HTTP 接口 APIPassword
 - GitHub Pages 自定义域名和 Cloudflare Worker 域名
 

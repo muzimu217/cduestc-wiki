@@ -58,14 +58,20 @@ VITE_OPENAI_MODEL=generalv3.5
 
 `VITE_OPENAI_PROXY_URL` 指向站点自己的后端代理。代理接收 OpenAI Chat Completions 格式的请求并返回兼容响应；前端支持 SSE 增量输出，上游 API Key、Base URL 等敏感配置必须只保存在后端环境中，不能写入 `VITE_*` 变量或前端源码。
 
-当前 Worker 使用讯飞 OpenAI 兼容 HTTP 接口作为上游，前端只调用一个标准 `POST /v1/chat/completions` 网关：
+当前 Worker 使用讯飞 OpenAI 兼容 HTTP 接口作为上游，前端只调用一个标准 `POST /v1/chat/completions` 网关。换免费模型时前端不用改，只换 Worker 上游的三要素：API 地址、模型名、API 密钥。
 
 ```sh
 wrangler secret put SPARK_API_PASSWORD
 wrangler deploy --config wrangler.jsonc
+
+# 本机网页编排：填地址 / 模型 / 密钥，测试后部署
+pnpm ai:console
+# 或命令行
+pnpm switch:ai-upstream --preset siliconflow
+pnpm switch:ai-upstream --url https://api.example.com/v1 --model my-model
 ```
 
-`SPARK_API_PASSWORD` 从讯飞控制台对应模型的 HTTP 接口认证信息中获取。Worker 固定主上游 URL、模型、temperature 和 max_tokens，只接收有限数量的 `system/user/assistant` 消息，并对 IP 做 best-effort 限流。生产将 `hub.oaifree.com` 的 OpenAI 兼容接口（模型 `MiniMax-M2.5`）作为第二上游；其访问令牌必须单独写入 `SPARK_FALLBACK_API_PASSWORD`，不会复用讯飞凭证。凭证只保留在 Worker Secret 中。
+`SPARK_API_PASSWORD` 从讯飞控制台对应模型的 HTTP 接口认证信息中获取。Worker 固定 temperature 和 max_tokens，只接收有限数量的 `system/user/assistant` 消息，并对 IP 做 best-effort 限流。第二上游默认仍是 `hub.oaifree.com` 的 `MiniMax-M2.5`；访问令牌写入 `SPARK_FALLBACK_API_PASSWORD`，不会复用讯飞凭证。凭证只保留在 Worker / GitHub Secret 中，切换脚本也不会把密钥写进仓库。
 
 知识库构建会生成带哈希版本的 `core/campus/study/life` 分片、`lsa-v1` 64 维分布式语义向量，并在浏览器内执行 BM25 + RRF 混合检索。`pnpm build` 同时运行内容安全扫描、页面锚点校验和 sitemap 生成；`pnpm eval:retrieval` 使用线上同一套分片和 manifest，执行 50 条回归查询并检查引用覆盖率、引用精度和降级链接率。零命中查询会以脱敏预览写入 Analytics Engine。
 
