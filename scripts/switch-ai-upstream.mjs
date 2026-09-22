@@ -19,14 +19,14 @@ export const UPSTREAM_PRESETS = {
     zhipu: {
         name: 'zhipu',
         url: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
-        model: 'glm-4.7-flash',
-        hint: '智谱官方免费层，OpenAI 兼容。模型名以控制台为准。',
+        model: 'glm-5.3-flash',
+        hint: '智谱 API 已无免费档，glm-5.3-flash 为普惠付费档，账户需有余额或资源包。',
     },
     groq: {
         name: 'groq',
         url: 'https://api.groq.com/openai/v1/chat/completions',
-        model: 'qwen/qwen3.8-27b',
-        hint: 'Groq 速度很快。浏览器只打站点 Worker，不需要访客直连 Groq。',
+        model: 'llama-3.3-70b-versatile',
+        hint: 'Groq 速度很快，但会拦截 Cloudflare Workers 与中国大陆出口（实测裸 403），选它前先探测连通。',
     },
     spark: {
         name: 'spark-primary',

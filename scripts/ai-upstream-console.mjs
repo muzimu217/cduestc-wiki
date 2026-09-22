@@ -54,6 +54,12 @@ function writeSlotConfig(slotName, item) {
     text = upsertJsoncString(text, slot.model, item.model)
     text = upsertJsoncString(text, slot.name, item.name)
     text = upsertJsoncString(text, slot.preset, item.preset || item.name)
+    // 备用若是独立供应商（非讯飞同源），关闭「复用主通道密码」，避免备用被讯飞密钥污染；
+    // 备用就是讯飞本尊时（同密码重试），保持复用开启
+    if (slotName === 'fallback') {
+        const reusePrimary = item.url.includes('xf-yun.com')
+        text = upsertJsoncString(text, 'SPARK_FALLBACK_REUSE_PRIMARY', reusePrimary ? 'true' : 'false')
+    }
     writeFileSync(WRANGLER_PATH, text)
 }
 
@@ -73,6 +79,12 @@ function runCaptured(command, args, { inputText, timeoutMs = 180000 } = {}) {
     }
 }
 
+function originRepoSlug() {
+    const url = runCaptured('git', ['config', '--get', 'remote.origin.url']).stdout.trim()
+    const match = url.match(/[/:]([^/]+)\/([^/]+?)(?:\.git)?\/?$/)
+    return match ? `${match[1]}/${match[2]}` : ''
+}
+
 function putSlotSecret(slotName, secret, { github = true } = {}) {
     const slot = SLOT_VARS[slotName]
     const wranglerBin = resolve(ROOT, 'node_modules/.bin/wrangler')
@@ -83,7 +95,10 @@ ${put.stdout}
 ${put.stderr}
 ${put.error}`)
     if (slot.github && github) {
-        const gh = runCaptured('gh', ['secret', 'set', slot.secret], { inputText: secret })
+        // gh 的默认仓库可能解析到上游，写 Secret 必须显式指定 fork
+        const repo = originRepoSlug()
+        const args = repo ? ['secret', 'set', slot.secret, '--repo', repo] : ['secret', 'set', slot.secret]
+        const gh = runCaptured('gh', args, { inputText: secret })
         if (gh.status !== 0)
             throw new Error(`${slot.secret} 写入 GitHub Secret 失败`)
     }
@@ -260,7 +275,7 @@ async function handle(req, res) {
     if (req.method === 'GET' && url.pathname === '/api/status') {
         let live = null
         try {
-            const healthRes = await fetch('https://spark-api.kcos.club/health')
+            const healthRes = await fetch('https://spark-api.kcos.club/health', { signal: AbortSignal.timeout(5000) })
             live = { ok: healthRes.ok, status: healthRes.status, body: await healthRes.json() }
         }
         catch (error) {

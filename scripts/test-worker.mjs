@@ -22,6 +22,15 @@ try {
         calls++
         const request = JSON.parse(options.body)
         capturedRequests.push({ url, options, request })
+        if (request.stream && url.includes('primary-sse-error')) {
+            const body = 'data: {"code":11200,"message":"AppIdNoAuthError"}\n\ndata: [DONE]\n\n'
+            return new Response(body, { status: 200, headers: { 'Content-Type': 'text/event-stream' } })
+        }
+        if (request.stream && url.includes('primary-empty-stream'))
+            return new Response(JSON.stringify({ content: [{ text: '' }] }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+            })
         if (request.stream) {
             const body = 'data: {"choices":[{"delta":{"content":"你好"}}]}\n\ndata: [DONE]\n\n'
             return new Response(body, { status: 200, headers: { 'Content-Type': 'text/event-stream' } })
@@ -97,6 +106,36 @@ try {
 
     calls = 0
     capturedRequests.length = 0
+    const sseErrorFallback = await worker.fetch(chatRequest({
+        messages: [{ role: 'user', content: '你好' }],
+        stream: true,
+    }), {
+        ...env,
+        SPARK_OPENAI_URL: 'https://primary-sse-error.example/v1/chat/completions',
+    })
+    assert.equal(sseErrorFallback.status, 200)
+    assert.match(await sseErrorFallback.text(), /data: \[DONE\]/)
+    assert.equal(calls, 3)
+    assert.equal(capturedRequests[2].url, env.SPARK_FALLBACK_URL)
+
+    calls = 0
+    capturedRequests.length = 0
+    const emptyStreamFallback = await worker.fetch(chatRequest({
+        messages: [{ role: 'user', content: '你好' }],
+        stream: true,
+    }), {
+        ...env,
+        SPARK_OPENAI_URL: 'https://primary-empty-stream.example/v1/chat/completions',
+    })
+    assert.equal(emptyStreamFallback.status, 200)
+    assert.match(await emptyStreamFallback.text(), /data: \[DONE\]/)
+    assert.equal(calls, 3)
+    assert.equal(capturedRequests[0].url, 'https://primary-empty-stream.example/v1/chat/completions')
+    assert.equal(capturedRequests[1].url, 'https://primary-empty-stream.example/v1/chat/completions')
+    assert.equal(capturedRequests[2].url, env.SPARK_FALLBACK_URL)
+
+    calls = 0
+    capturedRequests.length = 0
     const fallback = await worker.fetch(chatRequest(), env)
     assert.equal(fallback.status, 200)
     assert.equal(calls, 2)
@@ -164,9 +203,10 @@ try {
         normalizeChatCompletionsUrl('https://api.siliconflow.cn/v1'),
         'https://api.siliconflow.cn/v1/chat/completions',
     )
-    assert.equal(resolvePreset('groq').model, 'qwen/qwen3.8-27b')
+    assert.equal(resolvePreset('groq').model, 'llama-3.3-70b-versatile')
     assert.equal(modelsEndpoint('https://api.groq.com/openai/v1'), 'https://api.groq.com/openai/v1/models')
-    assert.equal(recommendChatModel(['whisper-large-v3', 'openai/gpt-oss-20b', 'qwen/qwen3.8-27b']), 'qwen/qwen3.8-27b')
+    assert.equal(recommendChatModel(['whisper-large-v3', 'openai/gpt-oss-20b', 'llama-3.3-70b-versatile']), 'llama-3.3-70b-versatile')
+    assert.equal(recommendChatModel(['glm-4.5', 'glm-4.6', 'glm-5.3-flash', 'glm-5.3-flashx']), 'glm-5.3-flash')
 
     console.log('[test-worker] health, CORS, validation, telemetry, SSE, failover, and free-upstream presets passed')
 }

@@ -2,7 +2,7 @@ const MAX_REQUEST_CHARS = 48_000
 const MAX_MESSAGES = 12
 const MAX_MESSAGE_CHARS = 12_000
 const MAX_TOTAL_MESSAGE_CHARS = 40_000
-const UPSTREAM_TIMEOUT_MS = 35_000
+const UPSTREAM_TIMEOUT_MS = 60_000
 const RATE_LIMIT = 12
 // 遥测是无成本的轻量写入，与提问共用配额会让连点几次 👍/👎 就把提问额度耗尽
 const TELEMETRY_RATE_LIMIT = 60
@@ -131,6 +131,49 @@ function buildUpstreamRequest(env, payload, messages) {
         max_tokens: 1024,
         stream: payload.stream === true,
     }
+}
+
+function hasOpenAIContent(text) {
+    try {
+        const payload = JSON.parse(text)
+        const content = payload.choices?.[0]?.message?.content ?? payload.choices?.[0]?.delta?.content
+        return typeof content === 'string' && content.trim().length > 0
+    }
+    catch {
+        return false
+    }
+}
+
+function hasOpenAIStreamContent(body) {
+    let hasContent = false
+    for (const line of String(body).split(/\r?\n/u)) {
+        if (!line.startsWith('data:'))
+            continue
+        const data = line.slice(5).trim()
+        if (!data || data === '[DONE]')
+            continue
+        try {
+            const payload = JSON.parse(data)
+            if (payload.error || payload.code || payload.message && !payload.choices)
+                return false
+            const content = payload.choices?.[0]?.delta?.content ?? payload.choices?.[0]?.message?.content
+            if (typeof content === 'string' && content.trim())
+                hasContent = true
+        }
+        catch {
+            return false
+        }
+    }
+    return hasContent
+}
+
+function responseWithBody(response, body, origin) {
+    return new Response(body, {
+        status: response.status,
+        headers: withCors({
+            'Content-Type': response.headers.get('Content-Type') || 'application/json',
+        }, origin),
+    })
 }
 
 function withCors(headers, origin) {
@@ -347,8 +390,40 @@ async function handleChatCompletion(request, env, origin) {
                 latencyMs: Date.now() - startedAt,
             })
 
-            if (upstreamResponse.ok)
+            if (upstreamResponse.ok) {
+                const contentType = upstreamResponse.headers.get('Content-Type') || ''
+                if (payload.stream === true) {
+                    const firstBody = await upstreamResponse.text()
+                    const firstValid = contentType.includes('text/event-stream')
+                        ? hasOpenAIStreamContent(firstBody)
+                        : hasOpenAIContent(firstBody)
+                    if (firstValid)
+                        return responseWithBody(upstreamResponse, firstBody, origin)
+
+                    // 上游可能用 HTTP 200 包装鉴权错误（如讯飞 11200），或返回空 JSON；同源重试一次，仍失败则切备用
+                    const retryResponse = await fetchUpstream(upstream, payload)
+                    writeTelemetry(env, {
+                        event: 'gateway_response',
+                        provider: `${upstream.name}-retry`,
+                        status: String(retryResponse.status),
+                        latencyMs: Date.now() - startedAt,
+                    })
+                    if (retryResponse.ok) {
+                        const retryType = retryResponse.headers.get('Content-Type') || ''
+                        const retryBody = await retryResponse.text()
+                        const retryValid = retryType.includes('text/event-stream')
+                            ? hasOpenAIStreamContent(retryBody)
+                            : hasOpenAIContent(retryBody)
+                        if (retryValid)
+                            return responseWithBody(retryResponse, retryBody, origin)
+                    }
+                    lastError = 'Upstream returned an empty or invalid streaming response'
+                    if (!last)
+                        continue
+                    return json({ error: { message: lastError, type: 'upstream_error' } }, 502, origin)
+                }
                 return passthrough(upstreamResponse, origin)
+            }
 
             if (!last && shouldFailover(upstreamResponse.status)) {
                 lastError = `Upstream returned HTTP ${upstreamResponse.status}`

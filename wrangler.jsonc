@@ -17,11 +17,11 @@
     "SPARK_OPENAI_URL": "https://spark-api-open.xf-yun.com/v1/chat/completions",
     "SPARK_MODEL": "generalv3.5",
     "SPARK_PRIMARY_PRESET": "spark",
-    "SPARK_FALLBACK_NAME": "groq",
-    "SPARK_FALLBACK_URL": "https://api.groq.com/openai/v1/chat/completions",
-    "SPARK_FALLBACK_MODEL": "qwen/qwen3.8-27b",
-    "SPARK_FALLBACK_PRESET": "groq",
-    "SPARK_FALLBACK_REUSE_PRIMARY": "false"
+    "SPARK_FALLBACK_NAME": "oaifree",
+    "SPARK_FALLBACK_PRESET": "oaifree",
+    "SPARK_FALLBACK_REUSE_PRIMARY": "false",
+    "SPARK_FALLBACK_URL": "https://hub.oaifree.com/v1/chat/completions",
+    "SPARK_FALLBACK_MODEL": "MoonshotAI/Kimi-K2.6"
   },
   "analytics_engine_datasets": [
     {

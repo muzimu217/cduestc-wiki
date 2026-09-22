@@ -33,7 +33,9 @@ export function isChatModel(id) {
 }
 
 export function recommendChatModel(ids) {
+    // flash 档优先：各家常把免费/普惠模型放进 flash 后缀（智谱 glm-*-flash 等），推荐时避免误选付费旗舰
     const ranked = [
+        /flash/i,
         /qwen/i,
         /glm/i,
         /llama-3\.3-70b/i,
