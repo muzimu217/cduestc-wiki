@@ -327,6 +327,28 @@ export function startConsoleServer() {
                 res.end()
         })
     })
+    server.on('error', (error) => {
+        if (error?.code === 'EADDRINUSE') {
+            // 已有编排台实例时直接复用并打开页面，不再抛错退出
+            fetch(`http://${HOST}:${PORT}/api/status`, { signal: AbortSignal.timeout(3000) })
+                .then((res) => {
+                    if (res.ok) {
+                        console.log(`检测到编排台已在运行，直接复用：http://${HOST}:${PORT}/`)
+                        spawnSync('open', [`http://${HOST}:${PORT}/`], { stdio: 'ignore' })
+                    }
+                    else {
+                        console.log(`端口 ${PORT} 被其他程序占用，请结束该进程后重试。`)
+                        process.exitCode = 1
+                    }
+                })
+                .catch(() => {
+                    console.log(`端口 ${PORT} 被占用且未响应编排台请求，请结束旧进程后重试。`)
+                    process.exitCode = 1
+                })
+            return
+        }
+        throw error
+    })
     server.listen(PORT, HOST, () => {
         const page = `http://${HOST}:${PORT}/`
         console.log(`AI 上游编排台：${page}`)

@@ -10,6 +10,12 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const WRANGLER_PATH = resolve(ROOT, 'wrangler.jsonc')
 
 export const UPSTREAM_PRESETS = {
+    oaifree: {
+        name: 'oaifree',
+        url: 'https://hub.oaifree.com/v1/chat/completions',
+        model: 'MoonshotAI/Kimi-K2.6',
+        hint: 'LinuxDo HUB（oaifree），国内与 Workers 出口均可达。当前可用模型 Kimi-K2.6；Qwen/DeepSeek 渠道曾整批故障。',
+    },
     siliconflow: {
         name: 'siliconflow',
         url: 'https://api.siliconflow.cn/v1/chat/completions',
