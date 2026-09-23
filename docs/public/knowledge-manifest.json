@@ -1,11 +1,11 @@
 {
-  "version": "292ba4e15562",
-  "file": "knowledge.292ba4e15562.json",
+  "version": "db9405270053",
+  "file": "knowledge.db9405270053.json",
   "shards": {
-    "core": "knowledge.core.292ba4e15562.json",
-    "campus": "knowledge.campus.292ba4e15562.json",
-    "study": "knowledge.study.292ba4e15562.json",
-    "life": "knowledge.life.292ba4e15562.json"
+    "core": "knowledge.core.db9405270053.json",
+    "campus": "knowledge.campus.db9405270053.json",
+    "study": "knowledge.study.db9405270053.json",
+    "life": "knowledge.life.db9405270053.json"
   },
   "entries": 132,
   "semantic": {
